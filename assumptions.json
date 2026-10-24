@@ -1093,6 +1093,41 @@
       ],
       "source": "assumption",
       "rationale": "Slide 09 sensitivity only. Scenario steps, not a measured forecast accuracy: Chagee's forecast error is unknown. The roster is set from the wrong forecast; the customers are the day's actual ones."
+    },
+    "route_near_travel_min": {
+      "value": 5,
+      "unit": "minutes",
+      "range": null,
+      "source": "assumption",
+      "rationale": "Proposal 1, smart pickup routing (slides 05-06). Illustrative scenario for one customer at peak, not live Chagee data. Travel from the customer to the nearer outlet (Suntec City)."
+    },
+    "route_near_ready_min": {
+      "value": 60,
+      "unit": "minutes",
+      "range": null,
+      "source": "assumption",
+      "rationale": "Proposal 1, smart pickup routing (slides 05-06). Illustrative scenario for one customer at peak, not live Chagee data. Time until the drink is ready at the busy nearer outlet."
+    },
+    "route_far_travel_min": {
+      "value": 15,
+      "unit": "minutes",
+      "range": null,
+      "source": "assumption",
+      "rationale": "Proposal 1, smart pickup routing (slides 05-06). Illustrative scenario for one customer at peak, not live Chagee data. Travel from the customer to the quieter outlet (Raffles City)."
+    },
+    "route_far_ready_min": {
+      "value": 10,
+      "unit": "minutes",
+      "range": null,
+      "source": "assumption",
+      "rationale": "Proposal 1, smart pickup routing (slides 05-06). Illustrative scenario for one customer at peak, not live Chagee data. Time until the drink is ready at the quieter outlet."
+    },
+    "route_trigger_wait_min": {
+      "value": 40,
+      "unit": "minutes",
+      "range": null,
+      "source": "assumption",
+      "rationale": "Proposal 1, smart pickup routing (slide 06). Illustrative trigger: the agent acts when a store's wait is, or is about to go, above this. Not Chagee data."
     }
   },
   "sitepick": {

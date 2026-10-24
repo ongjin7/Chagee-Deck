@@ -482,7 +482,13 @@ def values(d: dict) -> dict:
     if not (hs["ai"]["0"]["lostShare"] < hs["without"]["lostShare"] and hs["ai"][str(min(E_))]["lostShare"] > hs["ai"]["0"]["lostShare"]):
         raise SystemExit("build: slide 8C notes say AI staffing cuts human-only walk-aways and an under-forecast gives some back; rewrite them")
     nx = sorted(Q["next"], key=lambda o: -o["score"])[0]
-    v["s.nm_next"], v["s.nm_next_name"], v["x.nm_next_cann"] = nx["id"], A_[nx["id"]]["name"], nx["cannibal"]
+    v["s.nm_next"], v["s.nm_next_name"], v["x.nm_next_cann"] = nx["id"], A_[nx["id"]]["name"], nx["cannibal"]    # slides 05-06, smart pickup routing: collection is when both travel and preparation are done (they run in parallel)
+    for side in ("near", "far"):
+        v[f"r.route_{side}_collect"] = max(v[f"sb.route_{side}_travel_min"], v[f"sb.route_{side}_ready_min"])
+    v["r.route_saved"] = v["r.route_near_collect"] - v["r.route_far_collect"]
+    if not v["r.route_saved"] > 0:
+        raise SystemExit("build: slide 05 says the farther outlet is sooner; with these times it is not, rewrite it")
+
     return v
 
 
@@ -506,7 +512,7 @@ USED = [  # (section, key, label) shown in the appendix: every input the storybo
     ("costs", "machine_cost_per_unit_per_month", "Robot cost per station unit per month (SGD)"),
     ("people", "all_machine_attendant_per_open_hour", "Attendant hours, all-robot counter"),
     ("storyboard", "walkaway_target", "Walk-away limit for the GM's split table"),
-    ("sitepick", "events", "Synthetic app-intent dots (slide 13)"),
+    ("sitepick", "events", "Synthetic app-intent dots (slide 10)"),
     ("sitepick", "walk_km", "Walking distance to collect"),
     ("sitepick", "decay_share", "Distance decay, share of the walking distance"),
     ("sitepick", "outside_option", "Pull of not buying"),
@@ -603,9 +609,9 @@ def mb_appendix(d: dict) -> tuple:
     c = ["<h5>Break-even of the group-order credit</h5>",
          f"<p>Contribution per member a month = price x (margin x E - credit x (B + E)), with E extra orders and B group orders a member would place anyway. "
          f"Break-even E* = credit x B / (margin - credit); none if the credit reaches the margin. Price S${BE['price']:.2f}, credit {BE['credit']:.0%}, B {BE['base']:g}, E {BE['extra']:g}.</p>",
-         "<table class='res mbt'><tr><th>Gross margin</th><th>Extra orders needed a month</th><th>With AI cost (slide 06)</th><th>Contribution a member a month at E</th></tr>" +
+         "<table class='res mbt'><tr><th>Gross margin</th><th>Extra orders needed a month</th><th>With AI cost (squad decision)</th><th>Contribution a member a month at E</th></tr>" +
          "".join(f"<tr><td>{BE[q]['margin']:.0%}</td><td>{need(BE[q])}</td><td>{need(D['breakEvenAi'][q])}</td><td>S${BE[q]['netPerMember']:.2f}</td></tr>" for q in ("low", "mid", "high")) + "</table>",
-         f"<p>With personalised suggestions (slide 06) a flat AI cost a of S${D['breakEvenAi']['ai']:.2f} a member a month is added: E* = (credit x B + a / price) / (margin - credit). "
+         f"<p>With personalised suggestions (squad decision) a flat AI cost a of S${D['breakEvenAi']['ai']:.2f} a member a month is added: E* = (credit x B + a / price) / (margin - credit). "
          f"Personalisation must add a / (price x (margin - credit)) = {D['aiHurdle']:.2f} orders a month on top of squads alone at the base margin.</p>",
          "<h5>New inputs (assumptions.json members; assumption, not Chagee data)</h5>"]
     for k in ("group_credit_share", "extra_orders_per_member_month", "base_group_orders_per_member_month", "ai_cost_per_member_month", "squad_size", "example_interest", "app_rules", "network"):
@@ -621,7 +627,7 @@ def ops_appendix(d: dict) -> str:
     ms = lambda x: "–" if x is None else f"{int(x // 60)}:{int(round(x % 60)):02d}"
     sg = lambda x: f"S${x:,.0f}"
     hd = lambda first, sub: "<tr><th>" + first + "</th>" + "".join(f"<th>{lab[k]}<br><small>{sub}</small></th>" for k in days) + "</tr>"
-    out = ["<h5>Slide 07 · forecast error: the roster follows a wrong forecast, the customers do not (today's split, bucket brigade)</h5>",
+    out = ["<h5>Slide 08 · forecast error: the roster follows a wrong forecast, the customers do not (today's split, bucket brigade)</h5>",
            "<table class='res mbt'>" + hd("Forecast", "crew · away · S$/day")]
     for i, r0 in enumerate(d["forecastErr"][days[0]]):
         e = r0["e"]; name = "exact" if e == 0 else f"{abs(e):.0%} {'high' if e > 0 else 'low'}"
@@ -799,7 +805,7 @@ def fill(text: str, vals: dict) -> str:
     return re.sub(r"\{\{([a-zA-Z_][\w.]*)(?:\|(\w+))?\}\}", rep, text)
 
 
-ALLOWED = re.compile(r"(?i:\bslides?\s+\d\db?(?:\s*(?:,|and|to|–)\s*\d\db?)*)|\bM[1-3]\b|Item 3\.D|\bslides? 3\d\b|\b8[A-D]\b|\b(?:19|20)\d\d\b|OPIM\s?639|Topic \d|\bT\d\b|\b0[1-9]b?\b|\b10b\b|\b1\d(?= ·)|\bslides? 1\d\b|Week \d|\b1 (?=company|counter)|Group \d|Proposal [1-3]\b|Form 20-F")
+ALLOWED = re.compile(r"(?i:\bslides?\s+\d\db?(?:\s*(?:,|and|to|–)\s*\d\db?)*)|\bM[1-3]\b|Item 3\.D|\bslides? 3\d\b|\b8[A-D]\b|\b(?:19|20)\d\d\b|OPIM\s?639|Topic \d|\bT\d\b|\b0[1-9]b?\b|\b10b\b|\b1\d(?= ·)|\bslides? 1\d\b|Week \d|\b1 (?=company|counter)|Group \d|[Pp]roposal [1-3]\b|Challenge [1-3]\b|Form 20-F")
 
 
 def digit_check(tpl: str) -> None:

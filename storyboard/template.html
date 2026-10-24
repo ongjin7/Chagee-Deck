@@ -225,6 +225,8 @@ html,body{margin:0;background:#E7E3DC;color:var(--ink);font-family:var(--sans);-
 .es-slot{flex:1;background:#FAF6EF;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
 .es-slot .es-lab{color:var(--taupe)}
 .es-tbd{font:italic 14px/1.4 var(--sans);color:var(--taupe)}
+.es-prop{margin-top:2px;font:500 22px/1.15 var(--serif);color:var(--navy)}
+.es-pdesc{font:14px/1.45 var(--sans);color:var(--ink2)}
 
 /* 03 data matrix */
 .mx{display:grid;grid-template-columns:136px repeat(4,1fr);gap:3px 6px;font:12px/1.22 var(--sans)}
@@ -1010,6 +1012,211 @@ aside.notes{display:none}
 .slide.agenda.long li .why{font-size:13px;margin-top:3px}
 .slide.agenda.long li:hover .no{transform:translateY(-1px)}
 .slide.agenda .cups{top:115px}
+/* slide 05, proposal 1: a city map, the race between two outlets, and the app's pop-up */
+.rt-body{flex:1;min-height:0;display:grid;grid-template-columns:1fr 250px;gap:34px;margin-top:16px}
+.rt-left{display:flex;flex-direction:column;min-width:0}
+.rt-map svg{width:100%;height:auto;display:block}
+.rt-t{font:500 13px var(--sans);fill:#8D867A} .rt-t.b{font-weight:700;fill:var(--ink)} .rt-t.r{fill:var(--red)} .rt-t.b.r{fill:var(--red)}
+.rt-racehd{display:flex;align-items:center;justify-content:space-between;margin:14px 0 8px;font:600 11.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#4A6699}
+.rt-play{height:24px;font-size:11px}
+.race{display:flex;flex-direction:column;gap:12px}
+.race .lane{display:grid;grid-template-columns:118px 1fr;gap:14px;align-items:center}
+.race .ln{display:flex;flex-direction:column;line-height:1.2} .race .ln b{font:700 14.5px var(--sans);color:var(--ink)} .race .ln small{font:12px var(--sans);color:var(--taupe)}
+.race .lane.far .ln b{color:var(--red)}
+.race .track{position:relative;height:46px;border-radius:12px;background:#F7F3EC;padding:6px 0}
+.race .bar{position:absolute;left:0;height:15px;border-radius:999px;width:calc(var(--v) / var(--max) * 100%);display:flex;align-items:center;overflow:visible}
+.race .bar.travel{top:6px;background:#3D5C8F} .race .bar.prep{top:25px;background:repeating-linear-gradient(135deg,#E2A39B 0 6px,#EBB9B2 6px 12px)}
+.race .lane.far .bar.prep{background:repeating-linear-gradient(135deg,#B8322B 0 6px,#C9514A 6px 12px)}
+.race .bar em{position:absolute;left:calc(100% + 8px);white-space:nowrap;font:italic 11.5px var(--sans);color:var(--ink2)}
+.race .lane.near .bar.prep em{left:auto;right:10px;color:#7A3A35;font-style:normal;font-weight:600}
+.race .flag{position:absolute;top:-4px;bottom:-4px;left:calc(var(--v) / var(--max) * 100%);width:2px;background:var(--ink)}
+.race .flag b{position:absolute;right:6px;top:50%;transform:translateY(-50%);padding:3px 9px;border-radius:999px;background:var(--ink);color:#fff;font:700 12px/1 var(--sans);white-space:nowrap}
+.race .lane.far .flag{background:var(--red)} .race .lane.far .flag b{left:8px;right:auto;background:var(--red)}
+.rt-key{display:flex;gap:18px;margin:2px 0 0 132px;font:12px var(--sans);color:var(--taupe)}
+.rt-key span{display:inline-flex;align-items:center;gap:6px} .rt-key i{display:inline-block;width:18px;height:8px;border-radius:999px}
+.rt-key .k-tr{background:#3D5C8F} .rt-key .k-pr{background:repeating-linear-gradient(135deg,#B8322B 0 4px,#C9514A 4px 8px)} .rt-key .k-fl{width:2px;height:14px;border-radius:0;background:var(--ink)}
+.race.run .bar{animation:rtgrow calc(var(--v) * .07s) linear both}
+.race.run .flag{animation:rtpop .35s ease-out both;animation-delay:calc(var(--v) * .07s)}
+@keyframes rtgrow{from{width:0}}
+@keyframes rtpop{from{opacity:0;transform:scaleY(.2)}}
+@media print{.race.run .bar,.race.run .flag{animation:none}}
+.rt-right{display:flex;flex-direction:column;align-items:center;gap:8px}
+.rt-phone{height:380px}
+.rt-phone .tm::before{content:"9:41"}
+.rt-phone .scr .crd h5{font-size:12.5px;line-height:1.3}
+.rt-cap{margin:0;font:600 10px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--taupe)}
+.rt-win{display:flex;align-items:baseline;gap:18px;margin-top:10px;padding-top:12px;border-top:1px solid #EEE8DC}
+.rt-win b{font:500 34px/1 var(--serif);color:var(--red);white-space:nowrap}
+.rt-win span{font:15.5px/1.4 var(--sans);color:var(--ink2)}
+/* slide 05 fixes: open lanes, labels that never collide, a roomier race */
+.race .lane{border:0;background:none;padding:0;box-shadow:none;border-radius:0}
+.race .track{height:56px;padding:0}
+.race .bar{height:18px} .race .bar.travel{top:7px} .race .bar.prep{top:31px}
+.race .lane.near .bar.prep em{left:14px;right:auto}
+.race .lane.far .bar.travel em{left:12px;color:#fff;font-style:normal;font-weight:600}
+.race .lane.far .flag b{top:auto;bottom:-2px;transform:none}
+.race .lane.near .flag b{top:-2px;transform:none}
+.race{gap:16px}
+.rt-phone .scr .bd{padding:6px 11px}
+.rt-phone .scr .crd{padding:6px 10px;margin-bottom:5px}
+.rt-phone .scr .cta{padding:7px;margin-top:5px}
+/* slide 05, proposal 1: the problem at a swamped outlet, then what AI could change */
+.pb-top{flex:1;min-height:0;display:grid;grid-template-columns:350px 1fr;gap:28px;margin:18px 0 14px;background:#FBF7F0;border-radius:22px;align-items:center}
+.pb-fig{margin:0;display:flex;flex-direction:column;gap:2px;padding:10px 0 10px 8px}
+.pb-store{width:100%;height:auto;display:block}
+.pb-fig figcaption{font:600 10px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--taupe);text-align:center}
+.pb-list{display:flex;flex-direction:column;justify-content:center;padding:14px 30px 14px 6px}
+.pb-lhd{margin:0 0 8px;font:700 11px/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.pb-list ul{list-style:none;margin:0;padding:0}
+.pb-row{display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:center;padding:7px 0;border-bottom:1px solid #EADFCD}
+.pb-row:last-child{border-bottom:0}
+.pb-ic{position:relative;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--red)}
+.pb-ic svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.pb-ic::after{content:"";position:absolute;right:-5px;bottom:-4px;width:17px;height:17px;box-sizing:border-box;border-radius:50%;border:1.5px solid var(--red);background:linear-gradient(var(--red),var(--red)) center/8px 2px no-repeat,#fff}
+.pb-row h5{margin:0 0 1px;font:500 19px/1.15 var(--serif);color:var(--ink)}
+.pb-row p{margin:0;font:13.8px/1.42 var(--sans);color:var(--ink2)}
+.pb-row.key h5{color:var(--red)}
+.pb-row.key{background:linear-gradient(90deg,rgba(184,50,43,.07),transparent 85%);border-radius:0 12px 12px 0;box-shadow:inset 3px 0 0 var(--red);padding:8px 12px 8px 14px;margin:2px 0 0 -14px}
+/* slide 07, proposal 1: the same AI signal in two channels, the Chagee app (pickup) and a delivery app */
+.cx-grid{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:20px}
+.cx-side{display:flex;flex-direction:column;border-radius:20px;background:#FBF7F0;padding:16px 22px 18px}
+.cx-side+.cx-side{background:#F4F8F5}
+.cx-lab{align-self:flex-start;margin:0 0 12px;padding:4px 12px;border-radius:999px;font:700 10.5px/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#fff}
+.cx-lab.app{background:var(--red)} .cx-lab.dlv{background:#1E8E55}
+.cx-pair{flex:1;display:grid;grid-template-columns:236px 1fr;gap:22px;align-items:center}
+.cx-pair .phone{height:372px}
+.cx-text h4{margin:0 0 8px;font:500 23px/1.15 var(--serif);color:var(--navy)}
+.cx-text p{margin:0 0 10px;font:14.5px/1.45 var(--sans);color:var(--ink2)}
+.cx-win{display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:#fff;border-left:4px solid var(--red)}
+.cx-win b{font:500 22px/1.1 var(--serif);color:var(--red)} .cx-win span{font:13px/1.35 var(--sans);color:var(--ink2)}
+.cx-win.d{border-left-color:#1E8E55} .cx-win.d b{color:#1E8E55;font-size:19px}
+.cx-text p.cx-who{font-size:13px;color:var(--taupe)} .cx-who span{font-weight:700;color:var(--ink)}
+.cx-dp{display:flex;flex-direction:column;gap:2px;margin:0 0 10px;padding:8px 12px;border-radius:10px;background:#fff;border:1px dashed #E7C9A3;font:13px/1.4 var(--sans);color:var(--ink2)}
+.cx-dp span{font:700 10px/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#A0702A}
+.cx-text p.cx-dp{font-size:13px;margin-bottom:8px}
+.rt-phone .scr .crd.dpv{background:#FFF6E6}
+.rt-phone .scr .crd.dpv .tag{background:#F6DFB5;color:#7A5214}
+.dvouch{display:inline-block;margin:3px 0 0 4px;padding:1px 7px;border-radius:999px;background:#FFF1D6;color:#9A6512;font:700 9.5px/1.5 var(--sans)}
+/* the delivery-app mock: generic green, no third-party branding */
+.dphone .scr{background:#fff}
+.dphone .tm::before{content:"9:41"}
+.dphone .dhd{padding:6px 12px 8px;background:#1E8E55}
+.dphone .dapp{display:block;margin-bottom:6px;font:800 12px/1 var(--sans);letter-spacing:.06em;color:#fff}
+.dphone .dsearch{padding:6px 10px;border-radius:999px;background:#fff;font:12px/1.2 var(--sans);color:#555}
+.dphone .dsec{margin:8px 12px 5px;font:700 11.5px/1 var(--sans);color:#222}
+.dstore{display:grid;grid-template-columns:40px 1fr;gap:9px;margin:0 10px 6px;padding:6px 8px;border-radius:10px;border:1px solid #EEE}
+.dstore .emb{width:40px;height:40px;border-radius:9px;background:#FBEDEC var(--emb) no-repeat center/30px}
+.dstore b{display:block;font:700 11.5px/1.25 var(--sans);color:#222}
+.dstore small{display:block;margin-top:2px;font:10px/1.3 var(--sans);color:#888}
+.dbadge{display:inline-block;margin-top:3px;padding:1px 7px;border-radius:999px;font:700 9.5px/1.5 var(--sans)}
+.dbadge.off{background:#EEE;color:#777} .dbadge.on{background:#E3F4EA;color:#1E8E55}
+.dstore.off{opacity:.55;filter:grayscale(1)} .dstore.on{border-color:#BFE3CD;box-shadow:0 0 0 2px #E3F4EA}
+.dphone .dcta{margin:4px 10px 0;width:calc(100% - 20px);background:#1E8E55}
+.dphone .dtabs .on{color:#1E8E55} .dphone .dtabs .on svg{stroke:#1E8E55}
+/* slide 05 with a two-line headline: compact the panel */
+#p1p .pb-top{grid-template-columns:345px 1fr;grid-template-rows:auto 1fr;row-gap:0;margin:18px 0 14px;align-items:center}
+#p1p .pb-title{grid-column:1/-1;align-self:start;display:flex;align-items:center;gap:14px;padding:18px 28px 0}
+#p1p .pb-title h3{margin:0;font:500 23px/1.2 var(--serif);color:var(--navy)}
+#p1p .pb-chip{flex:none;padding:4px 11px;border-radius:999px;background:var(--red);color:#fff;font:700 10.5px/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+#p1p .pb-fig{padding:0 0 0 10px;align-self:center}
+#p1p .pb-fig figcaption{display:none}
+#p1p .pb-list{padding:10px 28px 10px 4px}
+#p1p .pb-lhd{margin-bottom:4px}
+#p1p .pb-row{padding:5px 0;gap:14px;grid-template-columns:36px 1fr}
+#p1p .pb-ic{width:36px;height:36px} #p1p .pb-ic svg{width:20px;height:20px}
+#p1p .pb-row h5{font-size:18px}
+#p1p .pb-row p{font-size:13.3px;line-height:1.38}
+#p1p .pb-row.key{padding:6px 12px 6px 14px}
+#p1p .pb-with{padding:11px 26px 13px}
+.pb-with{padding:13px 26px 15px;border-radius:18px;background:#F4F8F5}
+.pb-whd{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+.pb-whd span{font:500 23px/1 var(--serif);color:#2F6B45}
+.pb-whd em{font:italic 12.5px var(--sans);color:var(--taupe)}
+.pb-gains{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pb-gains div{display:grid;grid-template-columns:26px 1fr;column-gap:10px;align-items:start;align-content:start}
+.pb-gains i{grid-row:span 2;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#2F6B45;color:#fff;font:700 13px/1 var(--sans);font-style:normal}
+.pb-gains b{font:700 15.5px/1.3 var(--sans);color:var(--ink)}
+.pb-gains span{font:14px/1.45 var(--sans);color:var(--ink2)}
+.ag-deliv{display:flex;align-items:center;gap:12px;margin:12px 0 0;padding:7px 16px;border-radius:12px;background:#FBF7F0;font:14px/1.4 var(--sans);color:var(--ink2)}
+.ag-deliv .ic{flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#fff}
+.ag-deliv svg{width:20px;height:20px;fill:none;stroke:var(--red);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ag-deliv b{color:var(--red)}
+/* slide 06, proposal 1 (how it works): data -> AI layer -> actions, the operations ideas, limits and a link to the pilot */
+.hw-flow{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:34px;margin-top:20px;position:relative;counter-reset:hw}
+.hw-col{position:relative;counter-increment:hw}
+.hw-n::before{content:counter(hw)}
+.hw-n{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font:700 13px/1 var(--sans);vertical-align:3px;margin-right:10px}
+.hw-col h4{display:inline;margin:0;font:500 24px/1.1 var(--serif);color:var(--navy)}
+.hw-s{margin:6px 0 12px 38px;font:12.5px var(--sans);color:var(--taupe)}
+.hw-groups{display:flex;flex-direction:column;gap:12px}
+.hw-g{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;padding:12px 14px;border-radius:14px;background:#F4F6FA}
+.hw-gi{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#fff}
+.hw-gi svg{width:21px;height:21px;fill:none;stroke:var(--navy);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.hw-g b{display:block;margin-bottom:3px;font:700 14.5px/1.25 var(--sans);color:var(--navy)}
+.hw-g span{font:13.5px/1.45 var(--sans);color:var(--ink2)}
+.hw-chips{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+.hw-chips li{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:8px 13px;border-radius:12px;background:#F4F6FA;font:13.5px/1.3 var(--sans)}
+.hw-chips b{font-weight:600;color:var(--ink)} .hw-chips i{flex:none;font:600 10px/1.3 var(--sans);font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:#6F86AE}
+.hw-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.hw-steps li{display:grid;grid-template-columns:auto 1fr;column-gap:10px;row-gap:1px;align-items:baseline;padding:9px 14px;border-radius:12px;background:#fff;border:1px solid #EEE7DA;border-left:4px solid var(--c)}
+.hw-steps li.pred,.hw-steps li.trig{--c:#3D5C8F} .hw-steps li.agent{--c:var(--red)} .hw-steps li.gen{--c:#2F6B45}
+.hw-steps .ag-type{grid-row:span 2;align-self:center;background:var(--c);width:104px;box-sizing:border-box;text-align:center}
+.hw-steps b{font:700 14.5px/1.3 var(--sans);color:var(--ink)} .hw-steps li>span:last-child{font:13px/1.35 var(--sans);color:var(--ink2)}
+.hw-acts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.hw-acts li{display:flex;flex-direction:column;padding:2px 0 2px 16px;border-left:3px solid #2F6B45}
+.hw-acts b{font:700 14.5px/1.3 var(--sans);color:#2F6B45} .hw-acts span{font:13.5px/1.4 var(--sans);color:var(--ink2)}
+.hw-result{position:relative;display:flex;flex-direction:column;gap:2px;margin-top:16px;padding:12px 16px;border-radius:14px;background:#2F6B45;color:#fff}
+.hw-result .hw-rl{font:700 10px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#CFE6D7}
+.hw-result b{font:500 21px/1.15 var(--serif)} .hw-result span:last-child{font:13.5px/1.4 var(--sans);color:#E8F3EC}
+.hw-ops{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:18px;background:#FBF7F0;overflow:hidden}
+.hw-ideas,.hw-bens{padding:14px 26px 16px}
+.hw-bens{background:#F1F7F3}
+.hw-ohd{margin:0 0 8px;font:700 11px/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.hw-ohd.g{color:#2F6B45}
+.hw-ideas ul,.hw-bens ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.hw-ideas li{display:flex;align-items:baseline;gap:10px}
+.hw-ideas b{font:500 19px/1.2 var(--serif);color:var(--navy);min-width:178px} .hw-ideas span{font:14px/1.3 var(--sans);color:var(--ink2)}
+.hw-bens li{display:flex;align-items:flex-start;gap:10px;font:14.5px/1.4 var(--sans);color:var(--ink2)}
+.hw-bens b{color:#2F6B45}
+.hw-bens i{flex:none;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#2F6B45;color:#fff;font:700 12px/1 var(--sans);font-style:normal}
+.hw-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:12px}
+.cx-foot{display:flex;justify-content:flex-end;margin-top:12px}
+.hw-foot .ag-limits{margin:0}
+.hw-link{flex:none;padding:7px 14px;border-radius:999px;background:var(--navy);color:#fff !important;border:0 !important;font:600 12.5px/1 var(--sans)}
+/* appendix: the proposal 1 pilot */
+.ag-bottom.p1x-bottom{margin-top:26px;flex:none;min-height:0;align-items:start}
+.p1x-bottom .ag-pilot,.p1x-bottom .ag-learn{padding:20px 26px 22px}
+/* slide 06, proposal 1: the agent pipeline, its limits, the zone pilot and the learning loop */
+.ag-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:16px;counter-reset:ag}
+.ag-step{position:relative;counter-increment:ag;padding:13px 18px 14px;border-radius:16px;background:#fff;border:1px solid #EEE7DA;border-top:3px solid var(--c)}
+.ag-step::before{content:"0" counter(ag);position:absolute;right:16px;top:12px;font:500 26px/1 var(--serif);color:#E4DCCD}
+.ag-step:not(:last-child)::after{content:"";position:absolute;right:-19px;top:50%;width:10px;height:10px;margin-top:-5px;border-top:1.5px solid #C9C2B6;border-right:1.5px solid #C9C2B6;transform:rotate(45deg)}
+.ag-step.pred{--c:#3D5C8F} .ag-step.agent{--c:var(--red)} .ag-step.gen{--c:#2F6B45}
+.ag-type{display:inline-block;padding:2px 9px;border-radius:999px;font:700 9.5px/1.5 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--c)}
+.ag-step h5{margin:8px 0 5px;font:500 21px/1.15 var(--serif);color:var(--ink)}
+.ag-step p{margin:0;font:14px/1.4 var(--sans);color:var(--ink2)}
+.ag-in{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.ag-in span{padding:2px 8px;border-radius:999px;background:#EEF2F8;color:#3D5C8F;font:600 10.5px/1.4 var(--sans)}
+.ag-limits{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px}
+.ag-limits .lab{margin-right:6px;font:700 10.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.ag-limits span:not(.lab){padding:5px 12px;border-radius:999px;background:#FBF7F0;border:1px solid #ECE4D6;font:500 12.5px/1 var(--sans);color:var(--ink2)}
+.ag-bottom{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1.15fr;gap:22px;margin-top:12px}
+.ag-pilot,.ag-learn{border-radius:16px;background:#FAF6EF;padding:12px 22px}
+.ag-bottom h4{margin:0 0 8px;font:500 21px/1.1 var(--serif);color:var(--navy)}
+.zone{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px}
+.zo{background:#fff;border-radius:12px;padding:9px 14px;display:flex;flex-direction:column;border:1px solid #EEE7DA}
+.zo b{font:700 14px var(--sans);color:var(--ink)} .zo small{font:12px var(--sans);color:var(--taupe)}
+.zo.busy{border-left:4px solid #9A9387} .zo.sup{border-left:4px solid var(--red)} .zo.sup b{color:var(--red)}
+.zarrow{font-size:20px;color:var(--taupe)}
+.zn{margin:8px 0 0;font:13.5px/1.4 var(--sans);color:var(--ink2)}
+.ag-arms{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
+.ag-arms span{padding:4px 11px;border-radius:999px;background:#fff;border:1px solid #E4DCCD;font:600 12px/1.2 var(--sans);color:var(--navy)}
+.ag-arms i{font-style:normal;color:var(--taupe)}
+.ag-learn ol{margin:0;padding-left:20px;font:13.5px/1.42 var(--sans);color:var(--ink2);display:flex;flex-direction:column;gap:4px}
+.ag-learn ol li::marker{color:var(--red);font-weight:700}
+.ag-learn ol b{color:var(--ink)}
+.gate{margin:10px 0 0;padding:7px 14px;border-radius:12px;background:#fff;border-left:4px solid var(--navy);font:13.5px/1.4 var(--sans);color:var(--navy)}
+.gate .lab{display:block;margin-bottom:2px;font:700 10px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#4A6699}
 /* ---------------------------------------------------------------- clean theme (after the Week 8 deck's intro slides):
    quiet navy kicker, one big navy headline, white cards with a soft shadow, a faint tea-wash band under the
    engraved leaves, and less chrome on the main slides. Remove this block to return to the original look. */
@@ -1071,10 +1278,10 @@ aside.notes{display:none}
     <ol>
       <li data-go="intro"><span class="no">03</span><span class="nm">Introduction<span class="why">Chagee Singapore, our scope and why</span></span></li>
       <li data-go="es"><span class="no">04</span><span class="nm">Executive Summary and Business Plan<span class="why">Two key challenges and one strategic decision</span></span></li>
-      <li data-go="m2"><span class="no">05–10</span><span class="nm">Our Business Recommendations<span class="why">Grow demand · serve demand · expand access</span></span></li>
-      <li data-go="rc"><span class="no">11</span><span class="nm">Execution Plan<span class="why">Three pilots and when to proceed</span></span></li>
-      <li data-go="c9"><span class="no">12</span><span class="nm">Business Impact<span class="why">What the plan is worth, in our model</span></span></li>
-      <li data-go="qa"><span class="no">13</span><span class="nm">Q &amp; A</span></li>
+      <li data-go="p1p"><span class="no">05–11</span><span class="nm">Our Business Recommendations<span class="why">Smart pickup routing · serve demand · expand access</span></span></li>
+      <li data-go="rc"><span class="no">12</span><span class="nm">Execution Plan<span class="why">Three pilots and when to proceed</span></span></li>
+      <li data-go="c9"><span class="no">13</span><span class="nm">Business Impact<span class="why">What the plan is worth, in our model</span></span></li>
+      <li data-go="qa"><span class="no">14</span><span class="nm">Q &amp; A</span></li>
       <li data-go="ax"><span class="no">+</span><span class="nm">Appendix<span class="why">Earlier slides, derivations, tables, sources and the Australia extension</span></span></li>
     </ol>
   </div>
@@ -1094,7 +1301,7 @@ aside.notes{display:none}
 <section class="slide content" id="intro" data-chapter="Introduction" data-reveal="all" data-title="Chagee Singapore and our scope">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">03 · Introduction</p>
+    <p class="kicker">Introduction</p>
     <h2 class="head">Today, we're presenting Chagee</h2>
     <p class="sub lede">A tea brand most of you know: order in the app, collect at the counter, or deliver to your location.</p>
     <div class="pair">
@@ -1141,7 +1348,7 @@ aside.notes{display:none}
 <section class="slide content" id="es" data-chapter="Summary" data-reveal="all" data-title="Executive summary">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">04 · Executive summary and business plan</p>
+    <p class="kicker">Executive summary and business plan</p>
     <h2 class="head">Our business plan to solve Chagee's problem statements</h2>
     <div class="es-case">
       <div class="es-av"><svg viewBox="0 0 80 80" aria-label="Illustrated persona">
@@ -1164,7 +1371,7 @@ aside.notes{display:none}
     </div>
     <p class="es-frame"><span class="ch">Two key challenges</span><span class="plus">+</span><span class="dp">One strategic decision point</span></p>
     <div class="es-grid">
-      <div class="es-col k1"><div class="es-box"><span class="es-lab">Key challenge</span><h5>Online retailing</h5><p>Use data for better sales, customer loyalty and cost management. Customer management and reduction of wastage.</p></div><div class="es-slot"><span class="es-lab">Proposal 1</span><span class="es-tbd">Details to come</span></div></div>
+      <div class="es-col k1"><div class="es-box"><span class="es-lab">Key challenge</span><h5>Online retailing</h5><p>Use data for better sales, customer loyalty and cost management. Customer management and reduction of wastage.</p></div><div class="es-slot"><span class="es-lab">Proposal 1 · slides 05 to 07</span><span class="es-prop">Smart pickup routing</span><span class="es-pdesc">At peak, AI offers a nearby outlet that can hand over the drink sooner; the customer chooses.</span></div></div>
       <div class="es-col k2"><div class="es-box"><span class="es-lab">Key challenge</span><h5>In-store management</h5><p>A faster, smoother counter: in-store operations management for shorter waits and a crew matched to demand.</p></div><div class="es-slot"><span class="es-lab">Proposal 2</span><span class="es-tbd">Details to come</span></div></div>
       <div class="es-col k3"><div class="es-box"><span class="es-lab">Strategic expansion decision</span><h5>New store openings</h5><p>Where to open next, so a new store is profitable and adds customers instead of moving them.</p></div><div class="es-slot"><span class="es-lab">Proposal 3</span><span class="es-tbd">Details to come</span></div></div>
     </div>
@@ -1178,71 +1385,168 @@ aside.notes{display:none}
   </aside>
 </section>
 
-<!-- ======================================================= 06 GROW: THE SQUAD EXPERIENCE -->
-<section class="slide content mb" id="m2" data-chapter="Grow" data-title="The proposed squad experience">
+<!-- ======================================================= 05 PROPOSAL 1: THE PROBLEM AT A SWAMPED OUTLET -->
+<section class="slide content" id="p1p" data-chapter="Grow" data-title="When an outlet is swamped" data-reveal="all">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">05 · Proposal 1 · Grow · the squad experience<span class="stg"><b>Grow</b><i>Problem</i><i class="on">Solution</i><i>Decision</i></span></p>
-    <h2 class="head">In the app, friends' orders count for everyone</h2>
-    <p class="bprob"><b>Business problem</b><span>Chagee's Membership Operations team told us the problem they want to solve is <b>moving customers up the membership tiers</b>: customers may not think the effort of progressing is worthwhile.</span></p>
-    <div class="body" style="grid-template-columns:1fr;margin-top:8px">
-      <div class="panel" data-kind="mbapp">
-        <div class="ptop"><span class="ptitle">Proposed experience · illustrative prototype</span><button class="btn hiwb screenonly" data-hiw="m2">How it connects to the model</button><span class="seg mbnav screenonly"></span></div>
-        <div class="mbapp">
-          <ol class="mbjour"></ol>
-          <div class="phone"><div class="notch"></div><div class="scr"></div></div>
-          <div class="mbwhy"></div>
-        </div>
-        <div class="hiw screenonly" data-name="m2"><div class="ptop"><span class="ptitle">How it connects to the model · assumptions to test</span><button class="btn" data-hiwx>✕ Close</button></div>
-          <div class="two"><div><p>Shared benefits are hypothesised to raise <b>k</b>, the value of friends participating. Personalised suggestions, simpler progression or a launch incentive may lower <b>p</b>, the effort. Each member's picks and feedback also become signals (appendix). Not measured effects.</p></div>
-            <div class="mbwsb"><h5>Without squads / with squads</h5><svg class="mbws" viewBox="0 0 260 170" preserveAspectRatio="xMidYMid meet" aria-label="The hump without and with squads, against the same effort"></svg>
-              <label class="mbinc"><input type="checkbox"> add a launch incentive (lower p)</label></div></div></div>
+    <p class="kicker">Our business recommendations</p>
+    <h2 class="head">Proposal 1: AI-enabled demand management</h2>
+    <div class="pb-top">
+      <div class="pb-title"><span class="pb-chip">Key Challenge 1</span><h3>Demand management: crowded outlets lose sales, with impacted customer experience</h3></div>
+      <figure class="pb-fig"><svg class="pb-store" viewBox="0 14 380 347" aria-label="Illustration: a Chagee storefront at peak, a long queue of frustrated customers behind rope barriers, one walking away and a delivery rider waiting"><rect x="0" y="0" width="380" height="350" rx="22" fill="#FBF7F0"/><rect x="26" y="34" width="328" height="214" rx="16" fill="#F1E5D2"/><rect x="26" y="34" width="328" height="58" rx="16" fill="#FFFBF5"/><rect x="26" y="76" width="328" height="16" fill="#FFFBF5"/><text x="150" y="73" text-anchor="middle" font-family="Georgia, serif" font-size="25" font-weight="700" letter-spacing="7" fill="#3B2F2A">CHAGEE</text><circle cx="296" cy="63" r="22" fill="#fff"/><image href="{img:emblem}" x="276" y="43" width="40" height="40"/><path d="M46 248 V138 a34 34 0 0 1 68 0 V248 Z" fill="#E6D3B6"/><path d="M54 248 V140 a26 26 0 0 1 52 0 V248 Z" fill="#F6ECDD"/><path d="M156 248 V138 a34 34 0 0 1 68 0 V248 Z" fill="#E6D3B6"/><path d="M164 248 V140 a26 26 0 0 1 52 0 V248 Z" fill="#F6ECDD"/><path d="M266 248 V138 a34 34 0 0 1 68 0 V248 Z" fill="#E6D3B6"/><path d="M274 248 V140 a26 26 0 0 1 52 0 V248 Z" fill="#F6ECDD"/><rect x="44" y="186" width="292" height="12" rx="3" fill="#2E3A55"/><rect x="60" y="188" width="40" height="8" rx="1.5" fill="#6F86AE"/><rect x="170" y="188" width="40" height="8" rx="1.5" fill="#6F86AE"/><rect x="280" y="188" width="40" height="8" rx="1.5" fill="#6F86AE"/><rect x="40" y="212" width="300" height="36" rx="6" fill="#9C7A5B"/><rect x="40" y="212" width="300" height="7" rx="3" fill="#B8957A"/><g fill="#fff" opacity=".9"><rect x="96" y="203" width="9" height="11" rx="2"/><rect x="214" y="203" width="9" height="11" rx="2"/><rect x="254" y="203" width="9" height="11" rx="2"/></g><rect x="0" y="248" width="380" height="102" fill="#FBF7F0"/><path d="M0 248 H380" stroke="#E7DCCB" stroke-width="2"/><rect x="47.5" y="262" width="5" height="52" rx="2.5" fill="#3B2F2A"/><ellipse cx="50" cy="316" rx="9" ry="3" fill="#3B2F2A"/><rect x="137.5" y="262" width="5" height="52" rx="2.5" fill="#3B2F2A"/><ellipse cx="140" cy="316" rx="9" ry="3" fill="#3B2F2A"/><rect x="227.5" y="262" width="5" height="52" rx="2.5" fill="#3B2F2A"/><ellipse cx="230" cy="316" rx="9" ry="3" fill="#3B2F2A"/><rect x="317.5" y="262" width="5" height="52" rx="2.5" fill="#3B2F2A"/><ellipse cx="320" cy="316" rx="9" ry="3" fill="#3B2F2A"/><path d="M50 268 Q95 282 140 268 Q185 282 230 268 Q275 282 320 268" stroke="#B8322B" stroke-width="3" fill="none"/><g transform="translate(66 272)"><path d="M-11 34 C-11 18 -7 12 0 12 C7 12 11 18 11 34 Z" fill="#3D5C8F"/><circle cy="2" r="9" fill="#F1D3B8"/><path d="M-9 0 C-9 -9 9 -9 9 0 C6 -4 -6 -4 -9 0 Z" fill="#3B2F2A"/><path d="M-4 6.5 Q0 4 4 6.5" stroke="#7A4B3A" stroke-width="1.3" fill="none" stroke-linecap="round"/><circle cx="-3.5" cy="2" r="1.1" fill="#3B2F2A"/><circle cx="3.5" cy="2" r="1.1" fill="#3B2F2A"/></g><g transform="translate(96 280)"><path d="M-11 34 C-11 18 -7 12 0 12 C7 12 11 18 11 34 Z" fill="#D99A93"/><circle cy="2" r="9" fill="#F1D3B8"/><path d="M-9 0 C-9 -9 9 -9 9 0 C6 -4 -6 -4 -9 0 Z" fill="#3B2F2A"/><path d="M-4 6.5 Q0 4 4 6.5" stroke="#7A4B3A" stroke-width="1.3" fill="none" stroke-linecap="round"/><circle cx="-3.5" cy="2" r="1.1" fill="#3B2F2A"/><circle cx="3.5" cy="2" r="1.1" fill="#3B2F2A"/><g transform="translate(8 -18)"><rect x="-2" y="-8" width="22" height="13" rx="6.5" fill="#fff" stroke="#E4DCCD"/><circle cx="4" cy="-1.5" r="1.5" fill="#9A9387"/><circle cx="9" cy="-1.5" r="1.5" fill="#9A9387"/><circle cx="14" cy="-1.5" r="1.5" fill="#9A9387"/></g></g><g transform="translate(126 270)"><path d="M-11 34 C-11 18 -7 12 0 12 C7 12 11 18 11 34 Z" fill="#8FB49A"/><circle cy="2" r="9" fill="#F1D3B8"/><path d="M-9 0 C-9 -9 9 -9 9 0 C6 -4 -6 -4 -9 0 Z" fill="#3B2F2A"/><path d="M-4 6.5 Q0 4 4 6.5" stroke="#7A4B3A" stroke-width="1.3" fill="none" stroke-linecap="round"/><circle cx="-3.5" cy="2" r="1.1" fill="#3B2F2A"/><circle cx="3.5" cy="2" r="1.1" fill="#3B2F2A"/></g><g transform="translate(156 282)"><path d="M-11 34 C-11 18 -7 12 0 12 C7 12 11 18 11 34 Z" fill="#E3C29B"/><circle cy="2" r="9" fill="#F1D3B8"/><path d="M-9 0 C-9 -9 9 -9 9 0 C6 -4 -6 -4 -9 0 Z" fill="#3B2F2A"/><path d="M-4 6.5 Q0 4 4 6.5" stroke="#7A4B3A" stroke-width="1.3" fill="none" stroke-linecap="round"/><circle cx="-3.5" cy="2" r="1.1" fill="#3B2F2A"/><circle cx="3.5" cy="2" r="1.1" fill="#3B2F2A"/><path d="M-6 -14 q2 -4 0 -7 M0 -15 q2 -4 0 -7 M6 -14 q2 -4 0 -7" stroke="#B8322B" stroke-width="1.5" fill="none" stroke-linecap="round"/></g><g transform="translate(186 271)"><path d="M-11 34 C-11 18 -7 12 0 12 C7 12 11 18 11 34 Z" fill="#24406B"/><circle cy="2" r="9" fill="#F1D3B8"/><path d="M-9 0 C-9 -9 9 -9 9 0 C6 -4 -6 -4 -9 0 Z" fill="#3B2F2A"/><path d="M-4 6.5 Q0 4 4 6.5" stroke="#7A4B3A" stroke-width="1.3" fill="none" stroke-linecap="round"/><circle cx="-3.5" cy="2" r="1.1" fill="#3B2F2A"/><circle cx="3.5" cy="2" r="1.1" fill="#3B2F2A"/></g><g transform="translate(216 281)"><path d="M-11 34 C-11 18 -7 12 0 12 C7 12 11 18 11 34 Z" fill="#C9706A"/><circle cy="2" r="9" fill="#F1D3B8"/><path d="M-9 0 C-9 -9 9 -9 9 0 C6 -4 -6 -4 -9 0 Z" fill="#3B2F2A"/><path d="M-4 6.5 Q0 4 4 6.5" stroke="#7A4B3A" stroke-width="1.3" fill="none" stroke-linecap="round"/><circle cx="-3.5" cy="2" r="1.1" fill="#3B2F2A"/><circle cx="3.5" cy="2" r="1.1" fill="#3B2F2A"/><g transform="translate(8 -18)"><rect x="-2" y="-8" width="22" height="13" rx="6.5" fill="#fff" stroke="#E4DCCD"/><circle cx="4" cy="-1.5" r="1.5" fill="#9A9387"/><circle cx="9" cy="-1.5" r="1.5" fill="#9A9387"/><circle cx="14" cy="-1.5" r="1.5" fill="#9A9387"/></g></g><g transform="translate(246 272)"><path d="M-11 34 C-11 18 -7 12 0 12 C7 12 11 18 11 34 Z" fill="#6F86AE"/><circle cy="2" r="9" fill="#F1D3B8"/><path d="M-9 0 C-9 -9 9 -9 9 0 C6 -4 -6 -4 -9 0 Z" fill="#3B2F2A"/><path d="M-4 6.5 Q0 4 4 6.5" stroke="#7A4B3A" stroke-width="1.3" fill="none" stroke-linecap="round"/><circle cx="-3.5" cy="2" r="1.1" fill="#3B2F2A"/><circle cx="3.5" cy="2" r="1.1" fill="#3B2F2A"/></g><g transform="translate(276 282)"><path d="M-11 34 C-11 18 -7 12 0 12 C7 12 11 18 11 34 Z" fill="#B8322B"/><circle cy="2" r="9" fill="#F1D3B8"/><path d="M-9 0 C-9 -9 9 -9 9 0 C6 -4 -6 -4 -9 0 Z" fill="#3B2F2A"/><path d="M-4 6.5 Q0 4 4 6.5" stroke="#7A4B3A" stroke-width="1.3" fill="none" stroke-linecap="round"/><circle cx="-3.5" cy="2" r="1.1" fill="#3B2F2A"/><circle cx="3.5" cy="2" r="1.1" fill="#3B2F2A"/><path d="M-6 -14 q2 -4 0 -7 M0 -15 q2 -4 0 -7 M6 -14 q2 -4 0 -7" stroke="#B8322B" stroke-width="1.5" fill="none" stroke-linecap="round"/></g><g transform="translate(346 282)" opacity=".9"><path d="M-10 34 C-10 18 -6 12 1 12 C8 12 11 18 11 34 Z" fill="#9A9387"/><circle cy="2" r="9" fill="#F1D3B8"/><path d="M-9 0 C-9 -9 9 -9 9 0 C6 -4 -6 -4 -9 0 Z" fill="#3B2F2A"/></g><path d="M330 330 H368 M360 324 L368 330 L360 336" stroke="#9A9387" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(22 300)"><circle cx="2" cy="34" r="7" fill="none" stroke="#3B2F2A" stroke-width="3"/><circle cx="34" cy="34" r="7" fill="none" stroke="#3B2F2A" stroke-width="3"/><path d="M2 34 H20 L26 20 H34 L34 34" stroke="#2F6B45" stroke-width="4" fill="none" stroke-linejoin="round"/><rect x="0" y="8" width="16" height="14" rx="3" fill="#2F6B45"/><circle cx="26" cy="6" r="7" fill="#2F6B45"/><path d="M20 6 H32" stroke="#fff" stroke-width="2"/></g></svg><figcaption>Peak hour at a swamped outlet · illustration</figcaption></figure>
+      <div class="pb-list">
+        <p class="pb-lhd">What it costs Chagee today</p>
+        <ul>
+        <li class="pb-row"><span class="pb-ic"><svg viewBox="0 0 32 32"><circle cx="13" cy="7" r="3"/><path d="M13 11 L11 19 L15 23 L15 29 M11 19 L7 24 M13 13 L18 16 M20 13 H29 M25 9 L29 13 L25 17"/></svg></span><div><h5>Drop-offs</h5><p>Customers see the wait and leave without ordering.</p></div></li>
+        <li class="pb-row"><span class="pb-ic"><svg viewBox="0 0 32 32"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="8" r="3"/><circle cx="24" cy="9" r="3"/><path d="M3 24 C3 17 13 17 13 24 M11 23 C11 16 21 16 21 23 M19 24 C19 17 29 17 29 24"/></svg></span><div><h5>Crowding</h5><p>Those who stay crowd the outlet, so it sells less and delivery orders slow down.</p></div></li>
+        <li class="pb-row"><span class="pb-ic"><svg viewBox="0 0 32 32"><circle cx="16" cy="17" r="11"/><path d="M16 10 V17 L21 20 M12 3 H20"/></svg></span><div><h5>Long waits</h5><p>Customers wait longer than they expected; the experience suffers.</p></div></li>
+        <li class="pb-row"><span class="pb-ic"><svg viewBox="0 0 32 32"><circle cx="8" cy="23" r="4"/><circle cx="25" cy="23" r="4"/><path d="M8 23 H16 L20 13 H25 L25 23 M13 13 H20"/></svg></span><div><h5>Delivery orders arrive blind</h5><p>Delivery customers cannot see the in-store queue, so orders keep coming and riders wait at the counter.</p></div></li>
+        <li class="pb-row key"><span class="pb-ic"><svg viewBox="0 0 32 32"><path d="M5 13 H27 L25 7 H7 Z"/><path d="M6 13 V27 H26 V13 M13 27 V20 H19 V27"/><path d="M22 3 l1.2 2.5 2.6 .4 -1.9 1.8 .5 2.6 -2.4 -1.3 -2.4 1.3 .5 -2.6 -1.9 -1.8 2.6 -.4 Z"/></svg></span><div><h5>Spoils the in-store image</h5><p>Chagee's elegant stores are part of the brand. A crowd of frustrated customers at the door undoes the classy experience the brick-and-mortar model is built on.</p></div></li>
+        </ul>
       </div>
     </div>
-    <div class="takeaway mbtake"><span class="lab">TAKEAWAY</span><span class="t"></span></div>
+    <div class="pb-with">
+      <div class="pb-whd"><span>With AI, this can change</span></div>
+      <div class="pb-gains">
+        <div><i>✓</i><b>Higher sales</b><span>Demand spread across nearby outlets instead of lost.</span></div>
+        <div><i>✓</i><b>A better brand image</b><span>Faster turnaround, well managed, a smart system.</span></div>
+        <div><i>✓</i><b>Calmer counters</b><span>Delivery riders do not wait long or crowd the counter.</span></div>
+      </div>
+    </div>
   </div>
-  <div class="foot"><span>OPIM639 · Group 3 · illustrative prototype, not Chagee's rules · nothing real is sent or bought</span><span class="rail"></span><span class="pg"></span></div>
+  <div class="foot"><span>OPIM639 · Group 3 · illustrative; effects are expected, not measured</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes">
-    <p>This is the solution, as an illustrative prototype; the rules are ours, not Chagee's. Two parts, kept apart: squads, a product design, and personalisation, the AI part, which suggests a drink from each member's own choices and lets a gift's recipient choose privately. Click through: a member sees their progress and starts a squad, invites friends, then chooses a drink, with a suggestion they can accept, customise or dismiss and feedback such as not for me. In the shared basket each friend confirms their own drink, and preferences are saved to whoever chose, not whoever paid. When the order is collected everyone's progress moves. Last, gifting: the recipient picks privately from options ranked for them. Those picks and that feedback become demand signals; how they feed the outlet's forecast is in the appendix.</p>
-    <p>Why it matters for the model: our hypothesis is that shared progress raises the value of friends, k, so the hump rises and the tipping point falls, from about {{r.mb_today_lo|pct}} to {{r.mb_squad_lo|pct}} at the default effort. The stalled case is the headline: at a high effort the app never takes off without squads, and with them it can. These are assumptions to test, not measured effects. About thirty seconds.</p>
+    <p>Proposal one starts with a problem every Chagee customer has seen: at peak, one outlet is swamped while another nearby has room.</p>
+    <p>Five things happen today. One, drop-offs: customers see the wait and leave without ordering, so the sale is lost. Two, those who stay keep crowding the outlet, which limits how much it can sell and slows delivery orders too. Three, waits run long and the customer experience suffers. Four, delivery orders arrive blind: customers ordering on delivery apps cannot see the in-store queue, so orders keep coming and riders wait at the counter. And five, it spoils the in-store image: Chagee's elegant stores are part of the brand, and a crowd of frustrated customers at the door undoes the classy experience the brick-and-mortar model is built on.</p>
+    <p>With AI, this can change: higher sales as demand spreads across nearby outlets, a better brand image from faster turnaround and a smart system, and calmer counters with riders not waiting long. These are expected benefits, not measured ones. Next, how it works. About forty-five seconds.</p>
   </aside>
 </section>
 
-<!-- ======================================================= 08 GROW: THE CRM MANAGER'S DECISION -->
-<section class="slide content mb" id="m3" data-chapter="Grow" data-title="Pilot squads with personalised suggestions?">
+<!-- ======================================================= 06 PROPOSAL 1: HOW SMART PICKUP ROUTING WORKS -->
+<section class="slide content" id="p1b" data-chapter="Grow" data-title="How smart pickup routing works" data-reveal="all">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">06 · Proposal 1 · Grow · the CRM manager's decision<span class="stg"><b>Grow</b><i>Problem</i><i>Solution</i><i class="on">Decision</i></span></p>
-    <h2 class="head">Pilot squads only at a reward their extra orders can pay for</h2>
-    <div class="body" style="grid-template-columns:1fr 300px;gap:16px;margin-top:8px">
-      <div class="panel stepper" data-steps="4" data-kind="mbpay">
-        <div class="ptop"><span class="ptitle">Does the reward pay for itself? · after reward and AI costs · illustrative</span><span class="ctl screenonly"></span></div>
-        <div class="visual" style="flex:none"><svg class="mbpay" viewBox="0 0 640 214" preserveAspectRatio="xMidYMid meet" aria-label="Contribution per member a month against additional orders, squads alone and squads with personalised suggestions, with the break-even points"></svg></div>
-        <ol class="caps" style="min-height:30px;margin-top:4px;padding-top:5px">
-          <li data-s="1"><span class="n">1</span><span>With no extra orders the reward is a pure cost: members get the credit on orders they would have placed anyway.</span></li>
-          <li data-s="2"><span class="n">2</span><span>Every extra order that squads create earns money back, so the line rises.</span></li>
-          <li data-s="3"><span class="n">3</span><span>Where the line crosses zero, squads pay for their reward: the pilot's minimum target.</span></li>
-          <li data-s="4"><span class="n">4</span><span>Personalised suggestions cost something to run, so they must add their own extra orders on top.</span></li>
+    <p class="kicker">Proposal 1 · How it works</p>
+    <h2 class="head">From Chagee's data to demand spread across outlets</h2>
+    <p class="sub lede">An AI agent uses predictive AI to recommend, generative AI explains, and people make the final call.</p>
+    <div class="hw-flow">
+      <div class="hw-col hw-data">
+        <span class="hw-n"></span><h4>The data</h4><p class="hw-s">What Chagee collects, or could collect</p>
+        <div class="hw-groups">
+          <div class="hw-g"><span class="hw-gi"><svg viewBox="0 0 32 32"><rect x="10" y="3" width="12" height="26" rx="2.5"/><path d="M14 25 H18"/></svg></span><div><b>Chagee app &amp; sales</b><span>Orders by outlet and time · Customer location, with consent · Voucher use and margin per drink</span></div></div>
+          <div class="hw-g"><span class="hw-gi"><svg viewBox="0 0 32 32"><path d="M5 12 H27 L25 6 H7 Z"/><path d="M6 12 V27 H26 V12 M13 27 V19 H19 V27"/></svg></span><div><b>Outlet operations</b><span>Live queue of open orders · Crew on shift · # of machines</span></div></div>
+          <div class="hw-g"><span class="hw-gi"><svg viewBox="0 0 32 32"><circle cx="8" cy="23" r="4"/><circle cx="25" cy="23" r="4"/><path d="M8 23 H16 L20 13 H25 L25 23 M13 13 H20"/></svg></span><div><b>Delivery apps</b><span>Delivery orders · Rider waits</span></div></div>
+        </div>
+      </div>
+      <div class="hw-col hw-ai">
+        <span class="hw-n"></span><h4>Proposed AI agent</h4><p class="hw-s">Trigger, recommend, decide, with guardrails</p>
+        <ol class="hw-steps">
+          <li class="trig"><span class="ag-type">Trigger</span><b>Wait runs long</b><span>A store's wait is, or is about to go, above {{sb.route_trigger_wait_min}} min.</span></li>
+          <li class="agent"><span class="ag-type">AI agent</span><b>Recommend outlet, action, incentive</b><span>Predictive AI on live store data and patterns learnt from past decisions, within approved rules.</span></li>
+          <li class="gen"><span class="ag-type">People decide</span><b>Customers and managers choose</b><span>Generative AI explains each recommendation; they accept or decline.</span></li>
         </ol>
       </div>
-      <div class="cards" style="gap:8px">
-        <div class="cset sitectl mbpctl screenonly"></div>
-        <div class="bc printonly mbpctlp"></div>
-        <div class="bc sqhow mbhow"></div>
+      <div class="hw-col hw-out">
+        <span class="hw-n"></span><h4>What it does</h4><p class="hw-s">Example of actions at peak, and it keeps learning</p>
+        <ul class="hw-acts">
+          <li><b>Offers a faster outlet</b><span>Routes pickups to the outlet that can hand over sooner.</span></li>
+          <li><b>Recommends a delivery pause</b><span>Recommends pausing third-party delivery orders and redirecting demand; the zone manager reviews and approves.</span></li>
+        </ul>
+        <div class="hw-result"><span class="hw-rl">Continuous learning</span><b>Gets smarter over time</b><span>Every new decision and its outcome feed back in, so future decisions keep improving.</span></div>
       </div>
     </div>
-    <div class="mdec"><div class="who"><span class="lab">Manager's decision</span><b>CRM manager</b></div>
-      <div><span class="q">Which features and rewards should we pilot?</span>
-        <span class="k">Proposed</span><span class="mbact"></span></div>
-      <div><span class="k">Proceed if, arm against arm</span><ul><li>tier progression and orders rise against today's membership</li><li>satisfaction holds</li>
-        <li>contribution after reward and AI costs is positive</li></ul></div></div>
-    <p class="nextl"><b>Next</b>A more engaging membership must be matched by reliable fulfilment.</p>
+    <div class="hw-ops">
+      <div class="hw-ideas">
+        <p class="hw-ohd">The operations ideas behind it</p>
+        <ul>
+          <li><b>Demand shaping</b><span>moving demand strategically</span></li>
+          <li><b>Capacity pooling</b><span>with nearby outlets</span></li>
+          <li><b>Reducing bottlenecks</b><span>dynamically</span></li>
+        </ul>
+      </div>
+      <div class="hw-bens">
+        <p class="hw-ohd g">Key benefits</p>
+        <ul>
+          <li><i>✓</i><span><b>Balances the zone</b>, thereby increasing sales</span></li>
+          <li><i>✓</i><span><b>Learns from past decisions and live data from stores</b> to raise profit while enhancing customer experience</span></li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="foot"><span>OPIM639 · Group 3 · S$ · reward, AI cost and orders are assumptions, not Chagee data · table: appendix</span><span class="rail"></span><span class="pg"></span></div>
+  <div class="foot"><span>OPIM639 · Group 3</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes">
-    <p>The decision for part one belongs to the CRM manager: which features and rewards should we pilot? The line is the contribution per member a month after the reward, the group-order credit. It starts below zero, because the credit is also paid on orders members would have placed anyway, and rises with each extra order. At a credit of {{x.mb_credit|pct}} squads alone break even at about {{x.mb_be_mid|c2}} extra orders a month at our base margin. Push the credit up to the margin and it never breaks even.</p>
-    <p>Step four adds personalised suggestions. They cost something to run; we assume S${{x.mb_ai|c2}} a member a month, a placeholder to replace with a real quote. That shifts the line down: break-even moves to about {{x.mb_be_ai|c2}} extra orders, so personalisation must add about {{x.mb_ai_hurdle|c2}} orders a month of its own on top of squads.</p>
-    <p>That is why the pilot has three arms: today's membership, squads, and squads with personalised suggestions. Squads against today shows the squad effect; adding suggestions shows the personalisation effect. Proceed only if tier progression rises, satisfaction holds, the extra orders reach these break-evens, and contribution after reward and AI costs is positive. We measure orders directly and do not read purchases off the adoption model. Then the transition: a more engaging membership experience must be matched by reliable fulfilment. About forty-five seconds.</p>
+    <p>How it works, left to right. One, the data: orders by outlet and time from the Chagee app, the live queue of open orders, the crew on shift, the number of machines, delivery-app orders and rider waits, where the customer is (with consent), and voucher use and margin per drink. Which of these Chagee records, and in how much detail, is ours to confirm.</p>
+    <p>Two, the proposed AI agent. The trigger: a store's wait is, or is about to go, above {{sb.route_trigger_wait_min}} minutes, an illustrative threshold. Predictive AI looks ahead, so the system acts before the queue peaks. The AI agent then recommends an outlet, an action and an incentive, using live store data and patterns learnt from past decisions, within rules the managers approved. Generative AI explains each recommendation clearly, and people make the final call: pickup customers choose whether to switch, and the zone manager approves any delivery pause.</p>
+    <p>Three, what it does at peak: it offers pickup customers a faster outlet, and when waits run long it recommends pausing third-party delivery orders and redirecting demand, which the zone manager reviews and approves. And it keeps learning: every new decision and its outcome feed back in, so future decisions keep improving.</p>
+    <p>The key benefits: it balances the zone, which increases sales, and by assessing its past decisions it raises profit while enhancing the customer experience. The operations ideas: a queue is a bottleneck, orders arriving faster than the crew and machines can make them. Capacity pooling treats nearby outlets as one pool, so spare room at one absorbs the peak at another. And demand shaping: prices and incentives, the dynamic pricing on the next slide, move demand to the outlet with room instead of turning customers away. About fifty seconds.</p>
+  </aside>
+</section>
+
+<!-- ======================================================= 07 PROPOSAL 1: THE CUSTOMER EXPERIENCE (THE RACE) -->
+<section class="slide content" id="p1a" data-chapter="Grow" data-title="The customer experience" data-reveal="all">
+  <div class="leafart" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker">Proposal 1 · The customer experience</p>
+    <h2 class="head">Illustration of proposal 1: customers are steered to the outlet with room</h2>
+    <div class="cx-grid">
+      <div class="cx-side">
+        <p class="cx-lab app">Pickup · Chagee app</p>
+        <div class="cx-pair">
+          <div class="phone rt-phone"><div class="notch"></div><div class="scr">
+          <div class="scroll">
+            <div class="bar"><span class="tm"></span><span>●●●</span></div>
+            <div class="hd"><div class="brand"><i class="emb"></i>CHAGEE</div><small>Pickup · Suntec City</small><h3>Your tea, sooner</h3></div>
+            <div class="bd">
+              <div class="crd sug"><small class="tag ai">Suggested for you</small><h5 style="margin-top:3px">Collect at Raffles City in about {{r.route_far_collect}} min</h5><p>instead of {{r.route_near_collect}} min at Suntec City.</p></div>
+              <div class="crd dpv"><small class="tag">Switch perk</small><p>A voucher for your next drink, or a free carrier bag.</p></div>
+              <button class="cta">Switch to Raffles City</button>
+              <button class="cta ghost">Keep Suntec City</button>
+              <span class="sim">You choose before you pay.</span>
+            </div>
+          </div>
+          <div class="tabs"><span><svg viewBox="0 0 24 24"><path d="M4 11 L12 4 L20 11 V20 H4 Z"/></svg>Home</span><span class="on"><svg viewBox="0 0 24 24"><path d="M7 7 H17 L16 20 H8 Z M6 7 H18 M10 4 H14"/></svg>Menu</span><span><svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="16" rx="1.5"/><path d="M9 9 H15 M9 13 H15"/></svg>Orders</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20 C5 15 8.5 13 12 13 C15.5 13 19 15 19 20"/></svg>Me</span></div>
+        </div></div>
+          <div class="cx-text">
+            <h4>A faster outlet, offered</h4>
+            <p>Suntec City is swamped, so the app suggests Raffles City and explains why.</p>
+            <p class="cx-win"><b>{{r.route_saved}} min sooner</b><span>collect in about {{r.route_far_collect}} min instead of {{r.route_near_collect}}</span></p>
+            <p class="cx-dp"><span>Dynamic pricing</span>A voucher or a carrier bag nudges and rewards the switch, offered only while Suntec City is swamped.</p>
+            <p class="cx-who"><span>Customer chooses</span> before paying.</p>
+          </div>
+        </div>
+      </div>
+      <div class="cx-side">
+        <p class="cx-lab dlv">Delivery · e.g. GrabFood</p>
+        <div class="cx-pair">
+          <div class="phone dphone"><div class="notch"></div><div class="scr">
+          <div class="scroll">
+            <div class="bar"><span class="tm"></span><span>●●●</span></div>
+            <div class="dhd"><span class="dapp">Delivery</span><div class="dsearch">Chagee</div></div>
+            <p class="dsec">Results near you</p>
+            <div class="dstore off"><i class="emb"></i><div><b>CHAGEE · Suntec City</b><span class="dbadge off">Not taking orders right now</span><small>Very busy · try again later</small></div></div>
+            <div class="dstore on"><i class="emb"></i><div><b>CHAGEE · Raffles City</b><span class="dbadge on">Open · taking orders</span><span class="dvouch">Voucher · discount today</span></div></div>
+            <button class="cta dcta">Order from Raffles City</button>
+            <span class="sim">Illustrative mock-up, not the real app.</span>
+          </div>
+          <div class="tabs dtabs"><span class="on"><svg viewBox="0 0 24 24"><path d="M4 11 L12 4 L20 11 V20 H4 Z"/></svg>Home</span><span><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M16 16 L20 20"/></svg>Search</span><span><svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="16" rx="1.5"/><path d="M9 9 H15 M9 13 H15"/></svg>Orders</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20 C5 15 8.5 13 12 13 C15.5 13 19 15 19 20"/></svg>Account</span></div>
+        </div></div>
+          <div class="cx-text">
+            <h4>The busy outlet steps back</h4>
+            <p>The agent recommends pausing Suntec City on delivery apps and redirecting demand; the zone manager reviews and approves.</p>
+            <p class="cx-win d"><b>Orders flow to Raffles City</b><span>no riders stuck at the busy counter</span></p>
+            <p class="cx-dp d"><span>Dynamic pricing</span>Instead of closing Suntec City on delivery altogether, a voucher at Raffles City can draw demand to the outlet with room.</p>
+            <p class="cx-who"><span>Zone manager approves</span> the pause and redirection.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cx-foot"><span class="golink hw-link" data-go="p1x">Execution steps</span></div>
+  </div>
+  <div class="foot"><span>OPIM639 · Group 3 · mock-ups and times are illustrative, not live Chagee or delivery-app data</span><span class="rail"></span><span class="pg"></span></div>
+  <aside class="notes">
+    <p>What the customer sees, in both channels. On the left, a pickup order in the Chagee app: Suntec City is swamped, so the app suggests Raffles City, where the drink can be collected in about {{r.route_far_collect}} minutes instead of {{r.route_near_collect}}, {{r.route_saved}} minutes sooner. A switch perk, a voucher for the next drink or a free carrier bag, nudges and rewards the switch: that is dynamic pricing, an incentive offered only while one outlet is swamped and its neighbour has room. The customer chooses before paying.</p>
+    <p>On the right, a delivery order, for example on GrabFood. Delivery customers cannot see the in-store queue, so the agent recommends pausing Suntec City on delivery apps and redirecting demand, and the zone manager approves after reviewing the recommendation. The customer simply sees Suntec City is not taking orders right now, while Raffles City is open, so orders flow to the outlet with room and riders are not stuck at the busy counter. Or, instead of closing Suntec City on delivery altogether, Chagee can attach a voucher to Raffles City for the period, dynamic pricing again, to draw demand to the outlet with room.</p>
+    <p>One signal from the same model drives both. The delivery screen is our illustrative mock-up, not the real app. The earlier race slide is in the appendix, and the pilot plan sits with the execution steps. About forty-five seconds.</p>
   </aside>
 </section>
 
@@ -1250,7 +1554,7 @@ aside.notes{display:none}
 <section class="slide content" id="o1" data-chapter="Serve" data-title="Demand moves by the hour">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">07 · Proposal 2 · Serve · forecasting: how many people<span class="stg"><b>Serve</b><i class="on">Problem</i><i class="on">Solution</i><i>Decision</i></span></p>
+    <p class="kicker">Proposal 2 · Serve · forecasting: how many people<span class="stg"><b>Serve</b><i class="on">Problem</i><i class="on">Solution</i><i>Decision</i></span></p>
     <h2 class="head">A forecast sets the crew each hour needs</h2>
     <p class="bprob"><b>Business problem</b><span>Demand changes by the hour; staffing and fixed station assignments may not, leaving queues, walk-aways or idle capacity.
       <span class="ev obs">Observed</span> people deployed on local expertise (Chagee source, anonymous); long reopening queues (Vulcan Post).
@@ -1290,7 +1594,7 @@ aside.notes{display:none}
 <section class="slide content" id="o2" data-chapter="Serve" data-title="The operations manager's decision">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">08 · Proposal 2 · Serve · the operations manager's decision<span class="stg"><b>Serve</b><i>Problem</i><i>Solution</i><i class="on">Decision</i></span></p>
+    <p class="kicker">Proposal 2 · Serve · the operations manager's decision<span class="stg"><b>Serve</b><i>Problem</i><i>Solution</i><i class="on">Decision</i></span></p>
     <h2 class="head">Roster to the forecast, test the brigade, pilot one machine</h2>
     <div class="body" style="grid-template-columns:1fr 268px;gap:16px;margin-top:10px">
       <div class="panel" data-kind="opdec">
@@ -1300,7 +1604,7 @@ aside.notes{display:none}
       <div class="cards" style="gap:8px">
         <div class="cset screenonly" style="flex-direction:row;align-items:center;gap:10px;padding:7px 12px"><span class="lab">Day</span><span class="dslot"></span></div>
         <div class="bc"><div class="k">Reading the table</div><p><b style="color:#2F6B45">Green</b> is the proposed pilot. Each column adds one lever: the forecast changes only the crew, the machine only the equipment. The last row swaps the brigade for fixed posts. Illustrative simulation.</p></div>
-        <div class="bc warn"><div class="k">If the forecast is off</div><p>A busy-day forecast {{r.fe_bz_err|pct}} too low leaves about <b>{{r.fe_bz_lo_lost|pct}}</b> walking away (slide 07).</p></div>
+        <div class="bc warn"><div class="k">If the forecast is off</div><p>A busy-day forecast {{r.fe_bz_err|pct}} too low leaves about <b>{{r.fe_bz_lo_lost|pct}}</b> walking away (slide 08).</p></div>
       </div>
     </div>
     <div class="mdec"><div class="who"><span class="lab">Manager's decision</span><b>Operations manager</b></div>
@@ -1322,7 +1626,7 @@ aside.notes{display:none}
 <section class="slide content" id="c5" data-chapter="Expand" data-title="Predict demand for a new store">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">09 · Proposal 3 · Expand · where a new outlet adds customers<span class="stg"><b>Expand</b><i class="on">Problem</i><i class="on">Solution</i><i>Decision</i></span><span class="ctag">Course link · Week 3 · Flashion forecast</span></p>
+    <p class="kicker">Proposal 3 · Expand · where a new outlet adds customers<span class="stg"><b>Expand</b><i class="on">Problem</i><i class="on">Solution</i><i>Decision</i></span><span class="ctag">Course link · Week 3 · Flashion forecast</span></p>
     <h2 class="head">Open where an outlet adds customers, not where it moves them</h2>
     <p class="bprob"><b>Business problem</b><span>A new outlet may look successful while mostly moving sales from nearby stores, while other customers have no convenient outlet.
       <span class="ev obs">Context</span> Chagee aims to expand rapidly in Singapore; the number of stores is confidential (Chagee source, anonymous). <span class="ev sim">Simulated</span> searches below.</span></p>
@@ -1380,7 +1684,7 @@ aside.notes{display:none}
 <section class="slide content" id="e2" data-chapter="Expand" data-title="The expansion manager's decision">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">10 · Proposal 3 · Expand · the expansion manager's decision<span class="stg"><b>Expand</b><i>Problem</i><i>Solution</i><i class="on">Decision</i></span></p>
+    <p class="kicker">Proposal 3 · Expand · the expansion manager's decision<span class="stg"><b>Expand</b><i>Problem</i><i>Solution</i><i class="on">Decision</i></span></p>
     <h2 class="head">Investigate the site that adds customers, then check the downside</h2>
     <div class="body" style="grid-template-columns:1fr;margin-top:10px">
       <div class="panel">
@@ -1417,13 +1721,13 @@ aside.notes{display:none}
 <section class="slide content" id="rc" data-chapter="Execution" data-title="Execution plan">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">11 · Execution plan</p>
+    <p class="kicker">Execution plan</p>
     <h2 class="head">Three managers, three pilots, each judged on its own evidence</h2>
     <p class="sub">A connected story, not one combined model: no simulated benefit is carried between parts or added up.</p>
     <div class="rec3">
-      <div class="c"><span class="own">Grow demand · CRM manager</span><h5>Which features and rewards should we pilot?</h5>
-        <p class="act"><span class="k">Recommend</span>Squads, and squads with personalised suggestions, against today's membership, at a reward the extra orders can pay for.</p>
-        <p><span class="k">Proceed if</span>tier progression and orders rise, satisfaction holds, and contribution after reward and AI costs is positive.</p></div>
+      <div class="c"><span class="own">Proposal 1 · smart pickup routing</span><h5>Which zone should we pilot routing in?</h5>
+        <p class="act"><span class="k">Recommend</span>Pilot in one zone, a busy outlet with a nearby support outlet: normal checkout, then routing alone, then routing with the bag offer.</p>
+        <p><span class="k">Proceed if</span>collection is faster, support outlets stay reliable, and net contribution across the zone is positive.</p></div>
       <div class="c"><span class="own">Serve demand · operations manager</span><h5>What crew and counter setup should we use?</h5>
         <p class="act"><span class="k">Recommend</span>Roster to the forecast, test a bucket brigade, and pilot one tea-and-milk machine against today's split in {{sb.pilot_outlets}} outlets.</p>
         <p><span class="k">Proceed if</span>waits, walk-aways, cups per labour hour and contribution beat today's, even when the forecast is off.</p></div>
@@ -1431,12 +1735,12 @@ aside.notes{display:none}
         <p class="act"><span class="k">Recommend</span>Investigate the cluster near {{s.top_hub}} on Chagee's real app logs before any lease.</p>
         <p><span class="k">Proceed if</span>it adds net new customers, and its profit covers the investment with an acceptable downside.</p></div>
     </div>
-    <div class="takeaway" style="margin-top:14px"><span class="lab">TAKEAWAY</span><span>Make membership more rewarding → serve demand reliably → open where we add new customers.</span></div>
+    <div class="takeaway" style="margin-top:14px"><span class="lab">TAKEAWAY</span><span>Get customers their tea sooner → serve demand reliably → open where we add new customers.</span></div>
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · model figures are illustrative assumptions, not Chagee data</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes">
     <p>Our recommendation mirrors the three chapters: three decisions, three owners, and each one is a pilot judged on its own evidence.</p>
-    <p>For the CRM manager: the Membership Operations team wants to move customers up the tiers, and customers may not find it worth the effort. Pilot squads, and squads with personalised suggestions, against today's membership, at a reward level the extra orders can pay for. Proceed if tier progression rises, satisfaction holds, and the extra orders cover the reward and the AI cost.</p>
+    <p>Proposal one, smart pickup routing: pilot it in one zone, a busy outlet with a nearby support outlet. Test normal checkout, then routing alone, then routing with the optional bag offer. Proceed if collection is faster, the support outlets stay reliable, and net contribution across the whole zone is positive.</p>
     <p>For the outlet GM or operations manager: demand moves by the hour, and the roster should too. Roster to the forecast, test a bucket brigade against fixed posts, and pilot one tea-and-milk machine against today's split. Proceed if waits, walk-aways, productivity and contribution beat today's, including when the forecast is wrong.</p>
     <p>For the expansion manager: count the cups a new outlet adds, not the ones it sells. Investigate the cluster near {{s.top_hub}} on Chagee's real app logs before any lease, and proceed only if its incremental returns justify the investment with an acceptable downside.</p>
     <p>One caution to say out loud: these parts connect as a story, but we never add their simulated benefits together or carry membership uplift into the counter or expansion numbers. About forty-five seconds.</p>
@@ -1447,7 +1751,7 @@ aside.notes{display:none}
 <section class="slide content bs" id="c9" data-chapter="Impact" data-title="Business impact">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">12 · Business impact · Singapore only<span class="tbc">TBC · draft, to be confirmed</span></p>
+    <p class="kicker">Business impact · Singapore only<span class="tbc">TBC · draft, to be confirmed</span></p>
     <h2 class="head">About S${{r.ben_profit_sg|m2}} a year across {{facts.sg_outlets}} outlets, mostly from one machine</h2>
     <p class="sub">In our model, against an illustrative baseline: modelled avoided costs, not demonstrated savings.</p>
     <div class="body" style="grid-template-columns:1fr 400px">
@@ -1498,8 +1802,9 @@ aside.notes{display:none}
     <h2 class="head">Appendix: the detail behind each chapter</h2>
     <p class="sub">Derivations, tables, sources and earlier analyses. Click a line to open it; use the agenda to return.</p>
     <div class="apxix">
+      <div><h5>Execution steps</h5><ol><li data-go="p1x">Proposal 1 pilot: zone pilot and learning loop</li><li data-go="p1r">Proposal 1: the pickup race (earlier slide)</li></ol></div>
       <div><h5>Earlier main slides</h5><ol><li data-go="c1">Chagee in Singapore</li><li data-go="c2">From farm to cup</li><li data-go="c3">The data trail</li><li data-go="c4">Our scope</li></ol></div>
-      <div><h5>Grow demand</h5><ol><li data-go="m1">Members: when does joining feel worth it?</li><li data-go="m2b">Group orders as demand data</li><li data-go="am1">Members: the model and its checks</li><li data-go="am2">Members: break-even, assumptions and sources</li><li data-go="am3">Group orders to forecasts: method and results</li></ol></div>
+      <div><h5>Grow demand</h5><ol><li data-go="m1">Members: when does joining feel worth it?</li><li data-go="m2b">Group orders as demand data</li><li data-go="m2">The squad experience</li><li data-go="m3">The CRM manager's squad decision</li><li data-go="am1">Members: the model and its checks</li><li data-go="am2">Members: break-even, assumptions and sources</li><li data-go="am3">Group orders to forecasts: method and results</li></ol></div>
       <div><h5>Serve demand</h5><ol><li data-go="c6">Bucket brigade: sharing the counter</li><li data-go="c7">Automation: which steps a machine takes</li><li data-go="aops">Counter comparisons, every day type</li><li data-go="c8">The modelled decisions in detail</li><li data-go="ab">The benefit in detail</li><li data-go="cm">Machine ladder</li><li data-go="a3">Machine ladder: tiers and sources</li></ol></div>
       <div><h5>Expand access</h5><ol><li data-go="a2">How the site forecast works</li><li data-go="ap">The new store in money: five-year P&amp;L</li><li data-go="x1">Four scores for every location</li><li data-go="x1b">The supervised model</li><li data-go="x2">From pin to net profit</li></ol></div>
       <div><h5>Across the story</h5><ol><li data-go="adata">Chagee's data collection</li><li data-go="c1b">Network effects across the three parts</li><li data-go="a1">Sources and assumptions</li></ol></div>
@@ -1510,6 +1815,111 @@ aside.notes{display:none}
   <aside class="notes"><p>The appendix holds everything moved off the main slides: derivations, the full tables, sources and earlier analyses. Click a line to jump to it.</p></aside>
 </section>
 
+
+<!-- ======================================================= APPENDIX: EXECUTION STEPS, PROPOSAL 1 PILOT -->
+<section class="slide content" id="p1x" data-chapter="Appendix" data-title="Proposal 1 pilot">
+  <div class="leafart" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker">Appendix · Execution steps · Proposal 1 pilot</p>
+    <h2 class="head">Pilot smart pickup routing in one zone, then expand on evidence</h2>
+    <p class="sub lede">A zone is a group of reachable outlets. Start with one busy outlet and a nearby support outlet. <span class="golink" data-go="p1b">Back to how it works</span></p>
+    <div class="ag-bottom p1x-bottom">
+      <div class="ag-pilot">
+        <h4>Zone pilot</h4>
+        <div class="zone"><div class="zo busy"><b>Suntec City</b><small>busy origin outlet</small></div><span class="zarrow">⇄</span><div class="zo sup"><b>Raffles City</b><small>support when capacity permits</small></div></div>
+        <p class="zn">A zone is a group of reachable outlets; an outlet can change roles as demand shifts.</p>
+        <div class="ag-arms"><span>Normal checkout</span><i>→</i><span>Routing alone</span><i>→</i><span>Routing + bag offer</span></div>
+      </div>
+      <div class="ag-learn">
+        <h4>Measure, assess, refine</h4>
+        <ol><li><b>Measure</b> switches, actual collection times, both queues and zone contribution</li>
+          <li><b>Assess</b> the traffic shift: generative AI summarises results and flags congestion moving</li>
+          <li><b>Refine and expand</b>: managers approve policy changes and new zones</li></ol>
+        <p class="gate"><span class="lab">Rollout gate</span>Faster collection, reliable support outlets and positive net contribution across the zone.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>OPIM639 · Group 3 · appendix · pilot design, proposed</span><span class="rail"></span><span class="pg"></span></div>
+  <aside class="notes"><p>The pilot for proposal one, kept here with the execution steps. Pilot in one zone: a busy origin outlet like Suntec City with a nearby support outlet like Raffles City; roles can swap as demand shifts. Test normal checkout, then routing alone, then routing with the bag offer. Measure switches, actual collection times, both queues and zone contribution; generative AI summarises the results and flags congestion moving. Managers approve policy changes and new zones. The rollout gate: faster collection, reliable support outlets and positive net contribution across the zone.</p></aside>
+</section>
+
+<!-- ======================================================= APPENDIX: PROPOSAL 1, THE PICKUP RACE (EARLIER VERSION OF SLIDE 07) -->
+<section class="slide content" id="p1r" data-chapter="Appendix" data-title="The pickup race (earlier version)" data-reveal="all">
+  <div class="leafart" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker">Appendix · Proposal 1 · The pickup race (earlier version)</p>
+    <h2 class="head">Your tea, sooner: AI routes pickups to a faster outlet</h2>
+    <p class="sub lede">When one outlet is swamped, the app offers a nearby outlet that can hand over the drink sooner, and the customer chooses.</p>
+    <div class="rt-body">
+      <div class="rt-left">
+        <div class="rt-map">
+          <svg viewBox="0 0 760 178" aria-label="Map: the customer, Suntec City nearby but busy, Raffles City farther but quiet">
+            <rect x="0" y="0" width="760" height="178" rx="18" fill="#FBF7F0"/>
+            <path d="M0 150 C120 128 210 160 330 140 S560 96 760 120" stroke="#DCE7F2" stroke-width="16" fill="none" stroke-linecap="round"/>
+            <g stroke="#EFE7DA" stroke-width="2"><path d="M60 0 V178 M190 0 V178 M455 0 V178 M640 0 V178 M0 46 H760 M0 98 H760"/></g>
+            <path d="M262 112 L342 62" stroke="#B9B2A6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M262 112 C380 140 500 132 588 104" stroke="#B8322B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <g transform="translate(262 112)"><circle r="16" fill="#24406B" opacity=".12"/><circle r="8" fill="#24406B"/><circle r="3" fill="#fff"/></g>
+            <text x="262" y="150" text-anchor="middle" class="rt-t b">You</text>
+            <g transform="translate(342 62)"><path d="M0 0 c-9 -11 -13 -16 -13 -22 a13 13 0 0 1 26 0 c0 6 -4 11 -13 22 Z" fill="#9A9387"/><circle cy="-22" r="5" fill="#fff"/></g>
+            <text x="362" y="40" class="rt-t b">Suntec City</text>
+            <text x="362" y="58" class="rt-t">{{sb.route_near_travel_min}} min away · long queue</text>
+            <g fill="#D99A93"><circle cx="370" cy="72" r="4"/><circle cx="381" cy="72" r="4"/><circle cx="392" cy="72" r="4"/><circle cx="403" cy="72" r="4"/><circle cx="414" cy="72" r="4"/><circle cx="425" cy="72" r="4"/></g>
+            <g transform="translate(588 104)"><path d="M0 0 c-9 -11 -13 -16 -13 -22 a13 13 0 0 1 26 0 c0 6 -4 11 -13 22 Z" fill="#B8322B"/><circle cy="-22" r="5" fill="#fff"/></g>
+            <text x="606" y="80" class="rt-t b r">Raffles City</text>
+            <text x="606" y="98" class="rt-t">{{sb.route_far_travel_min}} min away · quiet</text>
+            <text x="440" y="150" text-anchor="middle" class="rt-t r">suggested route</text>
+          </svg>
+        </div>
+        <div class="rt-racehd"><span>The race to your drink</span><button class="btn rt-play screenonly">▶ Replay</button></div>
+        <div class="race" style="--max:{{r.route_near_collect}}">
+          <div class="lane near">
+            <div class="ln"><b>Suntec City</b><small>nearer, busy</small></div>
+            <div class="track">
+              <span class="bar travel" style="--v:{{sb.route_near_travel_min}}"><em>travel</em></span>
+              <span class="bar prep" style="--v:{{sb.route_near_ready_min}}"><em>drink ready in {{sb.route_near_ready_min}} min</em></span>
+              <span class="flag" style="--v:{{r.route_near_collect}}"><b>{{r.route_near_collect}} min</b></span>
+            </div>
+          </div>
+          <div class="lane far">
+            <div class="ln"><b>Raffles City</b><small>farther, quiet</small></div>
+            <div class="track">
+              <span class="bar travel" style="--v:{{sb.route_far_travel_min}}"><em>travel {{sb.route_far_travel_min}} min</em></span>
+              <span class="bar prep" style="--v:{{sb.route_far_ready_min}}"><em>ready</em></span>
+              <span class="flag" style="--v:{{r.route_far_collect}}"><b>{{r.route_far_collect}} min</b></span>
+            </div>
+          </div>
+          <div class="rt-key"><span><i class="k-tr"></i>Customer travelling</span><span><i class="k-pr"></i>Drink being made</span><span><i class="k-fl"></i>Collect when both are done</span></div>
+        </div>
+      </div>
+      <div class="rt-right">
+        <div class="phone rt-phone"><div class="notch"></div><div class="scr">
+          <div class="scroll">
+            <div class="bar"><span class="tm"></span><span>●●●</span></div>
+            <div class="hd"><div class="brand"><i class="emb"></i>CHAGEE</div><small>Pickup · Suntec City</small><h3>Your tea, sooner</h3></div>
+            <div class="bd">
+              <div class="crd sug"><small class="tag ai">Suggested for you</small><h5 style="margin-top:3px">Collect at Raffles City in about {{r.route_far_collect}} min</h5><p>instead of {{r.route_near_collect}} min at Suntec City.</p></div>
+              <div class="crd"><p>Optional: a complimentary carrier bag, if you need one.</p></div>
+              <button class="cta">Switch to Raffles City</button>
+              <button class="cta ghost">Keep Suntec City</button>
+              <span class="sim">You choose before you pay.</span>
+            </div>
+          </div>
+          <div class="tabs"><span><svg viewBox="0 0 24 24"><path d="M4 11 L12 4 L20 11 V20 H4 Z"/></svg>Home</span><span class="on"><svg viewBox="0 0 24 24"><path d="M7 7 H17 L16 20 H8 Z M6 7 H18 M10 4 H14"/></svg>Menu</span><span><svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="16" rx="1.5"/><path d="M9 9 H15 M9 13 H15"/></svg>Orders</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20 C5 15 8.5 13 12 13 C15.5 13 19 15 19 20"/></svg>Me</span></div>
+        </div></div>
+        <p class="rt-cap">Generative AI message · mock-up</p>
+      </div>
+    </div>
+    <div class="rt-win"><b>{{r.route_saved}} minutes sooner</b><span>Travel and preparation happen at the same time, so the customer collects as soon as both are done.</span></div>
+  </div>
+  <div class="foot"><span>OPIM639 · Group 3 · travel and readiness times are illustrative, not live Chagee data</span><span class="rail"></span><span class="pg"></span></div>
+  <aside class="notes">
+    <p>Proposal one tackles online retailing: using data for better sales, loyalty and cost management. The idea is smart pickup routing.</p>
+    <p>Picture a customer at peak. Suntec City is the nearest outlet, {{sb.route_near_travel_min}} minutes away, but it is swamped: the drink will not be ready for {{sb.route_near_ready_min}} minutes. Raffles City is farther, {{sb.route_far_travel_min}} minutes away, but quiet: the drink is ready in {{sb.route_far_ready_min}}.</p>
+    <p>Watch the race. Travel and preparation happen at the same time, so you collect when both are done: {{r.route_near_collect}} minutes at Suntec, {{r.route_far_collect}} at Raffles. That is {{r.route_saved}} minutes sooner for the customer, and the busy outlet's queue gets relief.</p>
+    <p>On the right is how it would look in the Chagee app: generative AI writes a short, clear message, with an optional complimentary carrier bag, and the customer chooses before paying. Nothing switches without consent. All times here are illustrative, not live Chagee data. About fifty seconds.</p>
+  </aside>
+</section>
 
 <!-- ======================================================= 01 CHAGEE IN SINGAPORE -->
 <section class="slide content" id="c1" data-chapter="Appendix" data-title="Chagee in Singapore">
@@ -1673,13 +2083,13 @@ aside.notes{display:none}
         <div class="ptop"><span class="ptitle">Three connected decisions</span><span class="ctl screenonly"></span></div>
         <div class="s3">
           <div class="s3p" data-s="1"><span class="num">1</span><h5>Grow demand</h5><p class="what">Make membership more rewarding.</p><div class="s3v"><svg viewBox="0 0 300 160" aria-label="A member and three friends form a squad; their orders move everyone up the tiers"><line x1="150" y1="92" x2="70" y2="48" stroke="#C8A96A" stroke-width="2" stroke-dasharray="4 4"/><line x1="150" y1="92" x2="150" y2="30" stroke="#C8A96A" stroke-width="2" stroke-dasharray="4 4"/><line x1="150" y1="92" x2="230" y2="48" stroke="#C8A96A" stroke-width="2" stroke-dasharray="4 4"/><circle cx="70" cy="48" r="19" fill="#fff" stroke="#DCE2EC" stroke-width="2"/><circle cx="70" cy="40.0" r="5.5" fill="#6F86AE"/><path d="M60 60.0 Q60 51 70 51 Q80 51 80 60.0 Z" fill="#6F86AE"/><circle cx="150" cy="30" r="19" fill="#fff" stroke="#DCE2EC" stroke-width="2"/><circle cx="150" cy="22.0" r="5.5" fill="#6F86AE"/><path d="M140 42.0 Q140 33 150 33 Q160 33 160 42.0 Z" fill="#6F86AE"/><circle cx="230" cy="48" r="19" fill="#fff" stroke="#DCE2EC" stroke-width="2"/><circle cx="230" cy="40.0" r="5.5" fill="#6F86AE"/><path d="M220 60.0 Q220 51 230 51 Q240 51 240 60.0 Z" fill="#6F86AE"/><circle cx="150" cy="92" r="24" fill="#fff" stroke="#24406B" stroke-width="2.5"/><circle cx="150" cy="81.7" r="7.15" fill="#24406B"/><path d="M137 107.7 Q137 96 150 96 Q163 96 163 107.7 Z" fill="#24406B"/><rect x="40" y="132" width="220" height="12" rx="6" fill="#DCE2EC"/><rect x="40" y="132" width="150" height="12" rx="6" fill="#B8322B"/><line x1="113" y1="128" x2="113" y2="148" stroke="#fff" stroke-width="3"/><line x1="187" y1="128" x2="187" y2="148" stroke="#fff" stroke-width="3"/><text x="40" y="158" font-size="13" fill="#9A9387" font-family="Roboto,sans-serif">tier progress</text><text x="260" y="158" text-anchor="end" font-size="13" fill="#9A9387" font-family="Roboto,sans-serif">friends count too</text></svg></div>
-            <p class="who"><b>CRM manager</b>Which features and rewards should we pilot?</p><p class="where">Slides 05 and 06</p></div>
+            <p class="who"><b>CRM manager</b>Which features and rewards should we pilot?</p><p class="where">Squads: appendix</p></div>
           <div class="s3a" data-s="2">→</div>
           <div class="s3p" data-s="2"><span class="num">2</span><h5>Serve demand</h5><p class="what">Match staffing and workflow to demand.</p><div class="s3v"><svg viewBox="0 0 300 160" aria-label="Cups an hour rise and fall; the crew follows the forecast"><line x1="20" y1="140" x2="285" y2="140" stroke="#C9C2B6"/><rect x="24" y="113.6" width="17" height="26.4" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><rect x="48" y="99.2" width="17" height="40.8" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><rect x="72" y="46.400000000000006" width="17" height="93.6" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><rect x="96" y="29.60000000000001" width="17" height="110.39999999999999" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><rect x="120" y="84.80000000000001" width="17" height="55.199999999999996" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><rect x="144" y="87.2" width="17" height="52.8" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><rect x="168" y="77.6" width="17" height="62.4" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><rect x="192" y="72.8" width="17" height="67.2" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><rect x="216" y="80.0" width="17" height="60.0" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><rect x="240" y="87.2" width="17" height="52.8" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><rect x="264" y="94.4" width="17" height="45.6" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><polyline points="20 92.0 44 92.0 44 92.0 68 92.0 68 34.400000000000006 92 34.400000000000006 92 34.400000000000006 116 34.400000000000006 116 92.0 140 92.0 140 92.0 164 92.0 164 92.0 188 92.0 188 92.0 212 92.0 212 92.0 236 92.0 236 92.0 260 92.0 260 92.0 285 92.0" fill="none" stroke="#2F6B45" stroke-width="3" stroke-linejoin="round"/><text x="20" y="156" font-size="13" fill="#9A9387" font-family="Roboto,sans-serif">cups an hour</text><text x="285" y="156" text-anchor="end" font-size="13" fill="#2F6B45" font-family="Roboto,sans-serif">crew follows the forecast</text></svg></div>
-            <p class="who"><b>Operations manager</b>What crew and counter setup should we use?</p><p class="where">Slides 07 and 08</p></div>
+            <p class="who"><b>Operations manager</b>What crew and counter setup should we use?</p><p class="where">Slides 08 and 09</p></div>
           <div class="s3a" data-s="3">→</div>
           <div class="s3p" data-s="3"><span class="num">3</span><h5>Expand access</h5><p class="what">Open where we add new customers.</p><div class="s3v"><svg viewBox="0 0 300 160" aria-label="Existing outlets on a map, an unserved cluster of searches and a new outlet placed in it"><path d="M18 92 Q30 48 92 44 Q140 22 196 40 Q262 38 284 78 Q290 118 236 126 Q190 146 130 134 Q60 140 30 120 Z" fill="#F1EADB" stroke="#E2D6BE" stroke-width="1.5"/><circle cx="70" cy="92" r="22" fill="#6F86AE" opacity=".10"/><circle cx="102" cy="70" r="22" fill="#6F86AE" opacity=".10"/><circle cx="132" cy="104" r="22" fill="#6F86AE" opacity=".10"/><circle cx="160" cy="74" r="22" fill="#6F86AE" opacity=".10"/><circle cx="122" cy="82" r="22" fill="#6F86AE" opacity=".10"/><path d="M70 92 c-7 -9 -10 -13 -10 -18 a10 10 0 0 1 20 0 c0 5 -3 9 -10 18 Z" fill="#24406B"/><circle cx="70" cy="74" r="3.6" fill="#fff"/><path d="M102 70 c-7 -9 -10 -13 -10 -18 a10 10 0 0 1 20 0 c0 5 -3 9 -10 18 Z" fill="#24406B"/><circle cx="102" cy="52" r="3.6" fill="#fff"/><path d="M132 104 c-7 -9 -10 -13 -10 -18 a10 10 0 0 1 20 0 c0 5 -3 9 -10 18 Z" fill="#24406B"/><circle cx="132" cy="86" r="3.6" fill="#fff"/><path d="M160 74 c-7 -9 -10 -13 -10 -18 a10 10 0 0 1 20 0 c0 5 -3 9 -10 18 Z" fill="#24406B"/><circle cx="160" cy="56" r="3.6" fill="#fff"/><path d="M122 82 c-7 -9 -10 -13 -10 -18 a10 10 0 0 1 20 0 c0 5 -3 9 -10 18 Z" fill="#24406B"/><circle cx="122" cy="64" r="3.6" fill="#fff"/><circle cx="226" cy="88" r="30" fill="none" stroke="#B8322B" stroke-width="1.6" stroke-dasharray="4 4"/><circle cx="226.2" cy="90.3" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="223.3" cy="90.1" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="234.1" cy="91.6" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="241.3" cy="79.3" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="226.5" cy="83.1" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="220.1" cy="86.6" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="227.1" cy="90.1" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="230.5" cy="107.9" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="234.4" cy="72.4" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="227.3" cy="84.0" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="220.9" cy="100.8" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="223.9" cy="69.3" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="227.4" cy="86.7" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="214.4" cy="78.9" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="222.1" cy="87.9" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="224.1" cy="88.3" r="2.6" fill="#B8322B" opacity=".55"/><path d="M226 96 c-7 -9 -10 -13 -10 -18 a10 10 0 0 1 20 0 c0 5 -3 9 -10 18 Z" fill="#B8322B"/><circle cx="226" cy="78" r="3.6" fill="#fff"/><text x="24" y="156" font-size="13" fill="#9A9387" font-family="Roboto,sans-serif">today’s outlets</text><text x="284" y="156" text-anchor="end" font-size="13" fill="#B8322B" font-family="Roboto,sans-serif">unserved searches</text></svg></div>
-            <p class="who"><b>Expansion manager</b>Which location justifies investment?</p><p class="where">Slides 09 and 10</p></div>
+            <p class="who"><b>Expansion manager</b>Which location justifies investment?</p><p class="where">Slides 10 and 11</p></div>
         </div>
       </div>
     </div>
@@ -1775,6 +2185,74 @@ aside.notes{display:none}
   </aside>
 </section>
 
+<!-- ======================================================= 06 GROW: THE SQUAD EXPERIENCE -->
+<section class="slide content mb" id="m2" data-chapter="Appendix" data-title="The proposed squad experience">
+  <div class="leafart" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker">Appendix · Grow · the squad experience<span class="stg"><b>Grow</b><i>Problem</i><i class="on">Solution</i><i>Decision</i></span></p>
+    <h2 class="head">In the app, friends' orders count for everyone</h2>
+    <p class="bprob"><b>Business problem</b><span>Chagee's Membership Operations team told us the problem they want to solve is <b>moving customers up the membership tiers</b>: customers may not think the effort of progressing is worthwhile.</span></p>
+    <div class="body" style="grid-template-columns:1fr;margin-top:8px">
+      <div class="panel" data-kind="mbapp">
+        <div class="ptop"><span class="ptitle">Proposed experience · illustrative prototype</span><button class="btn hiwb screenonly" data-hiw="m2">How it connects to the model</button><span class="seg mbnav screenonly"></span></div>
+        <div class="mbapp">
+          <ol class="mbjour"></ol>
+          <div class="phone"><div class="notch"></div><div class="scr"></div></div>
+          <div class="mbwhy"></div>
+        </div>
+        <div class="hiw screenonly" data-name="m2"><div class="ptop"><span class="ptitle">How it connects to the model · assumptions to test</span><button class="btn" data-hiwx>✕ Close</button></div>
+          <div class="two"><div><p>Shared benefits are hypothesised to raise <b>k</b>, the value of friends participating. Personalised suggestions, simpler progression or a launch incentive may lower <b>p</b>, the effort. Each member's picks and feedback also become signals (appendix). Not measured effects.</p></div>
+            <div class="mbwsb"><h5>Without squads / with squads</h5><svg class="mbws" viewBox="0 0 260 170" preserveAspectRatio="xMidYMid meet" aria-label="The hump without and with squads, against the same effort"></svg>
+              <label class="mbinc"><input type="checkbox"> add a launch incentive (lower p)</label></div></div></div>
+      </div>
+    </div>
+    <div class="takeaway mbtake"><span class="lab">TAKEAWAY</span><span class="t"></span></div>
+  </div>
+  <div class="foot"><span>OPIM639 · Group 3 · illustrative prototype, not Chagee's rules · nothing real is sent or bought</span><span class="rail"></span><span class="pg"></span></div>
+  <aside class="notes">
+    <p>This is the solution, as an illustrative prototype; the rules are ours, not Chagee's. Two parts, kept apart: squads, a product design, and personalisation, the AI part, which suggests a drink from each member's own choices and lets a gift's recipient choose privately. Click through: a member sees their progress and starts a squad, invites friends, then chooses a drink, with a suggestion they can accept, customise or dismiss and feedback such as not for me. In the shared basket each friend confirms their own drink, and preferences are saved to whoever chose, not whoever paid. When the order is collected everyone's progress moves. Last, gifting: the recipient picks privately from options ranked for them. Those picks and that feedback become demand signals; how they feed the outlet's forecast is in the appendix.</p>
+    <p>Why it matters for the model: our hypothesis is that shared progress raises the value of friends, k, so the hump rises and the tipping point falls, from about {{r.mb_today_lo|pct}} to {{r.mb_squad_lo|pct}} at the default effort. The stalled case is the headline: at a high effort the app never takes off without squads, and with them it can. These are assumptions to test, not measured effects. About thirty seconds.</p>
+  </aside>
+</section>
+
+<!-- ======================================================= 08 GROW: THE CRM MANAGER'S DECISION -->
+<section class="slide content mb" id="m3" data-chapter="Appendix" data-title="Pilot squads with personalised suggestions?">
+  <div class="leafart" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker">Appendix · Grow · the CRM manager's decision<span class="stg"><b>Grow</b><i>Problem</i><i>Solution</i><i class="on">Decision</i></span></p>
+    <h2 class="head">Pilot squads only at a reward their extra orders can pay for</h2>
+    <div class="body" style="grid-template-columns:1fr 300px;gap:16px;margin-top:8px">
+      <div class="panel stepper" data-steps="4" data-kind="mbpay">
+        <div class="ptop"><span class="ptitle">Does the reward pay for itself? · after reward and AI costs · illustrative</span><span class="ctl screenonly"></span></div>
+        <div class="visual" style="flex:none"><svg class="mbpay" viewBox="0 0 640 214" preserveAspectRatio="xMidYMid meet" aria-label="Contribution per member a month against additional orders, squads alone and squads with personalised suggestions, with the break-even points"></svg></div>
+        <ol class="caps" style="min-height:30px;margin-top:4px;padding-top:5px">
+          <li data-s="1"><span class="n">1</span><span>With no extra orders the reward is a pure cost: members get the credit on orders they would have placed anyway.</span></li>
+          <li data-s="2"><span class="n">2</span><span>Every extra order that squads create earns money back, so the line rises.</span></li>
+          <li data-s="3"><span class="n">3</span><span>Where the line crosses zero, squads pay for their reward: the pilot's minimum target.</span></li>
+          <li data-s="4"><span class="n">4</span><span>Personalised suggestions cost something to run, so they must add their own extra orders on top.</span></li>
+        </ol>
+      </div>
+      <div class="cards" style="gap:8px">
+        <div class="cset sitectl mbpctl screenonly"></div>
+        <div class="bc printonly mbpctlp"></div>
+        <div class="bc sqhow mbhow"></div>
+      </div>
+    </div>
+    <div class="mdec"><div class="who"><span class="lab">Manager's decision</span><b>CRM manager</b></div>
+      <div><span class="q">Which features and rewards should we pilot?</span>
+        <span class="k">Proposed</span><span class="mbact"></span></div>
+      <div><span class="k">Proceed if, arm against arm</span><ul><li>tier progression and orders rise against today's membership</li><li>satisfaction holds</li>
+        <li>contribution after reward and AI costs is positive</li></ul></div></div>
+    <p class="nextl"><b>Next</b>A more engaging membership must be matched by reliable fulfilment.</p>
+  </div>
+  <div class="foot"><span>OPIM639 · Group 3 · S$ · reward, AI cost and orders are assumptions, not Chagee data · table: appendix</span><span class="rail"></span><span class="pg"></span></div>
+  <aside class="notes">
+    <p>The decision for part one belongs to the CRM manager: which features and rewards should we pilot? The line is the contribution per member a month after the reward, the group-order credit. It starts below zero, because the credit is also paid on orders members would have placed anyway, and rises with each extra order. At a credit of {{x.mb_credit|pct}} squads alone break even at about {{x.mb_be_mid|c2}} extra orders a month at our base margin. Push the credit up to the margin and it never breaks even.</p>
+    <p>Step four adds personalised suggestions. They cost something to run; we assume S${{x.mb_ai|c2}} a member a month, a placeholder to replace with a real quote. That shifts the line down: break-even moves to about {{x.mb_be_ai|c2}} extra orders, so personalisation must add about {{x.mb_ai_hurdle|c2}} orders a month of its own on top of squads.</p>
+    <p>That is why the pilot has three arms: today's membership, squads, and squads with personalised suggestions. Squads against today shows the squad effect; adding suggestions shows the personalisation effect. Proceed only if tier progression rises, satisfaction holds, the extra orders reach these break-evens, and contribution after reward and AI costs is positive. We measure orders directly and do not read purchases off the adoption model. Then the transition: a more engaging membership experience must be matched by reliable fulfilment. About forty-five seconds.</p>
+  </aside>
+</section>
+
 <!-- ======================================================= 10 SERVE: BUCKET BRIGADE -->
 <section class="slide content" id="c6" data-chapter="Appendix" data-title="Share the counter">
   <div class="leafart" aria-hidden="true"></div>
@@ -1800,7 +2278,7 @@ aside.notes{display:none}
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · explainer figures are illustrative assumptions · mechanism in seconds, Week 5 bucket-brigade rules</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes">
-    <p>The forecast on slide 07 set how many people. This slide is how they share the work: same counter, same customers, two sharing rules side by side. The counter is today's split, our scenario, not Chagee's disclosed setup. Robots, the navy boxes, take the order, brew tea and milk, and shake and seal. People do cup and ice, toppings and hand-over.</p>
+    <p>The forecast on slide 08 set how many people. This slide is how they share the work: same counter, same customers, two sharing rules side by side. The counter is today's split, our scenario, not Chagee's disclosed setup. Robots, the navy boxes, take the order, brew tea and milk, and shake and seal. People do cup and ice, toppings and hand-over.</p>
     <p>Left, a bucket brigade: each person carries a cup forward; the last hands it over, walks back and takes over a colleague's cup. Right, fixed stations: each person owns a station.</p>
     <p>Press play on an event day. Then set the right side to "slowest on toppings": the queue builds at toppings and customers walk away. The brigade never needed to know who was fast.</p>
     <p>Be honest about the other case: add people and fixed stations catch up, or are a little faster. About one minute.</p>
@@ -2044,7 +2522,7 @@ aside.notes{display:none}
         <li><b>Wait times, footfall and walk-aways</b>.</li>
         <li>Any use of app data needs <b>consent</b> under Singapore's data protection law (PDPA).</li></ul></div>
     </div>
-    <div class="takeaway"><span class="lab">TAKEAWAY</span><span>Orders are recorded in one system; searches, location and waits are to confirm. That is why our app and site data are synthetic (slide 09 and the appendix).</span></div>
+    <div class="takeaway"><span class="lab">TAKEAWAY</span><span>Orders are recorded in one system; searches, location and waits are to confirm. That is why our app and site data are synthetic (slide 10 and the appendix).</span></div>
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · sources as cited · quotes checked against the source text</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes"><p>Backup for slide 03's "Why Chagee?" and the data trail in the appendix. Only three public sources speak to Chagee's data: the annual report's risk factors, the app's store listing and Vulcan Post on the reopening. Our Chagee source, who asked not to be named, added that Singapore runs on one company and one data system, that delivery is all third-party, and that staffing is decided by the GM and outlet teams. What we could not confirm: the app's share of orders, whether searches or location are logged, and waits or walk-aways; that is why the app and site data in the deck are synthetic.</p></aside>
@@ -2052,7 +2530,7 @@ aside.notes{display:none}
 <section class="slide content mb" id="am1" data-chapter="Appendix" data-title="Members: the model and its checks">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">Appendix · Members, slides 05 and 06: the model, the scenario table and the network check</p>
+    <p class="kicker">Appendix · Members, the squad slides: the model, the scenario table and the network check</p>
     <h2 class="head" style="font-size:28px">From one customer's rule to the tipping point, and how far a friend network moves it</h2>
     <div class="body" style="grid-template-columns:1fr 1fr;gap:18px;margin-top:10px">
       <div class="mbapx"><!--MBAPPX1--></div>
@@ -2060,13 +2538,13 @@ aside.notes{display:none}
     </div>
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · analytics model, not AI · illustrative, not Chagee data</span><span class="rail"></span><span class="pg"></span></div>
-  <aside class="notes"><p>Soft copy only. Backup for slide 05: the derivation, every parameter, the computed scenario table and the network check.</p></aside>
+  <aside class="notes"><p>Soft copy only. Backup for the squad experience slide: the derivation, every parameter, the computed scenario table and the network check.</p></aside>
 </section>
 
 <section class="slide content mb" id="am2" data-chapter="Appendix" data-title="Members: break-even, assumptions and sources">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">Appendix · Members, slides 05 and 06: break-even table, assumptions and source excerpts</p>
+    <p class="kicker">Appendix · Members, the squad slides: break-even table, assumptions and source excerpts</p>
     <h2 class="head" style="font-size:28px">The break-even across the margin range, every new input, and what the sources say</h2>
     <div class="body" style="grid-template-columns:1fr 1fr;gap:18px;margin-top:10px"><div class="mbapx"><!--MBAPPX3--></div>
       <div><div class="ptitle">Source excerpts · quoted word for word</div>
@@ -2076,7 +2554,7 @@ aside.notes{display:none}
         <div class="bc warn" style="margin-top:8px"><div class="k">Membership Operations team, Chagee</div><p>Paraphrased, not quoted: the barrier to levelling up is not outlet operations; it is whether customers think the effort of tiering up is worth it.</p></div></div></div>
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · quotes checked against sources · assumptions, not Chagee data</span><span class="rail"></span><span class="pg"></span></div>
-  <aside class="notes"><p>Soft copy only. Backup for slide 06, and the source excerpts behind the chapter.</p></aside>
+  <aside class="notes"><p>Soft copy only. Backup for the CRM manager's squad decision, and the source excerpts behind the chapter.</p></aside>
 </section>
 
 <section class="slide content mb" id="am3" data-chapter="Appendix" data-title="Group orders to forecasts: method and results">
@@ -2093,12 +2571,12 @@ aside.notes{display:none}
 <!-- ======================================================= APPENDIX: SERVE, COUNTER COMPARISONS -->
 <section class="slide content" id="aops" data-chapter="Appendix" data-title="Counter comparisons, every day type">
   <div class="inner">
-    <p class="kicker">Appendix · Serve · the tables behind slides 07 and 08</p>
+    <p class="kicker">Appendix · Serve · the tables behind slides 08 and 09</p>
     <h2 class="head" style="font-size:28px">Counter comparisons for every day type</h2>
     <div class="body wide" style="margin-top:10px"><div class="mbapx opsapx"><!--OPSAPPX--></div></div>
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · illustrative simulation · peak hour · mean of {{a.seeds}} runs · not Chagee data</span><span class="rail"></span><span class="pg"></span></div>
-  <aside class="notes"><p>Backup for the Serve chapter: the forecast-error sensitivity (slide 07), the three sharing rules (appendix), the five setups (appendix) and the forecast's effect at the counter, for every day type.</p></aside>
+  <aside class="notes"><p>Backup for the Serve chapter: the forecast-error sensitivity (slide 08), the three sharing rules (appendix), the five setups (appendix) and the forecast's effect at the counter, for every day type.</p></aside>
 </section>
 
 <!-- ======================================================= APPENDIX: THE DECISIONS IN DETAIL -->
@@ -2111,7 +2589,7 @@ aside.notes{display:none}
       <div class="panel" style="padding:10px 14px">
         <table class="dlist">
           <tr><th></th><th>Decision</th><th>Why, from the model</th><th>Revisit when</th></tr>
-          <tr><td><span class="num">1</span><b>Where to open</b><small>expansion manager · slide 09 · DBSCAN + assumed demand model</small></td>
+          <tr><td><span class="num">1</span><b>Where to open</b><small>expansion manager · slide 10 · DBSCAN + assumed demand model</small></td>
             <td>Open where app searches cluster, not beside an existing outlet.</td>
             <td><b>+{{r.dec_top}}</b> against <b>+{{r.dec_beside}}</b> cups a day for the same new outlet. <i>Synthetic app-search data: this shows the method, not a finding about real outlets.</i></td>
             <td>Rerun on Chagee's app logs, if searches and location are recorded, before any lease.</td></tr>
@@ -2119,7 +2597,7 @@ aside.notes{display:none}
             <td>In our model, one tea-and-milk machine is the cheapest on every day type; pilot it against today's split (our scenario).</td>
             <td><b>S${{r.dec_single_lo}}–{{r.dec_single_hi}}</b> a day against S${{r.dec_today_lo}}–{{r.dec_today_hi}}. The two cost the same at about <b>S${{r.dec_be}} a month per machine unit</b> ({{r.dec_units_single}} unit against {{r.dec_units_today}}), with wage, volume, station speeds and crews held fixed; we assume S${{r.unit_month}}. <i>Amacha's S${{r.amacha_price}} is a one-off price; without machine life, upkeep and financing we cannot turn it into a monthly cost.</i></td>
             <td>When Chagee's real machine cost is known.</td></tr>
-          <tr><td><span class="num">3</span><b>How many people</b><small>operations manager · slide 07 and slide 12 · forecast + economic rule</small></td>
+          <tr><td><span class="num">3</span><b>How many people</b><small>operations manager · slide 08 and slide 13 · forecast + economic rule</small></td>
             <td>Economic rule: add a person on event days, not on busy days.</td>
             <td>With the one machine: peak crew {{r.dec_flat}} → <b>{{r.dec_event}}</b> on event days; {{r.dec_busy}} on busy days, where an extra person costs more than the orders it keeps.</td>
             <td>When the forecast peak moves.</td></tr>
@@ -2142,7 +2620,7 @@ aside.notes{display:none}
   <div class="foot"><span>OPIM639 · Group 3 · explainer figures are illustrative assumptions</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes">
     <p><b>TBC:</b> this slide is a draft and still to be confirmed by the team; present it as work in progress.</p>
-    <p>The detail behind two of the three owners' decisions: four modelled decisions, one per simulation, all on our assumptions. The CRM manager's decision is on slide 06. One, for the expansion manager, where to open: DBSCAN clusters app searches and our assumed demand model scores the sites. The searches are synthetic, so this shows the method; rerun it on Chagee's app logs, if searches and location are recorded, before any lease.</p>
+    <p>The detail behind two of the three owners' decisions: four modelled decisions, one per simulation, all on our assumptions. The CRM manager's squad decision is in the appendix. One, for the expansion manager, where to open: DBSCAN clusters app searches and our assumed demand model scores the sites. The searches are synthetic, so this shows the method; rerun it on Chagee's app logs, if searches and location are recorded, before any lease.</p>
     <p>Two to four belong to the outlet GM or operations manager. Two, what to automate: in our model one tea-and-milk machine is the cheapest on every day type, so pilot it against today's split, which is our scenario, not Chagee's disclosed setup. The two cost the same at about S${{r.dec_be}} a month per machine unit, comparing one unit against three, with the wage, volume and crews held fixed. We assume S${{r.unit_month}}. We cannot turn the one-off price one small shop paid into a monthly cost without machine life, upkeep and financing, so Chagee's real cost decides this.</p>
     <p>Three, how many people: the economic rule adds a person on event days but not on busy days. Four, how to share: test a bucket brigade against fixed posts; in the recommended setup the brigade does a little better than well-assigned fixed posts and much better than badly assigned ones. Then a pilot in {{sb.pilot_outlets}} outlets: shadow the forecast, roster by the economic rule, and run one machine against today's split, judged on cups per labour hour, wait time and walk-aways. About one minute.</p>
   </aside>
@@ -2239,7 +2717,7 @@ aside.notes{display:none}
 <section class="slide content a2" id="a2" data-chapter="Appendix" data-title="How the site forecast works">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">Appendix · How the site forecast works (slide 09)</p>
+    <p class="kicker">Appendix · How the site forecast works (slide 10)</p>
     <h2 class="head" style="font-size:30px">DBSCAN finds where searches bunch up; a proximity model turns a pin into cups</h2>
     <div class="body" style="margin-top:12px">
       <div class="panel">
@@ -2251,7 +2729,7 @@ aside.notes{display:none}
           <li><span class="num">3</span><span><b>Grow.</b> A cluster spreads from core to core. Searches it reaches that are not core join as border points.</span></li>
           <li><span class="num">4</span><span><b>Noise.</b> Searches no cluster reaches. Unlike k-means, nobody picks the number of clusters, and odd shapes are fine.</span></li>
         </ol>
-        <p class="flag" style="margin-top:6px">Unsupervised: no labels or past openings are needed. Ester, Kriegel, Sander and Xu (1996). On slide 09 it runs only on searches with no outlet within walking distance; each cluster's centre is a candidate site.</p>
+        <p class="flag" style="margin-top:6px">Unsupervised: no labels or past openings are needed. Ester, Kriegel, Sander and Xu (1996). On slide 10 it runs only on searches with no outlet within walking distance; each cluster's centre is a candidate site.</p>
       </div>
       <div class="panel">
         <div class="ptop"><span class="ptitle">The simulated numbers, in order · at the slider defaults</span></div>
@@ -2272,16 +2750,16 @@ aside.notes{display:none}
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · explainer figures are illustrative assumptions · synthetic app data</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes">
-    <p>Backup for questions on slide 09. Left: DBSCAN in four moves on a toy set. A search is a core point if enough searches sit within the radius; clusters grow from core to core; border points join; the rest is noise. We do not choose the number of clusters.</p>
+    <p>Backup for questions on slide 10. Left: DBSCAN in four moves on a toy set. A search is a core point if enough searches sit within the radius; clusters grow from core to core; border points join; the rest is noise. We do not choose the number of clusters.</p>
     <p>Right: every simulated number, in the order the model uses it. The forecast is only as good as these assumptions; with Chagee's real app logs, the first two rows would be replaced by data and the rest would run as is.</p>
   </aside>
 </section>
 
-<!-- ======================================================= APPENDIX: SLIDE 09 IN MONEY (print companion of the P&L view) -->
+<!-- ======================================================= APPENDIX: SLIDE 10 IN MONEY (print companion of the P&L view) -->
 <section class="slide content pnlx" id="ap" data-chapter="Appendix" data-title="The new store in money: five-year P&amp;L">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">Appendix · The new store in money, slide 09 · the printed copy of "What does this mean for P&amp;L?"</p>
+    <p class="kicker">Appendix · The new store in money, slide 10 · the printed copy of "What does this mean for P&amp;L?"</p>
     <h2 class="head" style="font-size:28px;max-width:1010px">Same new outlet, same opening, same counter: the AI site adds about {{r.pnl_up_op5|sgm}} more operating profit over {{r.pnl_years}} years, in our model</h2>
     <div class="body" style="grid-template-columns:430px 1fr 290px;gap:14px;margin-top:10px">
       <div style="display:flex;flex-direction:column;gap:10px"><div class="chart"><h5>Annual incremental revenue to Chagee, S$</h5><svg class="pxa" viewBox="0 0 540 250" preserveAspectRatio="xMidYMid meet"></svg></div>
@@ -2292,7 +2770,7 @@ aside.notes{display:none}
     </div>
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · illustrative assumptions · synthetic app data · S$ · before depreciation, interest and tax</span><span class="rail"></span><span class="pg"></span></div>
-  <aside class="notes"><p>Soft copy and print companion of slide 09's P&amp;L view, at the default inputs and the suggested site. The on-screen view updates with the selected site and the assumption sliders; this page shows the defaults.</p></aside>
+  <aside class="notes"><p>Soft copy and print companion of slide 10's P&amp;L view, at the default inputs and the suggested site. The on-screen view updates with the selected site and the assumption sliders; this page shows the defaults.</p></aside>
 </section>
 
 <!-- ======================================================= APPENDIX: FOUR SCORES (Jin's framework) -->
@@ -2310,7 +2788,7 @@ aside.notes{display:none}
           <li data-s="1"><span class="n">1</span><span>Corporate drops a pin: a hypothetical candidate site. Pick another pin above to compare.</span></li>
           <li data-s="2"><span class="n">2</span><span>The model tags the pin's attributes: people within {{x.residents_radius_km}} km, transit, footfall, delivery orders, competitors, Chagee outlets within {{x.ring_km}} km.</span></li>
           <li data-s="3"><span class="n">3</span><span>Three scores from those attributes. Here they are set by hand: drag a bar to test another value.</span></li>
-          <li data-s="4"><span class="n">4</span><span>The slide 09 engine computes what existing outlets would lose: the cannibalisation factor.</span></li>
+          <li data-s="4"><span class="n">4</span><span>The slide 10 engine computes what existing outlets would lose: the cannibalisation factor.</span></li>
           <li data-s="5"><span class="n">5</span><span>The site score weighs the three scores; cannibalisation stays out of it and is deducted in the profit (next slide).</span></li>
         </ol>
         <div class="lg"><span><i style="background:var(--navy)"></i>Existing outlet</span><span><i style="background:var(--red)"></i>Candidate site</span><span><i style="background:#E6DCC8;border-radius:2px"></i>Housing estate</span><span><i style="background:#7E9B82;height:4px;border-radius:1px;vertical-align:2px"></i>MRT line</span></div>
@@ -2320,20 +2798,20 @@ aside.notes{display:none}
         <div class="row" data-s="3" data-sc="delivery"><div><h4>Delivery demand score<span class="src">hand-set</span></h4><p>Orders from the area on third-party delivery apps.</p>
           <p class="nt">All Chagee delivery goes through third-party apps (anonymous Chagee source, to confirm), so we use area demand, not "served from a farther outlet". Whether the platforms share this data is to confirm.</p></div><div class="bar"><i style="width:{{x.score_delivery}}%"></i><input class="screenonly" type="range" min="0" max="{{x.score_max}}" step="1" value="{{x.score_delivery}}" aria-label="Delivery demand score"></div><div class="val">{{x.score_delivery}}</div></div>
         <div class="row" data-s="3" data-sc="competition"><div><h4>Competition score<span class="src">hand-set</span></h4><p>Bubble-tea and cafe outlets within {{x.competition_radius_m}} m; dense competition lowers the score, a few prove demand.</p></div><div class="bar"><i style="width:{{x.score_competition}}%"></i><input class="screenonly" type="range" min="0" max="{{x.score_max}}" step="1" value="{{x.score_competition}}" aria-label="Competition score"></div><div class="val">{{x.score_competition}}</div></div>
-        <div class="row neg" data-s="4" data-sc="cannibal"><div><h4>Cannibalisation factor<span class="src">computed · slide 09 engine</span></h4><p class="cw">The share of the site's cups that existing Chagee outlets would lose, deducted so the result is net to Chagee.</p></div><div class="bar"><i style="width:{{x.moved_share|pct}}"></i></div><div class="val">{{s.x_cannibal}}</div></div>
+        <div class="row neg" data-s="4" data-sc="cannibal"><div><h4>Cannibalisation factor<span class="src">computed · slide 10 engine</span></h4><p class="cw">The share of the site's cups that existing Chagee outlets would lose, deducted so the result is net to Chagee.</p></div><div class="bar"><i style="width:{{x.moved_share|pct}}"></i></div><div class="val">{{s.x_cannibal}}</div></div>
         <div class="row tot" data-s="5"><div><h4>Site score<span class="src">weighted</span><span class="src sv"></span></h4><p>Demand {{x.w_demand|pct}}, delivery {{x.w_delivery|pct}}, competition {{x.w_competition|pct}} (hand-set weights).</p></div><div class="bar"><i style="width:{{x.site_score}}%"></i></div><div class="val">{{x.site_score}}</div></div>
       </div>
     </div>
     <div class="revctl screenonly" style="top:8px"><span class="lab">Step through</span><span class="ctl"></span></div>
     <div class="xstrip" data-s="2"><span class="lab">Attributes the model tags to each pin</span><span>residents and workers within {{x.residents_radius_km}} km · MRT and bus tap-ins · footfall · delivery orders from the area · competing outlets within {{x.competition_radius_m}} m · Chagee outlets within {{x.ring_km}} km · rent per sq ft · staff needed at peak</span></div>
-    <p class="xai" data-s="5"><b>What is AI here</b><span>Scoring a pin from its attributes would be a supervised model trained on outlets' results: a production idea. Here the three scores are set by hand, and the cannibalisation factor is computed by the slide 09 engine on synthetic data. The next slide runs the supervised model.</span></p>
+    <p class="xai" data-s="5"><b>What is AI here</b><span>Scoring a pin from its attributes would be a supervised model trained on outlets' results: a production idea. Here the three scores are set by hand, and the cannibalisation factor is computed by the slide 10 engine on synthetic data. The next slide runs the supervised model.</span></p>
     <p class="xill">Illustrative. Synthetic data, not Chagee data. Chagee's opening history is internal and we do not have it.</p>
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · explainer figures are illustrative assumptions · synthetic data, not Chagee data</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes">
     <p>An extension: where this scales next, and not part of the benefit figure. The decision owner here is the expansion manager. This builds on Jin's site-selection framework.</p>
     <p>Step through it. Corporate drops a pin; the model tags its attributes; three scores follow. Demand, delivery demand and competition are set by hand here, and you can drag a bar to test another value: in production, a supervised model would score them. We call the second one delivery demand, not delivery relief, because all Chagee delivery runs through third-party apps, according to an anonymous Chagee source; whether the platforms share this data is to confirm.</p>
-    <p>The cannibalisation factor is computed by the same engine as slide 09: about {{x.moved_share|pct}} of site A's cups would move from existing outlets. Switch to the pin with an outlet inside the ring, or the one beside an outlet, and watch it jump. All synthetic. About thirty-five seconds.</p>
+    <p>The cannibalisation factor is computed by the same engine as slide 10: about {{x.moved_share|pct}} of site A's cups would move from existing outlets. Switch to the pin with an outlet inside the ring, or the one beside an outlet, and watch it jump. All synthetic. About thirty-five seconds.</p>
   </aside>
 </section>
 
@@ -2350,7 +2828,7 @@ aside.notes{display:none}
         <div class="smf" data-s="2"></div>
         <div class="visual smviz" style="margin-top:6px"><svg class="smsvg" viewBox="0 0 280 176" preserveAspectRatio="xMidYMid meet" aria-label="Each outlet's cups a day against the model's prediction when that outlet is held out"></svg><svg class="smcity" data-s="4" viewBox="0 0 280 176" preserveAspectRatio="xMidYMid meet" aria-label="A hypothetical new city: the model's forecast at every spot and the sites it picks"></svg></div>
         <ol class="caps" style="min-height:36px">
-          <li data-s="1"><span class="n">1</span><span>Training data: each Singapore outlet's cups a day is the label (synthetic, from the slide 09 engine).</span></li>
+          <li data-s="1"><span class="n">1</span><span>Training data: each Singapore outlet's cups a day is the label (synthetic, from the slide 10 engine).</span></li>
           <li data-s="2"><span class="n">2</span><span>Inputs: attributes at each outlet. Click to switch one off; the bar shows how much it moves the forecast.</span></li>
           <li data-s="3"><span class="n">3</span><span>Test: each outlet is predicted by a model trained on the others. Dots on the line are perfect forecasts.</span></li>
           <li data-s="4"><span class="n">4</span><span>New city, no Chagee data: only the inputs it has. The model scores every spot and picks the best, at least {{x.ring_km}} km apart. Click the map to test a spot.</span></li>
@@ -2362,12 +2840,12 @@ aside.notes{display:none}
       </div>
     </div>
     <div class="revctl screenonly" style="top:8px"><span class="lab">Step through</span><span class="ctl"></span></div>
-    <p class="xai" data-s="4" style="margin-top:8px"><b>What is AI here</b><span>Supervised learning (ridge regression) from site attributes to cups a day. The labels are the slide 09 engine's synthetic outlets, so the fit flatters; Chagee's real opening history would fit worse. Using Singapore to score another market assumes its customers behave alike: check against the first outlets' actuals.</span></p>
+    <p class="xai" data-s="4" style="margin-top:8px"><b>What is AI here</b><span>Supervised learning (ridge regression) from site attributes to cups a day. The labels are the slide 10 engine's synthetic outlets, so the fit flatters; Chagee's real opening history would fit worse. Using Singapore to score another market assumes its customers behave alike: check against the first outlets' actuals.</span></p>
     <p class="xill">Illustrative. Synthetic data, not Chagee data. Chagee's opening history is internal and we do not have it.</p>
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · explainer figures are illustrative assumptions · synthetic data, not Chagee data</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes">
-    <p>This is the model behind step three of the framework, actually running. It learns cups a day from a site's attributes, trained on Singapore's {{x.sm_n}} outlets. The labels are synthetic, from the slide 09 engine, so read it as the method, not a forecast.</p>
+    <p>This is the model behind step three of the framework, actually running. It learns cups a day from a site's attributes, trained on Singapore's {{x.sm_n}} outlets. The labels are synthetic, from the slide 10 engine, so read it as the method, not a forecast.</p>
     <p>We test it fairly: each outlet is predicted by a model that never saw it. With every input, it misses by about {{x.sm_all_mae}} cups a day on average. Now the proxy for a new market: there is no Chagee app history and no outlet network yet, so switch those inputs off. With only population and distance to a town centre, the error grows to about {{x.sm_nm_mae}} cups a day, still better than guessing the average outlet, about {{x.sm_none_mae}}.</p>
     <p>Then the point of it: where to open in a place with no local data. The right-hand map is a hypothetical city, generated at the same density as our Singapore data. With only the inputs that city has, the model scores every spot and picks the best sites at least {{x.ring_km}} km apart, so they do not take sales from each other. Each pick shows its forecast with the error band, and whether it clears break-even at Singapore costs, which stand in until local costs are known. Picks beyond what the model saw in Singapore are flagged. So the model can travel, but only on inputs the new market has, with wide ranges: pilot the top site first and recheck the model against its actuals. That is the continual-learning step on the next slide. About fifty seconds.</p>
   </aside>
@@ -2454,20 +2932,20 @@ aside.notes{display:none}
               <path d="M146 148 C 70 110, 64 250, 144 220" fill="none" stroke="#2F6B45" stroke-width="2.4" stroke-dasharray="6 4" marker-end="url(#nfG)"/>
               <text x="14" y="94" font-size="11" font-weight="700" fill="#2F6B45" letter-spacing=".1em">① FRIENDS + · squads</text>
               <text x="14" y="110" font-size="11.5" fill="#262626">friends on the app make</text>
-              <text x="14" y="124" font-size="11.5" fill="#262626">joining worth more · slides 05–06</text>
+              <text x="14" y="124" font-size="11.5" fill="#262626">joining worth more · appendix</text>
             </g>
             <g class="fx" data-fx="congest" data-s="4">
               <path d="M178 244 C 170 266, 172 270, 170 276" fill="none" stroke="#B8322B" stroke-width="2" stroke-dasharray="3 3"/>
               <rect x="14" y="276" width="320" height="64" rx="8" fill="#FBEDEC" stroke="#B8322B"/>
               <text x="28" y="296" font-size="11" font-weight="700" fill="#B8322B" letter-spacing=".1em">② CONGESTION − same side</text>
               <text x="28" y="314" font-size="11.5" fill="#262626">At the peak, each extra customer lengthens</text>
-              <text x="28" y="330" font-size="11.5" fill="#262626">everyone's wait → walk-aways <tspan fill="#B8322B">slides 07–08</tspan></text>
+              <text x="28" y="330" font-size="11.5" fill="#262626">everyone's wait → walk-aways <tspan fill="#B8322B">slides 08–09</tspan></text>
             </g>
             <g class="fx" data-fx="cannibal" data-s="5">
               <path d="M634 148 C 712 110, 718 250, 636 220" fill="none" stroke="#24406B" stroke-width="2.4" marker-end="url(#nfN)"/>
               <rect x="430" y="276" width="336" height="64" rx="8" fill="#EEF1F7" stroke="#24406B"/>
               <text x="444" y="296" font-size="11" font-weight="700" fill="#24406B" letter-spacing=".1em">③ CANNIBALISATION − same side</text>
-              <text x="752" y="296" text-anchor="end" font-size="10.5" fill="#24406B">slides 09–10</text>
+              <text x="752" y="296" text-anchor="end" font-size="10.5" fill="#24406B">slides 10–11</text>
               <text x="444" y="314" font-size="11.5" fill="#262626">A new outlet takes cups from nearby outlets</text>
               <text x="444" y="330" font-size="11.5" fill="#262626">("more sellers, more competition")</text>
             </g>
@@ -2479,20 +2957,20 @@ aside.notes{display:none}
         </div>
         <ol class="caps" style="min-height:38px">
           <li data-s="1"><span class="n">1</span><span>Customers buy from Chagee's outlets through every channel: a pipeline sale, not a match between two sides.</span></li>
-          <li data-s="2"><span class="n">2</span><span>Part one grows a same-side plus: with squads, each friend on the app makes joining worth more to the others. Slides 05 and 06 model it.</span></li>
+          <li data-s="2"><span class="n">2</span><span>Part one grows a same-side plus: with squads, each friend on the app makes joining worth more to the others. The squad slides in the appendix model it.</span></li>
           <li data-s="3"><span class="n">3</span><span>The data loop, and why we chose Chagee: its sales run through the app, so more app use gives more search and order data, and the forecast and site pick get sharper.</span></li>
-          <li data-s="4"><span class="n">4</span><span>Part two caps congestion, the same-side minus: at the peak, each extra customer adds to everyone's wait (slides 07 and 08). Pick a day type on the right.</span></li>
-          <li data-s="5"><span class="n">5</span><span>Part three caps cannibalisation: a new outlet takes cups from its neighbours, so slide 09 counts cups added, not sold. Switch the site on the right.</span></li>
+          <li data-s="4"><span class="n">4</span><span>Part two caps congestion, the same-side minus: at the peak, each extra customer adds to everyone's wait (slides 08 and 09). Pick a day type on the right.</span></li>
+          <li data-s="5"><span class="n">5</span><span>Part three caps cannibalisation: a new outlet takes cups from its neighbours, so slide 10 counts cups added, not sold. Switch the site on the right.</span></li>
           <li data-s="6"><span class="n">6</span><span>Cross-side effects live on others' platforms: delivery apps and malls. Not our lever.</span></li>
         </ol>
       </div>
       <div class="cards nfc" style="gap:5px">
-        <div class="bc phys" data-fx="grow" data-s="2"><div class="k">① Grow · part one · slides 05 and 06</div><h4>Make friends worth more, feed the data loop</h4>
+        <div class="bc phys" data-fx="grow" data-s="2"><div class="k">① Grow · part one · squads, appendix</div><h4>Make friends worth more, feed the data loop</h4>
           <p>Squads: friends taking part raise the features' value (not AI). <b>Why Chagee:</b> app-first and member-led: <b>{{facts.registered_members_jun2026|mn}}</b> members group-wide; repeat members place <b>more than {{facts.repeat_member_order_share|pct}}</b> of orders <span class="flag">(earnings call, Aug 2026; SG to confirm)</span>.</p></div>
-        <div class="bc warn" data-fx="congest" data-s="4"><div class="k">② Cap · part two · slides 07 and 08</div><h4>Absorb the peak crowd</h4>
+        <div class="bc warn" data-fx="congest" data-s="4"><div class="k">② Cap · part two · slides 08 and 09</div><h4>Absorb the peak crowd</h4>
           <p class="nfcopy printonly">Forecast crew plus a bucket brigade: event-day walk-aways <b>{{r.lost_normal_roster|pct}}</b> → <b>{{r.lost_brigade|pct1}}</b>.</p>
           <div class="nfw screenonly"><span class="nfday"></span><div class="nfbars"></div></div></div>
-        <div class="bc" data-fx="cannibal" data-s="5"><div class="k">③ Cap · part three · slides 09–10</div><h4>Count cups added, not sold</h4>
+        <div class="bc" data-fx="cannibal" data-s="5"><div class="k">③ Cap · part three · slides 10–11</div><h4>Count cups added, not sold</h4>
           <p class="nfcopy2 printonly">Of {{r.top_cups}} cups at the new site, <b>{{r.top_moved}}</b> move from nearby outlets. The score subtracts them.</p>
           <div class="nfw screenonly"><span class="seg nfsite"></span><div class="nfstack"></div></div></div>
         <div class="bc nfnot" data-fx="cross" data-s="6"><div class="k">Not our lever</div>
@@ -2505,7 +2983,7 @@ aside.notes{display:none}
   <div class="foot"><span>OPIM639 · Group 3 · explainer figures are illustrative assumptions · synthetic data</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes">
     <p>This is how the three parts use network effects. A lens from the course: on eBay, buyers and sellers attract each other, a cross-side effect. Chagee is not that, in our reading: it sells its own tea, so customers to outlets is a pipeline sale. Its network effects sit on the customer side.</p>
-    <p>Two we grow, in part one. Friends: with squads, each friend on the app makes joining worth more to the others; slides 05 and 06 model that with an effort score and test whether it pays. That part is analytics and product design, not AI. And the data loop: more app use gives more search and order data, so the forecast and the site pick get sharper. That is why we chose Chagee: on its second-quarter 2026 call it reported {{facts.registered_members_jun2026|mn}} registered members, and members with two or more purchases placed more than {{facts.repeat_member_order_share|pct}} of orders. Group-wide figures; Singapore's app share is to confirm.</p>
+    <p>Two we grow, in part one. Friends: with squads, each friend on the app makes joining worth more to the others; the squad slides in the appendix model that with an effort score and test whether it pays. That part is analytics and product design, not AI. And the data loop: more app use gives more search and order data, so the forecast and the site pick get sharper. That is why we chose Chagee: on its second-quarter 2026 call it reported {{facts.registered_members_jun2026|mn}} registered members, and members with two or more purchases placed more than {{facts.repeat_member_order_share|pct}} of orders. Group-wide figures; Singapore's app share is to confirm.</p>
     <p>Two we cap. Part two, congestion: at the peak every extra customer lengthens everyone's wait; a normal-day roster on an event day loses about {{r.lost_normal_roster|pct}} of peak-hour orders, and a forecast crew with a bucket brigade brings it to about {{r.lost_brigade|pct1}}. Part three, cannibalisation: a new outlet takes cups from its neighbours; of {{r.top_cups}} cups at the app-search site, {{r.top_moved}} move from nearby outlets.</p>
     <p>Cross-side effects exist, but on others' platforms, delivery apps and malls: not our lever. And we do not carry any modelled membership uplift into the counter or outlet numbers; each part stands on its own assumptions. About fifty seconds.</p>
   </aside>
