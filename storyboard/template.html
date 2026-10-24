@@ -131,6 +131,74 @@ html,body{margin:0;background:#E7E3DC;color:var(--ink);font-family:var(--sans);-
 .node .data{margin-top:8px;display:flex;flex-direction:column;gap:5px;align-items:center;width:100%}
 .node .dlab{font:600 9.5px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#7A6432;margin-top:6px}
 .node .src{font:10.5px var(--sans);color:var(--taupe);margin-top:6px}
+/* slides 03 and 04: one statement, a lede line, few words (after the Week 8 intro slides) */
+.slide.content .lede{margin:10px 0 0;font:400 19px/1.35 var(--sans);color:var(--ink2)}
+.slide.content .lede b{color:var(--navy)}
+.srcm{font-size:.78em;color:var(--taupe)}
+.slide.content .sub.lede{font-style:normal}
+/* slide 03: emblem beside the two cards */
+#intro .pair{grid-template-columns:150px 1fr 1.3fr;align-items:stretch;margin-top:20px}
+#intro .emb{align-self:center}
+#intro .emb img{width:150px;height:auto;display:block;filter:drop-shadow(0 10px 18px rgba(184,50,43,.18))}
+#intro .tcard{padding:18px 24px 20px}
+#intro .tcard .tl{margin:0;font:500 26px/1.1 var(--serif);letter-spacing:0;text-transform:none;color:var(--navy)}
+#intro .tcard .stmt{font:500 19px/1.3 var(--sans);color:var(--ink)}
+#intro .tcard p{font-size:15.5px}
+#intro .why4{font-size:15.5px;gap:4px}
+/* slide 03: farm to cup; circles and arrows, the downstream steps in a soft zone with their data tags */
+.flow{margin:auto 0}
+.ftitle{font:600 11px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#4A6699;text-align:center}
+.ftitle span{color:var(--red)}
+.intro-chain{height:auto;margin-top:14px;gap:28px}
+#intro .intro-chain{position:relative;padding:14px 0 12px}
+#intro .intro-chain::before{content:"";position:absolute;z-index:0;top:0;bottom:0;left:calc((100% - 112px) * .4 + 60px);right:0;border-radius:22px;background:#FEF8F6;border:1px solid #F5E1DC}
+#intro .intro-chain .node{z-index:1}
+.intro-chain .node .ic{width:72px;height:72px}
+.intro-chain .node .ic svg{width:34px;height:34px}
+.intro-chain .node:not(:last-child)::after{content:"";position:absolute;right:-26px;top:29px;width:24px;height:14px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 14'%3E%3Cpath d='M1 7 H21 M15 1.5 L21.5 7 L15 12.5' fill='none' stroke='%239AA9C4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain}
+.intro-chain .node.up{opacity:.5}
+.intro-chain .node h5{font-size:17px;margin-top:9px}
+.intro-chain .node .what{min-height:0;font-size:13.5px}
+.intro-chain .c-app .ic{border-color:#D99A93;box-shadow:0 0 0 6px #FBEDEC}
+.intro-chain .c-out .ic{border-color:var(--red);box-shadow:0 0 0 6px #F8DEDB}
+.intro-chain .c-mile .ic{border-color:#7FA88B;box-shadow:0 0 0 6px #E4EFE7}
+.dtag{margin-top:8px;padding:3px 11px;border-radius:999px;font:600 11px/1.3 var(--sans);background:#FBEDEC;color:var(--red)}
+.dtag.up{background:none;border:1px dashed #CFC8BB;color:var(--taupe);font-weight:500}
+#intro .takeaway{margin-top:18px}
+.focusbar{display:grid;grid-template-columns:2fr 3fr;gap:12px;margin-top:20px;font:600 10.5px/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;text-align:center}
+.focusbar span{padding:6px 8px;border-radius:999px}
+.focusbar .up{color:var(--taupe);border:1px dashed var(--line)}
+.focusbar .dn{color:var(--red);background:#FBEDEC}
+.pair{display:grid;grid-template-columns:1fr 1.25fr;gap:22px;margin-top:auto}
+.tcard{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px 24px;display:flex;flex-direction:column;gap:8px;font:15px/1.45 var(--sans);color:var(--ink2)}
+.tcard p{margin:0}
+.tcard .tl{font:600 11px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#4A6699}
+.tcard .stmt{font:500 22px/1.25 var(--serif);color:var(--ink)}
+.why4{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:5px}
+.why4 li::marker{color:var(--red);font-weight:700}
+.why4 b{color:var(--ink)}
+/* slide 04: case-study persona, the framing line, the three problems and three proposal slots */
+.es-case{display:grid;grid-template-columns:88px 300px 1fr;gap:22px;align-items:center;margin-top:18px;padding:14px 26px 14px 16px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);position:relative}
+.es-case::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:4px;border-radius:0 4px 4px 0;background:var(--red)}
+.es-av svg{width:88px;height:88px;display:block}
+.es-who{display:flex;flex-direction:column;gap:2px;padding-right:18px;border-right:1px solid var(--line)}
+.es-tag{align-self:flex-start;margin-bottom:4px;padding:2px 9px;border-radius:999px;background:#FBEDEC;color:var(--red);font:700 9.5px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.es-who b{font:500 24px/1.1 var(--serif);color:var(--navy)}
+.es-role{font:600 13px/1.3 var(--sans);color:var(--ink)}
+.es-anon{font:11px/1.3 var(--sans);color:var(--taupe)}
+.es-learn{margin:0;font:400 16.5px/1.5 var(--sans);color:var(--ink2)} .es-learn b{color:var(--navy)}
+.es-frame{display:flex;align-items:center;justify-content:center;gap:12px;margin:18px 0 10px;font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.es-frame .ch{color:var(--navy)} .es-frame .dp{color:var(--red)} .es-frame .plus{color:var(--taupe);font-size:16px}
+.es-grid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto 1fr;gap:12px 20px}
+.es-box{position:relative;background:#fff;border:1px solid var(--line);border-top:4px solid var(--navy);border-radius:16px;box-shadow:var(--shadow);padding:14px 20px 16px}
+.es-box.k1{border-top-color:#3D5C8F} .es-box.k2{border-top-color:#3D5C8F} .es-box.k3{border-top-color:var(--red);background:#FFFBFA}
+.es-box h5{margin:4px 0 6px;font:500 24px/1.15 var(--serif);color:var(--ink)}
+.es-box p{margin:0;font:14.5px/1.45 var(--sans);color:var(--ink2)}
+.es-lab{font:700 10px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#4A6699}
+.es-box.k3 .es-lab{color:var(--red)}
+.es-box::after{content:"";position:absolute;left:50%;bottom:-13px;width:12px;height:12px;margin-left:-6px;border-right:2px solid #C9C2B6;border-bottom:2px solid #C9C2B6;transform:rotate(45deg) scale(.7)}
+.es-slot{border:1.5px dashed #D6CFC2;border-radius:16px;background:#FCFBF8;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
+.es-tbd{font:italic 14px/1.4 var(--sans);color:var(--taupe)}
 
 /* 03 data matrix */
 .mx{display:grid;grid-template-columns:136px repeat(4,1fr);gap:3px 6px;font:12px/1.22 var(--sans)}
@@ -868,6 +936,63 @@ aside.notes{display:none}
   body.printnotes .notespage{display:block!important;position:relative;width:1280px;height:720px;page-break-after:always;padding:60px 90px;font:19px/1.6 var(--sans);color:var(--ink2)}
   .notespage h6{font:600 13px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:0 0 14px}
 }
+/* slide 05: the phone dressed like the real Chagee app (white screens, emblem and wordmark, bold caps titles with a red
+   underline, cream cards, red accents, the Home · Menu · Orders · Me tab bar) */
+:root{--emb:url({img:emblem})}
+.phone{background:#E9E6E1;box-shadow:0 14px 30px rgba(30,36,48,.18),inset 0 0 0 2px #D6D1C8}
+.phone .notch{background:#E9E6E1}
+.phone .scr{background:#fff;display:flex;flex-direction:column}
+.scr .scroll{flex:1;min-height:0;overflow:hidden;position:relative}
+.scr .bar{color:#111}
+.scr .hd{background:#fff;color:#111;padding:4px 14px 2px}
+.scr .hd .brand{display:flex;align-items:center;gap:6px;font:800 12px/1 var(--sans);letter-spacing:.32em;color:#111;margin-bottom:4px}
+.scr .hd .emb{width:20px;height:20px;background:var(--emb) no-repeat center/contain}
+.scr .hd small{color:#8A8A8A;opacity:1;font-size:9.5px}
+.scr .hd h3{font:800 14px/1.2 var(--sans);text-transform:uppercase;letter-spacing:.02em;color:#111;margin-top:2px}
+.scr .hd h3::after{content:"";display:block;width:22px;height:3px;border-radius:2px;background:#E60012;margin-top:3px}
+.scr .crd{background:#F7F1E8;border:0;border-radius:10px;margin-bottom:5px}
+#m2 .scr .bd{padding:6px 11px}
+#m2 .scr .crd{padding:5px 10px;margin-bottom:4px}
+#m2 .scr .avs .av{width:24px;height:24px;font-size:10px}
+#m2 .scr .cta{margin-top:4px;padding:7px}
+.scr .crd.sel{box-shadow:0 0 0 2px #E60012} .scr .crd.sug{background:#FFF;border:1.5px solid #F2D7A6}
+.scr .prog{background:#EADFCB} .scr .prog i{background:#E60012} .scr .prog i.sq{background:#E60012}
+.scr .cta{background:#E60012;border-radius:999px}
+.scr .cta.ghost{background:#fff;color:#111;border:1.5px solid #111}
+.scr .cta[disabled]{background:#E3DED6}
+.scr .mini.on{background:#111;border-color:#111}
+.scr .tag{background:#F2E7D6;color:#7A5A2B} .scr .tag.ai{background:#FDE7E8;color:#C4000F}
+.scr .chip.on{background:#FDE7E8;border-color:#E60012;color:#111}
+.scr .sheet{bottom:0}
+.scr .tabs{flex:none;display:flex;justify-content:space-around;padding:5px 6px 8px;border-top:1px solid #EEE;background:#fff}
+.scr .tabs span{display:flex;flex-direction:column;align-items:center;gap:1px;font:500 8.5px var(--sans);color:#9A9A9A}
+.scr .tabs svg{width:15px;height:15px;fill:none;stroke:#9A9A9A;stroke-width:1.7;stroke-linejoin:round}
+.scr .tabs .on{color:#E60012} .scr .tabs .on svg{stroke:#E60012}
+/* ---------------------------------------------------------------- clean theme (after the Week 8 deck's intro slides):
+   quiet navy kicker, one big navy headline, white cards with a soft shadow, a faint tea-wash band under the
+   engraved leaves, and less chrome on the main slides. Remove this block to return to the original look. */
+:root{--shadow:0 1px 2px rgba(0,0,0,.04),0 14px 34px -14px rgba(36,64,107,.22); --wash:#FAF8F3}
+.slide.content{background:linear-gradient(180deg,var(--wash) 0,#fff 120px)}
+.slide.content .kicker{font:600 12px/1.2 var(--sans);letter-spacing:.16em;color:#4A6699;margin:0 0 10px}
+.slide.content .head{font:500 42px/1.08 var(--serif);color:var(--navy);letter-spacing:-.01em;max-width:1000px}
+.slide.content .sub{font-size:16px;color:#7A756C}
+.slide.content .panel{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.slide.content .bc{border-radius:12px;border:1px solid var(--line);border-left:4px solid var(--navy);box-shadow:var(--shadow)}
+.slide.content .bc.phys{border-left-color:#2F6B45} .slide.content .bc.warn{border-left-color:var(--red)}
+.slide.content .rec3 .c{border-radius:16px;border:1px solid var(--line);border-top:4px solid var(--navy);box-shadow:var(--shadow)}
+.slide.content .mdec{border-radius:14px;box-shadow:var(--shadow)}
+.slide.content .bprob{background:transparent;border-left:3px solid var(--red);border-radius:0;padding:2px 0 2px 14px;font-size:14px}
+.slide.content .bprob>b{color:var(--red)}
+/* takeaway: a light card with navy text, not a heavy bar */
+.slide.content .takeaway{background:#fff;color:var(--navy);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:14px;box-shadow:var(--shadow);font-size:16px;font-weight:500}
+.slide.content .takeaway .lab{color:var(--red);border-right-color:var(--line)}
+.slide.content .takeaway b{color:var(--navy)}
+.slide.content .rail span.cur{color:var(--navy);font-weight:700}
+/* main slides: drop the navigation chrome (stage pills, course-link tags, "Next" lines); kept in the appendix */
+.slide.content:not([data-chapter="Appendix"]) .kicker .stg,
+.slide.content:not([data-chapter="Appendix"]) .kicker .ctag,
+.slide.content:not([data-chapter="Appendix"]) .nextl{display:none}
+#c9 > .inner > .vs{display:none}            /* slide 12: the baseline/scenario bar repeats the bars; its figures are in the notes and the appendix */
 </style>
 </head>
 <body>
@@ -900,16 +1025,11 @@ aside.notes{display:none}
   <div class="inner">
     <h2>Agenda</h2>
     <ol>
-      <li data-go="c1"><span class="no">01</span><span class="nm">Chagee in Singapore<span class="why">Company-owned outlets, one counter</span></span></li>
-      <li data-go="c2"><span class="no">02</span><span class="nm">From farm to cup<span class="why">Supply is planned; the counter is not</span></span></li>
-      <li data-go="c3"><span class="no">03</span><span class="nm">The data trail<span class="why">What is recorded, what is to confirm</span></span></li>
-      <li data-go="c4"><span class="no">04</span><span class="nm">Our scope<span class="why">Grow demand → serve demand → expand access</span></span></li>
-      <li data-go="m1"><span class="no">05–08</span><span class="nm">Grow demand<span class="why">Membership, squads and personalisation · CRM manager</span></span></li>
-      <li data-go="o1"><span class="no">09–12</span><span class="nm">Serve demand<span class="why">Forecast, bucket brigade, machines · operations manager</span></span></li>
-      <li data-go="c5"><span class="no">13–14</span><span class="nm">Expand access<span class="why">Where a new outlet adds customers · expansion manager</span></span></li>
-      <li data-go="rc"><span class="no">15</span><span class="nm">Our recommendation<span class="why">Three managers, three pilots</span></span></li>
-      <li data-go="tc"><span class="no">+</span><span class="nm">Optional extension <span class="ext sm">After the close</span><span class="why">A new market: Australia</span></span></li>
-      <li data-go="ax"><span class="no">+</span><span class="nm">Appendix<span class="why">Derivations, tables, sources and earlier analyses</span></span></li>
+      <li data-go="intro"><span class="no">03–04</span><span class="nm">Introduction<span class="why">Chagee Singapore, our scope and the executive summary</span></span></li>
+      <li data-go="m2"><span class="no">05–10</span><span class="nm">Three proposals<span class="why">Grow demand · serve demand · expand access</span></span></li>
+      <li data-go="rc"><span class="no">11–12</span><span class="nm">Execution and impact<span class="why">Execution steps and financial impact</span></span></li>
+      <li data-go="qa"><span class="no">13</span><span class="nm">Q&amp;A</span></li>
+      <li data-go="ax"><span class="no">+</span><span class="nm">Appendix<span class="why">Earlier slides, derivations, tables, sources and the Australia extension</span></span></li>
     </ol>
   </div>
   <div class="cups">
@@ -921,14 +1041,438 @@ aside.notes{display:none}
     <img src="{img:cup_red}" style="left:265px;top:130px;width:118px" alt="">
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · Chagee Singapore</span><span class="pg"></span></div>
-  <aside class="notes"><p>Four slides of context and scope, then three chapters, each with the same shape: the business problem, a demonstration, and the manager's decision. Grow demand, for the CRM manager; serve demand, for the operations manager; expand access, for the expansion manager. Then one recommendation slide. The Australia extension and the appendix come after the close, for questions. Click any line to jump there.</p></aside>
+  <aside class="notes"><p>Not presented: go straight from the title to the introduction. For reference: the introduction and executive summary, three proposals of two slides each (grow demand for the CRM manager, serve demand for the operations manager, expand access for the expansion manager), then execution steps, financial impact and Q&amp;A. Earlier slides, the Australia extension and the detail sit in the appendix. Click any line to jump there.</p></aside>
 </section>
 
-<!-- ======================================================= 01 CHAGEE IN SINGAPORE -->
-<section class="slide content" id="c1" data-chapter="Context" data-title="Chagee in Singapore">
+<!-- ======================================================= 03 CHAGEE SINGAPORE AND OUR SCOPE (merges the old 01, 02 and 04) -->
+<section class="slide content" id="intro" data-chapter="Introduction" data-title="Chagee Singapore and our scope">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">01 · Chagee in Singapore</p>
+    <p class="kicker">03 · Introduction</p>
+    <h2 class="head">Today, we're presenting Chagee</h2>
+    <p class="sub lede">A tea brand most of you know: order in the app, collect at the counter.</p>
+    <div class="pair">
+      <div class="emb"><img src="{img:emblem}" alt="Chagee"></div>
+      <div class="tcard"><h4 class="tl">Our scope</h4>
+        <p class="stmt">Chagee Singapore's management and its customers</p>
+        <p>Outlets are <b>company-owned, not franchised</b>, so the counter, roster and equipment are Chagee's own calls.</p></div>
+      <div class="tcard"><h4 class="tl">Why Chagee?</h4>
+        <ol class="why4">
+          <li><b>One company, one data system</b>, with lots of data <span class="golink" data-go="adata">appendix</span></li>
+          <li><b>App-first</b>: it collects personal and transactional data</li>
+          <li><b>Fast-growing, playful</b>: rich order data, room for AI</li>
+          <li><b>An insider's view</b>: we interviewed a staff member <span class="src tip" tabindex="0" style="display:inline" data-tip="A Chagee staff member in the Membership Operations APAC team, who declined to be cited openly.">(anonymous <span class="ti screenonly">ⓘ</span>)</span></li>
+        </ol></div>
+    </div>
+    <div class="flow">
+      <div class="ftitle">From farm to cup <span>· our project focus is downstream</span></div>
+      <div class="chain intro-chain">
+        <div class="node up"><div class="ic"><svg viewBox="0 0 32 32"><path d="M6 26 C6 12 16 6 27 5 C26 17 20 26 6 26 Z"/><path d="M6 26 L18 14"/></svg></div>
+          <h5>Source</h5><div class="what">Yunnan tea; local milk and fruit</div><span class="dtag up">planned ahead</span></div>
+        <div class="node up"><div class="ic"><svg viewBox="0 0 32 32"><path d="M4 13 L16 6 L28 13 V27 H4 Z"/><path d="M10 27 V18 H22 V27 M10 22 H22"/></svg></div>
+          <h5>Warehouse</h5><div class="what">Restocking from forecasts</div><span class="dtag up">planned ahead</span></div>
+        <div class="node now c-app"><div class="ic"><svg viewBox="0 0 32 32"><rect x="10" y="3" width="12" height="26" rx="2.5"/><path d="M14 25 H18"/></svg></div>
+          <h5>Chagee App</h5><div class="what">Order ahead</div><span class="dtag">orders · members</span></div>
+        <div class="node now c-out"><div class="ic"><svg viewBox="0 0 32 32"><path d="M5 12 H27 L25 6 H7 Z"/><path d="M6 12 V27 H26 V12 M13 27 V19 H19 V27"/></svg></div>
+          <h5>Outlets</h5><div class="what">Make and hand over</div><span class="dtag">cups by the hour</span></div>
+        <div class="node now c-mile"><div class="ic"><svg viewBox="0 0 32 32"><circle cx="8" cy="23" r="4"/><circle cx="25" cy="23" r="4"/><path d="M8 23 H16 L20 13 H25 L25 23 M13 13 H20"/></svg></div>
+          <h5>Last mile</h5><div class="what">Self-collect or Grab</div><span class="dtag">orders by channel</span></div>
+      </div>
+    </div>
+    <div class="takeaway"><span class="lab">OUR FOCUS</span><span>The downstream operational challenges: some of the most pressing issues for Chagee Singapore's management.</span></div>
+  </div>
+  <div class="foot"><span>OPIM639 · Group 3 · explainer figures are illustrative assumptions</span><span class="rail"></span><span class="pg"></span></div>
+  <aside class="notes">
+    <p>Today we are presenting Chagee: a tea brand most of you know, where you order in the app and collect at the counter.</p>
+    <p>Our scope is Chagee Singapore: its management and its Singapore customers. Singapore outlets are company-owned, not franchised, as our project owner confirmed, so the counter, the roster and the equipment are Chagee's own decisions. If asked about the group: across Chagee worldwide, most FY 2025 net revenue came from franchising, about {{facts.revenue_share_franchise_fy2025|pct}}, from a secondary source; that does not describe Singapore.</p>
+    <p>Why Chagee: one company and one data system with lots of data, by an anonymous Chagee source; an app-first business, whose Form 20-F says it collects personal and transactional data; a fast-growing, playful brand, so likely rich order data and room for AI. And we interviewed a Chagee staff member, who asked not to be named, about the problems they actually face.</p>
+    <p>Now follow one cup from farm to customer. Upstream is planned ahead: tea leaves come from Yunnan through standard channels, only fresh milk and fruit are bought locally (YF Chuhai), and Chagee already plans restocking from forecasts (Form 20-F). Downstream is where the data is: the Chagee app records orders and members, the outlet records cups by the hour, and the last mile records orders by channel, self-collect or third-party delivery such as Grab. Which of these Chagee keeps, and in how much detail, is ours to confirm.</p>
+    <p>So we focus on the downstream operational challenges, some of the most pressing issues for Chagee Singapore's management. That leads into the executive summary. About one minute.</p>
+  </aside>
+</section>
+
+<!-- ======================================================= 04 EXECUTIVE SUMMARY -->
+<section class="slide content" id="es" data-chapter="Summary" data-title="Executive summary">
+  <div class="leafart" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker">04 · Executive summary</p>
+    <h2 class="head">Our business plan to solve Chagee's problem statements</h2>
+    <div class="es-case">
+      <div class="es-av"><svg viewBox="0 0 80 80" aria-label="Illustrated persona">
+        <circle cx="40" cy="40" r="40" fill="#F7F1E8"/>
+        <path d="M18 74 C18 58 28 52 40 52 C52 52 62 58 62 74 Z" fill="#24406B"/>
+        <path d="M34 52 L40 62 L46 52 Z" fill="#fff"/><path d="M38.5 58 L41.5 58 L41 74 L39 74 Z" fill="#B8322B"/>
+        <rect x="35" y="44" width="10" height="9" rx="3" fill="#E9C6A8"/>
+        <path d="M23 36 C21 20 30 13 40 13 C51 13 59 20 57 36 C57 44 55 50 52 52 L52 34 C46 33 38 29 34 24 C32 29 29 32 28 34 L28 52 C25 50 23 44 23 36 Z" fill="#2B2320"/>
+        <ellipse cx="40" cy="35" rx="12" ry="13.5" fill="#F1D3B8"/>
+        <path d="M33 34 Q35 32.5 37 34 M43 34 Q45 32.5 47 34" stroke="#2B2320" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <path d="M36.5 41 Q40 43.5 43.5 41" stroke="#B8322B" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <circle cx="33" cy="38.5" r="2" fill="#F3B9AE" opacity=".7"/><circle cx="47" cy="38.5" r="2" fill="#F3B9AE" opacity=".7"/>
+      </svg></div>
+      <div class="es-who">
+        <span class="es-tag">Case study · our interview</span>
+        <b>“Mei”</b><span class="es-role">Membership Operations · APAC, Chagee</span>
+        <span class="es-anon">Persona: name changed, interviewee anonymised</span>
+      </div>
+      <p class="es-learn">Through the interview, we learnt about Chagee's <b>business model</b>, its <b>local operations</b>, and some of its most <b>pressing concerns and strategic needs</b>, which AI could potentially help solve.</p>
+    </div>
+    <p class="es-frame"><span class="ch">Two key challenges</span><span class="plus">+</span><span class="dp">One strategic decision point</span></p>
+    <div class="es-grid">
+      <div class="es-box k1"><span class="es-lab">Key challenge</span><h5>Online retailing</h5><p>Use data for better sales and cost management: re-route customers at peak, reallocate staff, reduce wastage.</p></div>
+      <div class="es-box k2"><span class="es-lab">Key challenge</span><h5>In-store workflow</h5><p>A faster, smoother counter: shorter waits and a crew matched to demand.</p></div>
+      <div class="es-box k3"><span class="es-lab">Strategic decision</span><h5>New store openings</h5><p>Where to open next, so a store adds customers instead of moving them.</p></div>
+      <div class="es-slot"><span class="es-lab">Proposal 1</span><span class="es-tbd">Details to come</span></div>
+      <div class="es-slot"><span class="es-lab">Proposal 2</span><span class="es-tbd">Details to come</span></div>
+      <div class="es-slot"><span class="es-lab">Proposal 3</span><span class="es-tbd">Details to come</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>OPIM639 · Group 3 · explainer figures are illustrative assumptions</span><span class="rail"></span><span class="pg"></span></div>
+  <aside class="notes">
+    <p>Our business plan starts from Chagee's own problem statements. We interviewed a member of Chagee's Membership Operations team for APAC, shown here as a persona, "Mei": the name is changed and the interviewee asked not to be cited openly.</p>
+    <p>Through the interview, we learnt about Chagee's business model, its local operations, and some of its most pressing concerns and strategic needs, which AI could potentially help solve.</p>
+    <p>We frame them as two key challenges and one strategic decision point. Challenge one, online retailing: using data for better sales and cost management, such as re-routing customers during peak periods, reallocating staff to support, and reducing inventory wastage. Challenge two, in-store workflow: a faster, smoother counter with shorter waits and a crew matched to demand. And the strategic decision: new store openings, where to open next so a store adds customers rather than moving them from nearby outlets.</p>
+    <p>Each one gets a proposal, which we walk through next. About forty-five seconds.</p>
+  </aside>
+</section>
+
+<!-- ======================================================= 06 GROW: THE SQUAD EXPERIENCE -->
+<section class="slide content mb" id="m2" data-chapter="Grow" data-title="The proposed squad experience">
+  <div class="leafart" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker">05 · Proposal 1 · Grow · the squad experience<span class="stg"><b>Grow</b><i>Problem</i><i class="on">Solution</i><i>Decision</i></span></p>
+    <h2 class="head">In the app, friends' orders count for everyone</h2>
+    <p class="bprob"><b>Business problem</b><span>Chagee's Membership Operations team told us the problem they want to solve is <b>moving customers up the membership tiers</b>: customers may not think the effort of progressing is worthwhile.</span></p>
+    <div class="body" style="grid-template-columns:1fr;margin-top:8px">
+      <div class="panel" data-kind="mbapp">
+        <div class="ptop"><span class="ptitle">Proposed experience · illustrative prototype</span><button class="btn hiwb screenonly" data-hiw="m2">How it connects to the model</button><span class="seg mbnav screenonly"></span></div>
+        <div class="mbapp">
+          <ol class="mbjour"></ol>
+          <div class="phone"><div class="notch"></div><div class="scr"></div></div>
+          <div class="mbwhy"></div>
+        </div>
+        <div class="hiw screenonly" data-name="m2"><div class="ptop"><span class="ptitle">How it connects to the model · assumptions to test</span><button class="btn" data-hiwx>✕ Close</button></div>
+          <div class="two"><div><p>Shared benefits are hypothesised to raise <b>k</b>, the value of friends participating. Personalised suggestions, simpler progression or a launch incentive may lower <b>p</b>, the effort. Each member's picks and feedback also become signals (appendix). Not measured effects.</p></div>
+            <div class="mbwsb"><h5>Without squads / with squads</h5><svg class="mbws" viewBox="0 0 260 170" preserveAspectRatio="xMidYMid meet" aria-label="The hump without and with squads, against the same effort"></svg>
+              <label class="mbinc"><input type="checkbox"> add a launch incentive (lower p)</label></div></div></div>
+      </div>
+    </div>
+    <div class="takeaway mbtake"><span class="lab">TAKEAWAY</span><span class="t"></span></div>
+  </div>
+  <div class="foot"><span>OPIM639 · Group 3 · illustrative prototype, not Chagee's rules · nothing real is sent or bought</span><span class="rail"></span><span class="pg"></span></div>
+  <aside class="notes">
+    <p>This is the solution, as an illustrative prototype; the rules are ours, not Chagee's. Two parts, kept apart: squads, a product design, and personalisation, the AI part, which suggests a drink from each member's own choices and lets a gift's recipient choose privately. Click through: a member sees their progress and starts a squad, invites friends, then chooses a drink, with a suggestion they can accept, customise or dismiss and feedback such as not for me. In the shared basket each friend confirms their own drink, and preferences are saved to whoever chose, not whoever paid. When the order is collected everyone's progress moves. Last, gifting: the recipient picks privately from options ranked for them. Those picks and that feedback become demand signals; how they feed the outlet's forecast is in the appendix.</p>
+    <p>Why it matters for the model: our hypothesis is that shared progress raises the value of friends, k, so the hump rises and the tipping point falls, from about {{r.mb_today_lo|pct}} to {{r.mb_squad_lo|pct}} at the default effort. The stalled case is the headline: at a high effort the app never takes off without squads, and with them it can. These are assumptions to test, not measured effects. About thirty seconds.</p>
+  </aside>
+</section>
+
+<!-- ======================================================= 08 GROW: THE CRM MANAGER'S DECISION -->
+<section class="slide content mb" id="m3" data-chapter="Grow" data-title="Pilot squads with personalised suggestions?">
+  <div class="leafart" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker">06 · Proposal 1 · Grow · the CRM manager's decision<span class="stg"><b>Grow</b><i>Problem</i><i>Solution</i><i class="on">Decision</i></span></p>
+    <h2 class="head">Pilot squads only at a reward their extra orders can pay for</h2>
+    <div class="body" style="grid-template-columns:1fr 300px;gap:16px;margin-top:8px">
+      <div class="panel stepper" data-steps="4" data-kind="mbpay">
+        <div class="ptop"><span class="ptitle">Does the reward pay for itself? · after reward and AI costs · illustrative</span><span class="ctl screenonly"></span></div>
+        <div class="visual" style="flex:none"><svg class="mbpay" viewBox="0 0 640 214" preserveAspectRatio="xMidYMid meet" aria-label="Contribution per member a month against additional orders, squads alone and squads with personalised suggestions, with the break-even points"></svg></div>
+        <ol class="caps" style="min-height:30px;margin-top:4px;padding-top:5px">
+          <li data-s="1"><span class="n">1</span><span>With no extra orders the reward is a pure cost: members get the credit on orders they would have placed anyway.</span></li>
+          <li data-s="2"><span class="n">2</span><span>Every extra order that squads create earns money back, so the line rises.</span></li>
+          <li data-s="3"><span class="n">3</span><span>Where the line crosses zero, squads pay for their reward: the pilot's minimum target.</span></li>
+          <li data-s="4"><span class="n">4</span><span>Personalised suggestions cost something to run, so they must add their own extra orders on top.</span></li>
+        </ol>
+      </div>
+      <div class="cards" style="gap:8px">
+        <div class="cset sitectl mbpctl screenonly"></div>
+        <div class="bc printonly mbpctlp"></div>
+        <div class="bc sqhow mbhow"></div>
+      </div>
+    </div>
+    <div class="mdec"><div class="who"><span class="lab">Manager's decision</span><b>CRM manager</b></div>
+      <div><span class="q">Which features and rewards should we pilot?</span>
+        <span class="k">Proposed</span><span class="mbact"></span></div>
+      <div><span class="k">Proceed if, arm against arm</span><ul><li>tier progression and orders rise against today's membership</li><li>satisfaction holds</li>
+        <li>contribution after reward and AI costs is positive</li></ul></div></div>
+    <p class="nextl"><b>Next</b>A more engaging membership must be matched by reliable fulfilment.</p>
+  </div>
+  <div class="foot"><span>OPIM639 · Group 3 · S$ · reward, AI cost and orders are assumptions, not Chagee data · table: appendix</span><span class="rail"></span><span class="pg"></span></div>
+  <aside class="notes">
+    <p>The decision for part one belongs to the CRM manager: which features and rewards should we pilot? The line is the contribution per member a month after the reward, the group-order credit. It starts below zero, because the credit is also paid on orders members would have placed anyway, and rises with each extra order. At a credit of {{x.mb_credit|pct}} squads alone break even at about {{x.mb_be_mid|c2}} extra orders a month at our base margin. Push the credit up to the margin and it never breaks even.</p>
+    <p>Step four adds personalised suggestions. They cost something to run; we assume S${{x.mb_ai|c2}} a member a month, a placeholder to replace with a real quote. That shifts the line down: break-even moves to about {{x.mb_be_ai|c2}} extra orders, so personalisation must add about {{x.mb_ai_hurdle|c2}} orders a month of its own on top of squads.</p>
+    <p>That is why the pilot has three arms: today's membership, squads, and squads with personalised suggestions. Squads against today shows the squad effect; adding suggestions shows the personalisation effect. Proceed only if tier progression rises, satisfaction holds, the extra orders reach these break-evens, and contribution after reward and AI costs is positive. We measure orders directly and do not read purchases off the adoption model. Then the transition: a more engaging membership experience must be matched by reliable fulfilment. About forty-five seconds.</p>
+  </aside>
+</section>
+
+<!-- ======================================================= 09 SERVE: THE PROBLEM AND FORECASTING -->
+<section class="slide content" id="o1" data-chapter="Serve" data-title="Demand moves by the hour">
+  <div class="leafart" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker">07 · Proposal 2 · Serve · forecasting: how many people<span class="stg"><b>Serve</b><i class="on">Problem</i><i class="on">Solution</i><i>Decision</i></span></p>
+    <h2 class="head">A forecast sets the crew each hour needs</h2>
+    <p class="bprob"><b>Business problem</b><span>Demand changes by the hour; staffing and fixed station assignments may not, leaving queues, walk-aways or idle capacity.
+      <span class="ev obs">Observed</span> people deployed on local expertise (Chagee source, anonymous); long reopening queues (Vulcan Post).
+      <span class="ev sim">Simulated</span> everything below. <span class="ev inf">To confirm</span> Chagee's waits and walk-aways.</span></p>
+    <div class="body" style="grid-template-columns:1fr 318px;gap:16px;margin-top:8px">
+      <div class="panel stepper" data-steps="4" data-kind="ophr">
+        <div class="ptop"><span class="ptitle">Cups an hour against crew capacity · <span class="opday"></span> · illustrative simulation</span><button class="btn hiwb screenonly" data-hiw="o1">Numbers</button><span class="ctl screenonly"></span></div>
+        <div class="ophr"><svg class="opsvg" viewBox="0 0 700 240" preserveAspectRatio="xMidYMid meet" aria-label="Forecast cups by hour against the capacity of the normal-day roster and of the forecast roster"></svg></div>
+        <ol class="caps" style="min-height:30px;margin-top:5px;padding-top:5px">
+          <li data-s="1"><span class="n">1</span><span>The forecast: cups an hour from historical order shares and the calendar. App signals, as in the appendix, could refine it nearer the time; they are not in these numbers.</span></li>
+          <li data-s="2"><span class="n">2</span><span>The normal-day roster, every day: red where demand passes what the crew can serve within the wait limit (queues, walk-aways), grey where the crew stands idle.</span></li>
+          <li data-s="3"><span class="n">3</span><span>The forecast roster follows demand. Forecasting sets how many people; the next two slides compare how they work.</span></li>
+          <li data-s="4"><span class="n">4</span><span>What if the forecast is wrong? Move the error on the right: the roster follows the wrong forecast, the customers do not.</span></li>
+        </ol>
+        <div class="hiw screenonly" data-name="o1"><div class="ptop"><span class="ptitle">Numbers · sensitivity to forecast error, peak hour · <span class="opday"></span></span><button class="btn" data-hiwx>✕ Close</button></div>
+          <table class="fetab"></table>
+          <p class="tiny">Bucket brigade, today's split, mean of {{a.seeds}} runs. Cost: the day's roster and machines. Error steps are scenarios, not Chagee's measured accuracy. All three day types: appendix, Serve.</p></div>
+      </div>
+      <div class="cards" style="gap:8px">
+        <div class="cset screenonly" style="flex-direction:row;align-items:center;gap:10px;padding:7px 12px"><span class="lab">Day</span><span class="opseg seg"></span></div>
+        <div class="cset sitectl opctl screenonly"></div>
+        <div class="bc printonly opctlp"></div>
+
+      </div>
+    </div>
+    <div class="takeaway optake" style="margin-top:8px;padding:9px 20px;font-size:14px"><span class="lab">TAKEAWAY</span><span class="t"></span></div>
+  </div>
+  <div class="foot"><span>OPIM639 · Group 3 · demand curve, roster rule and errors are illustrative assumptions · observed evidence marked</span><span class="rail"></span><span class="pg"></span></div>
+  <aside class="notes">
+    <p>Part two. A more engaging membership experience must be matched by reliable fulfilment. The business problem: demand changes by the hour, while the roster and fixed station assignments may not. What we have observed: a Chagee source who asked not to be named told us outlet teams deploy people on local expertise, and Vulcan Post reported long queues at the Singapore reopening. What we have not observed: Chagee's own wait times and walk-aways. Everything on the chart is simulated, on our assumptions.</p>
+    <p>Step one is the forecast: cups an hour from historical order shares and the calendar. App signals, like the squad signals in the appendix, could refine it nearer the time, but they are not in these numbers. Step two: keep the normal-day roster on a busier day and the peak runs short, in red, while the morning crew stands idle, in grey. Step three: the forecast roster follows demand. Keep three things apart: the forecast says how many people; the bucket brigade is a rule for how they share the work; machines decide which steps people do at all. The next two slides compare those.</p>
+    <p>Step four, the sensitivity. On a busy day, a forecast {{r.fe_bz_err|pct}} too low puts on {{r.fe_bz_lo_staff}} person at the peak instead of {{r.fe_bz_0_staff}}, and walk-aways go from {{r.fe_bz_0_lost|pct1}} to about {{r.fe_bz_lo_lost|pct}}. A forecast too high costs little: about S${{r.fe_ev_hi_extra}} more a day on an event day. The full table is behind Numbers. These error steps are scenarios, not Chagee's measured accuracy. About one minute.</p>
+  </aside>
+</section>
+
+<!-- ======================================================= 12 SERVE: THE OPERATIONS MANAGER'S DECISION -->
+<section class="slide content" id="o2" data-chapter="Serve" data-title="The operations manager's decision">
+  <div class="leafart" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker">08 · Proposal 2 · Serve · the operations manager's decision<span class="stg"><b>Serve</b><i>Problem</i><i>Solution</i><i class="on">Decision</i></span></p>
+    <h2 class="head">Roster to the forecast, test the brigade, pilot one machine</h2>
+    <div class="body" style="grid-template-columns:1fr 268px;gap:16px;margin-top:10px">
+      <div class="panel" data-kind="opdec">
+        <div class="ptop"><span class="ptitle">One lever per column · peak hour · bucket brigade · <span class="o2day"></span> · mean of {{a.seeds}} runs</span></div>
+        <table class="res o2tab"></table>
+      </div>
+      <div class="cards" style="gap:8px">
+        <div class="cset screenonly" style="flex-direction:row;align-items:center;gap:10px;padding:7px 12px"><span class="lab">Day</span><span class="dslot"></span></div>
+        <div class="bc"><div class="k">Reading the table</div><p><b style="color:#2F6B45">Green</b> is the proposed pilot. Each column adds one lever: the forecast changes only the crew, the machine only the equipment. The last row swaps the brigade for fixed posts. Illustrative simulation.</p></div>
+        <div class="bc warn"><div class="k">If the forecast is off</div><p>A busy-day forecast {{r.fe_bz_err|pct}} too low leaves about <b>{{r.fe_bz_lo_lost|pct}}</b> walking away (slide 07).</p></div>
+      </div>
+    </div>
+    <div class="mdec"><div class="who"><span class="lab">Manager's decision</span><b>Operations manager</b></div>
+      <div><span class="q">What crew and counter setup should we use?</span>
+        <span class="k">Proposed</span>Pilot in {{sb.pilot_outlets}} outlets: shadow the forecast, roster to it, then run one tea-and-milk machine against today's split.</div>
+      <div><span class="k">Proceed if</span><ul><li>waits within {{a.target_wait|min}}, walk-aways within {{sb.walkaway_target|pct}}</li><li>cups per labour hour and contribution at least today's</li><li>it holds when the forecast is off</li></ul></div></div>
+    <p class="nextl"><b>Next</b>Serving customers better also means being where demand is still unserved.</p>
+  </div>
+  <div class="foot"><span>OPIM639 · Group 3 · counter simulation on illustrative assumptions · not Chagee's measured operations</span><span class="rail"></span><span class="pg"></span></div>
+  <aside class="notes">
+    <p>The decision for part two belongs to the operations manager: what crew and counter setup should we use?</p>
+    <p>Read the table left to right; each column changes one lever. First, today: today's split and the normal-day roster. Second, the forecast changes only the crew. Third, a machine changes only the equipment, with the forecast crew. The last row keeps each setup but swaps the bucket brigade for fixed posts, so the sharing rule shows up on its own. That is how we keep forecast-informed staffing, the brigade and machine automation apart.</p>
+    <p>The criteria are the ones the brief asks for: waiting time, walk-aways, productivity as cups served per person at the peak, and operating contribution. And the forecast will be wrong sometimes: on a busy day a forecast {{r.fe_bz_err|pct}} too low lets about {{r.fe_bz_lo_lost|pct}} walk away, while a forecast too high costs only about S${{r.fe_ev_hi_extra}} a day on an event day.</p>
+    <p>Our proposal: roster to the forecast, test a brigade against fixed posts, and pilot one tea-and-milk machine against today's split in {{sb.pilot_outlets}} outlets: shadow the forecast first, then roster to it, then the machine. Proceed only if waits, walk-aways, cups per labour hour and contribution hold up, including when the forecast is off. Then the transition: serving customers better also means being where demand is still unserved. About one minute.</p>
+  </aside>
+</section>
+
+<!-- ======================================================= 13 EXPAND: THE CANDIDATE-SITE MAP -->
+<section class="slide content" id="c5" data-chapter="Expand" data-title="Predict demand for a new store">
+  <div class="leafart" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker">09 · Proposal 3 · Expand · where a new outlet adds customers<span class="stg"><b>Expand</b><i class="on">Problem</i><i class="on">Solution</i><i>Decision</i></span><span class="ctag">Course link · Week 3 · Flashion forecast</span></p>
+    <h2 class="head">Open where an outlet adds customers, not where it moves them</h2>
+    <p class="bprob"><b>Business problem</b><span>A new outlet may look successful while mostly moving sales from nearby stores, while other customers have no convenient outlet.
+      <span class="ev obs">Context</span> Chagee aims to expand rapidly in Singapore; the number of stores is confidential (Chagee source, anonymous). <span class="ev sim">Simulated</span> searches below.</span></p>
+    <div class="body" style="grid-template-columns:1fr 300px">
+      <div class="panel stepper" data-steps="5" data-kind="site">
+        <div class="ptop"><span class="ptitle">New-store forecast</span>
+          <button class="btn howb screenonly" title="Watch DBSCAN find the clusters, one search at a time">How it works</button>
+          <input class="sitesearch screenonly" list="sitelist" placeholder="Find an outlet or town…" aria-label="Find an outlet or town"><datalist id="sitelist"></datalist>
+          <span class="ctl screenonly"></span><span class="pnlctl screenonly"></span></div>
+        <div class="visual"><div class="maptip"></div><svg class="msvg" viewBox="0 0 1672 640" preserveAspectRatio="xMidYMid meet" aria-label="Map of synthetic app demand, clusters and a new-store pin"></svg></div>
+        <div class="pnlv" role="region" aria-label="Five-year P&amp;L of the two sites"><svg class="pnlsvg" viewBox="0 0 760 160" preserveAspectRatio="xMidYMid meet" aria-label="Five-year comparison, without and with AI-assisted site selection"></svg><div class="pnltip"></div><table class="res pnlbr"></table></div>
+        <ol class="caps">
+          <li data-s="1"><span class="n">1</span><span>Navy pins are Chagee's {{facts.sg_outlets}} outlets today (hover for name and cups a day). Dots are synthetic app sessions: gold near an outlet, red where no store was nearby.</span></li>
+          <li data-s="2"><span class="n">2</span><span>DBSCAN, an unsupervised method, groups red searches that sit densely together. Scattered searches stay grey as noise.</span></li>
+          <li data-s="3"><span class="n">3</span><span>Each cluster's centre is a candidate site, ranked by cups for Chagee: what the store sells minus what it takes from nearby outlets.</span></li>
+          <li data-s="4"><span class="n">4</span><span>Click the map to test a new store, or search an outlet or town. Hover a navy pin to see which outlet it is; red lines show which outlets would lose cups.</span></li>
+          <li data-s="5"><span class="n">5</span><span>The forecast's peak hour sets the opening roster for today's split (our scenario), which the appendix counter slides run.</span></li>
+        </ol>
+        <div class="howto screenonly" role="dialog" aria-label="How DBSCAN finds the sites">
+          <div class="ptop"><span class="ptitle">How it works · DBSCAN on a toy set of searches</span><button class="btn" data-h="close" aria-label="Close">✕ Back to the map</button></div>
+          <svg class="toysvg" preserveAspectRatio="xMidYMid meet" aria-label="DBSCAN walkthrough"></svg>
+          <div class="howside">
+            <div class="stepno"></div><div class="bar"><i></i></div>
+            <div class="say"></div>
+            <div class="ctl"><button class="btn" data-h="prev" aria-label="Previous step">◀</button><button class="btn primary" data-h="play">▶ Play</button><button class="btn" data-h="next" aria-label="Next step">▶</button><button class="btn" data-h="end">Result</button></div>
+            <div class="toykey"></div>
+            <p class="tiny">Toy points, not the map. The real run uses the sliders' radius and minimum. <a data-h="apx">Every number behind the forecast: appendix</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="cards" style="gap:10px">
+        <div class="cset screenonly sitectl"></div>
+        <div class="fc"></div>
+        <p class="flag printonly">Synthetic app data on the team's map; outlet positions approximate (the central inset is enlarged). Not a trained model: the point is the method. Its five-year P&amp;L: appendix.</p>
+        <div class="pnlside"></div>
+      </div>
+    </div>
+    <div class="takeaway"><span class="lab">TAKEAWAY</span><span>Judge a site by the cups it adds to Chagee, not the cups it sells: the cluster near {{s.top_hub}} adds about <b>+{{r.top_net}}</b> a day; beside an existing outlet, the same store adds <b>+{{r.nd_net}}</b>.</span></div>
+  </div>
+  <div class="foot"><span>OPIM639 · Group 3 · explainer figures are illustrative assumptions · synthetic app data</span><span class="rail"></span><span class="pg"></span></div>
+  <aside class="notes">
+    <p>Part three. Serving customers better also means being available where demand remains underserved. The business problem has two sides: a new outlet can look successful while mostly moving sales from the stores around it, and customers elsewhere may have no convenient outlet at all. Context, from a Chagee source who asked not to be named: Chagee is looking to expand rapidly in Singapore, and how many stores it is going for is confidential. Chagee Singapore runs on its app, with few kiosks. If Chagee logs searches and their location, which we have to confirm, every search is a demand signal, including searches where no store is close. Here the searches are synthetic. That makes the app the forecasting input for a new store, before it has any sales.</p>
+    <p>Step one: synthetic app sessions on our map. Gold are within walking distance of an outlet; red found no store nearby. Step two: DBSCAN, unsupervised machine learning, groups red searches that are dense; scattered ones are noise. Step three: cluster centres are candidate sites.</p>
+    <p>Step four: click the map to test a site. The card leads with the gain for Chagee, which is the store's sales minus the cups it takes from nearby outlets, and gives a verdict: strong, mixed, or mostly moving cups. Try a pin next to Tampines West CC: it sells, but most of it moves from the two Tampines outlets nearby. Step five: the forecast's peak hour gives the opening roster for the counter in the appendix counter slides.</p>
+    <p>If asked how DBSCAN works, press How it works: it replays the algorithm one search at a time on a toy set. The appendix lists every simulated number.</p>
+    <p>The three sliders are the only inputs: cluster radius, minimum searches per cluster, and how far people will walk. The data is synthetic; with Chagee's real app logs, the same steps would run unchanged. About one and a half minutes.</p>
+    <p>If asked to see both sites, press See it on the map on the takeaway. If asked what this means in money, press "What does this mean for P&amp;L?" under the result. The map gives way to five years of the same new outlet at the two sites, with the same opening date, equipment and staffing rule, so only the site differs. Toggle revenue, operating profit and cumulative operating profit; hover a year for both values and the gap. At our assumptions, the store beside the existing outlet adds about {{r.pnl_wo_rev5|sgm}} of network sales over {{r.pnl_years}} years but loses money, {{r.pnl_wo_op5|sgm}} of operating profit: the contribution lost at its neighbours, about {{r.pnl_wo_lost5|sgm}}, is more than it makes, and their rent and staff do not go away. The AI site adds about {{r.pnl_wi_rev5|sgm}} of sales and {{r.pnl_wi_op5|sgm}} of operating profit after the AI costs, and pays back its set-up in about {{r.pnl_wi_payback|g1}} years. The gap is about {{r.pnl_up_op5|sgm}} of operating profit. Say clearly: these are illustrative scenarios on our assumptions, DBSCAN finds the clusters and the assumed demand model estimates the sales; they are not a demonstrated causal gain from AI. Operating profit is before depreciation, interest and tax. Escape or Back to map returns to the map.</p>
+    <p>Course link, Week 3, Analytics and AI: in the Flashion example, demand for a new store was forecast from similar stores. We ask the same question with a different input: app searches around the site.</p>
+    <p>Because the number of openings is confidential, the forecast ranks sites; it does not assume a number of openings.</p>
+    <p>The expansion manager's decision, with the criteria side by side, is on the next slide.</p>    <p>Takeaway: Judge a site by what it adds to Chagee, not what it sells. The top cluster, near {{s.top_hub}}, adds about {{r.top_net}} cups a day; a store beside an existing outlet would sell plenty, but about {{r.nextdoor_cannibal|pct}} of it is moved from that outlet.</p>
+  </aside>
+</section>
+
+<!-- ======================================================= 14 EXPAND: THE EXPANSION MANAGER'S DECISION -->
+<section class="slide content" id="e2" data-chapter="Expand" data-title="The expansion manager's decision">
+  <div class="leafart" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker">10 · Proposal 3 · Expand · the expansion manager's decision<span class="stg"><b>Expand</b><i>Problem</i><i>Solution</i><i class="on">Decision</i></span></p>
+    <h2 class="head">Investigate the site that adds customers, then check the downside</h2>
+    <div class="body" style="grid-template-columns:1fr;margin-top:10px">
+      <div class="panel">
+        <div class="ptop"><span class="ptitle">The same new outlet at two sites · synthetic app data · five years, our assumptions</span></div>
+        <table class="res e2tab">
+          <tr><th>Criterion</th><th>Beside {{s.bt_outlet}}<br><small>our assumed baseline</small></th><th>Cluster near {{s.top_hub}}<br><small>DBSCAN + demand model</small></th></tr>
+          <tr><td>Customer access: cups from people with no outlet within walking distance</td><td>{{r.nd_unmet|pct}}</td><td><b>{{r.top_unmet|pct}}</b></td></tr>
+          <tr><td>Cups a day the store sells</td><td>{{r.nd_cups|int}}</td><td>{{r.top_cups|int}}</td></tr>
+          <tr><td>Net additional cups a day, after cups moved from nearby outlets</td><td>+{{r.nd_net|int}}</td><td><b>+{{r.top_net|int}}</b></td></tr>
+          <tr><td>Incremental operating profit, five years, base volume</td><td>{{r.pnl_wo_op5|sgm}}</td><td><b>{{r.pnl_wi_op5|sgm}}</b></td></tr>
+          <tr><td>Investment at opening</td><td>{{r.pnl_wo_invest|sgm}}</td><td>{{r.pnl_wi_invest|sgm}} <small>incl. AI share</small></td></tr>
+          <tr><td>Payback</td><td>not within {{r.pnl_years}} years</td><td>about {{r.pnl_wi_payback|g1}} years</td></tr>
+          <tr><td>Downside: low volume, five years</td><td>{{r.pnl_wo_op5_lo|sgm}}</td><td>{{r.pnl_wi_op5_lo|sgm2}}, not paid back in {{r.pnl_years}} years</td></tr>
+          <tr><td>Upside: high volume, five years</td><td>{{r.pnl_wo_op5_hi|sgm}}</td><td>{{r.pnl_wi_op5_hi|sgm}}</td></tr>
+        </table>
+        <p class="lnote" style="margin-top:6px">DBSCAN only finds where unserved searches gather; a separate demand model, on our assumptions, estimates sales. Synthetic searches. Operating profit before depreciation, interest and tax, after the contribution lost at nearby outlets. Every input and year: appendix, Expand.</p>
+      </div>
+    </div>
+    <div class="mdec"><div class="who"><span class="lab">Manager's decision</span><b>Expansion manager</b></div>
+      <div><span class="q">Which location justifies investment?</span>
+        <span class="k">Proposed</span>Investigate the cluster near {{s.top_hub}}: rerun the method on Chagee's app logs before any lease or pilot.</div>
+      <div><span class="k">Proceed if, on real data</span><ul><li>most of its cups come from customers without convenient access</li><li>net additional cups, not moved cups, carry the case</li><li>profit covers the investment, with an acceptable downside</li></ul></div></div>
+    <p class="nextl"><b>Next</b>Our recommendation: three managers, three pilots.</p>
+  </div>
+  <div class="foot"><span>OPIM639 · Group 3 · synthetic app data · illustrative assumptions, not a demonstrated causal gain from AI</span><span class="rail"></span><span class="pg"></span></div>
+  <aside class="notes">
+    <p>The decision for part three belongs to the expansion manager: which location should we investigate or pilot next, and do its expected incremental returns justify the investment?</p>
+    <p>The table puts the same new outlet at two sites and reads down the criteria. Customer access: about {{r.top_unmet|pct}} of the cluster site's cups come from people with no outlet within walking distance, against {{r.nd_unmet|pct}} beside the existing outlet. Net additional demand: about {{r.top_net}} cups a day against {{r.nd_net}}. Incremental operating profit over {{r.pnl_years}} years: about {{r.pnl_wi_op5|sgm}} against {{r.pnl_wo_op5|sgm}}, on {{r.pnl_wi_invest|sgm}} invested, paying back in about {{r.pnl_wi_payback|g1}} years. Then the downside: at low volume the cluster site makes about {{r.pnl_wi_op5_lo|sgm2}} and does not pay back within {{r.pnl_years}} years.</p>
+    <p>Say it plainly: DBSCAN does not predict sales or profit. It finds where unserved searches gather; a separate demand model, on our assumptions, estimates sales and cannibalisation, and the searches are synthetic. So the proposal is to investigate, not to open: rerun the method on Chagee's app logs before any lease. For a new market without app history, external area features and demand scenarios stand in: the optional extension after the close. About fifty seconds.</p>
+  </aside>
+</section>
+
+<!-- ======================================================= 15 RECOMMENDATION -->
+<section class="slide content" id="rc" data-chapter="Execution" data-title="Execution steps">
+  <div class="leafart" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker">11 · Execution steps</p>
+    <h2 class="head">Three managers, three pilots, each judged on its own evidence</h2>
+    <p class="sub">A connected story, not one combined model: no simulated benefit is carried between parts or added up.</p>
+    <div class="rec3">
+      <div class="c"><span class="own">Grow demand · CRM manager</span><h5>Which features and rewards should we pilot?</h5>
+        <p class="act"><span class="k">Recommend</span>Squads, and squads with personalised suggestions, against today's membership, at a reward the extra orders can pay for.</p>
+        <p><span class="k">Proceed if</span>tier progression and orders rise, satisfaction holds, and contribution after reward and AI costs is positive.</p></div>
+      <div class="c"><span class="own">Serve demand · operations manager</span><h5>What crew and counter setup should we use?</h5>
+        <p class="act"><span class="k">Recommend</span>Roster to the forecast, test a bucket brigade, and pilot one tea-and-milk machine against today's split in {{sb.pilot_outlets}} outlets.</p>
+        <p><span class="k">Proceed if</span>waits, walk-aways, cups per labour hour and contribution beat today's, even when the forecast is off.</p></div>
+      <div class="c"><span class="own">Expand access · expansion manager</span><h5>Which location justifies investment?</h5>
+        <p class="act"><span class="k">Recommend</span>Investigate the cluster near {{s.top_hub}} on Chagee's real app logs before any lease.</p>
+        <p><span class="k">Proceed if</span>it adds net new customers, and its profit covers the investment with an acceptable downside.</p></div>
+    </div>
+    <div class="takeaway" style="margin-top:14px"><span class="lab">TAKEAWAY</span><span>Make membership more rewarding → serve demand reliably → open where we add new customers.</span></div>
+  </div>
+  <div class="foot"><span>OPIM639 · Group 3 · model figures are illustrative assumptions, not Chagee data</span><span class="rail"></span><span class="pg"></span></div>
+  <aside class="notes">
+    <p>Our recommendation mirrors the three chapters: three decisions, three owners, and each one is a pilot judged on its own evidence.</p>
+    <p>For the CRM manager: the Membership Operations team wants to move customers up the tiers, and customers may not find it worth the effort. Pilot squads, and squads with personalised suggestions, against today's membership, at a reward level the extra orders can pay for. Proceed if tier progression rises, satisfaction holds, and the extra orders cover the reward and the AI cost.</p>
+    <p>For the outlet GM or operations manager: demand moves by the hour, and the roster should too. Roster to the forecast, test a bucket brigade against fixed posts, and pilot one tea-and-milk machine against today's split. Proceed if waits, walk-aways, productivity and contribution beat today's, including when the forecast is wrong.</p>
+    <p>For the expansion manager: count the cups a new outlet adds, not the ones it sells. Investigate the cluster near {{s.top_hub}} on Chagee's real app logs before any lease, and proceed only if its incremental returns justify the investment with an acceptable downside.</p>
+    <p>One caution to say out loud: these parts connect as a story, but we never add their simulated benefits together or carry membership uplift into the counter or expansion numbers. About forty-five seconds.</p>
+  </aside>
+</section>
+
+<!-- ======================================================= APPENDIX: THE SIZE OF THE BENEFIT -->
+<section class="slide content bs" id="c9" data-chapter="Impact" data-title="Financial impact">
+  <div class="leafart" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker">12 · Financial impact · Singapore only<span class="tbc">TBC · draft, to be confirmed</span></p>
+    <h2 class="head">About S${{r.ben_profit_sg|m2}} a year across {{facts.sg_outlets}} outlets, mostly from one machine</h2>
+    <p class="sub">In our model, against an illustrative baseline: modelled avoided costs, not demonstrated savings.</p>
+    <div class="body" style="grid-template-columns:1fr 400px">
+      <div class="panel">
+        <div class="ptop"><span class="ptitle">Profit a year, all {{facts.sg_outlets}} outlets · economic rule throughout</span></div>
+        <div class="bars"></div>
+        <p class="lnote" style="margin-top:auto">Profit = orders kept × price × margin, plus labour saved, minus machine cost. Calendar: {{sb.busy_days_per_year}} busy days (weekends) and {{sb.event_days_per_year}} event days (public holidays) a year, an illustrative definition. Baseline: all by hand, the normal-day crew every day. Peak hour only, so orders kept are a floor. Every figure, range and both crew rules: appendix.</p>
+      </div>
+      <div class="cards" style="gap:9px">
+        <div class="bc phys"><div class="k">Physical AI · one tea-and-milk machine</div><h4>Most of the benefit: labour</h4>
+          <p>Lets the roster drop from {{r.min_hand}} people to {{r.min_mixed}} in the off-peak hours: <b>S${{r.sg_b_profit|m2}}</b> a year after the machine's cost.</p></div>
+        <div class="bc ai"><div class="k">Forecast + economic rule</div><h4>Adds event-day orders on top of the machine</h4>
+          <p>Adds a person on event days only ({{r.ev_b_staff}} → {{r.ev_abE_staff}}), keeping about {{r.fc_add_event}} more orders per outlet that day: {{r.fc_add_year}} a year, <b>S${{r.fc_add_sg|m2}}</b> across Singapore. On its own, all by hand: S${{r.sg_aE_profit|m2}}.</p></div>
+        <div class="bc warn"><div class="k">Read with care</div><h4>The big number rests on one assumption</h4>
+          <p>The minimum crew, {{r.min_hand}} by hand and {{r.min_mixed}} with machines, is ours. Without it, S${{r.ben_profit_sg|m2}} falls to <b>S${{r.ben_fragile_sg|m2}}</b>. The pilot arm beats today's split by S${{r.pilot_sg|m2}}: more than the headline, because today's split is itself S${{r.today_below_sg|m2}} below the baseline.</p></div>
+      </div>
+    </div>
+    <div class="vs"><div class="wo"><span class="lab">Assumed baseline<br><small style="letter-spacing:.06em;text-transform:none;font-weight:400">illustrative</small></span><span>Flat normal-day roster, all by hand: about <b>{{r.cf_lost_year}}</b> peak-hour orders a year walk away per outlet.</span></div><div class="wi"><span class="lab">Proposed scenario<br><small style="letter-spacing:.06em;text-transform:none;font-weight:400">in our model</small></span><span>Both levers, one run: <b>{{r.ben_orders}}</b> kept a year per outlet, profit <b>S${{r.ben_profit_sg|m2}}</b> across {{facts.sg_outlets}} outlets (S${{r.ben_fragile_sg|m2}} without the minimum-crew rule).</span></div></div>
+  </div>
+  <div class="foot"><span>OPIM639 · Group 3 · model figures are illustrative assumptions · peak hour only · Singapore, {{facts.sg_outlets}} outlets</span><span class="rail"></span><span class="pg"></span></div>
+  <aside class="notes">
+    <p><b>TBC:</b> this slide is a draft and still to be confirmed by the team; present it as work in progress.</p>
+    <p>One number and where it comes from, all in our model. Against an illustrative baseline, an all-by-hand counter with the normal-day crew every day, the proposed scenario gives about S${{r.ben_profit_sg|m2}} a year across {{facts.sg_outlets}} outlets. That baseline is ours, not Chagee's operations, so these are not savings Chagee would see; they are modelled avoided costs on stated assumptions. Every figure uses the economic rule, the rule the playbook recommends.</p>
+    <p>Read the bars. Almost all of it is the one tea-and-milk machine, which lets the roster drop a person off-peak. Rostering to the forecast by the economic rule adds a person on event days only and keeps about {{r.fc_add_event}} more orders per outlet that day, S${{r.fc_add_sg|m2}} a year across Singapore. The last bar is the pilot comparison: the proposed scenario against today's split, our scenario, both on the economic rule, a difference of S${{r.pilot_sg|m2}}.</p>
+    <p>Say the caveat out loud: the machine's saving comes from our minimum-crew assumption; without it, the total falls to about S${{r.ben_fragile_sg|m2}}. Ranges and both crew rules are in the appendix. About one minute.</p>
+  </aside>
+</section>
+
+<!-- ======================================================= END -->
+<section class="slide cover" id="qa" data-title="Q&amp;A">
+  <img class="ll" src="{img:leaves_left}" alt="">
+  <img class="sand" src="{img:sand}" alt="">
+  <div class="t" style="top:210px">
+    <h1>Q&amp;A</h1>
+    <p class="tl">Thank you · questions and discussion</p>
+    <div class="rule"></div>
+    <p class="meta">OPIM639 &nbsp;·&nbsp; Group 3 &nbsp;·&nbsp; Keziah, Jin, Ayumi, Revan</p>
+  </div>
+  <img class="cup" src="{img:cup_red}" alt="" style="left:auto;right:120px;transform:none;bottom:70px;width:110px">
+  <aside class="notes"><p>Recap the chain and its owners: the CRM manager makes membership worth joining, the operations manager serves the demand reliably, the expansion manager opens where demand remains underserved. Each part rests on its own assumptions; no simulated uplift is carried from one to the next.</p><p>Likely questions: is the brigade always better? No; with spare staff fixed stations are as good. Is the forecast real? No, it is an illustration of the chain, built on stated assumptions.</p></aside>
+</section>
+
+<!-- ======================================================= APPENDIX: CONTENTS -->
+<section class="slide content" id="ax" data-chapter="Appendix" data-title="Appendix">
+  <div class="leafart" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker">Appendix · contents</p>
+    <h2 class="head">Appendix: the detail behind each chapter</h2>
+    <p class="sub">Derivations, tables, sources and earlier analyses. Click a line to open it; use the agenda to return.</p>
+    <div class="apxix">
+      <div><h5>Earlier main slides</h5><ol><li data-go="c1">Chagee in Singapore</li><li data-go="c2">From farm to cup</li><li data-go="c3">The data trail</li><li data-go="c4">Our scope</li></ol></div>
+      <div><h5>Grow demand</h5><ol><li data-go="m1">Members: when does joining feel worth it?</li><li data-go="m2b">Group orders as demand data</li><li data-go="am1">Members: the model and its checks</li><li data-go="am2">Members: break-even, assumptions and sources</li><li data-go="am3">Group orders to forecasts: method and results</li></ol></div>
+      <div><h5>Serve demand</h5><ol><li data-go="c6">Bucket brigade: sharing the counter</li><li data-go="c7">Automation: which steps a machine takes</li><li data-go="aops">Counter comparisons, every day type</li><li data-go="c8">The modelled decisions in detail</li><li data-go="ab">The benefit in detail</li><li data-go="cm">Machine ladder</li><li data-go="a3">Machine ladder: tiers and sources</li></ol></div>
+      <div><h5>Expand access</h5><ol><li data-go="a2">How the site forecast works</li><li data-go="ap">The new store in money: five-year P&amp;L</li><li data-go="x1">Four scores for every location</li><li data-go="x1b">The supervised model</li><li data-go="x2">From pin to net profit</li></ol></div>
+      <div><h5>Across the story</h5><ol><li data-go="adata">Chagee's data collection</li><li data-go="c1b">Network effects across the three parts</li><li data-go="a1">Sources and assumptions</li></ol></div>
+      <div><h5>Optional extension: Australia</h5><ol><li data-go="tc">A new market without app history</li><li data-go="an">New market: inputs and method</li></ol></div>
+    </div>
+  </div>
+  <div class="foot"><span>OPIM639 · Group 3 · appendix · for questions</span><span class="rail"></span><span class="pg"></span></div>
+  <aside class="notes"><p>The appendix holds everything moved off the main slides: derivations, the full tables, sources and earlier analyses. Click a line to jump to it.</p></aside>
+</section>
+
+
+<!-- ======================================================= 01 CHAGEE IN SINGAPORE -->
+<section class="slide content" id="c1" data-chapter="Appendix" data-title="Chagee in Singapore">
+  <div class="leafart" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker">Appendix · Chagee in Singapore</p>
     <h2 class="head">Company-owned outlets, one data system, one counter</h2>
     <div class="body">
       <div class="panel stepper" data-steps="4">
@@ -983,10 +1527,10 @@ aside.notes{display:none}
 </section>
 
 <!-- ======================================================= 02 FARM TO CUP -->
-<section class="slide content" id="c2" data-chapter="Operations" data-title="From farm to cup">
+<section class="slide content" id="c2" data-chapter="Appendix" data-title="From farm to cup">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">02 · From farm to cup</p>
+    <p class="kicker">Appendix · From farm to cup</p>
     <h2 class="head">Supply is planned ahead; the counter feels demand by the minute</h2>
         <div class="body" style="grid-template-columns:1fr">
       <div class="panel stepper" data-steps="5">
@@ -1030,10 +1574,10 @@ aside.notes{display:none}
 </section>
 
 <!-- ======================================================= 03 DATA TRAIL -->
-<section class="slide content" id="c3" data-chapter="Data" data-title="The data trail">
+<section class="slide content" id="c3" data-chapter="Appendix" data-title="The data trail">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">03 · The data trail</p>
+    <p class="kicker">Appendix · The data trail</p>
     <h2 class="head">Orders are recorded; the other forecast inputs are still to confirm</h2>
         <div class="body" style="grid-template-columns:1fr">
       <div class="panel stepper" data-steps="7" data-kind="matrix">
@@ -1075,10 +1619,10 @@ aside.notes{display:none}
 </section>
 
 <!-- ======================================================= 04 SCOPE -->
-<section class="slide content" id="c4" data-chapter="Scope" data-title="Our scope">
+<section class="slide content" id="c4" data-chapter="Appendix" data-title="Our scope">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">04 · Our scope</p>
+    <p class="kicker">Appendix · Our scope</p>
     <h2 class="head">Grow demand, serve it well, then expand access</h2>
     <p class="sub">Three connected decisions, three owners. Each chapter: business problem → demonstration → manager’s decision.</p>
     <div class="body" style="grid-template-columns:1fr">
@@ -1086,13 +1630,13 @@ aside.notes{display:none}
         <div class="ptop"><span class="ptitle">Three connected decisions</span><span class="ctl screenonly"></span></div>
         <div class="s3">
           <div class="s3p" data-s="1"><span class="num">1</span><h5>Grow demand</h5><p class="what">Make membership more rewarding.</p><div class="s3v"><svg viewBox="0 0 300 160" aria-label="A member and three friends form a squad; their orders move everyone up the tiers"><line x1="150" y1="92" x2="70" y2="48" stroke="#C8A96A" stroke-width="2" stroke-dasharray="4 4"/><line x1="150" y1="92" x2="150" y2="30" stroke="#C8A96A" stroke-width="2" stroke-dasharray="4 4"/><line x1="150" y1="92" x2="230" y2="48" stroke="#C8A96A" stroke-width="2" stroke-dasharray="4 4"/><circle cx="70" cy="48" r="19" fill="#fff" stroke="#DCE2EC" stroke-width="2"/><circle cx="70" cy="40.0" r="5.5" fill="#6F86AE"/><path d="M60 60.0 Q60 51 70 51 Q80 51 80 60.0 Z" fill="#6F86AE"/><circle cx="150" cy="30" r="19" fill="#fff" stroke="#DCE2EC" stroke-width="2"/><circle cx="150" cy="22.0" r="5.5" fill="#6F86AE"/><path d="M140 42.0 Q140 33 150 33 Q160 33 160 42.0 Z" fill="#6F86AE"/><circle cx="230" cy="48" r="19" fill="#fff" stroke="#DCE2EC" stroke-width="2"/><circle cx="230" cy="40.0" r="5.5" fill="#6F86AE"/><path d="M220 60.0 Q220 51 230 51 Q240 51 240 60.0 Z" fill="#6F86AE"/><circle cx="150" cy="92" r="24" fill="#fff" stroke="#24406B" stroke-width="2.5"/><circle cx="150" cy="81.7" r="7.15" fill="#24406B"/><path d="M137 107.7 Q137 96 150 96 Q163 96 163 107.7 Z" fill="#24406B"/><rect x="40" y="132" width="220" height="12" rx="6" fill="#DCE2EC"/><rect x="40" y="132" width="150" height="12" rx="6" fill="#B8322B"/><line x1="113" y1="128" x2="113" y2="148" stroke="#fff" stroke-width="3"/><line x1="187" y1="128" x2="187" y2="148" stroke="#fff" stroke-width="3"/><text x="40" y="158" font-size="13" fill="#9A9387" font-family="Roboto,sans-serif">tier progress</text><text x="260" y="158" text-anchor="end" font-size="13" fill="#9A9387" font-family="Roboto,sans-serif">friends count too</text></svg></div>
-            <p class="who"><b>CRM manager</b>Which features and rewards should we pilot?</p><p class="where">Slides 05 to 08</p></div>
+            <p class="who"><b>CRM manager</b>Which features and rewards should we pilot?</p><p class="where">Slides 05 and 06</p></div>
           <div class="s3a" data-s="2">→</div>
           <div class="s3p" data-s="2"><span class="num">2</span><h5>Serve demand</h5><p class="what">Match staffing and workflow to demand.</p><div class="s3v"><svg viewBox="0 0 300 160" aria-label="Cups an hour rise and fall; the crew follows the forecast"><line x1="20" y1="140" x2="285" y2="140" stroke="#C9C2B6"/><rect x="24" y="113.6" width="17" height="26.4" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><rect x="48" y="99.2" width="17" height="40.8" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><rect x="72" y="46.400000000000006" width="17" height="93.6" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><rect x="96" y="29.60000000000001" width="17" height="110.39999999999999" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><rect x="120" y="84.80000000000001" width="17" height="55.199999999999996" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><rect x="144" y="87.2" width="17" height="52.8" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><rect x="168" y="77.6" width="17" height="62.4" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><rect x="192" y="72.8" width="17" height="67.2" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><rect x="216" y="80.0" width="17" height="60.0" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><rect x="240" y="87.2" width="17" height="52.8" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><rect x="264" y="94.4" width="17" height="45.6" rx="2" fill="#DCE2EC" stroke="#6F86AE" stroke-width=".8"/><polyline points="20 92.0 44 92.0 44 92.0 68 92.0 68 34.400000000000006 92 34.400000000000006 92 34.400000000000006 116 34.400000000000006 116 92.0 140 92.0 140 92.0 164 92.0 164 92.0 188 92.0 188 92.0 212 92.0 212 92.0 236 92.0 236 92.0 260 92.0 260 92.0 285 92.0" fill="none" stroke="#2F6B45" stroke-width="3" stroke-linejoin="round"/><text x="20" y="156" font-size="13" fill="#9A9387" font-family="Roboto,sans-serif">cups an hour</text><text x="285" y="156" text-anchor="end" font-size="13" fill="#2F6B45" font-family="Roboto,sans-serif">crew follows the forecast</text></svg></div>
-            <p class="who"><b>Operations manager</b>What crew and counter setup should we use?</p><p class="where">Slides 09 to 12</p></div>
+            <p class="who"><b>Operations manager</b>What crew and counter setup should we use?</p><p class="where">Slides 07 and 08</p></div>
           <div class="s3a" data-s="3">→</div>
           <div class="s3p" data-s="3"><span class="num">3</span><h5>Expand access</h5><p class="what">Open where we add new customers.</p><div class="s3v"><svg viewBox="0 0 300 160" aria-label="Existing outlets on a map, an unserved cluster of searches and a new outlet placed in it"><path d="M18 92 Q30 48 92 44 Q140 22 196 40 Q262 38 284 78 Q290 118 236 126 Q190 146 130 134 Q60 140 30 120 Z" fill="#F1EADB" stroke="#E2D6BE" stroke-width="1.5"/><circle cx="70" cy="92" r="22" fill="#6F86AE" opacity=".10"/><circle cx="102" cy="70" r="22" fill="#6F86AE" opacity=".10"/><circle cx="132" cy="104" r="22" fill="#6F86AE" opacity=".10"/><circle cx="160" cy="74" r="22" fill="#6F86AE" opacity=".10"/><circle cx="122" cy="82" r="22" fill="#6F86AE" opacity=".10"/><path d="M70 92 c-7 -9 -10 -13 -10 -18 a10 10 0 0 1 20 0 c0 5 -3 9 -10 18 Z" fill="#24406B"/><circle cx="70" cy="74" r="3.6" fill="#fff"/><path d="M102 70 c-7 -9 -10 -13 -10 -18 a10 10 0 0 1 20 0 c0 5 -3 9 -10 18 Z" fill="#24406B"/><circle cx="102" cy="52" r="3.6" fill="#fff"/><path d="M132 104 c-7 -9 -10 -13 -10 -18 a10 10 0 0 1 20 0 c0 5 -3 9 -10 18 Z" fill="#24406B"/><circle cx="132" cy="86" r="3.6" fill="#fff"/><path d="M160 74 c-7 -9 -10 -13 -10 -18 a10 10 0 0 1 20 0 c0 5 -3 9 -10 18 Z" fill="#24406B"/><circle cx="160" cy="56" r="3.6" fill="#fff"/><path d="M122 82 c-7 -9 -10 -13 -10 -18 a10 10 0 0 1 20 0 c0 5 -3 9 -10 18 Z" fill="#24406B"/><circle cx="122" cy="64" r="3.6" fill="#fff"/><circle cx="226" cy="88" r="30" fill="none" stroke="#B8322B" stroke-width="1.6" stroke-dasharray="4 4"/><circle cx="226.2" cy="90.3" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="223.3" cy="90.1" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="234.1" cy="91.6" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="241.3" cy="79.3" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="226.5" cy="83.1" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="220.1" cy="86.6" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="227.1" cy="90.1" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="230.5" cy="107.9" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="234.4" cy="72.4" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="227.3" cy="84.0" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="220.9" cy="100.8" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="223.9" cy="69.3" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="227.4" cy="86.7" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="214.4" cy="78.9" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="222.1" cy="87.9" r="2.6" fill="#B8322B" opacity=".55"/><circle cx="224.1" cy="88.3" r="2.6" fill="#B8322B" opacity=".55"/><path d="M226 96 c-7 -9 -10 -13 -10 -18 a10 10 0 0 1 20 0 c0 5 -3 9 -10 18 Z" fill="#B8322B"/><circle cx="226" cy="78" r="3.6" fill="#fff"/><text x="24" y="156" font-size="13" fill="#9A9387" font-family="Roboto,sans-serif">today’s outlets</text><text x="284" y="156" text-anchor="end" font-size="13" fill="#B8322B" font-family="Roboto,sans-serif">unserved searches</text></svg></div>
-            <p class="who"><b>Expansion manager</b>Which location justifies investment?</p><p class="where">Slides 13 and 14</p></div>
+            <p class="who"><b>Expansion manager</b>Which location justifies investment?</p><p class="where">Slides 09 and 10</p></div>
         </div>
       </div>
     </div>
@@ -1106,10 +1650,10 @@ aside.notes{display:none}
 </section>
 
 <!-- ======================================================= 05 GROW: THE PROBLEM AND THE EFFORT MODEL -->
-<section class="slide content mb" id="m1" data-chapter="Grow" data-title="Members: when does joining feel worth it?">
+<section class="slide content mb" id="m1" data-chapter="Appendix" data-title="Members: when does joining feel worth it?">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">05 · Grow · is tiering up worth the effort?<span class="stg"><b>Grow</b><i class="on">Problem</i><i class="on">Solution</i><i>Decision</i></span><span class="ctag">Course link · Topic 8, network effects</span></p>
+    <p class="kicker">Appendix · Grow · is tiering up worth the effort?<span class="stg"><b>Grow</b><i class="on">Problem</i><i class="on">Solution</i><i>Decision</i></span><span class="ctag">Course link · Topic 8, network effects</span></p>
     <h2 class="head">Squads add value only once enough friends take part</h2>
     <p class="bprob"><b>Business problem</b><span>Chagee's Membership Operations team told us the problem they want to solve is <b>moving customers up the membership tiers</b>: customers may not think the effort of progressing is worthwhile.</span></p>
     <div class="body" style="grid-template-columns:1fr 292px;gap:16px;margin-top:6px">
@@ -1144,40 +1688,11 @@ aside.notes{display:none}
   </aside>
 </section>
 
-<!-- ======================================================= 06 GROW: THE SQUAD EXPERIENCE -->
-<section class="slide content mb" id="m2" data-chapter="Grow" data-title="The proposed squad experience">
-  <div class="leafart" aria-hidden="true"></div>
-  <div class="inner">
-    <p class="kicker">06 · Grow · the squad experience<span class="stg"><b>Grow</b><i>Problem</i><i class="on">Solution</i><i>Decision</i></span></p>
-    <h2 class="head">In the app, friends' orders count for everyone</h2>
-    <div class="body" style="grid-template-columns:1fr;margin-top:10px">
-      <div class="panel" data-kind="mbapp">
-        <div class="ptop"><span class="ptitle">Proposed experience · illustrative prototype</span><button class="btn hiwb screenonly" data-hiw="m2">How it connects to the model</button><span class="seg mbnav screenonly"></span></div>
-        <div class="mbapp">
-          <ol class="mbjour"></ol>
-          <div class="phone"><div class="notch"></div><div class="scr"></div></div>
-          <div class="mbwhy"></div>
-        </div>
-        <div class="hiw screenonly" data-name="m2"><div class="ptop"><span class="ptitle">How it connects to the model · assumptions to test</span><button class="btn" data-hiwx>✕ Close</button></div>
-          <div class="two"><div><p>Shared benefits are hypothesised to raise <b>k</b>, the value of friends participating. Personalised suggestions, simpler progression or a launch incentive may lower <b>p</b>, the effort. Each member's picks and feedback also become signals (slide 07). Not measured effects.</p></div>
-            <div class="mbwsb"><h5>Without squads / with squads</h5><svg class="mbws" viewBox="0 0 260 170" preserveAspectRatio="xMidYMid meet" aria-label="The hump without and with squads, against the same effort"></svg>
-              <label class="mbinc"><input type="checkbox"> add a launch incentive (lower p)</label></div></div></div>
-      </div>
-    </div>
-    <div class="takeaway mbtake"><span class="lab">TAKEAWAY</span><span class="t"></span></div>
-  </div>
-  <div class="foot"><span>OPIM639 · Group 3 · illustrative prototype, not Chagee's rules · nothing real is sent or bought</span><span class="rail"></span><span class="pg"></span></div>
-  <aside class="notes">
-    <p>This is the solution, as an illustrative prototype; the rules are ours, not Chagee's. Two parts, kept apart: squads, a product design, and personalisation, the AI part, which suggests a drink from each member's own choices and lets a gift's recipient choose privately. Click through: a member sees their progress and starts a squad, invites friends, then chooses a drink, with a suggestion they can accept, customise or dismiss and feedback such as not for me. In the shared basket each friend confirms their own drink, and preferences are saved to whoever chose, not whoever paid. When the order is collected everyone's progress moves. Last, gifting: the recipient picks privately from options ranked for them. Those picks and that feedback are the signals on the next slide.</p>
-    <p>Why it matters for the model: our hypothesis is that shared progress raises the value of friends, k, so the hump rises and the tipping point falls, from about {{r.mb_today_lo|pct}} to {{r.mb_squad_lo|pct}} at the default effort. The stalled case is the headline: at a high effort the app never takes off without squads, and with them it can. These are assumptions to test, not measured effects. About thirty seconds.</p>
-  </aside>
-</section>
-
 <!-- ======================================================= 07 GROW: GROUP ORDERS AS DEMAND DATA -->
-<section class="slide content mb" id="m2b" data-chapter="Grow" data-title="Every group order helps us serve customers better">
+<section class="slide content mb" id="m2b" data-chapter="Appendix" data-title="Every group order helps us serve customers better">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">07 · Grow · group orders as demand data<span class="stg"><b>Grow</b><i>Problem</i><i class="on">Solution</i><i>Decision</i></span><span class="ctag">Course link · Topic 1, demand data</span></p>
+    <p class="kicker">Appendix · Grow · group orders as demand data<span class="stg"><b>Grow</b><i>Problem</i><i class="on">Solution</i><i>Decision</i></span><span class="ctag">Course link · Topic 1, demand data</span></p>
     <h2 class="head">Every group order helps the outlet prepare for demand</h2>
     <div class="body" style="grid-template-columns:1fr 268px;gap:16px;margin-top:8px">
       <div class="panel stepper" data-steps="4" data-kind="sqcast">
@@ -1213,93 +1728,15 @@ aside.notes{display:none}
     <p>The squad experience is also a data source. As the course put it for online retailers, an app can capture demand data, not just sales data. Press Play: squad signals arrive before one outlet's pickup window, and each forecast uses only what was known at that minute. What the app would record, and which of it is already documented, sits behind What the app records; the squad fields are proposed and need consent.</p>
     <p>Step two, predict: expected cups are the cups already confirmed, plus a prediction of those not yet confirmed. An open basket or an unredeemed gift is not a drink; it counts only at the chance learned from past windows, and a confirmed cup is never counted twice. Step three, act: the forecast sets what to prepare, the crew for the window, how the counter is organised and the pickup time customers see.</p>
     <p>Then play it. This is synthetic: the squad signals help only because we assumed they carry information, so watch the mechanics, not the score. On some days the enhanced forecast is worse, because walk-in surges are invisible to squads. Averaged over {{x.sq_neval}} synthetic windows it is off by about {{x.sq_mae_e10|g1}} cups ten minutes before, against {{x.sq_mae_b|g1}} for the calendar baseline; with no squad share the two are identical. The appendix has the table.</p>
-    <p>Both sides gain: easier choices and reliable pickup for customers, a clearer view of what to prepare for Chagee. Personalisation may lower the effort from slide 05, but that is a hypothesis, and we do not turn adoption into extra orders. How the outlet organises people and machines to serve this demand is part two. First, the CRM manager's decision: is it worth piloting, and at what reward level? About one minute.</p>
-  </aside>
-</section>
-
-<!-- ======================================================= 08 GROW: THE CRM MANAGER'S DECISION -->
-<section class="slide content mb" id="m3" data-chapter="Grow" data-title="Pilot squads with personalised suggestions?">
-  <div class="leafart" aria-hidden="true"></div>
-  <div class="inner">
-    <p class="kicker">08 · Grow · the CRM manager's decision<span class="stg"><b>Grow</b><i>Problem</i><i>Solution</i><i class="on">Decision</i></span></p>
-    <h2 class="head">Pilot squads only at a reward their extra orders can pay for</h2>
-    <div class="body" style="grid-template-columns:1fr 300px;gap:16px;margin-top:8px">
-      <div class="panel stepper" data-steps="4" data-kind="mbpay">
-        <div class="ptop"><span class="ptitle">Does the reward pay for itself? · after reward and AI costs · illustrative</span><span class="ctl screenonly"></span></div>
-        <div class="visual" style="flex:none"><svg class="mbpay" viewBox="0 0 640 214" preserveAspectRatio="xMidYMid meet" aria-label="Contribution per member a month against additional orders, squads alone and squads with personalised suggestions, with the break-even points"></svg></div>
-        <ol class="caps" style="min-height:30px;margin-top:4px;padding-top:5px">
-          <li data-s="1"><span class="n">1</span><span>With no extra orders the reward is a pure cost: members get the credit on orders they would have placed anyway.</span></li>
-          <li data-s="2"><span class="n">2</span><span>Every extra order that squads create earns money back, so the line rises.</span></li>
-          <li data-s="3"><span class="n">3</span><span>Where the line crosses zero, squads pay for their reward: the pilot's minimum target.</span></li>
-          <li data-s="4"><span class="n">4</span><span>Personalised suggestions cost something to run, so they must add their own extra orders on top.</span></li>
-        </ol>
-      </div>
-      <div class="cards" style="gap:8px">
-        <div class="cset sitectl mbpctl screenonly"></div>
-        <div class="bc printonly mbpctlp"></div>
-        <div class="bc sqhow mbhow"></div>
-      </div>
-    </div>
-    <div class="mdec"><div class="who"><span class="lab">Manager's decision</span><b>CRM manager</b></div>
-      <div><span class="q">Which features and rewards should we pilot?</span>
-        <span class="k">Proposed</span><span class="mbact"></span></div>
-      <div><span class="k">Proceed if, arm against arm</span><ul><li>tier progression and orders rise against today's membership</li><li>satisfaction holds</li>
-        <li>contribution after reward and AI costs is positive</li></ul></div></div>
-    <p class="nextl"><b>Next</b>A more engaging membership must be matched by reliable fulfilment.</p>
-  </div>
-  <div class="foot"><span>OPIM639 · Group 3 · S$ · reward, AI cost and orders are assumptions, not Chagee data · table: appendix</span><span class="rail"></span><span class="pg"></span></div>
-  <aside class="notes">
-    <p>The decision for part one belongs to the CRM manager: which features and rewards should we pilot? The line is the contribution per member a month after the reward, the group-order credit. It starts below zero, because the credit is also paid on orders members would have placed anyway, and rises with each extra order. At a credit of {{x.mb_credit|pct}} squads alone break even at about {{x.mb_be_mid|c2}} extra orders a month at our base margin. Push the credit up to the margin and it never breaks even.</p>
-    <p>Step four adds personalised suggestions. They cost something to run; we assume S${{x.mb_ai|c2}} a member a month, a placeholder to replace with a real quote. That shifts the line down: break-even moves to about {{x.mb_be_ai|c2}} extra orders, so personalisation must add about {{x.mb_ai_hurdle|c2}} orders a month of its own on top of squads.</p>
-    <p>That is why the pilot has three arms: today's membership, squads, and squads with personalised suggestions. Squads against today shows the squad effect; adding suggestions shows the personalisation effect. Proceed only if tier progression rises, satisfaction holds, the extra orders reach these break-evens, and contribution after reward and AI costs is positive. We measure orders directly and do not read purchases off the adoption model. Then the transition: a more engaging membership experience must be matched by reliable fulfilment. About forty-five seconds.</p>
-  </aside>
-</section>
-
-<!-- ======================================================= 09 SERVE: THE PROBLEM AND FORECASTING -->
-<section class="slide content" id="o1" data-chapter="Serve" data-title="Demand moves by the hour">
-  <div class="leafart" aria-hidden="true"></div>
-  <div class="inner">
-    <p class="kicker">09 · Serve · forecasting: how many people<span class="stg"><b>Serve</b><i class="on">Problem</i><i class="on">Solution</i><i>Decision</i></span></p>
-    <h2 class="head">A forecast sets the crew each hour needs</h2>
-    <p class="bprob"><b>Business problem</b><span>Demand changes by the hour; staffing and fixed station assignments may not, leaving queues, walk-aways or idle capacity.
-      <span class="ev obs">Observed</span> people deployed on local expertise (Chagee source, anonymous); long reopening queues (Vulcan Post).
-      <span class="ev sim">Simulated</span> everything below. <span class="ev inf">To confirm</span> Chagee's waits and walk-aways.</span></p>
-    <div class="body" style="grid-template-columns:1fr 318px;gap:16px;margin-top:8px">
-      <div class="panel stepper" data-steps="4" data-kind="ophr">
-        <div class="ptop"><span class="ptitle">Cups an hour against crew capacity · <span class="opday"></span> · illustrative simulation</span><button class="btn hiwb screenonly" data-hiw="o1">Numbers</button><span class="ctl screenonly"></span></div>
-        <div class="ophr"><svg class="opsvg" viewBox="0 0 700 240" preserveAspectRatio="xMidYMid meet" aria-label="Forecast cups by hour against the capacity of the normal-day roster and of the forecast roster"></svg></div>
-        <ol class="caps" style="min-height:30px;margin-top:5px;padding-top:5px">
-          <li data-s="1"><span class="n">1</span><span>The forecast: cups an hour from historical order shares and the calendar. App signals, as on slide 07, could refine it nearer the time; they are not in these numbers.</span></li>
-          <li data-s="2"><span class="n">2</span><span>The normal-day roster, every day: red where demand passes what the crew can serve within the wait limit (queues, walk-aways), grey where the crew stands idle.</span></li>
-          <li data-s="3"><span class="n">3</span><span>The forecast roster follows demand. Forecasting sets how many people; the next two slides compare how they work.</span></li>
-          <li data-s="4"><span class="n">4</span><span>What if the forecast is wrong? Move the error on the right: the roster follows the wrong forecast, the customers do not.</span></li>
-        </ol>
-        <div class="hiw screenonly" data-name="o1"><div class="ptop"><span class="ptitle">Numbers · sensitivity to forecast error, peak hour · <span class="opday"></span></span><button class="btn" data-hiwx>✕ Close</button></div>
-          <table class="fetab"></table>
-          <p class="tiny">Bucket brigade, today's split, mean of {{a.seeds}} runs. Cost: the day's roster and machines. Error steps are scenarios, not Chagee's measured accuracy. All three day types: appendix, Serve.</p></div>
-      </div>
-      <div class="cards" style="gap:8px">
-        <div class="cset screenonly" style="flex-direction:row;align-items:center;gap:10px;padding:7px 12px"><span class="lab">Day</span><span class="opseg seg"></span></div>
-        <div class="cset sitectl opctl screenonly"></div>
-        <div class="bc printonly opctlp"></div>
-
-      </div>
-    </div>
-    <div class="takeaway optake" style="margin-top:8px;padding:9px 20px;font-size:14px"><span class="lab">TAKEAWAY</span><span class="t"></span></div>
-  </div>
-  <div class="foot"><span>OPIM639 · Group 3 · demand curve, roster rule and errors are illustrative assumptions · observed evidence marked</span><span class="rail"></span><span class="pg"></span></div>
-  <aside class="notes">
-    <p>Part two. A more engaging membership experience must be matched by reliable fulfilment. The business problem: demand changes by the hour, while the roster and fixed station assignments may not. What we have observed: a Chagee source who asked not to be named told us outlet teams deploy people on local expertise, and Vulcan Post reported long queues at the Singapore reopening. What we have not observed: Chagee's own wait times and walk-aways. Everything on the chart is simulated, on our assumptions.</p>
-    <p>Step one is the forecast: cups an hour from historical order shares and the calendar. App signals, like the squad signals on slide 07, could refine it nearer the time, but they are not in these numbers. Step two: keep the normal-day roster on a busier day and the peak runs short, in red, while the morning crew stands idle, in grey. Step three: the forecast roster follows demand. Keep three things apart: the forecast says how many people; the bucket brigade is a rule for how they share the work; machines decide which steps people do at all. The next two slides compare those.</p>
-    <p>Step four, the sensitivity. On a busy day, a forecast {{r.fe_bz_err|pct}} too low puts on {{r.fe_bz_lo_staff}} person at the peak instead of {{r.fe_bz_0_staff}}, and walk-aways go from {{r.fe_bz_0_lost|pct1}} to about {{r.fe_bz_lo_lost|pct}}. A forecast too high costs little: about S${{r.fe_ev_hi_extra}} more a day on an event day. The full table is behind Numbers. These error steps are scenarios, not Chagee's measured accuracy. About one minute.</p>
+    <p>Both sides gain: easier choices and reliable pickup for customers, a clearer view of what to prepare for Chagee. Personalisation may lower the effort score in the appendix, but that is a hypothesis, and we do not turn adoption into extra orders. How the outlet organises people and machines to serve this demand is part two. First, the CRM manager's decision: is it worth piloting, and at what reward level? About one minute.</p>
   </aside>
 </section>
 
 <!-- ======================================================= 10 SERVE: BUCKET BRIGADE -->
-<section class="slide content" id="c6" data-chapter="Serve" data-title="Share the counter">
+<section class="slide content" id="c6" data-chapter="Appendix" data-title="Share the counter">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">10 · Serve · bucket brigade: how the crew shares the work<span class="stg"><b>Serve</b><i>Problem</i><i class="on">Solution</i><i>Decision</i></span><span class="ctag">Course link · Week 5 bucket brigade</span></p>
+    <p class="kicker">Appendix · Serve · bucket brigade: how the crew shares the work<span class="stg"><b>Serve</b><i>Problem</i><i class="on">Solution</i><i>Decision</i></span><span class="ctag">Course link · Week 5 bucket brigade</span></p>
     <h2 class="head">A bucket brigade balances a lean crew by itself</h2>
     <div class="body" style="grid-template-columns:1fr;margin-top:12px">
       <div class="panel" data-kind="compare" data-mode="share">
@@ -1320,7 +1757,7 @@ aside.notes{display:none}
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · explainer figures are illustrative assumptions · mechanism in seconds, Week 5 bucket-brigade rules</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes">
-    <p>The forecast on slide 09 set how many people. This slide is how they share the work: same counter, same customers, two sharing rules side by side. The counter is today's split, our scenario, not Chagee's disclosed setup. Robots, the navy boxes, take the order, brew tea and milk, and shake and seal. People do cup and ice, toppings and hand-over.</p>
+    <p>The forecast on slide 07 set how many people. This slide is how they share the work: same counter, same customers, two sharing rules side by side. The counter is today's split, our scenario, not Chagee's disclosed setup. Robots, the navy boxes, take the order, brew tea and milk, and shake and seal. People do cup and ice, toppings and hand-over.</p>
     <p>Left, a bucket brigade: each person carries a cup forward; the last hands it over, walks back and takes over a colleague's cup. Right, fixed stations: each person owns a station.</p>
     <p>Press play on an event day. Then set the right side to "slowest on toppings": the queue builds at toppings and customers walk away. The brigade never needed to know who was fast.</p>
     <p>Be honest about the other case: add people and fixed stations catch up, or are a little faster. About one minute.</p>
@@ -1331,10 +1768,10 @@ aside.notes{display:none}
 </section>
 
 <!-- ======================================================= 11 SERVE: AUTOMATION -->
-<section class="slide content" id="c7" data-chapter="Serve" data-title="Split the counter">
+<section class="slide content" id="c7" data-chapter="Appendix" data-title="Split the counter">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">11 · Serve · automation: which steps a machine takes<span class="stg"><b>Serve</b><i>Problem</i><i class="on">Solution</i><i>Decision</i></span></p>
+    <p class="kicker">Appendix · Serve · automation: which steps a machine takes<span class="stg"><b>Serve</b><i>Problem</i><i class="on">Solution</i><i>Decision</i></span></p>
     <h2 class="head">In our model, one tea-and-milk machine is cheapest every day</h2>
     <div class="body" style="grid-template-columns:1fr 300px;margin-top:12px">
       <div class="panel" data-kind="compare" data-mode="split">
@@ -1372,177 +1809,6 @@ aside.notes{display:none}
   </aside>
 </section>
 
-<!-- ======================================================= 12 SERVE: THE OPERATIONS MANAGER'S DECISION -->
-<section class="slide content" id="o2" data-chapter="Serve" data-title="The operations manager's decision">
-  <div class="leafart" aria-hidden="true"></div>
-  <div class="inner">
-    <p class="kicker">12 · Serve · the operations manager's decision<span class="stg"><b>Serve</b><i>Problem</i><i>Solution</i><i class="on">Decision</i></span></p>
-    <h2 class="head">Roster to the forecast, test the brigade, pilot one machine</h2>
-    <div class="body" style="grid-template-columns:1fr 268px;gap:16px;margin-top:10px">
-      <div class="panel" data-kind="opdec">
-        <div class="ptop"><span class="ptitle">One lever per column · peak hour · bucket brigade · <span class="o2day"></span> · mean of {{a.seeds}} runs</span></div>
-        <table class="res o2tab"></table>
-      </div>
-      <div class="cards" style="gap:8px">
-        <div class="cset screenonly" style="flex-direction:row;align-items:center;gap:10px;padding:7px 12px"><span class="lab">Day</span><span class="dslot"></span></div>
-        <div class="bc"><div class="k">Reading the table</div><p><b style="color:#2F6B45">Green</b> is the proposed pilot. Each column adds one lever: the forecast changes only the crew, the machine only the equipment. The last row swaps the brigade for fixed posts. Illustrative simulation.</p></div>
-        <div class="bc warn"><div class="k">If the forecast is off</div><p>A busy-day forecast {{r.fe_bz_err|pct}} too low leaves about <b>{{r.fe_bz_lo_lost|pct}}</b> walking away (slide 09).</p></div>
-      </div>
-    </div>
-    <div class="mdec"><div class="who"><span class="lab">Manager's decision</span><b>Operations manager</b></div>
-      <div><span class="q">What crew and counter setup should we use?</span>
-        <span class="k">Proposed</span>Pilot in {{sb.pilot_outlets}} outlets: shadow the forecast, roster to it, then run one tea-and-milk machine against today's split.</div>
-      <div><span class="k">Proceed if</span><ul><li>waits within {{a.target_wait|min}}, walk-aways within {{sb.walkaway_target|pct}}</li><li>cups per labour hour and contribution at least today's</li><li>it holds when the forecast is off</li></ul></div></div>
-    <p class="nextl"><b>Next</b>Serving customers better also means being where demand is still unserved.</p>
-  </div>
-  <div class="foot"><span>OPIM639 · Group 3 · counter simulation on illustrative assumptions · not Chagee's measured operations</span><span class="rail"></span><span class="pg"></span></div>
-  <aside class="notes">
-    <p>The decision for part two belongs to the operations manager: what crew and counter setup should we use?</p>
-    <p>Read the table left to right; each column changes one lever. First, today: today's split and the normal-day roster. Second, the forecast changes only the crew. Third, a machine changes only the equipment, with the forecast crew. The last row keeps each setup but swaps the bucket brigade for fixed posts, so the sharing rule shows up on its own. That is how we keep forecast-informed staffing, the brigade and machine automation apart.</p>
-    <p>The criteria are the ones the brief asks for: waiting time, walk-aways, productivity as cups served per person at the peak, and operating contribution. And the forecast will be wrong sometimes: on a busy day a forecast {{r.fe_bz_err|pct}} too low lets about {{r.fe_bz_lo_lost|pct}} walk away, while a forecast too high costs only about S${{r.fe_ev_hi_extra}} a day on an event day.</p>
-    <p>Our proposal: roster to the forecast, test a brigade against fixed posts, and pilot one tea-and-milk machine against today's split in {{sb.pilot_outlets}} outlets: shadow the forecast first, then roster to it, then the machine. Proceed only if waits, walk-aways, cups per labour hour and contribution hold up, including when the forecast is off. Then the transition: serving customers better also means being where demand is still unserved. About one minute.</p>
-  </aside>
-</section>
-
-<!-- ======================================================= 13 EXPAND: THE CANDIDATE-SITE MAP -->
-<section class="slide content" id="c5" data-chapter="Expand" data-title="Predict demand for a new store">
-  <div class="leafart" aria-hidden="true"></div>
-  <div class="inner">
-    <p class="kicker">13 · Expand · where a new outlet adds customers<span class="stg"><b>Expand</b><i class="on">Problem</i><i class="on">Solution</i><i>Decision</i></span><span class="ctag">Course link · Week 3 · Flashion forecast</span></p>
-    <h2 class="head">Open where an outlet adds customers, not where it moves them</h2>
-    <p class="bprob"><b>Business problem</b><span>A new outlet may look successful while mostly moving sales from nearby stores, while other customers have no convenient outlet.
-      <span class="ev obs">Context</span> Chagee aims to expand rapidly in Singapore; the number of stores is confidential (Chagee source, anonymous). <span class="ev sim">Simulated</span> searches below.</span></p>
-    <div class="body" style="grid-template-columns:1fr 300px">
-      <div class="panel stepper" data-steps="5" data-kind="site">
-        <div class="ptop"><span class="ptitle">New-store forecast</span>
-          <button class="btn howb screenonly" title="Watch DBSCAN find the clusters, one search at a time">How it works</button>
-          <input class="sitesearch screenonly" list="sitelist" placeholder="Find an outlet or town…" aria-label="Find an outlet or town"><datalist id="sitelist"></datalist>
-          <span class="ctl screenonly"></span><span class="pnlctl screenonly"></span></div>
-        <div class="visual"><div class="maptip"></div><svg class="msvg" viewBox="0 0 1672 640" preserveAspectRatio="xMidYMid meet" aria-label="Map of synthetic app demand, clusters and a new-store pin"></svg></div>
-        <div class="pnlv" role="region" aria-label="Five-year P&amp;L of the two sites"><svg class="pnlsvg" viewBox="0 0 760 160" preserveAspectRatio="xMidYMid meet" aria-label="Five-year comparison, without and with AI-assisted site selection"></svg><div class="pnltip"></div><table class="res pnlbr"></table></div>
-        <ol class="caps">
-          <li data-s="1"><span class="n">1</span><span>Navy pins are Chagee's {{facts.sg_outlets}} outlets today (hover for name and cups a day). Dots are synthetic app sessions: gold near an outlet, red where no store was nearby.</span></li>
-          <li data-s="2"><span class="n">2</span><span>DBSCAN, an unsupervised method, groups red searches that sit densely together. Scattered searches stay grey as noise.</span></li>
-          <li data-s="3"><span class="n">3</span><span>Each cluster's centre is a candidate site, ranked by cups for Chagee: what the store sells minus what it takes from nearby outlets.</span></li>
-          <li data-s="4"><span class="n">4</span><span>Click the map to test a new store, or search an outlet or town. Hover a navy pin to see which outlet it is; red lines show which outlets would lose cups.</span></li>
-          <li data-s="5"><span class="n">5</span><span>The forecast's peak hour sets the opening roster for today's split (our scenario), which slides 10 and 11 run.</span></li>
-        </ol>
-        <div class="howto screenonly" role="dialog" aria-label="How DBSCAN finds the sites">
-          <div class="ptop"><span class="ptitle">How it works · DBSCAN on a toy set of searches</span><button class="btn" data-h="close" aria-label="Close">✕ Back to the map</button></div>
-          <svg class="toysvg" preserveAspectRatio="xMidYMid meet" aria-label="DBSCAN walkthrough"></svg>
-          <div class="howside">
-            <div class="stepno"></div><div class="bar"><i></i></div>
-            <div class="say"></div>
-            <div class="ctl"><button class="btn" data-h="prev" aria-label="Previous step">◀</button><button class="btn primary" data-h="play">▶ Play</button><button class="btn" data-h="next" aria-label="Next step">▶</button><button class="btn" data-h="end">Result</button></div>
-            <div class="toykey"></div>
-            <p class="tiny">Toy points, not the map. The real run uses the sliders' radius and minimum. <a data-h="apx">Every number behind the forecast: appendix</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="cards" style="gap:10px">
-        <div class="cset screenonly sitectl"></div>
-        <div class="fc"></div>
-        <p class="flag printonly">Synthetic app data on the team's map; outlet positions approximate (the central inset is enlarged). Not a trained model: the point is the method. Its five-year P&amp;L: appendix.</p>
-        <div class="pnlside"></div>
-      </div>
-    </div>
-    <div class="takeaway"><span class="lab">TAKEAWAY</span><span>Judge a site by the cups it adds to Chagee, not the cups it sells: the cluster near {{s.top_hub}} adds about <b>+{{r.top_net}}</b> a day; beside an existing outlet, the same store adds <b>+{{r.nd_net}}</b>.</span></div>
-  </div>
-  <div class="foot"><span>OPIM639 · Group 3 · explainer figures are illustrative assumptions · synthetic app data</span><span class="rail"></span><span class="pg"></span></div>
-  <aside class="notes">
-    <p>Part three. Serving customers better also means being available where demand remains underserved. The business problem has two sides: a new outlet can look successful while mostly moving sales from the stores around it, and customers elsewhere may have no convenient outlet at all. Context, from a Chagee source who asked not to be named: Chagee is looking to expand rapidly in Singapore, and how many stores it is going for is confidential. Chagee Singapore runs on its app, with few kiosks. If Chagee logs searches and their location, which we have to confirm, every search is a demand signal, including searches where no store is close. Here the searches are synthetic. That makes the app the forecasting input for a new store, before it has any sales.</p>
-    <p>Step one: synthetic app sessions on our map. Gold are within walking distance of an outlet; red found no store nearby. Step two: DBSCAN, unsupervised machine learning, groups red searches that are dense; scattered ones are noise. Step three: cluster centres are candidate sites.</p>
-    <p>Step four: click the map to test a site. The card leads with the gain for Chagee, which is the store's sales minus the cups it takes from nearby outlets, and gives a verdict: strong, mixed, or mostly moving cups. Try a pin next to Tampines West CC: it sells, but most of it moves from the two Tampines outlets nearby. Step five: the forecast's peak hour gives the opening roster for the counter on slides 10 and 11.</p>
-    <p>If asked how DBSCAN works, press How it works: it replays the algorithm one search at a time on a toy set. The appendix lists every simulated number.</p>
-    <p>The three sliders are the only inputs: cluster radius, minimum searches per cluster, and how far people will walk. The data is synthetic; with Chagee's real app logs, the same steps would run unchanged. About one and a half minutes.</p>
-    <p>If asked to see both sites, press See it on the map on the takeaway. If asked what this means in money, press "What does this mean for P&amp;L?" under the result. The map gives way to five years of the same new outlet at the two sites, with the same opening date, equipment and staffing rule, so only the site differs. Toggle revenue, operating profit and cumulative operating profit; hover a year for both values and the gap. At our assumptions, the store beside the existing outlet adds about {{r.pnl_wo_rev5|sgm}} of network sales over {{r.pnl_years}} years but loses money, {{r.pnl_wo_op5|sgm}} of operating profit: the contribution lost at its neighbours, about {{r.pnl_wo_lost5|sgm}}, is more than it makes, and their rent and staff do not go away. The AI site adds about {{r.pnl_wi_rev5|sgm}} of sales and {{r.pnl_wi_op5|sgm}} of operating profit after the AI costs, and pays back its set-up in about {{r.pnl_wi_payback|g1}} years. The gap is about {{r.pnl_up_op5|sgm}} of operating profit. Say clearly: these are illustrative scenarios on our assumptions, DBSCAN finds the clusters and the assumed demand model estimates the sales; they are not a demonstrated causal gain from AI. Operating profit is before depreciation, interest and tax. Escape or Back to map returns to the map.</p>
-    <p>Course link, Week 3, Analytics and AI: in the Flashion example, demand for a new store was forecast from similar stores. We ask the same question with a different input: app searches around the site.</p>
-    <p>Because the number of openings is confidential, the forecast ranks sites; it does not assume a number of openings.</p>
-    <p>The expansion manager's decision, with the criteria side by side, is on the next slide.</p>    <p>Takeaway: Judge a site by what it adds to Chagee, not what it sells. The top cluster, near {{s.top_hub}}, adds about {{r.top_net}} cups a day; a store beside an existing outlet would sell plenty, but about {{r.nextdoor_cannibal|pct}} of it is moved from that outlet.</p>
-  </aside>
-</section>
-
-<!-- ======================================================= 14 EXPAND: THE EXPANSION MANAGER'S DECISION -->
-<section class="slide content" id="e2" data-chapter="Expand" data-title="The expansion manager's decision">
-  <div class="leafart" aria-hidden="true"></div>
-  <div class="inner">
-    <p class="kicker">14 · Expand · the expansion manager's decision<span class="stg"><b>Expand</b><i>Problem</i><i>Solution</i><i class="on">Decision</i></span></p>
-    <h2 class="head">Investigate the site that adds customers, then check the downside</h2>
-    <div class="body" style="grid-template-columns:1fr;margin-top:10px">
-      <div class="panel">
-        <div class="ptop"><span class="ptitle">The same new outlet at two sites · synthetic app data · five years, our assumptions</span></div>
-        <table class="res e2tab">
-          <tr><th>Criterion</th><th>Beside {{s.bt_outlet}}<br><small>our assumed baseline</small></th><th>Cluster near {{s.top_hub}}<br><small>DBSCAN + demand model</small></th></tr>
-          <tr><td>Customer access: cups from people with no outlet within walking distance</td><td>{{r.nd_unmet|pct}}</td><td><b>{{r.top_unmet|pct}}</b></td></tr>
-          <tr><td>Cups a day the store sells</td><td>{{r.nd_cups|int}}</td><td>{{r.top_cups|int}}</td></tr>
-          <tr><td>Net additional cups a day, after cups moved from nearby outlets</td><td>+{{r.nd_net|int}}</td><td><b>+{{r.top_net|int}}</b></td></tr>
-          <tr><td>Incremental operating profit, five years, base volume</td><td>{{r.pnl_wo_op5|sgm}}</td><td><b>{{r.pnl_wi_op5|sgm}}</b></td></tr>
-          <tr><td>Investment at opening</td><td>{{r.pnl_wo_invest|sgm}}</td><td>{{r.pnl_wi_invest|sgm}} <small>incl. AI share</small></td></tr>
-          <tr><td>Payback</td><td>not within {{r.pnl_years}} years</td><td>about {{r.pnl_wi_payback|g1}} years</td></tr>
-          <tr><td>Downside: low volume, five years</td><td>{{r.pnl_wo_op5_lo|sgm}}</td><td>{{r.pnl_wi_op5_lo|sgm2}}, not paid back in {{r.pnl_years}} years</td></tr>
-          <tr><td>Upside: high volume, five years</td><td>{{r.pnl_wo_op5_hi|sgm}}</td><td>{{r.pnl_wi_op5_hi|sgm}}</td></tr>
-        </table>
-        <p class="lnote" style="margin-top:6px">DBSCAN only finds where unserved searches gather; a separate demand model, on our assumptions, estimates sales. Synthetic searches. Operating profit before depreciation, interest and tax, after the contribution lost at nearby outlets. Every input and year: appendix, Expand.</p>
-      </div>
-    </div>
-    <div class="mdec"><div class="who"><span class="lab">Manager's decision</span><b>Expansion manager</b></div>
-      <div><span class="q">Which location justifies investment?</span>
-        <span class="k">Proposed</span>Investigate the cluster near {{s.top_hub}}: rerun the method on Chagee's app logs before any lease or pilot.</div>
-      <div><span class="k">Proceed if, on real data</span><ul><li>most of its cups come from customers without convenient access</li><li>net additional cups, not moved cups, carry the case</li><li>profit covers the investment, with an acceptable downside</li></ul></div></div>
-    <p class="nextl"><b>Next</b>Our recommendation: three managers, three pilots.</p>
-  </div>
-  <div class="foot"><span>OPIM639 · Group 3 · synthetic app data · illustrative assumptions, not a demonstrated causal gain from AI</span><span class="rail"></span><span class="pg"></span></div>
-  <aside class="notes">
-    <p>The decision for part three belongs to the expansion manager: which location should we investigate or pilot next, and do its expected incremental returns justify the investment?</p>
-    <p>The table puts the same new outlet at two sites and reads down the criteria. Customer access: about {{r.top_unmet|pct}} of the cluster site's cups come from people with no outlet within walking distance, against {{r.nd_unmet|pct}} beside the existing outlet. Net additional demand: about {{r.top_net}} cups a day against {{r.nd_net}}. Incremental operating profit over {{r.pnl_years}} years: about {{r.pnl_wi_op5|sgm}} against {{r.pnl_wo_op5|sgm}}, on {{r.pnl_wi_invest|sgm}} invested, paying back in about {{r.pnl_wi_payback|g1}} years. Then the downside: at low volume the cluster site makes about {{r.pnl_wi_op5_lo|sgm2}} and does not pay back within {{r.pnl_years}} years.</p>
-    <p>Say it plainly: DBSCAN does not predict sales or profit. It finds where unserved searches gather; a separate demand model, on our assumptions, estimates sales and cannibalisation, and the searches are synthetic. So the proposal is to investigate, not to open: rerun the method on Chagee's app logs before any lease. For a new market without app history, external area features and demand scenarios stand in: the optional extension after the close. About fifty seconds.</p>
-  </aside>
-</section>
-
-<!-- ======================================================= 15 RECOMMENDATION -->
-<section class="slide content" id="rc" data-chapter="Recommend" data-title="Our recommendation">
-  <div class="leafart" aria-hidden="true"></div>
-  <div class="inner">
-    <p class="kicker">15 · Our recommendation</p>
-    <h2 class="head">Three managers, three pilots, each judged on its own evidence</h2>
-    <p class="sub">A connected story, not one combined model: no simulated benefit is carried between parts or added up.</p>
-    <div class="rec3">
-      <div class="c"><span class="own">Grow demand · CRM manager</span><h5>Which features and rewards should we pilot?</h5>
-        <p class="act"><span class="k">Recommend</span>Squads, and squads with personalised suggestions, against today's membership, at a reward the extra orders can pay for.</p>
-        <p><span class="k">Proceed if</span>tier progression and orders rise, satisfaction holds, and contribution after reward and AI costs is positive.</p></div>
-      <div class="c"><span class="own">Serve demand · operations manager</span><h5>What crew and counter setup should we use?</h5>
-        <p class="act"><span class="k">Recommend</span>Roster to the forecast, test a bucket brigade, and pilot one tea-and-milk machine against today's split in {{sb.pilot_outlets}} outlets.</p>
-        <p><span class="k">Proceed if</span>waits, walk-aways, cups per labour hour and contribution beat today's, even when the forecast is off.</p></div>
-      <div class="c"><span class="own">Expand access · expansion manager</span><h5>Which location justifies investment?</h5>
-        <p class="act"><span class="k">Recommend</span>Investigate the cluster near {{s.top_hub}} on Chagee's real app logs before any lease.</p>
-        <p><span class="k">Proceed if</span>it adds net new customers, and its profit covers the investment with an acceptable downside.</p></div>
-    </div>
-    <div class="takeaway" style="margin-top:14px"><span class="lab">TAKEAWAY</span><span>Make membership more rewarding → serve demand reliably → open where we add new customers.</span></div>
-  </div>
-  <div class="foot"><span>OPIM639 · Group 3 · model figures are illustrative assumptions, not Chagee data</span><span class="rail"></span><span class="pg"></span></div>
-  <aside class="notes">
-    <p>Our recommendation mirrors the three chapters: three decisions, three owners, and each one is a pilot judged on its own evidence.</p>
-    <p>For the CRM manager: the Membership Operations team wants to move customers up the tiers, and customers may not find it worth the effort. Pilot squads, and squads with personalised suggestions, against today's membership, at a reward level the extra orders can pay for. Proceed if tier progression rises, satisfaction holds, and the extra orders cover the reward and the AI cost.</p>
-    <p>For the outlet GM or operations manager: demand moves by the hour, and the roster should too. Roster to the forecast, test a bucket brigade against fixed posts, and pilot one tea-and-milk machine against today's split. Proceed if waits, walk-aways, productivity and contribution beat today's, including when the forecast is wrong.</p>
-    <p>For the expansion manager: count the cups a new outlet adds, not the ones it sells. Investigate the cluster near {{s.top_hub}} on Chagee's real app logs before any lease, and proceed only if its incremental returns justify the investment with an acceptable downside.</p>
-    <p>One caution to say out loud: these parts connect as a story, but we never add their simulated benefits together or carry membership uplift into the counter or expansion numbers. About forty-five seconds.</p>
-  </aside>
-</section>
-
-<!-- ======================================================= END -->
-<section class="slide cover" data-title="Thank you">
-  <img class="ll" src="{img:leaves_left}" alt="">
-  <img class="sand" src="{img:sand}" alt="">
-  <div class="t" style="top:210px">
-    <h1>Thank you</h1>
-    <p class="tl">Questions and discussion</p>
-    <div class="rule"></div>
-    <p class="meta">OPIM639 &nbsp;·&nbsp; Group 3 &nbsp;·&nbsp; Keziah, Jin, Ayumi, Revan</p>
-  </div>
-  <img class="cup" src="{img:cup_red}" alt="" style="left:auto;right:120px;transform:none;bottom:70px;width:110px">
-  <aside class="notes"><p>Recap the chain and its owners: the CRM manager makes membership worth joining, the operations manager serves the demand reliably, the expansion manager opens where demand remains underserved. Each part rests on its own assumptions; no simulated uplift is carried from one to the next.</p><p>Likely questions: is the brigade always better? No; with spare staff fixed stations are as good. Is the forecast real? No, it is an illustration of the chain, built on stated assumptions.</p></aside>
-</section>
-
 <!-- ======================================================= THINGS TO CONSIDER (divider) -->
 <section class="slide cover" id="tc" data-title="Optional extension: a new market">
   <img class="ll" src="{img:leaves_left}" alt="">
@@ -1557,10 +1823,10 @@ aside.notes{display:none}
 </section>
 
 <!-- ======================================================= 8A NEW MARKET: WHAT CAN WE KNOW BEFORE OPENING (temporary label) -->
-<section class="slide content nm" id="n1" data-chapter="Extension" data-title="New markets: what can we know before opening?">
+<section class="slide content nm" id="n1" data-chapter="Appendix" data-title="New markets: what can we know before opening?">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner stepper" data-steps="4">
-    <p class="kicker">Extension · New market · what can we know before opening?<span class="ext">New-market worked example · Australia · scenario assumptions</span></p>
+    <p class="kicker">Appendix · New market · what can we know before opening?<span class="ext">New-market worked example · Australia · scenario assumptions</span></p>
     <h2 class="head" style="font-size:30px;max-width:1010px">No Chagee sales history is not the same as no data: profile each area on what a new market can measure</h2>
     <p class="sub">Archetype candidate areas in one Australian state capital, standing in for real suburbs until the data is pulled. We assume Chagee has no operating history there.</p>
     <div class="body" style="grid-template-columns:1fr 286px;gap:18px;margin-top:8px">
@@ -1598,10 +1864,10 @@ aside.notes{display:none}
 </section>
 
 <!-- ======================================================= 8B AUSTRALIA: WHICH AREAS SHOW POTENTIAL (temporary label) -->
-<section class="slide content nm" id="n2" data-chapter="Extension" data-title="Australia case study: which areas show potential?">
+<section class="slide content nm" id="n2" data-chapter="Appendix" data-title="Australia case study: which areas show potential?">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner stepper" data-steps="4">
-    <p class="kicker">Extension · New market · which areas show potential?<span class="ext">New-market worked example · Australia · scenario assumptions</span></p>
+    <p class="kicker">Appendix · New market · which areas show potential?<span class="ext">New-market worked example · Australia · scenario assumptions</span></p>
     <h2 class="head" style="font-size:29px;max-width:1010px">{{s.nm_contenders}} can each rank first as the weights move; the score shortlists areas, it does not forecast their sales</h2>
     <div class="body" style="grid-template-columns:1fr 300px;gap:18px;margin-top:10px">
       <div class="panel">
@@ -1641,10 +1907,10 @@ aside.notes{display:none}
 </section>
 
 <!-- ======================================================= 8C WHICH OPERATING SETUP UNDER UNCERTAIN DEMAND (temporary label) -->
-<section class="slide content nm" id="n3" data-chapter="Extension" data-title="Which operating setup works under uncertain demand?">
+<section class="slide content nm" id="n3" data-chapter="Appendix" data-title="Which operating setup works under uncertain demand?">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">Extension · New market · which operating setup under uncertain demand?<span class="ext">New-market worked example · Australia · A$ scenario assumptions</span></p>
+    <p class="kicker">Appendix · New market · which operating setup under uncertain demand?<span class="ext">New-market worked example · Australia · A$ scenario assumptions</span></p>
     <h2 class="head" style="font-size:28px;max-width:1010px">With our A$ assumptions, machine-made drink holds up best in the worst case; human-only wins if a machine unit costs more than about A${{x.nm_flip_machine}} a month</h2>
     <div class="body" style="grid-template-columns:1fr 300px;gap:18px;margin-top:8px">
       <div class="panel">
@@ -1664,7 +1930,7 @@ aside.notes{display:none}
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · illustrative assumptions · A$ wage, price, rent and machine costs are scenario assumptions, not sourced</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes">
-    <p>Now feed the demand scenarios into the same counter simulation as slides 10 and 11, with Australian costs in Australian dollars: a wage of A${{x.nm_wage}} an hour, A${{x.nm_machine}} a month per machine unit, A${{x.nm_price|g}} a cup and A${{x.nm_rent}} a month rent at the {{s.nm_pilot_name}}. All scenario assumptions, none sourced. We compare human-only with machine-made drink. Equipment is sized before opening for the base scenario and does not change.</p>
+    <p>Now feed the demand scenarios into the same counter simulation as the appendix counter slides, with Australian costs in Australian dollars: a wage of A${{x.nm_wage}} an hour, A${{x.nm_machine}} a month per machine unit, A${{x.nm_price|g}} a cup and A${{x.nm_rent}} a month rent at the {{s.nm_pilot_name}}. All scenario assumptions, none sourced. We compare human-only with machine-made drink. Equipment is sized before opening for the base scenario and does not change.</p>
     <p>The chart is the year-average operating contribution, before set-up cost, delivery and overheads, as realised demand moves. Machine-made drink is above human-only across the range here, and both are below zero at the low end: break-even is about {{x.nm_be_mdd}} cups a day for machine-made drink and {{x.nm_be_hand}} for human-only, against a low scenario of {{x.nm_d_low}}.</p>
     <p>Then the AI layer, revealed in the band. Without AI the counter runs one crew all day, set once for a normal day's planned peak. With AI the forecast sets the roster for the day type, but the forecast is not perfect: it can miss realised demand by {{x.nm_err|pct}} either way. On an event day at base demand, human-only without AI loses about {{x.nm_hand_wo_lost|pct}} of peak-hour orders; with an exact forecast, {{x.nm_hand_ai_staff}} people bring that to {{x.nm_hand_ai_lost|pct}}, and the day's contribution rises to about A${{x.nm_hand_ai_c}} from A${{x.nm_hand_wo_c}}. An under-forecast puts on {{x.nm_hand_aim_staff}} and gives some back: {{x.nm_hand_aim_lost|pct}} walk away. On machine-made drink the forecast keeps {{x.nm_mdd_ai_staff}} person even on an event day, so {{x.nm_mdd_ai_lost|pct1}} still walk away: the staffing rule's own capacity estimate is the limit there, not the forecast.</p>
     <p>When does the answer change? We judge by the worst case across demand scenarios and forecast errors. Machine-made drink keeps about A${{x.nm_worst_mdd}} a day, human-only A${{x.nm_worst_hand}}. That flips if a machine unit costs more than about A${{x.nm_flip_machine}} a month; across our wage range, A${{x.nm_wage_lo}} to A${{x.nm_wage_hi}} an hour, machine-made drink stays ahead. Move the sliders to test it. Walk-aways are counted at the peak-hour rate over the busiest hours only, an approximation. About one and a half minutes.</p>
@@ -1672,10 +1938,10 @@ aside.notes{display:none}
 </section>
 
 <!-- ======================================================= 8D PILOT, LEARN, THEN EXPAND (temporary label) -->
-<section class="slide content nm" id="n4" data-chapter="Extension" data-title="Pilot, learn, then expand">
+<section class="slide content nm" id="n4" data-chapter="Appendix" data-title="Pilot, learn, then expand">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner stepper" data-steps="4">
-    <p class="kicker">Extension · New market · pilot, learn, then expand<span class="ext">New-market worked example · Australia · scenario assumptions</span></p>
+    <p class="kicker">Appendix · New market · pilot, learn, then expand<span class="ext">New-market worked example · Australia · scenario assumptions</span></p>
     <h2 class="head" style="font-size:29px;max-width:1010px">Pilot one machine-made drink counter in the {{s.nm_pilot_name}}, then let the pilot's own data decide the next step</h2>
     <div class="body" style="grid-template-columns:300px 1fr 280px;gap:16px;margin-top:10px">
       <div class="bc nmrec" data-s="1"><div class="k">Recommendation · conditional</div>
@@ -1711,31 +1977,11 @@ aside.notes{display:none}
   </aside>
 </section>
 
-<!-- ======================================================= APPENDIX: CONTENTS -->
-<section class="slide content" id="ax" data-chapter="Appendix" data-title="Appendix">
-  <div class="leafart" aria-hidden="true"></div>
-  <div class="inner">
-    <p class="kicker">Appendix · contents</p>
-    <h2 class="head">Appendix: the detail behind each chapter</h2>
-    <p class="sub">Derivations, tables, sources and earlier analyses. Click a line to open it; use the agenda to return.</p>
-    <div class="apxix">
-      <div><h5>Grow demand</h5><ol><li data-go="am1">Members: the model and its checks</li><li data-go="am2">Members: break-even, assumptions and sources</li><li data-go="am3">Group orders to forecasts: method and results</li></ol></div>
-      <div><h5>Serve demand</h5><ol><li data-go="aops">Counter comparisons, every day type</li><li data-go="c8">The modelled decisions in detail</li><li data-go="c9">The size of the benefit</li><li data-go="ab">The benefit in detail</li><li data-go="cm">Machine ladder</li><li data-go="a3">Machine ladder: tiers and sources</li></ol></div>
-      <div><h5>Expand access</h5><ol><li data-go="a2">How the site forecast works</li><li data-go="ap">The new store in money: five-year P&amp;L</li><li data-go="x1">Four scores for every location</li><li data-go="x1b">The supervised model</li><li data-go="x2">From pin to net profit</li></ol></div>
-      <div><h5>Across the story</h5><ol><li data-go="adata">Chagee's data collection</li><li data-go="c1b">Network effects across the three parts</li><li data-go="a1">Sources and assumptions</li></ol></div>
-      <div><h5>Optional extension</h5><ol><li data-go="an">New market: inputs and method</li></ol></div>
-    </div>
-  </div>
-  <div class="foot"><span>OPIM639 · Group 3 · appendix · for questions</span><span class="rail"></span><span class="pg"></span></div>
-  <aside class="notes"><p>The appendix holds everything moved off the main slides: derivations, the full tables, sources and earlier analyses. Click a line to jump to it.</p></aside>
-</section>
-
-
 <!-- ======================================================= APPENDIX: CHAGEE'S DATA COLLECTION -->
 <section class="slide content" id="adata" data-chapter="Appendix" data-title="Chagee's data collection">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">Appendix · context · behind slides 01 and 03</p>
+    <p class="kicker">Appendix · context · behind slide 03</p>
     <h2 class="head">Chagee's data collection: what is public, what is to confirm</h2>
     <p class="sub">Only what our sources say; everything else in the deck is synthetic or illustrative.</p>
     <div class="body adat" style="grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px">
@@ -1755,15 +2001,15 @@ aside.notes{display:none}
         <li><b>Wait times, footfall and walk-aways</b>.</li>
         <li>Any use of app data needs <b>consent</b> under Singapore's data protection law (PDPA).</li></ul></div>
     </div>
-    <div class="takeaway"><span class="lab">TAKEAWAY</span><span>Orders are recorded in one system; searches, location and waits are to confirm. That is why our app and site data are synthetic (slides 07 and 13).</span></div>
+    <div class="takeaway"><span class="lab">TAKEAWAY</span><span>Orders are recorded in one system; searches, location and waits are to confirm. That is why our app and site data are synthetic (slide 09 and the appendix).</span></div>
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · sources as cited · quotes checked against the source text</span><span class="rail"></span><span class="pg"></span></div>
-  <aside class="notes"><p>Backup for slide 01's "Why Chagee?" and slide 03's data trail. Only three public sources speak to Chagee's data: the annual report's risk factors, the app's store listing and Vulcan Post on the reopening. Our Chagee source, who asked not to be named, added that Singapore runs on one company and one data system, that delivery is all third-party, and that staffing is decided by the GM and outlet teams. What we could not confirm: the app's share of orders, whether searches or location are logged, and waits or walk-aways; that is why the app and site data in the deck are synthetic.</p></aside>
+  <aside class="notes"><p>Backup for slide 03's "Why Chagee?" and the data trail in the appendix. Only three public sources speak to Chagee's data: the annual report's risk factors, the app's store listing and Vulcan Post on the reopening. Our Chagee source, who asked not to be named, added that Singapore runs on one company and one data system, that delivery is all third-party, and that staffing is decided by the GM and outlet teams. What we could not confirm: the app's share of orders, whether searches or location are logged, and waits or walk-aways; that is why the app and site data in the deck are synthetic.</p></aside>
 </section>
 <section class="slide content mb" id="am1" data-chapter="Appendix" data-title="Members: the model and its checks">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">Appendix · Members, slides 05 to 07: the model, the scenario table and the network check</p>
+    <p class="kicker">Appendix · Members, slides 05 and 06: the model, the scenario table and the network check</p>
     <h2 class="head" style="font-size:28px">From one customer's rule to the tipping point, and how far a friend network moves it</h2>
     <div class="body" style="grid-template-columns:1fr 1fr;gap:18px;margin-top:10px">
       <div class="mbapx"><!--MBAPPX1--></div>
@@ -1771,13 +2017,13 @@ aside.notes{display:none}
     </div>
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · analytics model, not AI · illustrative, not Chagee data</span><span class="rail"></span><span class="pg"></span></div>
-  <aside class="notes"><p>Soft copy only. Backup for slides 05 and 06: the derivation, every parameter, the computed scenario table and the network check.</p></aside>
+  <aside class="notes"><p>Soft copy only. Backup for slide 05: the derivation, every parameter, the computed scenario table and the network check.</p></aside>
 </section>
 
 <section class="slide content mb" id="am2" data-chapter="Appendix" data-title="Members: break-even, assumptions and sources">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">Appendix · Members, slides 05 to 07: break-even table, assumptions and source excerpts</p>
+    <p class="kicker">Appendix · Members, slides 05 and 06: break-even table, assumptions and source excerpts</p>
     <h2 class="head" style="font-size:28px">The break-even across the margin range, every new input, and what the sources say</h2>
     <div class="body" style="grid-template-columns:1fr 1fr;gap:18px;margin-top:10px"><div class="mbapx"><!--MBAPPX3--></div>
       <div><div class="ptitle">Source excerpts · quoted word for word</div>
@@ -1787,29 +2033,29 @@ aside.notes{display:none}
         <div class="bc warn" style="margin-top:8px"><div class="k">Membership Operations team, Chagee</div><p>Paraphrased, not quoted: the barrier to levelling up is not outlet operations; it is whether customers think the effort of tiering up is worth it.</p></div></div></div>
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · quotes checked against sources · assumptions, not Chagee data</span><span class="rail"></span><span class="pg"></span></div>
-  <aside class="notes"><p>Soft copy only. Backup for slide 08, and the source excerpts behind the chapter.</p></aside>
+  <aside class="notes"><p>Soft copy only. Backup for slide 06, and the source excerpts behind the chapter.</p></aside>
 </section>
 
 <section class="slide content mb" id="am3" data-chapter="Appendix" data-title="Group orders to forecasts: method and results">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">Appendix · From group orders to forecasts, slide 07: method, synthetic results and inputs</p>
+    <p class="kicker">Appendix · From group orders to forecasts: method, synthetic results and inputs</p>
     <h2 class="head" style="font-size:28px">How the enhanced forecast is built, and how it compares on synthetic windows</h2>
     <div class="body wide" style="margin-top:10px"><div class="mbapx" style="columns:2;column-gap:22px"><!--SQAPPX--></div></div>
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · synthetic data · not measured accuracy · assumptions, not Chagee data</span><span class="rail"></span><span class="pg"></span></div>
-  <aside class="notes"><p>Soft copy only. Backup for slide 07: the forecast definitions, the synthetic comparison and every input.</p></aside>
+  <aside class="notes"><p>Soft copy only. Backup for the group-orders slide: the forecast definitions, the synthetic comparison and every input.</p></aside>
 </section>
 
 <!-- ======================================================= APPENDIX: SERVE, COUNTER COMPARISONS -->
 <section class="slide content" id="aops" data-chapter="Appendix" data-title="Counter comparisons, every day type">
   <div class="inner">
-    <p class="kicker">Appendix · Serve · the tables behind slides 09 to 12</p>
+    <p class="kicker">Appendix · Serve · the tables behind slides 07 and 08</p>
     <h2 class="head" style="font-size:28px">Counter comparisons for every day type</h2>
     <div class="body wide" style="margin-top:10px"><div class="mbapx opsapx"><!--OPSAPPX--></div></div>
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · illustrative simulation · peak hour · mean of {{a.seeds}} runs · not Chagee data</span><span class="rail"></span><span class="pg"></span></div>
-  <aside class="notes"><p>Backup for the Serve chapter: the forecast-error sensitivity (slide 09), the three sharing rules (slide 10), the five setups (slide 11) and the forecast's effect at the counter, for every day type.</p></aside>
+  <aside class="notes"><p>Backup for the Serve chapter: the forecast-error sensitivity (slide 07), the three sharing rules (appendix), the five setups (appendix) and the forecast's effect at the counter, for every day type.</p></aside>
 </section>
 
 <!-- ======================================================= APPENDIX: THE DECISIONS IN DETAIL -->
@@ -1822,19 +2068,19 @@ aside.notes{display:none}
       <div class="panel" style="padding:10px 14px">
         <table class="dlist">
           <tr><th></th><th>Decision</th><th>Why, from the model</th><th>Revisit when</th></tr>
-          <tr><td><span class="num">1</span><b>Where to open</b><small>expansion manager · slide 13 · DBSCAN + assumed demand model</small></td>
+          <tr><td><span class="num">1</span><b>Where to open</b><small>expansion manager · slide 09 · DBSCAN + assumed demand model</small></td>
             <td>Open where app searches cluster, not beside an existing outlet.</td>
             <td><b>+{{r.dec_top}}</b> against <b>+{{r.dec_beside}}</b> cups a day for the same new outlet. <i>Synthetic app-search data: this shows the method, not a finding about real outlets.</i></td>
             <td>Rerun on Chagee's app logs, if searches and location are recorded, before any lease.</td></tr>
-          <tr><td><span class="num">2</span><b>What to automate</b><small>operations manager · slide 11 · physical AI</small></td>
+          <tr><td><span class="num">2</span><b>What to automate</b><small>operations manager · appendix · physical AI</small></td>
             <td>In our model, one tea-and-milk machine is the cheapest on every day type; pilot it against today's split (our scenario).</td>
             <td><b>S${{r.dec_single_lo}}–{{r.dec_single_hi}}</b> a day against S${{r.dec_today_lo}}–{{r.dec_today_hi}}. The two cost the same at about <b>S${{r.dec_be}} a month per machine unit</b> ({{r.dec_units_single}} unit against {{r.dec_units_today}}), with wage, volume, station speeds and crews held fixed; we assume S${{r.unit_month}}. <i>Amacha's S${{r.amacha_price}} is a one-off price; without machine life, upkeep and financing we cannot turn it into a monthly cost.</i></td>
             <td>When Chagee's real machine cost is known.</td></tr>
-          <tr><td><span class="num">3</span><b>How many people</b><small>operations manager · slide 09 and the benefit slide · forecast + economic rule</small></td>
+          <tr><td><span class="num">3</span><b>How many people</b><small>operations manager · slide 07 and slide 12 · forecast + economic rule</small></td>
             <td>Economic rule: add a person on event days, not on busy days.</td>
             <td>With the one machine: peak crew {{r.dec_flat}} → <b>{{r.dec_event}}</b> on event days; {{r.dec_busy}} on busy days, where an extra person costs more than the orders it keeps.</td>
             <td>When the forecast peak moves.</td></tr>
-          <tr><td><span class="num">4</span><b>How to share</b><small>operations manager · slide 10 · operations</small></td>
+          <tr><td><span class="num">4</span><b>How to share</b><small>operations manager · appendix · operations</small></td>
             <td>Test a bucket brigade against fixed posts for the hand steps.</td>
             <td>In the recommended setup (one machine, {{r.dec_share_k}} people, event day): <b>{{r.dec_br|pct1}}</b> walk away with a brigade, {{r.dec_fb|pct1}} with well-assigned fixed posts, {{r.dec_fw|pct}} with badly assigned ones; median wait {{r.dec_wb|mmss}} against {{r.dec_wf|mmss}}.</td>
             <td>Fixed posts once there is spare staff.</td></tr>
@@ -1853,42 +2099,9 @@ aside.notes{display:none}
   <div class="foot"><span>OPIM639 · Group 3 · explainer figures are illustrative assumptions</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes">
     <p><b>TBC:</b> this slide is a draft and still to be confirmed by the team; present it as work in progress.</p>
-    <p>The detail behind two of the three owners' decisions: four modelled decisions, one per simulation, all on our assumptions. The CRM manager's decision is on slide 08. One, for the expansion manager, where to open: DBSCAN clusters app searches and our assumed demand model scores the sites. The searches are synthetic, so this shows the method; rerun it on Chagee's app logs, if searches and location are recorded, before any lease.</p>
+    <p>The detail behind two of the three owners' decisions: four modelled decisions, one per simulation, all on our assumptions. The CRM manager's decision is on slide 06. One, for the expansion manager, where to open: DBSCAN clusters app searches and our assumed demand model scores the sites. The searches are synthetic, so this shows the method; rerun it on Chagee's app logs, if searches and location are recorded, before any lease.</p>
     <p>Two to four belong to the outlet GM or operations manager. Two, what to automate: in our model one tea-and-milk machine is the cheapest on every day type, so pilot it against today's split, which is our scenario, not Chagee's disclosed setup. The two cost the same at about S${{r.dec_be}} a month per machine unit, comparing one unit against three, with the wage, volume and crews held fixed. We assume S${{r.unit_month}}. We cannot turn the one-off price one small shop paid into a monthly cost without machine life, upkeep and financing, so Chagee's real cost decides this.</p>
     <p>Three, how many people: the economic rule adds a person on event days but not on busy days. Four, how to share: test a bucket brigade against fixed posts; in the recommended setup the brigade does a little better than well-assigned fixed posts and much better than badly assigned ones. Then a pilot in {{sb.pilot_outlets}} outlets: shadow the forecast, roster by the economic rule, and run one machine against today's split, judged on cups per labour hour, wait time and walk-aways. About one minute.</p>
-  </aside>
-</section>
-
-<!-- ======================================================= APPENDIX: THE SIZE OF THE BENEFIT -->
-<section class="slide content bs" id="c9" data-chapter="Appendix" data-title="The size of the benefit">
-  <div class="leafart" aria-hidden="true"></div>
-  <div class="inner">
-    <p class="kicker">Appendix · The size of the benefit · Singapore only<span class="tbc">TBC · draft, to be confirmed</span></p>
-    <h2 class="head">In our model, about S${{r.ben_profit_sg|m2}} a year across {{facts.sg_outlets}} outlets against an illustrative baseline, almost all from one machine's labour saving</h2>
-    <p class="sub">Modelled avoided costs on stated assumptions, not demonstrated savings and not savings against Chagee's actual operations, where the GM and teams staff on local expertise. The pilot compares one machine with today's split (our scenario).</p>
-    <div class="body" style="grid-template-columns:1fr 400px">
-      <div class="panel">
-        <div class="ptop"><span class="ptitle">Profit a year, all {{facts.sg_outlets}} outlets · economic rule throughout</span></div>
-        <div class="bars"></div>
-        <p class="lnote" style="margin-top:auto">Profit = orders kept × price × margin, plus labour saved, minus machine cost. Calendar: {{sb.busy_days_per_year}} busy days (weekends) and {{sb.event_days_per_year}} event days (public holidays) a year, an illustrative definition. Baseline: all by hand, the normal-day crew every day. Peak hour only, so orders kept are a floor. Every figure, range and both crew rules: appendix.</p>
-      </div>
-      <div class="cards" style="gap:9px">
-        <div class="bc phys"><div class="k">Physical AI · one tea-and-milk machine</div><h4>Most of the benefit: labour</h4>
-          <p>Lets the roster drop from {{r.min_hand}} people to {{r.min_mixed}} in the off-peak hours: <b>S${{r.sg_b_profit|m2}}</b> a year after the machine's cost.</p></div>
-        <div class="bc ai"><div class="k">Forecast + economic rule</div><h4>Adds event-day orders on top of the machine</h4>
-          <p>Adds a person on event days only ({{r.ev_b_staff}} → {{r.ev_abE_staff}}), keeping about {{r.fc_add_event}} more orders per outlet that day: {{r.fc_add_year}} a year, <b>S${{r.fc_add_sg|m2}}</b> across Singapore. On its own, all by hand: S${{r.sg_aE_profit|m2}}.</p></div>
-        <div class="bc warn"><div class="k">Read with care</div><h4>The big number rests on one assumption</h4>
-          <p>The minimum crew, {{r.min_hand}} by hand and {{r.min_mixed}} with machines, is ours. Without it, S${{r.ben_profit_sg|m2}} falls to <b>S${{r.ben_fragile_sg|m2}}</b>. The pilot arm beats today's split by S${{r.pilot_sg|m2}}: more than the headline, because today's split is itself S${{r.today_below_sg|m2}} below the baseline.</p></div>
-      </div>
-    </div>
-    <div class="vs"><div class="wo"><span class="lab">Assumed baseline<br><small style="letter-spacing:.06em;text-transform:none;font-weight:400">illustrative</small></span><span>Flat normal-day roster, all by hand: about <b>{{r.cf_lost_year}}</b> peak-hour orders a year walk away per outlet.</span></div><div class="wi"><span class="lab">Proposed scenario<br><small style="letter-spacing:.06em;text-transform:none;font-weight:400">in our model</small></span><span>Both levers, one run: <b>{{r.ben_orders}}</b> kept a year per outlet, profit <b>S${{r.ben_profit_sg|m2}}</b> across {{facts.sg_outlets}} outlets (S${{r.ben_fragile_sg|m2}} without the minimum-crew rule).</span></div></div>
-  </div>
-  <div class="foot"><span>OPIM639 · Group 3 · model figures are illustrative assumptions · peak hour only · Singapore, {{facts.sg_outlets}} outlets</span><span class="rail"></span><span class="pg"></span></div>
-  <aside class="notes">
-    <p><b>TBC:</b> this slide is a draft and still to be confirmed by the team; present it as work in progress.</p>
-    <p>One number and where it comes from, all in our model. Against an illustrative baseline, an all-by-hand counter with the normal-day crew every day, the proposed scenario gives about S${{r.ben_profit_sg|m2}} a year across {{facts.sg_outlets}} outlets. That baseline is ours, not Chagee's operations, so these are not savings Chagee would see; they are modelled avoided costs on stated assumptions. Every figure uses the economic rule, the rule the playbook recommends.</p>
-    <p>Read the bars. Almost all of it is the one tea-and-milk machine, which lets the roster drop a person off-peak. Rostering to the forecast by the economic rule adds a person on event days only and keeps about {{r.fc_add_event}} more orders per outlet that day, S${{r.fc_add_sg|m2}} a year across Singapore. The last bar is the pilot comparison: the proposed scenario against today's split, our scenario, both on the economic rule, a difference of S${{r.pilot_sg|m2}}.</p>
-    <p>Say the caveat out loud: the machine's saving comes from our minimum-crew assumption; without it, the total falls to about S${{r.ben_fragile_sg|m2}}. Ranges and both crew rules are in the appendix. About one minute.</p>
   </aside>
 </section>
 
@@ -1934,11 +2147,11 @@ aside.notes{display:none}
   </aside>
 </section>
 
-<!-- ======================================================= APPENDIX: MACHINE LADDER (backs slide 11) -->
+<!-- ======================================================= APPENDIX: MACHINE LADDER (backs the automation slide) -->
 <section class="slide content" id="cm" data-chapter="Appendix" data-title="Machine ladder">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">Appendix · Machine ladder (backs slide 11) · physical AI: automation and machines</p>
+    <p class="kicker">Appendix · Machine ladder (backs the automation slide) · physical AI: automation and machines</p>
     <h2 class="head" style="font-size:31px;max-width:1090px">A machine pays only when it removes a person-shift for less than the shift costs</h2>
     <p class="sub" style="font-size:12.5px;max-width:1136px;margin-top:5px">To our knowledge, based on public sources; vendor list prices, not cost to implement. Chagee's equipment cost is not public; its Singapore relaunch used semi-automated equipment (Vulcan Post).</p>
     <div class="body" style="grid-template-columns:1fr 352px;margin-top:9px;gap:14px">
@@ -1956,7 +2169,7 @@ aside.notes{display:none}
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · Vendor and press figures; not Chagee data · model figures are illustrative assumptions</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes">
-    <p>Backup for slide 09, for questions on which machine to buy. This is physical AI: automation and machines at the counter. The predictive AI is the forecast that sets the roster. One rule explains the whole slide: a machine pays only when it removes a person-shift, and costs less than that shift.</p>
+    <p>Backup for the automation slide, for questions on which machine to buy. This is physical AI: automation and machines at the counter. The predictive AI is the forecast that sets the roster. One rule explains the whole slide: a machine pays only when it removes a person-shift, and costs less than that shift.</p>
     <p>The chart shows the net gain a month against an all-by-hand counter as volume changes; above the line it pays. One tea-and-milk machine lets the roster drop from {{r.min_hand}} people to {{r.min_mixed}} in {{r.single_hours}} off-peak hours, about one person-shift a day, for one station unit: it pays across most of the range. Today's split saves {{r.today_hours}} person-hours but pays for {{r.today_units}} units, so it ends up a little dearer than all by hand. A robot setup, four stations on machines, saves no more labour than today's split until about {{r.ladder_more}} cups a day. That is where extra labour saving begins, not a cost break-even; at Oli's lease it only pays at the top of our range.</p>
     <p>Three things to say out loud. The minimum crew, {{r.min_hand}} by hand and {{r.min_mixed}} with machines, is our model's assumption and drives this result. Every option runs at the model's station speeds, not vendor claims. Payback is simple payback, if the machine lets the roster drop one person-shift, with no installation, maintenance or financing. Chagee's own equipment cost is not public. About one minute.</p>
     <p>Takeaway: At {{r.ladder_cups}} cups a day: start with one machine (about +S${{r.single_net}} a month); today's {{r.today_units}}-station split costs S${{r.today_more}} a month more than all by hand; robots save no more labour than today's split until about {{r.ladder_more}} cups a day.</p>
@@ -1983,7 +2196,7 @@ aside.notes{display:none}
 <section class="slide content a2" id="a2" data-chapter="Appendix" data-title="How the site forecast works">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">Appendix · How the site forecast works (slide 13)</p>
+    <p class="kicker">Appendix · How the site forecast works (slide 09)</p>
     <h2 class="head" style="font-size:30px">DBSCAN finds where searches bunch up; a proximity model turns a pin into cups</h2>
     <div class="body" style="margin-top:12px">
       <div class="panel">
@@ -1995,7 +2208,7 @@ aside.notes{display:none}
           <li><span class="num">3</span><span><b>Grow.</b> A cluster spreads from core to core. Searches it reaches that are not core join as border points.</span></li>
           <li><span class="num">4</span><span><b>Noise.</b> Searches no cluster reaches. Unlike k-means, nobody picks the number of clusters, and odd shapes are fine.</span></li>
         </ol>
-        <p class="flag" style="margin-top:6px">Unsupervised: no labels or past openings are needed. Ester, Kriegel, Sander and Xu (1996). On slide 13 it runs only on searches with no outlet within walking distance; each cluster's centre is a candidate site.</p>
+        <p class="flag" style="margin-top:6px">Unsupervised: no labels or past openings are needed. Ester, Kriegel, Sander and Xu (1996). On slide 09 it runs only on searches with no outlet within walking distance; each cluster's centre is a candidate site.</p>
       </div>
       <div class="panel">
         <div class="ptop"><span class="ptitle">The simulated numbers, in order · at the slider defaults</span></div>
@@ -2016,16 +2229,16 @@ aside.notes{display:none}
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · explainer figures are illustrative assumptions · synthetic app data</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes">
-    <p>Backup for questions on slide 13. Left: DBSCAN in four moves on a toy set. A search is a core point if enough searches sit within the radius; clusters grow from core to core; border points join; the rest is noise. We do not choose the number of clusters.</p>
+    <p>Backup for questions on slide 09. Left: DBSCAN in four moves on a toy set. A search is a core point if enough searches sit within the radius; clusters grow from core to core; border points join; the rest is noise. We do not choose the number of clusters.</p>
     <p>Right: every simulated number, in the order the model uses it. The forecast is only as good as these assumptions; with Chagee's real app logs, the first two rows would be replaced by data and the rest would run as is.</p>
   </aside>
 </section>
 
-<!-- ======================================================= APPENDIX: SLIDE 13 IN MONEY (print companion of the P&L view) -->
+<!-- ======================================================= APPENDIX: SLIDE 09 IN MONEY (print companion of the P&L view) -->
 <section class="slide content pnlx" id="ap" data-chapter="Appendix" data-title="The new store in money: five-year P&amp;L">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">Appendix · The new store in money, slide 13 · the printed copy of "What does this mean for P&amp;L?"</p>
+    <p class="kicker">Appendix · The new store in money, slide 09 · the printed copy of "What does this mean for P&amp;L?"</p>
     <h2 class="head" style="font-size:28px;max-width:1010px">Same new outlet, same opening, same counter: the AI site adds about {{r.pnl_up_op5|sgm}} more operating profit over {{r.pnl_years}} years, in our model</h2>
     <div class="body" style="grid-template-columns:430px 1fr 290px;gap:14px;margin-top:10px">
       <div style="display:flex;flex-direction:column;gap:10px"><div class="chart"><h5>Annual incremental revenue to Chagee, S$</h5><svg class="pxa" viewBox="0 0 540 250" preserveAspectRatio="xMidYMid meet"></svg></div>
@@ -2036,7 +2249,7 @@ aside.notes{display:none}
     </div>
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · illustrative assumptions · synthetic app data · S$ · before depreciation, interest and tax</span><span class="rail"></span><span class="pg"></span></div>
-  <aside class="notes"><p>Soft copy and print companion of slide 13's P&amp;L view, at the default inputs and the suggested site. The on-screen view updates with the selected site and the assumption sliders; this page shows the defaults.</p></aside>
+  <aside class="notes"><p>Soft copy and print companion of slide 09's P&amp;L view, at the default inputs and the suggested site. The on-screen view updates with the selected site and the assumption sliders; this page shows the defaults.</p></aside>
 </section>
 
 <!-- ======================================================= APPENDIX: FOUR SCORES (Jin's framework) -->
@@ -2054,7 +2267,7 @@ aside.notes{display:none}
           <li data-s="1"><span class="n">1</span><span>Corporate drops a pin: a hypothetical candidate site. Pick another pin above to compare.</span></li>
           <li data-s="2"><span class="n">2</span><span>The model tags the pin's attributes: people within {{x.residents_radius_km}} km, transit, footfall, delivery orders, competitors, Chagee outlets within {{x.ring_km}} km.</span></li>
           <li data-s="3"><span class="n">3</span><span>Three scores from those attributes. Here they are set by hand: drag a bar to test another value.</span></li>
-          <li data-s="4"><span class="n">4</span><span>The slide 13 engine computes what existing outlets would lose: the cannibalisation factor.</span></li>
+          <li data-s="4"><span class="n">4</span><span>The slide 09 engine computes what existing outlets would lose: the cannibalisation factor.</span></li>
           <li data-s="5"><span class="n">5</span><span>The site score weighs the three scores; cannibalisation stays out of it and is deducted in the profit (next slide).</span></li>
         </ol>
         <div class="lg"><span><i style="background:var(--navy)"></i>Existing outlet</span><span><i style="background:var(--red)"></i>Candidate site</span><span><i style="background:#E6DCC8;border-radius:2px"></i>Housing estate</span><span><i style="background:#7E9B82;height:4px;border-radius:1px;vertical-align:2px"></i>MRT line</span></div>
@@ -2064,20 +2277,20 @@ aside.notes{display:none}
         <div class="row" data-s="3" data-sc="delivery"><div><h4>Delivery demand score<span class="src">hand-set</span></h4><p>Orders from the area on third-party delivery apps.</p>
           <p class="nt">All Chagee delivery goes through third-party apps (anonymous Chagee source, to confirm), so we use area demand, not "served from a farther outlet". Whether the platforms share this data is to confirm.</p></div><div class="bar"><i style="width:{{x.score_delivery}}%"></i><input class="screenonly" type="range" min="0" max="{{x.score_max}}" step="1" value="{{x.score_delivery}}" aria-label="Delivery demand score"></div><div class="val">{{x.score_delivery}}</div></div>
         <div class="row" data-s="3" data-sc="competition"><div><h4>Competition score<span class="src">hand-set</span></h4><p>Bubble-tea and cafe outlets within {{x.competition_radius_m}} m; dense competition lowers the score, a few prove demand.</p></div><div class="bar"><i style="width:{{x.score_competition}}%"></i><input class="screenonly" type="range" min="0" max="{{x.score_max}}" step="1" value="{{x.score_competition}}" aria-label="Competition score"></div><div class="val">{{x.score_competition}}</div></div>
-        <div class="row neg" data-s="4" data-sc="cannibal"><div><h4>Cannibalisation factor<span class="src">computed · slide 13 engine</span></h4><p class="cw">The share of the site's cups that existing Chagee outlets would lose, deducted so the result is net to Chagee.</p></div><div class="bar"><i style="width:{{x.moved_share|pct}}"></i></div><div class="val">{{s.x_cannibal}}</div></div>
+        <div class="row neg" data-s="4" data-sc="cannibal"><div><h4>Cannibalisation factor<span class="src">computed · slide 09 engine</span></h4><p class="cw">The share of the site's cups that existing Chagee outlets would lose, deducted so the result is net to Chagee.</p></div><div class="bar"><i style="width:{{x.moved_share|pct}}"></i></div><div class="val">{{s.x_cannibal}}</div></div>
         <div class="row tot" data-s="5"><div><h4>Site score<span class="src">weighted</span><span class="src sv"></span></h4><p>Demand {{x.w_demand|pct}}, delivery {{x.w_delivery|pct}}, competition {{x.w_competition|pct}} (hand-set weights).</p></div><div class="bar"><i style="width:{{x.site_score}}%"></i></div><div class="val">{{x.site_score}}</div></div>
       </div>
     </div>
     <div class="revctl screenonly" style="top:8px"><span class="lab">Step through</span><span class="ctl"></span></div>
     <div class="xstrip" data-s="2"><span class="lab">Attributes the model tags to each pin</span><span>residents and workers within {{x.residents_radius_km}} km · MRT and bus tap-ins · footfall · delivery orders from the area · competing outlets within {{x.competition_radius_m}} m · Chagee outlets within {{x.ring_km}} km · rent per sq ft · staff needed at peak</span></div>
-    <p class="xai" data-s="5"><b>What is AI here</b><span>Scoring a pin from its attributes would be a supervised model trained on outlets' results: a production idea. Here the three scores are set by hand, and the cannibalisation factor is computed by the slide 13 engine on synthetic data. The next slide runs the supervised model.</span></p>
+    <p class="xai" data-s="5"><b>What is AI here</b><span>Scoring a pin from its attributes would be a supervised model trained on outlets' results: a production idea. Here the three scores are set by hand, and the cannibalisation factor is computed by the slide 09 engine on synthetic data. The next slide runs the supervised model.</span></p>
     <p class="xill">Illustrative. Synthetic data, not Chagee data. Chagee's opening history is internal and we do not have it.</p>
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · explainer figures are illustrative assumptions · synthetic data, not Chagee data</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes">
     <p>An extension: where this scales next, and not part of the benefit figure. The decision owner here is the expansion manager. This builds on Jin's site-selection framework.</p>
     <p>Step through it. Corporate drops a pin; the model tags its attributes; three scores follow. Demand, delivery demand and competition are set by hand here, and you can drag a bar to test another value: in production, a supervised model would score them. We call the second one delivery demand, not delivery relief, because all Chagee delivery runs through third-party apps, according to an anonymous Chagee source; whether the platforms share this data is to confirm.</p>
-    <p>The cannibalisation factor is computed by the same engine as slide 13: about {{x.moved_share|pct}} of site A's cups would move from existing outlets. Switch to the pin with an outlet inside the ring, or the one beside an outlet, and watch it jump. All synthetic. About thirty-five seconds.</p>
+    <p>The cannibalisation factor is computed by the same engine as slide 09: about {{x.moved_share|pct}} of site A's cups would move from existing outlets. Switch to the pin with an outlet inside the ring, or the one beside an outlet, and watch it jump. All synthetic. About thirty-five seconds.</p>
   </aside>
 </section>
 
@@ -2094,7 +2307,7 @@ aside.notes{display:none}
         <div class="smf" data-s="2"></div>
         <div class="visual smviz" style="margin-top:6px"><svg class="smsvg" viewBox="0 0 280 176" preserveAspectRatio="xMidYMid meet" aria-label="Each outlet's cups a day against the model's prediction when that outlet is held out"></svg><svg class="smcity" data-s="4" viewBox="0 0 280 176" preserveAspectRatio="xMidYMid meet" aria-label="A hypothetical new city: the model's forecast at every spot and the sites it picks"></svg></div>
         <ol class="caps" style="min-height:36px">
-          <li data-s="1"><span class="n">1</span><span>Training data: each Singapore outlet's cups a day is the label (synthetic, from the slide 13 engine).</span></li>
+          <li data-s="1"><span class="n">1</span><span>Training data: each Singapore outlet's cups a day is the label (synthetic, from the slide 09 engine).</span></li>
           <li data-s="2"><span class="n">2</span><span>Inputs: attributes at each outlet. Click to switch one off; the bar shows how much it moves the forecast.</span></li>
           <li data-s="3"><span class="n">3</span><span>Test: each outlet is predicted by a model trained on the others. Dots on the line are perfect forecasts.</span></li>
           <li data-s="4"><span class="n">4</span><span>New city, no Chagee data: only the inputs it has. The model scores every spot and picks the best, at least {{x.ring_km}} km apart. Click the map to test a spot.</span></li>
@@ -2106,12 +2319,12 @@ aside.notes{display:none}
       </div>
     </div>
     <div class="revctl screenonly" style="top:8px"><span class="lab">Step through</span><span class="ctl"></span></div>
-    <p class="xai" data-s="4" style="margin-top:8px"><b>What is AI here</b><span>Supervised learning (ridge regression) from site attributes to cups a day. The labels are the slide 13 engine's synthetic outlets, so the fit flatters; Chagee's real opening history would fit worse. Using Singapore to score another market assumes its customers behave alike: check against the first outlets' actuals.</span></p>
+    <p class="xai" data-s="4" style="margin-top:8px"><b>What is AI here</b><span>Supervised learning (ridge regression) from site attributes to cups a day. The labels are the slide 09 engine's synthetic outlets, so the fit flatters; Chagee's real opening history would fit worse. Using Singapore to score another market assumes its customers behave alike: check against the first outlets' actuals.</span></p>
     <p class="xill">Illustrative. Synthetic data, not Chagee data. Chagee's opening history is internal and we do not have it.</p>
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · explainer figures are illustrative assumptions · synthetic data, not Chagee data</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes">
-    <p>This is the model behind step three of the framework, actually running. It learns cups a day from a site's attributes, trained on Singapore's {{x.sm_n}} outlets. The labels are synthetic, from the slide 13 engine, so read it as the method, not a forecast.</p>
+    <p>This is the model behind step three of the framework, actually running. It learns cups a day from a site's attributes, trained on Singapore's {{x.sm_n}} outlets. The labels are synthetic, from the slide 09 engine, so read it as the method, not a forecast.</p>
     <p>We test it fairly: each outlet is predicted by a model that never saw it. With every input, it misses by about {{x.sm_all_mae}} cups a day on average. Now the proxy for a new market: there is no Chagee app history and no outlet network yet, so switch those inputs off. With only population and distance to a town centre, the error grows to about {{x.sm_nm_mae}} cups a day, still better than guessing the average outlet, about {{x.sm_none_mae}}.</p>
     <p>Then the point of it: where to open in a place with no local data. The right-hand map is a hypothetical city, generated at the same density as our Singapore data. With only the inputs that city has, the model scores every spot and picks the best sites at least {{x.ring_km}} km apart, so they do not take sales from each other. Each pick shows its forecast with the error band, and whether it clears break-even at Singapore costs, which stand in until local costs are known. Picks beyond what the model saw in Singapore are flagged. So the model can travel, but only on inputs the new market has, with wide ranges: pilot the top site first and recheck the model against its actuals. That is the continual-learning step on the next slide. About fifty seconds.</p>
   </aside>
@@ -2198,20 +2411,20 @@ aside.notes{display:none}
               <path d="M146 148 C 70 110, 64 250, 144 220" fill="none" stroke="#2F6B45" stroke-width="2.4" stroke-dasharray="6 4" marker-end="url(#nfG)"/>
               <text x="14" y="94" font-size="11" font-weight="700" fill="#2F6B45" letter-spacing=".1em">① FRIENDS + · squads</text>
               <text x="14" y="110" font-size="11.5" fill="#262626">friends on the app make</text>
-              <text x="14" y="124" font-size="11.5" fill="#262626">joining worth more · slides 05–08</text>
+              <text x="14" y="124" font-size="11.5" fill="#262626">joining worth more · slides 05–06</text>
             </g>
             <g class="fx" data-fx="congest" data-s="4">
               <path d="M178 244 C 170 266, 172 270, 170 276" fill="none" stroke="#B8322B" stroke-width="2" stroke-dasharray="3 3"/>
               <rect x="14" y="276" width="320" height="64" rx="8" fill="#FBEDEC" stroke="#B8322B"/>
               <text x="28" y="296" font-size="11" font-weight="700" fill="#B8322B" letter-spacing=".1em">② CONGESTION − same side</text>
               <text x="28" y="314" font-size="11.5" fill="#262626">At the peak, each extra customer lengthens</text>
-              <text x="28" y="330" font-size="11.5" fill="#262626">everyone's wait → walk-aways <tspan fill="#B8322B">slides 09–12</tspan></text>
+              <text x="28" y="330" font-size="11.5" fill="#262626">everyone's wait → walk-aways <tspan fill="#B8322B">slides 07–08</tspan></text>
             </g>
             <g class="fx" data-fx="cannibal" data-s="5">
               <path d="M634 148 C 712 110, 718 250, 636 220" fill="none" stroke="#24406B" stroke-width="2.4" marker-end="url(#nfN)"/>
               <rect x="430" y="276" width="336" height="64" rx="8" fill="#EEF1F7" stroke="#24406B"/>
               <text x="444" y="296" font-size="11" font-weight="700" fill="#24406B" letter-spacing=".1em">③ CANNIBALISATION − same side</text>
-              <text x="752" y="296" text-anchor="end" font-size="10.5" fill="#24406B">slides 13–14</text>
+              <text x="752" y="296" text-anchor="end" font-size="10.5" fill="#24406B">slides 09–10</text>
               <text x="444" y="314" font-size="11.5" fill="#262626">A new outlet takes cups from nearby outlets</text>
               <text x="444" y="330" font-size="11.5" fill="#262626">("more sellers, more competition")</text>
             </g>
@@ -2223,20 +2436,20 @@ aside.notes{display:none}
         </div>
         <ol class="caps" style="min-height:38px">
           <li data-s="1"><span class="n">1</span><span>Customers buy from Chagee's outlets through every channel: a pipeline sale, not a match between two sides.</span></li>
-          <li data-s="2"><span class="n">2</span><span>Part one grows a same-side plus: with squads, each friend on the app makes joining worth more to the others. Slides 05 to 08 model it.</span></li>
+          <li data-s="2"><span class="n">2</span><span>Part one grows a same-side plus: with squads, each friend on the app makes joining worth more to the others. Slides 05 and 06 model it.</span></li>
           <li data-s="3"><span class="n">3</span><span>The data loop, and why we chose Chagee: its sales run through the app, so more app use gives more search and order data, and the forecast and site pick get sharper.</span></li>
-          <li data-s="4"><span class="n">4</span><span>Part two caps congestion, the same-side minus: at the peak, each extra customer adds to everyone's wait (slides 09 to 12). Pick a day type on the right.</span></li>
-          <li data-s="5"><span class="n">5</span><span>Part three caps cannibalisation: a new outlet takes cups from its neighbours, so slide 13 counts cups added, not sold. Switch the site on the right.</span></li>
+          <li data-s="4"><span class="n">4</span><span>Part two caps congestion, the same-side minus: at the peak, each extra customer adds to everyone's wait (slides 07 and 08). Pick a day type on the right.</span></li>
+          <li data-s="5"><span class="n">5</span><span>Part three caps cannibalisation: a new outlet takes cups from its neighbours, so slide 09 counts cups added, not sold. Switch the site on the right.</span></li>
           <li data-s="6"><span class="n">6</span><span>Cross-side effects live on others' platforms: delivery apps and malls. Not our lever.</span></li>
         </ol>
       </div>
       <div class="cards nfc" style="gap:5px">
-        <div class="bc phys" data-fx="grow" data-s="2"><div class="k">① Grow · part one · slides 05 to 08</div><h4>Make friends worth more, feed the data loop</h4>
+        <div class="bc phys" data-fx="grow" data-s="2"><div class="k">① Grow · part one · slides 05 and 06</div><h4>Make friends worth more, feed the data loop</h4>
           <p>Squads: friends taking part raise the features' value (not AI). <b>Why Chagee:</b> app-first and member-led: <b>{{facts.registered_members_jun2026|mn}}</b> members group-wide; repeat members place <b>more than {{facts.repeat_member_order_share|pct}}</b> of orders <span class="flag">(earnings call, Aug 2026; SG to confirm)</span>.</p></div>
-        <div class="bc warn" data-fx="congest" data-s="4"><div class="k">② Cap · part two · slides 09 to 12</div><h4>Absorb the peak crowd</h4>
+        <div class="bc warn" data-fx="congest" data-s="4"><div class="k">② Cap · part two · slides 07 and 08</div><h4>Absorb the peak crowd</h4>
           <p class="nfcopy printonly">Forecast crew plus a bucket brigade: event-day walk-aways <b>{{r.lost_normal_roster|pct}}</b> → <b>{{r.lost_brigade|pct1}}</b>.</p>
           <div class="nfw screenonly"><span class="nfday"></span><div class="nfbars"></div></div></div>
-        <div class="bc" data-fx="cannibal" data-s="5"><div class="k">③ Cap · part three · slides 13–14</div><h4>Count cups added, not sold</h4>
+        <div class="bc" data-fx="cannibal" data-s="5"><div class="k">③ Cap · part three · slides 09–10</div><h4>Count cups added, not sold</h4>
           <p class="nfcopy2 printonly">Of {{r.top_cups}} cups at the new site, <b>{{r.top_moved}}</b> move from nearby outlets. The score subtracts them.</p>
           <div class="nfw screenonly"><span class="seg nfsite"></span><div class="nfstack"></div></div></div>
         <div class="bc nfnot" data-fx="cross" data-s="6"><div class="k">Not our lever</div>
@@ -2249,7 +2462,7 @@ aside.notes{display:none}
   <div class="foot"><span>OPIM639 · Group 3 · explainer figures are illustrative assumptions · synthetic data</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes">
     <p>This is how the three parts use network effects. A lens from the course: on eBay, buyers and sellers attract each other, a cross-side effect. Chagee is not that, in our reading: it sells its own tea, so customers to outlets is a pipeline sale. Its network effects sit on the customer side.</p>
-    <p>Two we grow, in part one. Friends: with squads, each friend on the app makes joining worth more to the others; slides 05 to 08 model that with an effort score and test whether it pays. That part is analytics and product design, not AI. And the data loop: more app use gives more search and order data, so the forecast and the site pick get sharper. That is why we chose Chagee: on its second-quarter 2026 call it reported {{facts.registered_members_jun2026|mn}} registered members, and members with two or more purchases placed more than {{facts.repeat_member_order_share|pct}} of orders. Group-wide figures; Singapore's app share is to confirm.</p>
+    <p>Two we grow, in part one. Friends: with squads, each friend on the app makes joining worth more to the others; slides 05 and 06 model that with an effort score and test whether it pays. That part is analytics and product design, not AI. And the data loop: more app use gives more search and order data, so the forecast and the site pick get sharper. That is why we chose Chagee: on its second-quarter 2026 call it reported {{facts.registered_members_jun2026|mn}} registered members, and members with two or more purchases placed more than {{facts.repeat_member_order_share|pct}} of orders. Group-wide figures; Singapore's app share is to confirm.</p>
     <p>Two we cap. Part two, congestion: at the peak every extra customer lengthens everyone's wait; a normal-day roster on an event day loses about {{r.lost_normal_roster|pct}} of peak-hour orders, and a forecast crew with a bucket brigade brings it to about {{r.lost_brigade|pct1}}. Part three, cannibalisation: a new outlet takes cups from its neighbours; of {{r.top_cups}} cups at the app-search site, {{r.top_moved}} move from nearby outlets.</p>
     <p>Cross-side effects exist, but on others' platforms, delivery apps and malls: not our lever. And we do not carry any modelled membership uplift into the counter or outlet numbers; each part stands on its own assumptions. About fifty seconds.</p>
   </aside>

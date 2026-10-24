@@ -61,6 +61,8 @@ def images() -> dict:
     with zipfile.ZipFile(PPTX) as z:
         for k, p in PPTX_IMAGES.items():
             out[k] = "data:image/png;base64," + base64.b64encode(z.read(p)).decode()
+    # the Chagee emblem (slide 03), recoloured to the deck's red with a transparent background
+    out["emblem"] = "data:image/png;base64," + base64.b64encode((HERE / "assets" / "chagee_emblem.png").read_bytes()).decode()
     with zipfile.ZipFile(DOCX) as z:
         raw = z.read(DOCX_MAP)
     try:
@@ -601,9 +603,9 @@ def mb_appendix(d: dict) -> tuple:
     c = ["<h5>Break-even of the group-order credit</h5>",
          f"<p>Contribution per member a month = price x (margin x E - credit x (B + E)), with E extra orders and B group orders a member would place anyway. "
          f"Break-even E* = credit x B / (margin - credit); none if the credit reaches the margin. Price S${BE['price']:.2f}, credit {BE['credit']:.0%}, B {BE['base']:g}, E {BE['extra']:g}.</p>",
-         "<table class='res mbt'><tr><th>Gross margin</th><th>Extra orders needed a month</th><th>With AI cost (slide 08)</th><th>Contribution a member a month at E</th></tr>" +
+         "<table class='res mbt'><tr><th>Gross margin</th><th>Extra orders needed a month</th><th>With AI cost (slide 06)</th><th>Contribution a member a month at E</th></tr>" +
          "".join(f"<tr><td>{BE[q]['margin']:.0%}</td><td>{need(BE[q])}</td><td>{need(D['breakEvenAi'][q])}</td><td>S${BE[q]['netPerMember']:.2f}</td></tr>" for q in ("low", "mid", "high")) + "</table>",
-         f"<p>With personalised suggestions (slide 08) a flat AI cost a of S${D['breakEvenAi']['ai']:.2f} a member a month is added: E* = (credit x B + a / price) / (margin - credit). "
+         f"<p>With personalised suggestions (slide 06) a flat AI cost a of S${D['breakEvenAi']['ai']:.2f} a member a month is added: E* = (credit x B + a / price) / (margin - credit). "
          f"Personalisation must add a / (price x (margin - credit)) = {D['aiHurdle']:.2f} orders a month on top of squads alone at the base margin.</p>",
          "<h5>New inputs (assumptions.json members; assumption, not Chagee data)</h5>"]
     for k in ("group_credit_share", "extra_orders_per_member_month", "base_group_orders_per_member_month", "ai_cost_per_member_month", "squad_size", "example_interest", "app_rules", "network"):
@@ -619,14 +621,14 @@ def ops_appendix(d: dict) -> str:
     ms = lambda x: "–" if x is None else f"{int(x // 60)}:{int(round(x % 60)):02d}"
     sg = lambda x: f"S${x:,.0f}"
     hd = lambda first, sub: "<tr><th>" + first + "</th>" + "".join(f"<th>{lab[k]}<br><small>{sub}</small></th>" for k in days) + "</tr>"
-    out = ["<h5>Slide 09 · forecast error: the roster follows a wrong forecast, the customers do not (today's split, bucket brigade)</h5>",
+    out = ["<h5>Slide 07 · forecast error: the roster follows a wrong forecast, the customers do not (today's split, bucket brigade)</h5>",
            "<table class='res mbt'>" + hd("Forecast", "crew · away · S$/day")]
     for i, r0 in enumerate(d["forecastErr"][days[0]]):
         e = r0["e"]; name = "exact" if e == 0 else f"{abs(e):.0%} {'high' if e > 0 else 'low'}"
         out.append(f"<tr><td>{name}</td>" + "".join(f"<td>{d['forecastErr'][k][i]['staff']} · {p1(d['forecastErr'][k][i]['lostShare'])} · {sg(d['forecastErr'][k][i]['cost'])}</td>" for k in days) + "</tr>")
     out.append("</table>")
     rules = (("brigade", "Bucket brigade"), ("fixed_best", "Fixed posts, fastest on toppings"), ("fixed_worst", "Fixed posts, slowest on toppings"))
-    out += ["<h5>Slide 10 · sharing rules at the forecast crew, today's split</h5>", "<table class='res mbt'>" + hd("Rule", "crew · away · wait")]
+    out += ["<h5>Bucket brigade (appendix) · sharing rules at the forecast crew, today's split</h5>", "<table class='res mbt'>" + hd("Rule", "crew · away · wait")]
     for k_, nm in rules:
         out.append(f"<tr><td>{nm}</td>" + "".join(f"<td>{d['aiLayer'][k]['today'][k_]['with']['staff']} · {p1(d['aiLayer'][k]['today'][k_]['with']['lostShare'])} · {ms(d['aiLayer'][k]['today'][k_]['with']['medianWait'])}</td>" for k in days) + "</tr>")
     out.append("</table>")
@@ -636,7 +638,7 @@ def ops_appendix(d: dict) -> str:
         cost = r["cost"] if k == "single" else r["cost"]["total"]
         if k != "single" and not r["meets"]: return f"over the limit · {sg(cost)}"
         return f"{r['staff'] if r['staff'] else '–'} · {p1(r['lostShare'])} · {ms(r['medianWait'])} · {sg(cost)}"
-    out += [f"<h5>Slide 11 · five setups: the fewest people that keep walk-aways within {SBv['walkaway_target']['value']:.0%}</h5>", "<table class='res mbt'>" + hd("Setup", "people · away · wait · S$/day")]
+    out += [f"<h5>Automation (appendix) · five setups: the fewest people that keep walk-aways within {SBv['walkaway_target']['value']:.0%}</h5>", "<table class='res mbt'>" + hd("Setup", "people · away · wait · S$/day")]
     for k in names:
         out.append(f"<tr><td>{names[k]}</td>" + "".join(f"<td>{row(day, k)}</td>" for day in days) + "</tr>")
     out.append("</table>")
@@ -752,7 +754,7 @@ def tiers_table() -> str:
     for i, t in enumerate(T["tiers"], 1):
         if t["id"] == "arm":                                   # the baseline sits where it does on the slide ladder
             rows.append(f'<tr class="base"><td>–</td><td><b>{esc(base["label"])}</b></td>'
-                        f'<td><b>{", ".join(STEP[s] for s in mixed)}</b>. A scenario of ours (slides 10 and 11), not Chagee\'s disclosed setup</td>'
+                        f'<td><b>{", ".join(STEP[s] for s in mixed)}</b>. A scenario of ours (the appendix counter slides), not Chagee\'s disclosed setup</td>'
                         f'<td>Model: S${RAW["costs"]["machine_cost_per_unit_per_month"]["value"]:,.0f} a month per station unit</td>'
                         f'<td></td><td>{tag(base["reliability"])}</td><td>assumptions.json</td></tr>')
         n = len(t["examples"])
@@ -797,7 +799,7 @@ def fill(text: str, vals: dict) -> str:
     return re.sub(r"\{\{([a-zA-Z_][\w.]*)(?:\|(\w+))?\}\}", rep, text)
 
 
-ALLOWED = re.compile(r"(?i:\bslides?\s+\d\db?(?:\s*(?:,|and|to|–)\s*\d\db?)*)|\bM[1-3]\b|Item 3\.D|\bslides? 3\d\b|\b8[A-D]\b|\b(?:19|20)\d\d\b|OPIM\s?639|Topic \d|\bT\d\b|\b0[1-9]b?\b|\b10b\b|\b1\d(?= ·)|\bslides? 1\d\b|Week \d|\b1 (?=company|counter)|Group \d|Form 20-F")
+ALLOWED = re.compile(r"(?i:\bslides?\s+\d\db?(?:\s*(?:,|and|to|–)\s*\d\db?)*)|\bM[1-3]\b|Item 3\.D|\bslides? 3\d\b|\b8[A-D]\b|\b(?:19|20)\d\d\b|OPIM\s?639|Topic \d|\bT\d\b|\b0[1-9]b?\b|\b10b\b|\b1\d(?= ·)|\bslides? 1\d\b|Week \d|\b1 (?=company|counter)|Group \d|Proposal [1-3]\b|Form 20-F")
 
 
 def digit_check(tpl: str) -> None:

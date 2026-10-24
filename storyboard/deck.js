@@ -717,7 +717,7 @@
         <div class="big">+${Math.round(f.netNew).toLocaleString("en-SG")}<small>cups a day for Chagee</small></div>
         <div class="why2">The new store sells ${Math.round(f.cups)} a day (${(f.cups / avg).toFixed(1)}× an average outlet). ${Math.round(f.cannibal)} of those move from outlets nearby${f.hit.length ? ":" : "."}</div>
         <dl>${f.hit.slice(0, 2).map(h => `<dt title="${Math.round(M.storeCups[h.j])} → ${Math.round(M.storeCups[h.j] - h.cups)} cups a day">${oname(h.j)}, ${h.km.toFixed(1)} km</dt><dd>−${Math.round(h.cups)}</dd>`).join("")}</dl>
-        <div class="peak">Peak hour ${hourLabel(pf.peak)}: <b>${Math.round(pf.peakCups)} cups</b> → <b>${pf.peakStaff} ${pf.peakStaff === 1 ? "person" : "people"}</b> on today's counter (slides 09 to 11).</div>
+        <div class="peak">Peak hour ${hourLabel(pf.peak)}: <b>${Math.round(pf.peakCups)} cups</b> → <b>${pf.peakStaff} ${pf.peakStaff === 1 ? "person" : "people"}</b> on today's counter (slides 07 and 08).</div>
         <button class="btn primary screenonly pnlb" data-act="pnl" title="Five years of this outlet here against beside the nearest outlet">What does this mean for P&amp;L?</button>`;
       if (pnlOn) pnlRender();
       $$(ctlEl, "[data-v]").forEach(el => { const d = sl.find(x => x[0] === el.dataset.v); el.textContent = d[4](par[d[0]]); });
@@ -1691,7 +1691,11 @@
       const cr = price * credit, n = PPL.length, mine = AR.points_own_drink + n * AR.points_per_squad_drink, after = AR.points_now + mine;
       const av = (i, off) => `<span class="av${off ? " off" : ""}" style="background:${AVC[i]}">${PPL[i][0]}</span>`;
       const bar = (a, b, sq) => `<div class="prog"><i class="${sq ? "sq" : ""}" style="width:${Math.min(100, 100 * a / b)}%"></i></div>`;
-      const top = (t, h) => `<div class="bar"><span>9:41</span><span>●●●</span></div><div class="hd"><small>${t}</small><h3>${h}</h3></div>`;
+      const top = (t, h) => `<div class="bar"><span>9:41</span><span>●●●</span></div><div class="hd"><div class="brand"><i class="emb"></i>CHAGEE</div><small>${t}</small><h3>${h}</h3></div>`;
+      // the real app's bottom tab bar; the tab each screen belongs to is lit
+      const TABI = { Home: '<path d="M4 11 L12 4 L20 11 V20 H4 Z"/>', Menu: '<path d="M7 7 H17 L16 20 H8 Z M6 7 H18 M10 4 H14"/>', Orders: '<rect x="6" y="4" width="12" height="16" rx="1.5"/><path d="M9 9 H15 M9 13 H15"/>', Me: '<circle cx="12" cy="8" r="3.5"/><path d="M5 20 C5 15 8.5 13 12 13 C15.5 13 19 15 19 20"/>' };
+      const TABOF = ["Me", "Me", "Menu", "Orders", "Me", "Me", "Menu"];
+      const tabbar = i => `<div class="tabs">${Object.keys(TABI).map(k => `<span class="${k === TABOF[i] ? "on" : ""}"><svg viewBox="0 0 24 24">${TABI[k]}</svg>${k}</span>`).join("")}</div>`;
       const PR = AR.prefs, me = PPL[0], gift = PPL[1];
       // the member's own choice on screen 3 (accept, customise or dismiss the suggestion) and one feedback tag; Aisha confirms last
       const ch = { pick: null, fb: null, sugar: "50%", ice: "Regular", aisha: false };
@@ -1731,7 +1735,7 @@
         ["Shared", "Who is in the squad and what each confirmed. Private order history stays private."], ["Progress", `Everyone in the squad: your drink gives you ${AR.points_own_drink}; each drink in the order gives every member ${AR.points_per_squad_drink}.`],
         ["Privacy", `The sender never sees the recipient's history.`], ["Reward", "A gifted drink counts as a squad drink when collected, so it moves the whole squad."]];
       const WHY2 = ["Your progress is yours; the squad is how friends' orders start to count for you.", "Joining is one tap for a friend: the effort, p, the squad has to keep low.",
-        "Easier choices may lower the effort, p, further. A hypothesis to test, like k.", "A drink counts only once its chooser confirms it: that is the confirmed demand slide 07 forecasts from.",
+        "Easier choices may lower the effort, p, further. A hypothesis to test, like k.", "A drink counts only once its chooser confirms it: that is the confirmed demand the group-order forecast uses (appendix).",
         `The reward: ${AR.points_per_squad_drink} points a squad drink to every member, and ${pct(credit)} credit on each group-order drink.`, "Gifting brings a friend in without asking them to set anything up.",
         "An unredeemed gift is not a drink yet; only redemption confirms it."];
       let cur2 = 2;
@@ -1739,7 +1743,7 @@
       jour.innerHTML = JR.map((t, i) => `<li data-i="${i}"><span class="n">${i + 1}</span><span>${t}</span></li>`).join("");
       nav.innerHTML = `<button class="btn" data-d="-1" aria-label="Previous screen">◀</button><button class="btn" data-d="1" aria-label="Next screen">▶</button>`;
       function screen(i) {
-        cur2 = (i + SCR.length) % SCR.length; scr.innerHTML = SCR[cur2]();
+        cur2 = (i + SCR.length) % SCR.length; scr.innerHTML = `<div class="scroll">${SCR[cur2]()}</div>` + tabbar(cur2);
         $$(jour, "li").forEach((li, j) => li.classList.toggle("on", j === cur2));
         why.innerHTML = `<div class="bc"><div class="k">${WHY[cur2][0]}</div><p>${WHY[cur2][1]}</p></div><div class="bc"><div class="k">Why it matters</div><p>${WHY2[cur2]}</p></div>` +
           `<p class="lnote">Proposed experience with illustrative data and rules, not Chagee's; nothing is learned from real customers.</p>`;
@@ -1770,7 +1774,7 @@
         s += T(L, 11, "without squads", `font-size="10" fill="${COL.taupe}"`) + T(L + 84, 11, "with squads", `font-size="10" font-weight="700" fill="${COL.navy}"`) + T(W - R, 11, `effort ${f2(pw)}`, `font-size="10" fill="${COL.red}" text-anchor="end"`);
         svg.innerHTML = s;
         const tp = e => (e ? pct(e.low) : "none (stalls)");
-        $(m2, ".mbtake .t").innerHTML = `At slide 05's effort of <b>${f2(p)}</b>, squads (assumed k ${f2(k)} → ${f2(kw)})${inc.checked ? ` plus a launch incentive (effort → ${f2(pw)})` : ""} would move the tipping point from <b>${tp(e0)}</b> to <b>${tp(e1)}</b>` +
+        $(m2, ".mbtake .t").innerHTML = `At the modelled effort of <b>${f2(p)}</b>, squads (assumed k ${f2(k)} → ${f2(kw)})${inc.checked ? ` plus a launch incentive (effort → ${f2(pw)})` : ""} would move the tipping point from <b>${tp(e0)}</b> to <b>${tp(e1)}</b>` +
           (!e0 && e1 ? `: without squads the app never takes off; with them it can.` : e0 && e1 ? `: fewer friends need to be on before joining feels worth it.` : `.`) + ` Assumptions to test, not measured effects.`;
       }
       inc.addEventListener("change", model);
