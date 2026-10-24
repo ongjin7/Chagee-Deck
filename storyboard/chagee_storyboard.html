@@ -160,12 +160,13 @@ html,body{margin:0;background:#E7E3DC;color:var(--ink);font-family:var(--sans);-
 .ftitle span{color:var(--red)}
 .intro-chain{height:auto;margin-top:14px;gap:28px}
 #intro .intro-chain{position:relative;padding:14px 0 12px}
-#intro .intro-chain::before{content:"";position:absolute;z-index:0;top:0;bottom:0;left:calc((100% - 112px) * .4 + 60px);right:0;border-radius:22px;background:#FEF8F6;border:1px solid #F5E1DC}
+#intro .intro-chain{grid-template-columns:repeat(4,1fr)}
+#intro .intro-chain::before{content:"";position:absolute;z-index:0;top:0;bottom:0;left:calc((100% - 84px) * .5 + 42px);right:0;border-radius:22px;background:#FEF8F6;border:1px solid #F5E1DC}
 #intro .intro-chain .node{z-index:1}
 .intro-chain .node .ic{width:62px;height:62px}
 .intro-chain .node .ic svg{width:29px;height:29px}
 .intro-chain .node{--cn:#CFC8BB}
-.intro-chain .node:nth-child(2){--cn:#D9B3AC} .intro-chain .node.c-app,.intro-chain .node.c-out{--cn:#E2A39B}
+.intro-chain .node:nth-child(2){--cn:#D9B3AC} .intro-chain .node.c-out{--cn:#E2A39B}
 .intro-chain .node:not(:last-child)::after{content:"";position:absolute;top:26px;left:calc(50% + 41px);width:calc(100% + 28px - 82px);height:10px;
   background:linear-gradient(var(--cn),var(--cn)) left center/calc(100% - 4px) 1.5px no-repeat;-webkit-mask:none}
 .intro-chain .node:not(:last-child)::before{content:"";position:absolute;top:27px;left:calc(150% + 28px - 47px);width:8px;height:8px;border-top:1.5px solid var(--cn);border-right:1.5px solid var(--cn);transform:rotate(45deg);z-index:1}
@@ -180,9 +181,12 @@ html,body{margin:0;background:#E7E3DC;color:var(--ink);font-family:var(--sans);-
 /* slide 03: who owns each half of the chain, as soft pills on a second row inside the chain */
 #intro .intro-chain{row-gap:14px}
 #intro .intro-chain .node.c-mile::after,#intro .intro-chain .node.c-mile::before{display:none}
+/* the Chagee app as the link between the outlet and the last mile: a badge on that connector */
+.intro-chain .via{position:absolute;z-index:2;top:31px;left:calc(100% + 14px);transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:6px;padding:5px 12px 5px 9px;border-radius:999px;background:#fff;border:1px solid #EBC3BF;box-shadow:0 4px 10px -4px rgba(184,50,43,.25);font:600 12px/1 var(--sans);color:var(--red);white-space:nowrap}
+.intro-chain .via svg{width:15px;height:15px;fill:none;stroke:var(--red);stroke-width:2;stroke-linecap:round}
 .own-up,.own-dn{position:relative;z-index:1;justify-self:center;padding:8px 20px;border-radius:999px;text-align:center;font:14px/1.3 var(--sans)}
 .own-up{grid-column:1/3;background:#FCFBF8;border:1px solid #ECE6DA;color:#8D867A} .own-up b{color:var(--ink2)}
-.own-dn{grid-column:3/6;background:#FBE6E2;color:#6E4A46} .own-dn b{color:var(--red)}
+.own-dn{grid-column:3/5;background:#FBE6E2;color:#6E4A46} .own-dn b{color:var(--red)}
 #intro .takeaway{margin-top:14px}
 .focusbar{display:grid;grid-template-columns:2fr 3fr;gap:12px;margin-top:20px;font:600 10.5px/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;text-align:center}
 .focusbar span{padding:6px 8px;border-radius:999px}
@@ -1113,12 +1117,10 @@ aside.notes{display:none}
           <h5>Source</h5><div class="what">Yunnan tea; local milk and fruit</div></div>
         <div class="node up"><div class="ic"><svg viewBox="0 0 32 32"><path d="M4 13 L16 6 L28 13 V27 H4 Z"/><path d="M10 27 V18 H22 V27 M10 22 H22"/></svg></div>
           <h5>Warehouse</h5><div class="what">Restocking from forecasts</div></div>
-        <div class="node now c-app"><div class="ic"><svg viewBox="0 0 32 32"><rect x="10" y="3" width="12" height="26" rx="2.5"/><path d="M14 25 H18"/></svg></div>
-          <h5>Chagee App</h5><div class="what">Order ahead</div></div>
         <div class="node now c-out"><div class="ic"><svg viewBox="0 0 32 32"><path d="M5 12 H27 L25 6 H7 Z"/><path d="M6 12 V27 H26 V12 M13 27 V19 H19 V27"/></svg></div>
-          <h5>Outlets</h5><div class="what">Make and hand over</div></div>
+          <h5>Outlets</h5><div class="what">Make and hand over</div><span class="via"><svg viewBox="0 0 32 32"><rect x="10" y="3" width="12" height="26" rx="2.5"/><path d="M14 25 H18"/></svg>via Chagee App</span></div>
         <div class="node now c-mile"><div class="ic"><svg viewBox="0 0 32 32"><circle cx="8" cy="23" r="4"/><circle cx="25" cy="23" r="4"/><path d="M8 23 H16 L20 13 H25 L25 23 M13 13 H20"/></svg></div>
-          <h5>Last mile</h5><div class="what">Self-collect or Grab</div></div>
+          <h5>Last mile</h5><div class="what">Collection or delivery</div></div>
         <div class="own-up"><span>Upstream data and decisions sit with <b>Chagee corporate</b></span></div>
         <div class="own-dn"><span>Downstream data is analysed and decisions are made by <b>Chagee SG</b> (APAC HQ)</span></div>
       </div>
@@ -1130,7 +1132,7 @@ aside.notes{display:none}
     <p>Today we are presenting Chagee: a tea brand most of you know, where you order in the app and collect at the counter, or have it delivered to your location.</p>
     <p>Our scope is Chagee Singapore: its management and its Singapore customers. Singapore outlets are company-owned, not franchised, as our project owner confirmed, so the counter, the roster and the equipment are Chagee's own decisions. If asked about the group: across Chagee worldwide, most FY 2025 net revenue came from franchising, about 88%, from a secondary source; that does not describe Singapore.</p>
     <p>Why Chagee: many stores, managed by one company with one data system and lots of data, by an anonymous Chagee source; app-centric, and its Form 20-F says it collects personal and transactional data; fast-growing and playful, expanding rapidly, with room for improvements with AI. And we were fortunate to interview a Chagee staff member, who asked not to be named, about the problems they actually face.</p>
-    <p>Now follow one cup from farm to customer. Upstream is planned ahead: tea leaves come from Yunnan through standard channels, only fresh milk and fruit are bought locally (YF Chuhai), and Chagee already plans restocking from forecasts (Form 20-F). Downstream is where the data is: the Chagee app records orders and members, the outlet records cups by the hour, and the last mile records orders by channel, self-collect or third-party delivery such as Grab. Which of these Chagee keeps, and in how much detail, is ours to confirm. Upstream data and decisions sit with Chagee corporate; downstream data is analysed and decisions are made by Chagee Singapore, which is why our project focuses there.</p>
+    <p>Now follow one cup from farm to customer. Upstream is planned ahead: tea leaves come from Yunnan through standard channels, only fresh milk and fruit are bought locally (YF Chuhai), and Chagee already plans restocking from forecasts (Form 20-F). Downstream is where the data is: the outlet makes and hands over each cup, and the Chagee app links the outlet to the last mile, whether the customer collects in store or has it delivered, for example by Grab. Which of these Chagee keeps, and in how much detail, is ours to confirm. Upstream data and decisions sit with Chagee corporate; downstream data is analysed and decisions are made by Chagee Singapore, which is why our project focuses there.</p>
     <p>So we focus on the downstream operational challenges, some of the most pressing issues for Chagee Singapore's management. That leads into the executive summary. About one minute.</p>
   </aside>
 </section>
