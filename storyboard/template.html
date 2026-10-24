@@ -88,6 +88,8 @@ html,body{margin:0;background:#E7E3DC;color:var(--ink);font-family:var(--sans);-
 .slide.cover .meta{font:400 13.5px/1.5 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--taupe)}
 .slide.agenda .inner{position:absolute;inset:0;padding:56px 90px}
 .slide.agenda h2{margin:0 0 18px;font:500 46px/1 var(--serif)}
+.slide.agenda .agk{margin:0 0 8px;font:600 12px/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#4A6699}
+.slide.agenda h2{color:var(--navy)}
 .slide.agenda ol{list-style:none;margin:0;padding:0;width:600px}
 .slide.agenda li{display:grid;grid-template-columns:56px 1fr auto;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--line);cursor:pointer}
 .slide.agenda li .no{font:500 19px var(--serif);color:var(--red)}
@@ -96,6 +98,13 @@ html,body{margin:0;background:#E7E3DC;color:var(--ink);font-family:var(--sans);-
 .slide.agenda li:hover .nm{color:var(--red)}
 .slide.agenda .cups{position:absolute;right:70px;top:170px;width:470px;height:380px}
 .slide.agenda .cups img{position:absolute}
+/* agenda cups: a gentle, staggered bob and tilt (screen only) */
+.slide.agenda .cups .cup{transform-origin:50% 92%;animation:cupwob 4.2s ease-in-out infinite}
+.slide.agenda .cups .w1{animation-delay:-.6s;animation-duration:4.6s} .slide.agenda .cups .w2{animation-delay:-1.9s}
+.slide.agenda .cups .w3{animation-delay:-3.1s;animation-duration:4.8s} .slide.agenda .cups .w4{animation-delay:-1.2s;animation-duration:3.9s}
+.slide.agenda .cups .w5{animation-delay:-2.6s;animation-duration:4.4s}
+@keyframes cupwob{0%,100%{transform:translateY(0) rotate(-2.5deg)}50%{transform:translateY(-7px) rotate(2.5deg)}}
+@media (prefers-reduced-motion:reduce),print{.slide.agenda .cups .cup{animation:none}}
 
 /* ---------- slide-specific ---------- */
 /* 01 Chagee in Singapore */
@@ -137,34 +146,44 @@ html,body{margin:0;background:#E7E3DC;color:var(--ink);font-family:var(--sans);-
 .srcm{font-size:.78em;color:var(--taupe)}
 .slide.content .sub.lede{font-style:normal}
 /* slide 03: emblem beside the two cards */
-#intro .pair{grid-template-columns:150px 1fr 1.3fr;align-items:stretch;margin-top:20px}
+#intro .pair{grid-template-columns:140px .85fr 1.5fr;align-items:stretch;margin-top:18px}
 #intro .emb{align-self:center}
-#intro .emb img{width:150px;height:auto;display:block;filter:drop-shadow(0 10px 18px rgba(184,50,43,.18))}
+#intro .emb img{width:140px;height:auto;display:block;filter:drop-shadow(0 10px 18px rgba(184,50,43,.18))}
 #intro .tcard{padding:18px 24px 20px}
 #intro .tcard .tl{margin:0;font:500 26px/1.1 var(--serif);letter-spacing:0;text-transform:none;color:var(--navy)}
 #intro .tcard .stmt{font:500 19px/1.3 var(--sans);color:var(--ink)}
 #intro .tcard p{font-size:15.5px}
-#intro .why4{font-size:15.5px;gap:4px}
+#intro .why4{font-size:15px;gap:3px}
 /* slide 03: farm to cup; circles and arrows, the downstream steps in a soft zone with their data tags */
 .flow{margin:auto 0}
-.ftitle{font:600 11px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#4A6699;text-align:center}
+.ftitle{margin-top:16px;font:600 13.5px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#4A6699;text-align:center}
 .ftitle span{color:var(--red)}
 .intro-chain{height:auto;margin-top:14px;gap:28px}
 #intro .intro-chain{position:relative;padding:14px 0 12px}
 #intro .intro-chain::before{content:"";position:absolute;z-index:0;top:0;bottom:0;left:calc((100% - 112px) * .4 + 60px);right:0;border-radius:22px;background:#FEF8F6;border:1px solid #F5E1DC}
 #intro .intro-chain .node{z-index:1}
-.intro-chain .node .ic{width:72px;height:72px}
-.intro-chain .node .ic svg{width:34px;height:34px}
-.intro-chain .node:not(:last-child)::after{content:"";position:absolute;right:-26px;top:29px;width:24px;height:14px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 14'%3E%3Cpath d='M1 7 H21 M15 1.5 L21.5 7 L15 12.5' fill='none' stroke='%239AA9C4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain}
+.intro-chain .node .ic{width:62px;height:62px}
+.intro-chain .node .ic svg{width:29px;height:29px}
+.intro-chain .node{--cn:#CFC8BB}
+.intro-chain .node:nth-child(2){--cn:#D9B3AC} .intro-chain .node.c-app,.intro-chain .node.c-out{--cn:#E2A39B}
+.intro-chain .node:not(:last-child)::after{content:"";position:absolute;top:26px;left:calc(50% + 41px);width:calc(100% + 28px - 82px);height:10px;
+  background:linear-gradient(var(--cn),var(--cn)) left center/calc(100% - 4px) 1.5px no-repeat;-webkit-mask:none}
+.intro-chain .node:not(:last-child)::before{content:"";position:absolute;top:27px;left:calc(150% + 28px - 47px);width:8px;height:8px;border-top:1.5px solid var(--cn);border-right:1.5px solid var(--cn);transform:rotate(45deg);z-index:1}
 .intro-chain .node.up{opacity:.5}
-.intro-chain .node h5{font-size:17px;margin-top:9px}
+.intro-chain .node h5{font-size:17px;margin-top:8px}
 .intro-chain .node .what{min-height:0;font-size:13.5px}
 .intro-chain .c-app .ic{border-color:#D99A93;box-shadow:0 0 0 6px #FBEDEC}
 .intro-chain .c-out .ic{border-color:var(--red);box-shadow:0 0 0 6px #F8DEDB}
 .intro-chain .c-mile .ic{border-color:#7FA88B;box-shadow:0 0 0 6px #E4EFE7}
 .dtag{margin-top:8px;padding:3px 11px;border-radius:999px;font:600 11px/1.3 var(--sans);background:#FBEDEC;color:var(--red)}
 .dtag.up{background:none;border:1px dashed #CFC8BB;color:var(--taupe);font-weight:500}
-#intro .takeaway{margin-top:18px}
+/* slide 03: who owns each half of the chain, as soft pills on a second row inside the chain */
+#intro .intro-chain{row-gap:14px}
+#intro .intro-chain .node.c-mile::after,#intro .intro-chain .node.c-mile::before{display:none}
+.own-up,.own-dn{position:relative;z-index:1;justify-self:center;padding:8px 20px;border-radius:999px;text-align:center;font:14px/1.3 var(--sans)}
+.own-up{grid-column:1/3;background:#FCFBF8;border:1px solid #ECE6DA;color:#8D867A} .own-up b{color:var(--ink2)}
+.own-dn{grid-column:3/6;background:#FBE6E2;color:#6E4A46} .own-dn b{color:var(--red)}
+#intro .takeaway{margin-top:14px}
 .focusbar{display:grid;grid-template-columns:2fr 3fr;gap:12px;margin-top:20px;font:600 10.5px/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;text-align:center}
 .focusbar span{padding:6px 8px;border-radius:999px}
 .focusbar .up{color:var(--taupe);border:1px dashed var(--line)}
@@ -968,6 +987,22 @@ aside.notes{display:none}
 .scr .tabs span{display:flex;flex-direction:column;align-items:center;gap:1px;font:500 8.5px var(--sans);color:#9A9A9A}
 .scr .tabs svg{width:15px;height:15px;fill:none;stroke:#9A9A9A;stroke-width:1.7;stroke-linejoin:round}
 .scr .tabs .on{color:#E60012} .scr .tabs .on svg{stroke:#E60012}
+/* agenda ("Spilling the Tea"): numbers as badges in the cup colours, an airier list, cups and sand raised */
+.slide.agenda.long ol{width:640px;margin-top:6px}
+.slide.agenda.long li{grid-template-columns:78px 1fr;align-items:center;padding:9px 0;border-bottom:1px solid #EEE8DC}
+.slide.agenda.long li:last-child{border-bottom:0}
+.slide.agenda.long li .no{justify-self:start;min-width:44px;padding:5px 10px;border-radius:999px;text-align:center;font:600 14px/1.1 var(--sans);letter-spacing:.02em;color:#fff;background:var(--navy);box-shadow:0 3px 8px -3px rgba(36,64,107,.35)}
+.slide.agenda.long li:nth-child(1) .no{background:#EDE3CF;color:var(--navy)}
+.slide.agenda.long li:nth-child(2) .no{background:#8FB49A}
+.slide.agenda.long li:nth-child(3) .no{background:#D99A93}
+.slide.agenda.long li:nth-child(4) .no{background:var(--navy)}
+.slide.agenda.long li:nth-child(5) .no{background:var(--red)}
+.slide.agenda.long li:nth-child(6) .no{background:#8FB49A}
+.slide.agenda.long li:nth-child(7) .no{background:none;color:var(--taupe);border:1.5px dashed #CFC8BB;box-shadow:none}
+.slide.agenda.long li .nm{font:500 20px/1.2 var(--sans);color:var(--ink)}
+.slide.agenda.long li .why{font-size:13px;margin-top:3px}
+.slide.agenda.long li:hover .no{transform:translateY(-1px)}
+.slide.agenda .cups{top:115px}
 /* ---------------------------------------------------------------- clean theme (after the Week 8 deck's intro slides):
    quiet navy kicker, one big navy headline, white cards with a soft shadow, a faint tea-wash band under the
    engraved leaves, and less chrome on the main slides. Remove this block to return to the original look. */
@@ -988,6 +1023,8 @@ aside.notes{display:none}
 .slide.content .takeaway .lab{color:var(--red);border-right-color:var(--line)}
 .slide.content .takeaway b{color:var(--navy)}
 .slide.content .rail span.cur{color:var(--navy);font-weight:700}
+/* footer: the chapter guide sits bottom right, beside the page number, with a divider between them */
+.slide.content .foot .rail{margin-left:auto;margin-right:14px;padding-right:14px;border-right:1px solid #CFC8BB}
 /* main slides: drop the navigation chrome (stage pills, course-link tags, "Next" lines); kept in the appendix */
 .slide.content:not([data-chapter="Appendix"]) .kicker .stg,
 .slide.content:not([data-chapter="Appendix"]) .kicker .ctag,
@@ -1006,10 +1043,9 @@ aside.notes{display:none}
   <img class="logo" src="{img:logo}" alt="Chagee">
   <div class="t">
     <h1>Chagee Singapore</h1>
-    <p class="tl">Forecast the peak, share the counter</p>
+    <p class="tl">The Opportuni-Tea — Unlocking Growth at CHAGEE SG with AI</p>
     <div class="rule"></div>
-    <p class="meta">Three decisions, three owners: membership, the counter and the next outlet<br>
-      OPIM639 &nbsp;·&nbsp; Group 3 &nbsp;·&nbsp; Keziah, Jin, Ayumi, Revan &nbsp;·&nbsp; October 2026</p>
+    <p class="meta">OPIM639 &nbsp;·&nbsp; Group 3 &nbsp;·&nbsp; Keziah, Jin, Ayumi, Revan &nbsp;·&nbsp; October 2026</p>
   </div>
   <img class="cup" src="{img:cup_navy}" alt="">
   <aside class="notes">
@@ -1023,22 +1059,25 @@ aside.notes{display:none}
 <section class="slide agenda long" data-title="Agenda">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <h2>Agenda</h2>
+    <p class="agk">Agenda</p>
+    <h2>Spilling the Tea</h2>
     <ol>
-      <li data-go="intro"><span class="no">03–04</span><span class="nm">Introduction<span class="why">Chagee Singapore, our scope and the executive summary</span></span></li>
-      <li data-go="m2"><span class="no">05–10</span><span class="nm">Three proposals<span class="why">Grow demand · serve demand · expand access</span></span></li>
-      <li data-go="rc"><span class="no">11–12</span><span class="nm">Execution and impact<span class="why">Execution steps and financial impact</span></span></li>
-      <li data-go="qa"><span class="no">13</span><span class="nm">Q&amp;A</span></li>
+      <li data-go="intro"><span class="no">03</span><span class="nm">Introduction<span class="why">Chagee Singapore, our scope and why</span></span></li>
+      <li data-go="es"><span class="no">04</span><span class="nm">Executive Summary and Business Plan<span class="why">Two key challenges and one strategic decision</span></span></li>
+      <li data-go="m2"><span class="no">05–10</span><span class="nm">Our Business Recommendations<span class="why">Grow demand · serve demand · expand access</span></span></li>
+      <li data-go="rc"><span class="no">11</span><span class="nm">Execution Plan<span class="why">Three pilots and when to proceed</span></span></li>
+      <li data-go="c9"><span class="no">12</span><span class="nm">Business Impact<span class="why">What the plan is worth, in our model</span></span></li>
+      <li data-go="qa"><span class="no">13</span><span class="nm">Q &amp; A</span></li>
       <li data-go="ax"><span class="no">+</span><span class="nm">Appendix<span class="why">Earlier slides, derivations, tables, sources and the Australia extension</span></span></li>
     </ol>
   </div>
   <div class="cups">
     <img src="{img:sand_small}" style="left:-30px;top:200px;width:530px" alt="">
-    <img src="{img:cup_green}" style="left:205px;top:0;width:110px" alt="">
-    <img src="{img:cup_cream}" style="left:120px;top:45px;width:110px" alt="">
-    <img src="{img:cup_pink}" style="left:300px;top:40px;width:110px" alt="">
-    <img src="{img:cup_navy}" style="left:155px;top:115px;width:130px" alt="">
-    <img src="{img:cup_red}" style="left:265px;top:130px;width:118px" alt="">
+    <img class="cup w1" src="{img:cup_green}" style="left:175px;top:90px;width:110px" alt="">
+    <img class="cup w2" src="{img:cup_cream}" style="left:90px;top:135px;width:110px" alt="">
+    <img class="cup w3" src="{img:cup_pink}" style="left:270px;top:130px;width:110px" alt="">
+    <img class="cup w4" src="{img:cup_navy}" style="left:125px;top:205px;width:130px" alt="">
+    <img class="cup w5" src="{img:cup_red}" style="left:235px;top:220px;width:118px" alt="">
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · Chagee Singapore</span><span class="pg"></span></div>
   <aside class="notes"><p>Not presented: go straight from the title to the introduction. For reference: the introduction and executive summary, three proposals of two slides each (grow demand for the CRM manager, serve demand for the operations manager, expand access for the expansion manager), then execution steps, financial impact and Q&amp;A. Earlier slides, the Australia extension and the detail sit in the appendix. Click any line to jump there.</p></aside>
@@ -1050,7 +1089,7 @@ aside.notes{display:none}
   <div class="inner">
     <p class="kicker">03 · Introduction</p>
     <h2 class="head">Today, we're presenting Chagee</h2>
-    <p class="sub lede">A tea brand most of you know: order in the app, collect at the counter.</p>
+    <p class="sub lede">A tea brand most of you know: order in the app, collect at the counter, or deliver to your location.</p>
     <div class="pair">
       <div class="emb"><img src="{img:emblem}" alt="Chagee"></div>
       <div class="tcard"><h4 class="tl">Our scope</h4>
@@ -1058,35 +1097,37 @@ aside.notes{display:none}
         <p>Outlets are <b>company-owned, not franchised</b>, so the counter, roster and equipment are Chagee's own calls.</p></div>
       <div class="tcard"><h4 class="tl">Why Chagee?</h4>
         <ol class="why4">
-          <li><b>One company, one data system</b>, with lots of data <span class="golink" data-go="adata">appendix</span></li>
-          <li><b>App-first</b>: it collects personal and transactional data</li>
-          <li><b>Fast-growing, playful</b>: rich order data, room for AI</li>
-          <li><b>An insider's view</b>: we interviewed a staff member <span class="src tip" tabindex="0" style="display:inline" data-tip="A Chagee staff member in the Membership Operations APAC team, who declined to be cited openly.">(anonymous <span class="ti screenonly">ⓘ</span>)</span></li>
+          <li><b>Many stores, managed by one company</b>, one data system, with lots of data <span class="golink" data-go="adata">appendix</span></li>
+          <li><b>App-centric</b>: collects personal and transactional data</li>
+          <li><b>Fast-growing, playful</b>: rapid expansion, room for improvements with AI</li>
+          <li><b>An insider's view</b>: we were fortunate to interview a staff member</li>
         </ol></div>
     </div>
     <div class="flow">
       <div class="ftitle">From farm to cup <span>· our project focus is downstream</span></div>
       <div class="chain intro-chain">
         <div class="node up"><div class="ic"><svg viewBox="0 0 32 32"><path d="M6 26 C6 12 16 6 27 5 C26 17 20 26 6 26 Z"/><path d="M6 26 L18 14"/></svg></div>
-          <h5>Source</h5><div class="what">Yunnan tea; local milk and fruit</div><span class="dtag up">planned ahead</span></div>
+          <h5>Source</h5><div class="what">Yunnan tea; local milk and fruit</div></div>
         <div class="node up"><div class="ic"><svg viewBox="0 0 32 32"><path d="M4 13 L16 6 L28 13 V27 H4 Z"/><path d="M10 27 V18 H22 V27 M10 22 H22"/></svg></div>
-          <h5>Warehouse</h5><div class="what">Restocking from forecasts</div><span class="dtag up">planned ahead</span></div>
+          <h5>Warehouse</h5><div class="what">Restocking from forecasts</div></div>
         <div class="node now c-app"><div class="ic"><svg viewBox="0 0 32 32"><rect x="10" y="3" width="12" height="26" rx="2.5"/><path d="M14 25 H18"/></svg></div>
-          <h5>Chagee App</h5><div class="what">Order ahead</div><span class="dtag">orders · members</span></div>
+          <h5>Chagee App</h5><div class="what">Order ahead</div></div>
         <div class="node now c-out"><div class="ic"><svg viewBox="0 0 32 32"><path d="M5 12 H27 L25 6 H7 Z"/><path d="M6 12 V27 H26 V12 M13 27 V19 H19 V27"/></svg></div>
-          <h5>Outlets</h5><div class="what">Make and hand over</div><span class="dtag">cups by the hour</span></div>
+          <h5>Outlets</h5><div class="what">Make and hand over</div></div>
         <div class="node now c-mile"><div class="ic"><svg viewBox="0 0 32 32"><circle cx="8" cy="23" r="4"/><circle cx="25" cy="23" r="4"/><path d="M8 23 H16 L20 13 H25 L25 23 M13 13 H20"/></svg></div>
-          <h5>Last mile</h5><div class="what">Self-collect or Grab</div><span class="dtag">orders by channel</span></div>
+          <h5>Last mile</h5><div class="what">Self-collect or Grab</div></div>
+        <div class="own-up"><span>Upstream data and decisions sit with <b>Chagee corporate</b></span></div>
+        <div class="own-dn"><span>Downstream data is analysed and decisions are made by <b>Chagee SG</b> (APAC HQ)</span></div>
       </div>
     </div>
     <div class="takeaway"><span class="lab">OUR FOCUS</span><span>The downstream operational challenges: some of the most pressing issues for Chagee Singapore's management.</span></div>
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · explainer figures are illustrative assumptions</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes">
-    <p>Today we are presenting Chagee: a tea brand most of you know, where you order in the app and collect at the counter.</p>
+    <p>Today we are presenting Chagee: a tea brand most of you know, where you order in the app and collect at the counter, or have it delivered to your location.</p>
     <p>Our scope is Chagee Singapore: its management and its Singapore customers. Singapore outlets are company-owned, not franchised, as our project owner confirmed, so the counter, the roster and the equipment are Chagee's own decisions. If asked about the group: across Chagee worldwide, most FY 2025 net revenue came from franchising, about {{facts.revenue_share_franchise_fy2025|pct}}, from a secondary source; that does not describe Singapore.</p>
-    <p>Why Chagee: one company and one data system with lots of data, by an anonymous Chagee source; an app-first business, whose Form 20-F says it collects personal and transactional data; a fast-growing, playful brand, so likely rich order data and room for AI. And we interviewed a Chagee staff member, who asked not to be named, about the problems they actually face.</p>
-    <p>Now follow one cup from farm to customer. Upstream is planned ahead: tea leaves come from Yunnan through standard channels, only fresh milk and fruit are bought locally (YF Chuhai), and Chagee already plans restocking from forecasts (Form 20-F). Downstream is where the data is: the Chagee app records orders and members, the outlet records cups by the hour, and the last mile records orders by channel, self-collect or third-party delivery such as Grab. Which of these Chagee keeps, and in how much detail, is ours to confirm.</p>
+    <p>Why Chagee: many stores, managed by one company with one data system and lots of data, by an anonymous Chagee source; app-centric, and its Form 20-F says it collects personal and transactional data; fast-growing and playful, expanding rapidly, with room for improvements with AI. And we were fortunate to interview a Chagee staff member, who asked not to be named, about the problems they actually face.</p>
+    <p>Now follow one cup from farm to customer. Upstream is planned ahead: tea leaves come from Yunnan through standard channels, only fresh milk and fruit are bought locally (YF Chuhai), and Chagee already plans restocking from forecasts (Form 20-F). Downstream is where the data is: the Chagee app records orders and members, the outlet records cups by the hour, and the last mile records orders by channel, self-collect or third-party delivery such as Grab. Which of these Chagee keeps, and in how much detail, is ours to confirm. Upstream data and decisions sit with Chagee corporate; downstream data is analysed and decisions are made by Chagee Singapore, which is why our project focuses there.</p>
     <p>So we focus on the downstream operational challenges, some of the most pressing issues for Chagee Singapore's management. That leads into the executive summary. About one minute.</p>
   </aside>
 </section>
@@ -1095,7 +1136,7 @@ aside.notes{display:none}
 <section class="slide content" id="es" data-chapter="Summary" data-title="Executive summary">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">04 · Executive summary</p>
+    <p class="kicker">04 · Executive summary and business plan</p>
     <h2 class="head">Our business plan to solve Chagee's problem statements</h2>
     <div class="es-case">
       <div class="es-av"><svg viewBox="0 0 80 80" aria-label="Illustrated persona">
@@ -1118,9 +1159,9 @@ aside.notes{display:none}
     </div>
     <p class="es-frame"><span class="ch">Two key challenges</span><span class="plus">+</span><span class="dp">One strategic decision point</span></p>
     <div class="es-grid">
-      <div class="es-box k1"><span class="es-lab">Key challenge</span><h5>Online retailing</h5><p>Use data for better sales and cost management: re-route customers at peak, reallocate staff, reduce wastage.</p></div>
-      <div class="es-box k2"><span class="es-lab">Key challenge</span><h5>In-store workflow</h5><p>A faster, smoother counter: shorter waits and a crew matched to demand.</p></div>
-      <div class="es-box k3"><span class="es-lab">Strategic decision</span><h5>New store openings</h5><p>Where to open next, so a store adds customers instead of moving them.</p></div>
+      <div class="es-box k1"><span class="es-lab">Key challenge</span><h5>Online retailing</h5><p>Use data for better sales, customer loyalty and cost management. Customer management and reduction of wastage.</p></div>
+      <div class="es-box k2"><span class="es-lab">Key challenge</span><h5>In-store management</h5><p>A faster, smoother counter: in-store operations management for shorter waits and a crew matched to demand.</p></div>
+      <div class="es-box k3"><span class="es-lab">Strategic expansion decision</span><h5>New store openings</h5><p>Where to open next, so a new store is profitable and adds customers instead of moving them.</p></div>
       <div class="es-slot"><span class="es-lab">Proposal 1</span><span class="es-tbd">Details to come</span></div>
       <div class="es-slot"><span class="es-lab">Proposal 2</span><span class="es-tbd">Details to come</span></div>
       <div class="es-slot"><span class="es-lab">Proposal 3</span><span class="es-tbd">Details to come</span></div>
@@ -1130,7 +1171,7 @@ aside.notes{display:none}
   <aside class="notes">
     <p>Our business plan starts from Chagee's own problem statements. We interviewed a member of Chagee's Membership Operations team for APAC, shown here as a persona, "Mei": the name is changed and the interviewee asked not to be cited openly.</p>
     <p>Through the interview, we learnt about Chagee's business model, its local operations, and some of its most pressing concerns and strategic needs, which AI could potentially help solve.</p>
-    <p>We frame them as two key challenges and one strategic decision point. Challenge one, online retailing: using data for better sales and cost management, such as re-routing customers during peak periods, reallocating staff to support, and reducing inventory wastage. Challenge two, in-store workflow: a faster, smoother counter with shorter waits and a crew matched to demand. And the strategic decision: new store openings, where to open next so a store adds customers rather than moving them from nearby outlets.</p>
+    <p>We frame them as two key challenges and one strategic decision point. Challenge one, online retailing: using data for better sales, customer loyalty and cost management, through customer management and reducing wastage. Challenge two, in-store management: a faster, smoother counter, through in-store operations management for shorter waits and a crew matched to demand. And the strategic decision: new store openings, where to open next so a new store is profitable and adds customers rather than moving them from nearby outlets.</p>
     <p>Each one gets a proposal, which we walk through next. About forty-five seconds.</p>
   </aside>
 </section>
@@ -1371,10 +1412,10 @@ aside.notes{display:none}
 </section>
 
 <!-- ======================================================= 15 RECOMMENDATION -->
-<section class="slide content" id="rc" data-chapter="Execution" data-title="Execution steps">
+<section class="slide content" id="rc" data-chapter="Execution" data-title="Execution plan">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">11 · Execution steps</p>
+    <p class="kicker">11 · Execution plan</p>
     <h2 class="head">Three managers, three pilots, each judged on its own evidence</h2>
     <p class="sub">A connected story, not one combined model: no simulated benefit is carried between parts or added up.</p>
     <div class="rec3">
@@ -1401,10 +1442,10 @@ aside.notes{display:none}
 </section>
 
 <!-- ======================================================= APPENDIX: THE SIZE OF THE BENEFIT -->
-<section class="slide content bs" id="c9" data-chapter="Impact" data-title="Financial impact">
+<section class="slide content bs" id="c9" data-chapter="Impact" data-title="Business impact">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
-    <p class="kicker">12 · Financial impact · Singapore only<span class="tbc">TBC · draft, to be confirmed</span></p>
+    <p class="kicker">12 · Business impact · Singapore only<span class="tbc">TBC · draft, to be confirmed</span></p>
     <h2 class="head">About S${{r.ben_profit_sg|m2}} a year across {{facts.sg_outlets}} outlets, mostly from one machine</h2>
     <p class="sub">In our model, against an illustrative baseline: modelled avoided costs, not demonstrated savings.</p>
     <div class="body" style="grid-template-columns:1fr 400px">

@@ -36,6 +36,7 @@
   let cur = 0;
   const content = slides.filter(s => s.classList.contains("content") && s.dataset.chapter !== "Appendix");
   const chapters = [...new Set(content.map(s => s.dataset.chapter))];
+  if (slides.some(s => s.dataset.chapter === "Appendix")) chapters.push("Appendix");   // last on the footer rail, lit on appendix pages
   slides.forEach((s, i) => {
     const pg = $(s, ".pg"); if (pg) pg.textContent = i + 1;
     const rail = $(s, ".rail");
