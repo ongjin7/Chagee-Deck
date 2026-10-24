@@ -1155,7 +1155,7 @@ aside.notes{display:none}
 #p2p .p2-chart .p2tog .p2c{max-height:250px;width:auto;margin:0 auto}
 #p2p .p2-body{padding:14px 28px 12px}
 #p2p .p2-l ul{gap:8px}
-#p2p .p2-lists{gap:26px;align-self:start;margin-top:6px}
+#p2p .p2-lists{gap:26px;align-self:center;margin-top:0}
 #p2p .ini{margin-top:10px}
 .p2tog .lay{transition:opacity .35s} .p2tog[data-v="today"] .lay.ai,.p2tog[data-v="ai"] .lay.today{opacity:0}
 .p2l{font:600 11px var(--sans);fill:#A39C8F}
@@ -1195,12 +1195,12 @@ aside.notes{display:none}
 .db-why{margin:12px 0 0;padding-top:10px;border-top:1px solid #EEE7DA;font:12.5px/1.45 var(--sans);color:var(--ink2)} .db-why b{margin-right:8px;font:700 10px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#3D5C8F}
 .db-side{display:flex;flex-direction:column;gap:8px}
 #p2b .num{display:inline;width:auto;height:auto;margin:0;background:none;border-radius:0;color:inherit;font:inherit;font-weight:700}
-.db-sr{display:grid;grid-template-columns:76px 1fr;align-items:center;gap:10px;padding:9px 0;border-top:1px solid #EEE7DA;font:13px var(--sans)}
+.db-sr{display:grid;grid-template-columns:104px 1fr;align-items:center;gap:10px;padding:9px 0;border-top:1px solid #EEE7DA;font:13px var(--sans)}
 .db-sr.hd{padding:0 0 6px;border-top:0;font:700 9.5px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--taupe)}
 .db-sr b{font:700 13.5px var(--sans);color:var(--ink)}
 .db-sr .act{justify-self:start;padding:6px 12px;border-radius:999px;font:600 13px/1.2 var(--sans)}
 .db-sr .act.mv{background:#FBEDEC;color:var(--red)} .db-sr .act.ok{background:#EEF2F8;color:var(--navy)} .db-sr .act.in{background:#E3F2E8;color:#2F6B45}
-.db-cv{display:grid;grid-template-columns:1fr 60px 92px;align-items:center;padding:2px 0;font:12.5px var(--sans);color:var(--ink2)}
+.db-cv{display:grid;grid-template-columns:1fr 54px 88px;align-items:center;padding:2px 0;font:12.5px var(--sans);color:var(--ink2)}
 .db-cv.hd{font:700 9px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--taupe)}
 .db-cv b{font:600 12px var(--sans);color:var(--ink)} .db-cv span{text-align:center}
 .db-cv .up{color:#2F6B45} .db-cv .up::after{content:" ▲"} .db-cv .dn{color:var(--red)} .db-cv .dn::after{content:" ▼"} .db-cv .eq{color:var(--navy)} .db-cv .eq::after{content:" ="}
@@ -1212,7 +1212,7 @@ aside.notes{display:none}
 .db-bar .db-live{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font:600 11px var(--sans);color:#2F6B45}
 .db-live i{width:7px;height:7px;border-radius:50%;background:#2F6B45;box-shadow:0 0 0 3px #D5E8DB}
 .db-pk{display:flex;align-items:baseline;gap:8px;padding:2px 0;font:12px/1.35 var(--sans);color:var(--ink2)}
-.db-pk b{flex:none;width:56px;font:700 11px var(--sans)} .db-pk.up b{color:var(--red)} .db-pk.dn b{color:#7D766B}
+.db-pk b{flex:none;width:50px;font:700 11px var(--sans)} .db-pk.up b{color:var(--red)} .db-pk.dn b{color:#7D766B}
 .db-mc em{margin-left:8px;padding:1px 8px;border-radius:999px;font:700 10px/1.6 var(--sans);font-style:normal;white-space:nowrap}
 .db-mc em.ok{background:#E3F2E8;color:#2F6B45} .db-mc em.ov{background:#F1ECE3;color:#7D766B} .db-mc em.ad{background:#FBEDEC;color:var(--red)}
 #p2b .db-mc{display:grid;grid-template-columns:58px auto 1fr;align-items:center;gap:8px}
@@ -1246,10 +1246,71 @@ aside.notes{display:none}
 #p2b .db-pk{padding:0;font-size:11.5px}
 #p2b .db-sr{padding:6px 0}
 #p2b .db-why{margin-top:8px;padding-top:7px}
-#p2b .db-hero{padding:14px 20px;gap:6px}
+#p2b .db-hero{padding:14px 20px;gap:6px;align-self:center}
 #p2b .db-hero h4{font-size:22px}
 #p2b .db-hero li{padding:4px 0}
 #p2b .p2-ops{margin-top:10px}
+/* slide 09 spacing pass: a larger flow, a slim ideas band, more air between blocks */
+#p2b .db-flow{max-width:1036px;margin-top:34px;grid-template-columns:auto 1.25fr 1fr 1.45fr 1fr}
+#p2b .db-fl-lab{font-size:11.5px;max-width:78px}
+#p2b .db-step{padding:11px 26px 11px 16px;gap:12px}
+#p2b .db-step:not(:nth-child(2)){padding-left:30px}
+#p2b .db-num{width:28px;height:28px;font-size:13px}
+#p2b .db-step b{font-size:12px;letter-spacing:.12em}
+#p2b .db-step div>span{font-size:13.5px;line-height:1.3;margin-top:2px}
+#p2b .db-main{margin-top:0;align-items:center;align-content:center} #p2b .db-main>*{align-self:center}
+#p2b .db-sr{padding:7px 0} #p2b .db-grid{padding:10px 14px 12px;gap:10px} #p2b .db-side{gap:7px}
+#p2b .db-card{padding:8px 12px} #p2b .db-cv{padding:1px 0} #p2b .db-pk{padding:1px 0}
+#p2b .db-bar{padding:7px 14px} #p2b .db-why{margin-top:8px;padding-top:8px}
+#p2b .db-rep{white-space:nowrap;padding:0 12px;font-size:12px} #p2b .db-rep+.db-rep{margin-left:6px}
+#p2b .p2-ideas{display:grid;grid-template-columns:150px 1fr;align-items:center;gap:16px;margin-top:0;padding:10px 24px}
+#p2b .p2-ideas .hw-ohd{margin:0;font-size:11px;line-height:1.35}
+#p2b .p2-ig{gap:18px}
+#p2b .p2-ig div{flex-direction:column;gap:1px;padding-left:0;border-left:0}
+#p2b .p2-ig b::before{content:"";display:inline-block;width:7px;height:7px;margin:0 8px 2px 0;border-radius:50%;background:var(--red);vertical-align:middle}
+#p2b .p2-ig span{padding-left:15px}
+#p2b .p2-ig b{font-size:16px} #p2b .p2-ig span{font-size:12.5px;white-space:nowrap}
+.p2-ideas{margin-top:12px;padding:12px 26px 14px;border-radius:18px;background:#FBF7F0}
+.p2-ideas .hw-ohd{margin-bottom:8px}
+.p2-ig{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.p2-ig div{display:flex;flex-direction:column;gap:2px;padding-left:14px;border-left:2px solid #E2D6C1}
+.p2-ig b{font:500 18px/1.2 var(--serif);color:var(--navy)} .p2-ig span{font:13px/1.35 var(--sans);color:var(--ink2)}
+.db-rep+.db-rep{margin-left:6px}
+.db-rep.db-ask{background:#fff;color:#2F6B45;box-shadow:inset 0 0 0 1.5px #A9CDB6}
+#p2b .db-rep{height:32px;padding:0 14px;box-sizing:border-box;background:#fff;color:#2F6B45;box-shadow:inset 0 0 0 1.5px #A9CDB6} #p2b .db-rep svg{stroke:#2F6B45}
+.db-rep.db-ask svg{stroke:#2F6B45}
+.db-chat{position:absolute;inset:0;z-index:20;display:none;align-items:flex-end;justify-content:flex-end;padding:0 80px 70px 0;background:rgba(36,40,52,.25)}
+.db-chat.open{display:flex}
+.dc-card{width:400px;border-radius:20px;background:#fff;box-shadow:0 30px 60px -20px rgba(0,0,0,.45);overflow:hidden}
+.dc-hd{display:flex;align-items:center;gap:10px;padding:12px 16px;background:#2F6B45;color:#fff}
+.dc-av{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.18)}
+.dc-av svg{width:16px;height:16px;fill:#fff}
+.dc-hd b{display:block;font:700 13.5px var(--sans)} .dc-hd span{font:11.5px var(--sans);color:#CFE6D7}
+.dc-x{margin-left:auto;width:26px;height:26px;border:0;border-radius:50%;background:rgba(255,255,255,.15);color:#fff;font:600 12px var(--sans);cursor:pointer}
+.dc-body{display:flex;flex-direction:column;gap:8px;padding:14px 16px;background:#F7F9F7}
+.dc-m{margin:0;max-width:85%;padding:8px 12px;border-radius:14px;font:12.5px/1.45 var(--sans)}
+.dc-m.me{align-self:flex-end;background:var(--navy);color:#fff;border-bottom-right-radius:4px}
+.dc-m.ai{align-self:flex-start;background:#fff;color:var(--ink2);border:1px solid #E1EAE4;border-bottom-left-radius:4px}
+.dc-in{display:flex;align-items:center;justify-content:space-between;margin:10px 14px 4px;padding:8px 12px;border:1px solid #E4DCCD;border-radius:999px;font:12px var(--sans);color:var(--taupe)}
+.dc-send{color:#2F6B45}
+.dc-foot{margin:4px 16px 10px;font:italic 10.5px var(--sans);color:var(--taupe)}
+
+#p2b .db-hero .db-exec{align-self:flex-end;margin-top:8px}
+.db-rep{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 14px;border:0;border-radius:999px;background:var(--navy);color:#fff;font:600 12.5px var(--sans);cursor:pointer;box-shadow:0 6px 14px -8px rgba(36,64,107,.6)}
+.db-rep svg{width:15px;height:15px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.db-report{position:absolute;inset:0;z-index:20;display:none;align-items:center;justify-content:center;background:rgba(36,40,52,.35);backdrop-filter:blur(2px)}
+.db-report.open{display:flex}
+.dr-card{position:relative;width:900px;max-height:620px;overflow:auto;padding:26px 34px 22px;border-radius:20px;background:#fff;box-shadow:0 30px 60px -20px rgba(0,0,0,.4)}
+.dr-x{position:absolute;right:16px;top:14px;width:30px;height:30px;border:0;border-radius:50%;background:#F4F0E8;color:var(--ink2);font:600 14px var(--sans);cursor:pointer}
+.dr-k{margin:0;font:700 10px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#2F6B45}
+.dr-card h3{margin:6px 0 10px;font:500 26px/1.2 var(--serif);color:var(--navy)}
+.dr-sum{margin:0 0 14px;padding:10px 14px;border-radius:12px;background:#F2F8F4;font:14px/1.5 var(--sans);color:var(--ink2)} .dr-sum b{color:#2F6B45}
+.dr-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+.dr-grid h5{margin:0 0 4px;font:700 10.5px/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
+.dr-grid ul{margin:0;padding-left:16px;display:flex;flex-direction:column;gap:3px;font:13px/1.45 var(--sans);color:var(--ink2)} .dr-grid b{color:var(--ink)}
+.dr-watch{margin:14px 0 0;font:13px/1.45 var(--sans);color:var(--ink2)} .dr-watch b{color:var(--red)}
+.dr-foot{margin:8px 0 0;font:italic 11.5px var(--sans);color:var(--taupe)}
+
 .db-name{margin-left:8px;font:600 11.5px var(--sans);color:var(--ink2)} .db-name em{font-style:normal}
 .db-filt{display:inline-flex;align-items:center;gap:6px;margin-left:14px}
 .db-fl2{font:700 9px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--taupe)}
@@ -1258,9 +1319,9 @@ aside.notes{display:none}
 .db-seg button.on{background:var(--navy);color:#fff}
 .db-pick{display:none;height:22px;padding:0 6px;border:1px solid #E4DCCD;border-radius:7px;background:#fff;color:var(--ink);font:600 11px var(--sans)}
 .db-win[data-f="store"] .db-pick{display:inline-block}
-.db-win[data-f="store"][data-o="Office"] [data-o]:not([data-o="Office"]),
-.db-win[data-f="store"][data-o="Mall"] [data-o]:not([data-o="Mall"]),
-.db-win[data-f="store"][data-o="Leisure"] [data-o]:not([data-o="Leisure"]){display:none}
+.db-win[data-f="store"][data-o="Raffles Place"] [data-o]:not([data-o="Raffles Place"]),
+.db-win[data-f="store"][data-o="Suntec City"] [data-o]:not([data-o="Suntec City"]),
+.db-win[data-f="store"][data-o="City Hall"] [data-o]:not([data-o="City Hall"]){display:none}
 
 .db-hero.lk{background:#F2F8F4;border-color:#BFDCC8}
 .db-hero.lk .db-alert{background:#2F6B45}
@@ -1400,6 +1461,13 @@ aside.notes{display:none}
 .ag-learn ol b{color:var(--ink)}
 .gate{margin:10px 0 0;padding:7px 14px;border-radius:12px;background:#fff;border-left:4px solid var(--navy);font:13.5px/1.4 var(--sans);color:var(--navy)}
 .gate .lab{display:block;margin-bottom:2px;font:700 10px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#4A6699}
+/* slide 09 dashboard, a soft Chagee look: light bar with the emblem, white cards on cream */
+#p2b .db-win{border:1px solid #EFE6D8;background:#FCF8F2}
+#p2b .db-bar{background:linear-gradient(90deg,#F8E1DD,#FBEDEA);border-bottom:1px solid #F1D3CD}
+#p2b .db-bar>i{display:none}
+#p2b .db-bar::before{content:"";width:20px;height:20px;flex:none;background:var(--emb) no-repeat center/contain}
+#p2b .db-name{color:#9E2A24;font-weight:700}
+#p2b .db-card{background:#fff;border-radius:14px;box-shadow:0 3px 12px -8px rgba(36,64,107,.3)}
 /* ---------------------------------------------------------------- clean theme (after the Week 8 deck's intro slides):
    quiet navy kicker, one big navy headline, white cards with a soft shadow, a faint tea-wash band under the
    engraved leaves, and less chrome on the main slides. Remove this block to return to the original look. */
@@ -1783,49 +1851,50 @@ aside.notes{display:none}
     <h2 class="head">Managers can use insights to plan and manage stores better</h2>
     <div class="db-flow">
       <span class="db-fl-lab">How it works</span>
-      <div class="db-step"><span class="db-num"></span><div><b>Data</b><span>orders · staffing · machines · calendar · years across all 44 outlets</span></div></div>
+      <div class="db-step"><span class="db-num"></span><div><b>Data</b><span>examples: orders · staffing · machines</span></div></div>
       <div class="db-step pred"><span class="db-num"></span><div><b>Predictive AI</b><span>forecasts each outlet by day</span></div></div>
-      <div class="db-step agent"><span class="db-num"></span><div><b>AI agent</b><span>recommends rosters, staff moves, machines and stock</span></div></div>
+      <div class="db-step agent"><span class="db-num"></span><div><b>AI platform</b><span>provides recommendations and a chatbot</span></div></div>
       <div class="db-step gen"><span class="db-num"></span><div><b>Managers</b><span>view insights and plan the week</span></div></div>
     </div>
     <div class="db-main">
-      <div class="db-win" data-f="zone" data-o="Office">
-        <div class="db-bar"><i></i><i></i><i></i><span class="db-name">Chagee Store Insights Dashboard – <em class="db-vw">Zone View</em></span><span class="db-filt screenonly"><span class="db-fl2">View</span><span class="db-seg"><button class="on" data-f="zone">Zone</button><button data-f="store">Store</button></span><select class="db-pick" aria-label="Store"><option>Office</option><option>Mall</option><option>Leisure</option></select></span><span class="db-live"><i></i><span class="db-upd">Updated <span class="num">7</span>am daily</span><button class="db-ref screenonly" title="Refresh data" aria-label="Refresh data"><svg viewBox="0 0 24 24"><path d="M20 11 A8 8 0 1 0 18 17"/><path d="M20 4 V11 H13"/></svg></button></span></div>
+      <div class="db-win" data-f="zone" data-o="Raffles Place">
+        <div class="db-bar"><i></i><i></i><i></i><span class="db-name">Chagee Store Insights Dashboard – <em class="db-vw">Zone View</em></span><span class="db-filt screenonly"><span class="db-seg"><button class="on" data-f="zone">Zone</button><button data-f="store">Store</button></span><select class="db-pick" aria-label="Store"><option>Raffles Place</option><option>Suntec City</option><option>City Hall</option></select></span><span class="db-live"><i></i><span class="db-upd">Updated <span class="num">7</span>am daily</span><button class="db-ref screenonly" title="Refresh data" aria-label="Refresh data"><svg viewBox="0 0 24 24"><path d="M20 11 A8 8 0 1 0 18 17"/><path d="M20 4 V11 H13"/></svg></button></span></div>
         <div class="db-grid">
           <div class="db-card db-staff">
             <p class="db-ttl">Staff for the coming week</p>
             <div class="db-sr hd"><span>Outlet</span><span>Recommendation</span></div>
-            <div class="db-sr" data-o="Office"><b>Office</b><span class="act mv">Reassign <span class="num">1</span> crew → Leisure</span></div>
-            <div class="db-sr" data-o="Mall"><b>Mall</b><span class="act ok">Maintain current crew</span></div>
-            <div class="db-sr" data-o="Leisure"><b>Leisure</b><span class="act in">Receive <span class="num">1</span> crew from Office</span></div>
-            <p class="db-why"><b>Why</b>School-holiday pattern learnt from past years at similar outlets: offices quieten, leisure outlets get busier.</p>
+            <div class="db-sr" data-o="Raffles Place"><b>Raffles Place</b><span class="act mv">Reassign <span class="num">1</span> crew → City Hall</span></div>
+            <div class="db-sr" data-o="Suntec City"><b>Suntec City</b><span class="act ok">Maintain current crew</span></div>
+            <div class="db-sr" data-o="City Hall"><b>City Hall</b><span class="act in">Receive <span class="num">1</span> crew from Raffles Place</span></div>
+            <p class="db-why"><b>Why</b>School-holiday pattern learnt from past years: office areas like Raffles Place quieten, leisure areas like City Hall get busier.</p>
+            <button class="db-rep screenonly"><svg viewBox="0 0 24 24"><path d="M6 3 H15 L19 7 V21 H6 Z"/><path d="M15 3 V7 H19 M9 12 H16 M9 16 H14"/></svg>View recommendations report</button>
+            <button class="db-rep db-ask screenonly"><svg viewBox="0 0 24 24"><path d="M4 5 H20 V16 H11 L6 20 V16 H4 Z"/><path d="M8 10 H16 M8 13 H13"/></svg>Ask the assistant</button>
           </div>
           <div class="db-side">
             <div class="db-card">
               <p class="db-ttl">Upcoming peaks &amp; quiet spells</p>
-              <div class="db-pk up" data-o="Mall"><b>▲ Peak</b><span>Mall · Fri to Sun, afternoons</span></div>
-              <div class="db-pk up" data-o="Leisure"><b>▲ Peak</b><span>Leisure · weekdays, school holiday</span></div>
-              <div class="db-pk dn" data-o="Office"><b>▼ Quiet</b><span>Office · Mon to Fri, school holiday</span></div>
+              <div class="db-pk up" data-o="Suntec City"><b>▲ Peak</b><span>Suntec City · Fri to Sun, afternoons</span></div>
+              <div class="db-pk up" data-o="City Hall"><b>▲ Peak</b><span>City Hall · weekdays, school holiday</span></div>
+              <div class="db-pk dn" data-o="Raffles Place"><b>▼ Quiet</b><span>Raffles Place · Mon to Fri, school holiday</span></div>
             </div>
             <div class="db-card">
-              <p class="db-ttl">Machines · long-term plan</p>
+              <p class="db-ttl">Tea machines · in store</p>
               <div class="db-cv hd"><span></span><span>Current</span><span>Recommended</span></div>
-              <div class="db-cv" data-o="Office"><b>Office</b><span><span class="num">4</span></span><span class="dn"><span class="num">3</span></span></div>
-              <div class="db-cv" data-o="Mall"><b>Mall</b><span><span class="num">4</span></span><span class="eq"><span class="num">4</span></span></div>
-              <div class="db-cv" data-o="Leisure"><b>Leisure</b><span><span class="num">3</span></span><span class="up"><span class="num">4</span></span></div>
+              <div class="db-cv" data-o="Raffles Place"><b>Raffles Place</b><span><span class="num">4</span></span><span class="dn"><span class="num">3</span></span></div>
+              <div class="db-cv" data-o="Suntec City"><b>Suntec City</b><span><span class="num">4</span></span><span class="eq"><span class="num">4</span></span></div>
+              <div class="db-cv" data-o="City Hall"><b>City Hall</b><span><span class="num">3</span></span><span class="up"><span class="num">4</span></span></div>
             </div>
             <div class="db-card">
-              <p class="db-ttl">Fresh stock · crates per week</p>
+              <p class="db-ttl">Fresh stock · packages per week</p>
               <div class="db-cv hd"><span></span><span>Current</span><span>Recommended</span></div>
-              <div class="db-cv" data-o="Office"><b>Office</b><span><span class="num">9</span></span><span class="dn"><span class="num">7</span></span></div>
-              <div class="db-cv" data-o="Mall"><b>Mall</b><span><span class="num">8</span></span><span class="up"><span class="num">9</span></span></div>
-              <div class="db-cv" data-o="Leisure"><b>Leisure</b><span><span class="num">6</span></span><span class="up"><span class="num">8</span></span></div>
+              <div class="db-cv" data-o="Raffles Place"><b>Raffles Place</b><span><span class="num">9</span></span><span class="dn"><span class="num">7</span></span></div>
+              <div class="db-cv" data-o="Suntec City"><b>Suntec City</b><span><span class="num">8</span></span><span class="up"><span class="num">9</span></span></div>
+              <div class="db-cv" data-o="City Hall"><b>City Hall</b><span><span class="num">6</span></span><span class="up"><span class="num">8</span></span></div>
             </div>
           </div>
         </div>
       </div>
       <div class="db-hero lk">
-        <span class="db-alert">Connected to Proposal 1</span>
         <h4>One model that keeps getting smarter</h4>
         <ol class="db-loop">
           <li><b>Events feed in</b>Rerouted pickups, delivery pauses and vouchers from Proposal 1</li>
@@ -1833,33 +1902,65 @@ aside.notes{display:none}
           <li><b>Forecasts sharpen</b>so this dashboard anticipates better, even after protocol changes</li>
         </ol>
         <p class="db-lkp">Over time, Chagee manages its stores better, ahead of demand rather than reacting to it.</p>
-        <span class="golink" data-go="p2x">Execution steps</span>
+        <span class="golink hw-link db-exec" data-go="p2x">Execution steps</span>
       </div>
     </div>
-    <div class="hw-ops p2-ops">
-      <div class="hw-ideas">
-        <p class="hw-ohd">The operations ideas behind it</p>
-        <ul>
-          <li><b>Demand forecasting</b><span>by outlet and day</span></li>
-          <li><b>Capacity planning</b><span>staff, machines and stock to the forecast</span></li>
-          <li><b>Throughput</b><span>find and fix the slowest step</span></li>
-        </ul>
+    <div class="p2-ideas">
+      <p class="hw-ohd">The operations ideas behind it</p>
+      <div class="p2-ig">
+        <div><b>Demand forecasting</b><span>by outlet and day</span></div>
+        <div><b>Capacity planning</b><span>staff, machines and stock to the forecast</span></div>
+        <div><b>Throughput</b><span>find and fix the slowest step</span></div>
+        <div><b>Staff cross-training</b><span>crew cover different roles / outlets</span></div>
       </div>
-      <div class="hw-bens">
-        <p class="hw-ohd g">Key benefits</p>
-        <ul>
-          <li><i>✓</i><span><b>Less idle labour</b>, lowering staff cost without hurting service</span></li>
-          <li><i>✓</i><span><b>More cups at the peak</b>, protecting sales and the customer experience</span></li>
-          <li><i>✓</i><span><b>Less wasted stock</b>, with fresh prep matched to each week</span></li>
-        </ul>
+    </div>
+    <div class="db-report screenonly" aria-hidden="true">
+      <div class="dr-card">
+        <button class="dr-x" aria-label="Close">✕</button>
+        <p class="dr-k">Recommendations report · generated by AI for the zone manager</p>
+        <h3>City Hall–Marina zone · coming school-holiday week</h3>
+        <p class="dr-sum"><b>Summary.</b> Demand shifts away from office areas and towards leisure areas this week. Move one crew member from Raffles Place to City Hall, keep Suntec City as it is, and adjust fresh stock to match. Longer term, rebalance machines between the two.</p>
+        <div class="dr-grid">
+          <div><h5>Staff for the week</h5><ul>
+            <li><b>Raffles Place:</b> reassign <span class="num">1</span> crew to City Hall, Mon to Fri. Office traffic drops in the school holiday.</li>
+            <li><b>Suntec City:</b> maintain the current crew; the usual weekend peak is covered.</li>
+            <li><b>City Hall:</b> receive <span class="num">1</span> crew from Raffles Place for the weekday leisure lift.</li></ul></div>
+          <div><h5>Peaks and quiet spells</h5><ul>
+            <li><b>Suntec City</b> peaks Fri to Sun afternoons.</li>
+            <li><b>City Hall</b> stays busy on weekdays through the holiday.</li>
+            <li><b>Raffles Place</b> is quiet Mon to Fri; expect fewer delivery orders too.</li></ul></div>
+          <div><h5>Machines · long-term plan</h5><ul>
+            <li><b>Raffles Place:</b> plan for <span class="num">3</span> machines instead of <span class="num">4</span>; one sits idle most weeks.</li>
+            <li><b>City Hall:</b> plan for <span class="num">4</span> instead of <span class="num">3</span>; the peak queues at the brewing step.</li>
+            <li><b>Suntec City:</b> current count is right.</li></ul></div>
+          <div><h5>Fresh stock · packages per week</h5><ul>
+            <li><b>Raffles Place:</b> lower from <span class="num">9</span> to <span class="num">7</span> to cut write-offs.</li>
+            <li><b>Suntec City:</b> raise from <span class="num">8</span> to <span class="num">9</span> for the weekend peak.</li>
+            <li><b>City Hall:</b> raise from <span class="num">6</span> to <span class="num">8</span> for the weekday lift.</li></ul></div>
+        </div>
+        <p class="dr-watch"><b>Watch:</b> if the weather turns wet, mall traffic at Suntec City may rise further; the dashboard will update at the next morning refresh. Recommendations only: the manager decides.</p>
+        <p class="dr-foot">Illustrative report for the presentation, not Chagee data.</p>
+      </div>
+    </div>
+    <div class="db-chat screenonly" aria-hidden="true">
+      <div class="dc-card">
+        <div class="dc-hd"><span class="dc-av"><svg viewBox="0 0 24 24"><path d="M12 3 L13.6 9 L20 10.5 L13.6 12 L12 18 L10.4 12 L4 10.5 L10.4 9 Z"/></svg></span><div><b>Store assistant</b><span>AI chatbot · answers from your store data</span></div><button class="dc-x" aria-label="Close">✕</button></div>
+        <div class="dc-body">
+          <p class="dc-m me">Why should I move a crew member to City Hall next week?</p>
+          <p class="dc-m ai">It is the school holiday. In past years, weekday orders at City Hall rose while Raffles Place dropped, as office traffic thins out. Moving <span class="num">1</span> crew member from Raffles Place covers the City Hall lift without adding hours.</p>
+          <p class="dc-m me">What if it rains on Saturday?</p>
+          <p class="dc-m ai">Rain usually pushes more customers into malls, so Suntec City would get busier. I would keep its crew as planned and raise its fresh-stock prep slightly. I will flag it at the next morning refresh if the forecast changes.</p>
+        </div>
+        <div class="dc-in"><span>Ask about your stores…</span><span class="dc-send">➤</span></div>
+        <p class="dc-foot">Illustrative conversation for the presentation, not Chagee data.</p>
       </div>
     </div>
   </div>
-  <div class="foot"><span>OPIM639 · Group 3 · dashboard is an illustrative mock-up</span><span class="rail"></span><span class="pg"></span></div>
+  <div class="foot"><span>OPIM639 · Group 3</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes">
     <p>This is what a zone manager would see each week. It runs on the same data foundation as proposal one: orders, staffing, machines, the calendar, and years of history across all 44 outlets. Predictive AI forecasts each outlet by day; the AI agent turns that into recommendations; managers review and approve.</p>
-    <p>This is a dashboard the zone manager views, updated daily. Take a school-holiday week. For the coming week, it tells the manager whether to reassign staff between outlets, and how many: move one crew member from the office outlet to the leisure outlet, and keep the mall's crew as it is. Next to it, upcoming peaks and quiet spells to plan around. For the longer term, it compares each outlet's current number of machines with the recommended number: one fewer at the office outlet, one more at the leisure outlet. And for fresh stock, it compares this week's crates with the recommended weekly amount, lower at the office outlet and higher at the mall and leisure outlets. All figures are illustrative.</p>
-    <p>On the right, how this connects to proposal one. The two run on one model. Every rerouted pickup, delivery pause and voucher from proposal one is an event the model learns from, together with the demand it shifted. As it retrains, its forecasts sharpen, so this dashboard keeps anticipating demand well, even after protocols change, and plans staff, machines and stock in advance. Over time Chagee manages its stores ahead of demand rather than reacting to it. The benefits are less idle labour, more cups at the peak and less wasted stock; the pilot is in the appendix.</p>
+    <p>This is a dashboard the zone manager views, refreshed at seven each morning, here for a City Hall–Marina zone: the One Raffles Place, Suntec City and Raffles City outlets, which we label by area. Take a school-holiday week. For the coming week, it tells the manager whether to reassign staff between outlets, and how many: move one crew member from Raffles Place, where offices quieten, to City Hall, where leisure traffic picks up, and keep Suntec City's crew as it is. Next to it, upcoming peaks and quiet spells to plan around. For the longer term, it compares each outlet's current number of machines with the recommended number: one fewer at Raffles Place, one more at City Hall. And for fresh stock, it compares this week's packages with the recommended weekly amount. The outlets are real; every figure is illustrative, not Chagee data.</p>
+    <p>On the right, how this connects to proposal one. The two run on one model. Every rerouted pickup, delivery pause and voucher from proposal one is an event the model learns from, together with the demand it shifted. As it retrains, its forecasts sharpen, so this dashboard keeps anticipating demand well, even after protocols change, and plans staff, machines and stock in advance. Over time Chagee manages its stores ahead of demand rather than reacting to it. Behind it are four operations ideas: demand forecasting, capacity planning, throughput, and staff cross-training, so crew can cover different roles when they move between outlets. The pilot is in the appendix.</p>
   </aside>
 </section>
 
@@ -5679,6 +5780,15 @@ aside.notes{display:none}
   // slide 05: the pickup race plays each time the slide opens (screen only); Replay runs it again
   function runRace(sl) { const r = sl && $(sl, ".race"); if (!r || PRINT) return; r.classList.remove("run"); void r.offsetWidth; r.classList.add("run"); }
   $$(document, ".rt-play").forEach(b => (b.onclick = () => runRace(b.closest(".slide"))));
+  // slide 09: the recommendations report opens over the slide; the close button or Esc shuts it
+  $$(document, ".db-rep").forEach(b => {
+    const rep = $(b.closest(".slide"), b.classList.contains("db-ask") ? ".db-chat" : ".db-report"); if (!rep) return;
+    const close = () => rep.classList.remove("open");
+    b.onclick = () => rep.classList.add("open");
+    $(rep, ".dr-x, .dc-x").onclick = close;
+    rep.addEventListener("click", e => { if (e.target === rep) close(); });
+    addEventListener("keydown", e => { if (e.key === "Escape" && rep.classList.contains("open")) { e.stopPropagation(); close(); } }, true);
+  });
   // slide 09: dashboard filter, zone (default) or a single store
   $$(document, ".db-win").forEach(w => {
     const vw = $(w, ".db-vw"), pick = $(w, ".db-pick");

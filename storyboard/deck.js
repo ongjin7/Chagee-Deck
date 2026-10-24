@@ -65,6 +65,15 @@
   // slide 05: the pickup race plays each time the slide opens (screen only); Replay runs it again
   function runRace(sl) { const r = sl && $(sl, ".race"); if (!r || PRINT) return; r.classList.remove("run"); void r.offsetWidth; r.classList.add("run"); }
   $$(document, ".rt-play").forEach(b => (b.onclick = () => runRace(b.closest(".slide"))));
+  // slide 09: the recommendations report opens over the slide; the close button or Esc shuts it
+  $$(document, ".db-rep").forEach(b => {
+    const rep = $(b.closest(".slide"), b.classList.contains("db-ask") ? ".db-chat" : ".db-report"); if (!rep) return;
+    const close = () => rep.classList.remove("open");
+    b.onclick = () => rep.classList.add("open");
+    $(rep, ".dr-x, .dc-x").onclick = close;
+    rep.addEventListener("click", e => { if (e.target === rep) close(); });
+    addEventListener("keydown", e => { if (e.key === "Escape" && rep.classList.contains("open")) { e.stopPropagation(); close(); } }, true);
+  });
   // slide 09: dashboard filter, zone (default) or a single store
   $$(document, ".db-win").forEach(w => {
     const vw = $(w, ".db-vw"), pick = $(w, ".db-pick");
