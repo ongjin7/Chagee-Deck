@@ -1084,7 +1084,7 @@ aside.notes{display:none}
 </section>
 
 <!-- ======================================================= 03 CHAGEE SINGAPORE AND OUR SCOPE (merges the old 01, 02 and 04) -->
-<section class="slide content" id="intro" data-chapter="Introduction" data-title="Chagee Singapore and our scope">
+<section class="slide content" id="intro" data-chapter="Introduction" data-reveal="all" data-title="Chagee Singapore and our scope">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
     <p class="kicker">03 · Introduction</p>
@@ -1133,7 +1133,7 @@ aside.notes{display:none}
 </section>
 
 <!-- ======================================================= 04 EXECUTIVE SUMMARY -->
-<section class="slide content" id="es" data-chapter="Summary" data-title="Executive summary">
+<section class="slide content" id="es" data-chapter="Summary" data-reveal="all" data-title="Executive summary">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
     <p class="kicker">04 · Executive summary and business plan</p>
@@ -4831,7 +4831,7 @@ aside.notes{display:none}
   const KEEP = ".kicker,.head,.sub,.revctl,.leafart";
   function unitsOf(sl) {
     if (sl._units) return sl._units;
-    const U = [], inner = $(sl, ".inner"), ss = sl.classList.contains("content") && sl.dataset.chapter !== "Appendix" && inner;
+    const U = [], inner = $(sl, ".inner"), ss = sl.classList.contains("content") && sl.dataset.chapter !== "Appendix" && sl.dataset.reveal !== "all" && inner;   // data-reveal="all": the whole slide at once
     if (ss) {
       const slideStep = inner.classList.contains("stepper") ? sl._stepper : null;
       let pend = [];                                                // keys and labels that belong to the next block (.aikey)

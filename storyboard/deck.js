@@ -71,7 +71,7 @@
   const KEEP = ".kicker,.head,.sub,.revctl,.leafart";
   function unitsOf(sl) {
     if (sl._units) return sl._units;
-    const U = [], inner = $(sl, ".inner"), ss = sl.classList.contains("content") && sl.dataset.chapter !== "Appendix" && inner;
+    const U = [], inner = $(sl, ".inner"), ss = sl.classList.contains("content") && sl.dataset.chapter !== "Appendix" && sl.dataset.reveal !== "all" && inner;   // data-reveal="all": the whole slide at once
     if (ss) {
       const slideStep = inner.classList.contains("stepper") ? sl._stepper : null;
       let pend = [];                                                // keys and labels that belong to the next block (.aikey)
