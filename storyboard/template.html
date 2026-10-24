@@ -196,27 +196,30 @@ html,body{margin:0;background:#E7E3DC;color:var(--ink);font-family:var(--sans);-
 .why4{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:5px}
 .why4 li::marker{color:var(--red);font-weight:700}
 .why4 b{color:var(--ink)}
-/* slide 04: case-study persona, the framing line, the three problems and three proposal slots */
-.es-case{display:grid;grid-template-columns:88px 300px 1fr;gap:22px;align-items:center;margin-top:18px;padding:14px 26px 14px 16px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);position:relative}
-.es-case::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:4px;border-radius:0 4px 4px 0;background:var(--red)}
-.es-av svg{width:88px;height:88px;display:block}
-.es-who{display:flex;flex-direction:column;gap:2px;padding-right:18px;border-right:1px solid var(--line)}
+/* slide 04: Mei and what she told us (a speech bubble), a branch to the three problems, then their proposals */
+.es-case{display:grid;grid-template-columns:84px 270px 1fr;gap:18px;align-items:center;margin-top:16px}
+.es-av svg{width:84px;height:84px;display:block}
+.es-who{display:flex;flex-direction:column;gap:2px}
 .es-tag{align-self:flex-start;margin-bottom:4px;padding:2px 9px;border-radius:999px;background:#FBEDEC;color:var(--red);font:700 9.5px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase}
 .es-who b{font:500 24px/1.1 var(--serif);color:var(--navy)}
 .es-role{font:600 13px/1.3 var(--sans);color:var(--ink)}
 .es-anon{font:11px/1.3 var(--sans);color:var(--taupe)}
-.es-learn{margin:0;font:400 16.5px/1.5 var(--sans);color:var(--ink2)} .es-learn b{color:var(--navy)}
-.es-frame{display:flex;align-items:center;justify-content:center;gap:12px;margin:18px 0 10px;font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
-.es-frame .ch{color:var(--navy)} .es-frame .dp{color:var(--red)} .es-frame .plus{color:var(--taupe);font-size:16px}
-.es-grid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto 1fr;gap:12px 20px}
-.es-box{position:relative;background:#fff;border:1px solid var(--line);border-top:4px solid var(--navy);border-radius:16px;box-shadow:var(--shadow);padding:14px 20px 16px}
-.es-box.k1{border-top-color:#3D5C8F} .es-box.k2{border-top-color:#3D5C8F} .es-box.k3{border-top-color:var(--red);background:#FFFBFA}
-.es-box h5{margin:4px 0 6px;font:500 24px/1.15 var(--serif);color:var(--ink)}
+.es-learn{position:relative;margin:0;padding:13px 22px 14px;border-radius:18px;background:#FBF7F0;font:400 16px/1.48 var(--sans);color:var(--ink2)}
+.es-learn::before{content:"";position:absolute;left:-9px;top:50%;margin-top:-9px;border:9px solid transparent;border-left:0;border-right-color:#FBF7F0}
+.es-learn b{color:var(--navy)}
+.es-said{display:block;margin-bottom:3px;font:700 10px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#4A6699}
+.es-frame{display:flex;align-items:center;justify-content:center;gap:10px;margin:18px 0 12px;font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.es-frame .ch{color:var(--navy)} .es-frame .dp{color:var(--red)} .es-frame .plus{color:var(--taupe);font-size:15px}
+.es-grid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto 1fr;gap:0 20px}
+.es-col{display:grid;grid-row:span 2;grid-template-rows:subgrid;border-radius:18px;overflow:hidden;background:#fff;border:1px solid #EEE7DA;border-top:3px solid #3D5C8F}
+.es-col.k3{border-top-color:var(--red)}
+.es-box{padding:14px 20px 16px}
+.es-box h5{margin:4px 0 6px;font:500 25px/1.15 var(--serif);color:var(--ink)}
 .es-box p{margin:0;font:14.5px/1.45 var(--sans);color:var(--ink2)}
 .es-lab{font:700 10px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#4A6699}
-.es-box.k3 .es-lab{color:var(--red)}
-.es-box::after{content:"";position:absolute;left:50%;bottom:-13px;width:12px;height:12px;margin-left:-6px;border-right:2px solid #C9C2B6;border-bottom:2px solid #C9C2B6;transform:rotate(45deg) scale(.7)}
-.es-slot{border:1.5px dashed #D6CFC2;border-radius:16px;background:#FCFBF8;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
+.es-col.k3 .es-box .es-lab{color:var(--red)}
+.es-slot{flex:1;background:#FAF6EF;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
+.es-slot .es-lab{color:var(--taupe)}
 .es-tbd{font:italic 14px/1.4 var(--sans);color:var(--taupe)}
 
 /* 03 data matrix */
@@ -1155,16 +1158,13 @@ aside.notes{display:none}
         <b>“Mei”</b><span class="es-role">Membership Operations · APAC, Chagee</span>
         <span class="es-anon">Persona: name changed, interviewee anonymised</span>
       </div>
-      <p class="es-learn">Through the interview, we learnt about Chagee's <b>business model</b>, its <b>local operations</b>, and some of its most <b>pressing concerns and strategic needs</b>, which AI could potentially help solve.</p>
+      <p class="es-learn"><span class="es-said">What Mei told us</span>Through the interview, we learnt about Chagee's <b>business model</b>, its <b>local operations</b>, and some of its most <b>pressing concerns and strategic needs</b>, which AI could potentially help solve.</p>
     </div>
     <p class="es-frame"><span class="ch">Two key challenges</span><span class="plus">+</span><span class="dp">One strategic decision point</span></p>
     <div class="es-grid">
-      <div class="es-box k1"><span class="es-lab">Key challenge</span><h5>Online retailing</h5><p>Use data for better sales, customer loyalty and cost management. Customer management and reduction of wastage.</p></div>
-      <div class="es-box k2"><span class="es-lab">Key challenge</span><h5>In-store management</h5><p>A faster, smoother counter: in-store operations management for shorter waits and a crew matched to demand.</p></div>
-      <div class="es-box k3"><span class="es-lab">Strategic expansion decision</span><h5>New store openings</h5><p>Where to open next, so a new store is profitable and adds customers instead of moving them.</p></div>
-      <div class="es-slot"><span class="es-lab">Proposal 1</span><span class="es-tbd">Details to come</span></div>
-      <div class="es-slot"><span class="es-lab">Proposal 2</span><span class="es-tbd">Details to come</span></div>
-      <div class="es-slot"><span class="es-lab">Proposal 3</span><span class="es-tbd">Details to come</span></div>
+      <div class="es-col k1"><div class="es-box"><span class="es-lab">Key challenge</span><h5>Online retailing</h5><p>Use data for better sales, customer loyalty and cost management. Customer management and reduction of wastage.</p></div><div class="es-slot"><span class="es-lab">Proposal 1</span><span class="es-tbd">Details to come</span></div></div>
+      <div class="es-col k2"><div class="es-box"><span class="es-lab">Key challenge</span><h5>In-store management</h5><p>A faster, smoother counter: in-store operations management for shorter waits and a crew matched to demand.</p></div><div class="es-slot"><span class="es-lab">Proposal 2</span><span class="es-tbd">Details to come</span></div></div>
+      <div class="es-col k3"><div class="es-box"><span class="es-lab">Strategic expansion decision</span><h5>New store openings</h5><p>Where to open next, so a new store is profitable and adds customers instead of moving them.</p></div><div class="es-slot"><span class="es-lab">Proposal 3</span><span class="es-tbd">Details to come</span></div></div>
     </div>
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · explainer figures are illustrative assumptions</span><span class="rail"></span><span class="pg"></span></div>
