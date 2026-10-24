@@ -65,6 +65,10 @@
   // slide 05: the pickup race plays each time the slide opens (screen only); Replay runs it again
   function runRace(sl) { const r = sl && $(sl, ".race"); if (!r || PRINT) return; r.classList.remove("run"); void r.offsetWidth; r.classList.add("run"); }
   $$(document, ".rt-play").forEach(b => (b.onclick = () => runRace(b.closest(".slide"))));
+  // slide 08: the Today / With AI toggle on the in-store planning chart
+  $$(document, ".p2tg").forEach(tg => $$(tg, "button[data-v]").forEach(b => (b.onclick = () => {
+    const box = $(tg.closest(".p2-chart"), ".p2tog"); box.dataset.v = b.dataset.v;
+    $$(tg, "button").forEach(x => x.classList.toggle("on", x === b)); })));
   const editingNow = () => document.body.classList.contains("editing");
   // a band revealed by click (.vs.clickrev, slide 05): 0 hidden, 1 Without AI, 2 both; arrows step it after the panel's steps
   function setRev(el, r) { el._r = r; el.classList.toggle("r1", r >= 1); el.classList.toggle("r2", r >= 2); }
@@ -722,7 +726,7 @@
         <div class="big">+${Math.round(f.netNew).toLocaleString("en-SG")}<small>cups a day for Chagee</small></div>
         <div class="why2">The new store sells ${Math.round(f.cups)} a day (${(f.cups / avg).toFixed(1)}× an average outlet). ${Math.round(f.cannibal)} of those move from outlets nearby${f.hit.length ? ":" : "."}</div>
         <dl>${f.hit.slice(0, 2).map(h => `<dt title="${Math.round(M.storeCups[h.j])} → ${Math.round(M.storeCups[h.j] - h.cups)} cups a day">${oname(h.j)}, ${h.km.toFixed(1)} km</dt><dd>−${Math.round(h.cups)}</dd>`).join("")}</dl>
-        <div class="peak">Peak hour ${hourLabel(pf.peak)}: <b>${Math.round(pf.peakCups)} cups</b> → <b>${pf.peakStaff} ${pf.peakStaff === 1 ? "person" : "people"}</b> on today's counter (slides 08 and 09).</div>
+        <div class="peak">Peak hour ${hourLabel(pf.peak)}: <b>${Math.round(pf.peakCups)} cups</b> → <b>${pf.peakStaff} ${pf.peakStaff === 1 ? "person" : "people"}</b> on today's counter (appendix).</div>
         <button class="btn primary screenonly pnlb" data-act="pnl" title="Five years of this outlet here against beside the nearest outlet">What does this mean for P&amp;L?</button>`;
       if (pnlOn) pnlRender();
       $$(ctlEl, "[data-v]").forEach(el => { const d = sl.find(x => x[0] === el.dataset.v); el.textContent = d[4](par[d[0]]); });

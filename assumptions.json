@@ -1128,6 +1128,20 @@
       "range": null,
       "source": "assumption",
       "rationale": "Proposal 1, smart pickup routing (slide 06). Illustrative trigger: the agent acts when a store's wait is, or is about to go, above this. Not Chagee data."
+    },
+    "p2_overtime_hours_saved": {
+      "value": 60,
+      "unit": "hours a month",
+      "range": null,
+      "source": "assumption",
+      "rationale": "Proposal 2, AI-assisted staffing (appendix financial case). Illustrative monthly zone case, not Chagee data. Paid overtime hours avoided across the pilot zone."
+    },
+    "p2_system_cost_month": {
+      "value": 300,
+      "unit": "SGD a month",
+      "range": null,
+      "source": "assumption",
+      "rationale": "Proposal 2, AI-assisted staffing (appendix financial case). Illustrative monthly zone case, not Chagee data. Recurring system and support cost for the zone."
     }
   },
   "sitepick": {

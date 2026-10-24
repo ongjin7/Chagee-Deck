@@ -486,6 +486,12 @@ def values(d: dict) -> dict:
     for side in ("near", "far"):
         v[f"r.route_{side}_collect"] = max(v[f"sb.route_{side}_travel_min"], v[f"sb.route_{side}_ready_min"])
     v["r.route_saved"] = v["r.route_near_collect"] - v["r.route_far_collect"]
+    # appendix, proposal 2 financial case: avoided overtime at the model's wage, less the recurring system cost
+    import math
+    v["r.p2_wage"] = RAW["costs"]["labour_cost_per_hour"]["value"]
+    v["r.p2_saving"] = v["sb.p2_overtime_hours_saved"] * v["r.p2_wage"]
+    v["r.p2_net"] = v["r.p2_saving"] - v["sb.p2_system_cost_month"]
+    v["r.p2_breakeven_hours"] = math.ceil(v["sb.p2_system_cost_month"] / v["r.p2_wage"])
     if not v["r.route_saved"] > 0:
         raise SystemExit("build: slide 05 says the farther outlet is sooner; with these times it is not, rewrite it")
 
@@ -627,7 +633,7 @@ def ops_appendix(d: dict) -> str:
     ms = lambda x: "–" if x is None else f"{int(x // 60)}:{int(round(x % 60)):02d}"
     sg = lambda x: f"S${x:,.0f}"
     hd = lambda first, sub: "<tr><th>" + first + "</th>" + "".join(f"<th>{lab[k]}<br><small>{sub}</small></th>" for k in days) + "</tr>"
-    out = ["<h5>Slide 08 · forecast error: the roster follows a wrong forecast, the customers do not (today's split, bucket brigade)</h5>",
+    out = ["<h5>Forecast slide · forecast error: the roster follows a wrong forecast, the customers do not (today's split, bucket brigade)</h5>",
            "<table class='res mbt'>" + hd("Forecast", "crew · away · S$/day")]
     for i, r0 in enumerate(d["forecastErr"][days[0]]):
         e = r0["e"]; name = "exact" if e == 0 else f"{abs(e):.0%} {'high' if e > 0 else 'low'}"
@@ -805,7 +811,7 @@ def fill(text: str, vals: dict) -> str:
     return re.sub(r"\{\{([a-zA-Z_][\w.]*)(?:\|(\w+))?\}\}", rep, text)
 
 
-ALLOWED = re.compile(r"(?i:\bslides?\s+\d\db?(?:\s*(?:,|and|to|–)\s*\d\db?)*)|\bM[1-3]\b|Item 3\.D|\bslides? 3\d\b|\b8[A-D]\b|\b(?:19|20)\d\d\b|OPIM\s?639|Topic \d|\bT\d\b|\b0[1-9]b?\b|\b10b\b|\b1\d(?= ·)|\bslides? 1\d\b|Week \d|\b1 (?=company|counter)|Group \d|[Pp]roposal [1-3]\b|Challenge [1-3]\b|Form 20-F")
+ALLOWED = re.compile(r"(?i:\bslides?\s+\d\db?(?:\s*(?:,|and|to|–)\s*\d\db?)*)|\bM[1-3]\b|Item 3\.D|\bslides? 3\d\b|\b8[A-D]\b|\b(?:19|20)\d\d\b|OPIM\s?639|Topic \d|\bT\d\b|\b0[1-9]b?\b|\b10b\b|\b1\d(?= ·)|\bslides? 1\d\b|Week \d|\b1 (?=company|counter)|Group \d|[Pp]roposal [1-3]\b|\bW\d(?:–\d)?\b|Challenge [1-3]\b|Form 20-F")
 
 
 def digit_check(tpl: str) -> None:
