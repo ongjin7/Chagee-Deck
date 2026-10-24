@@ -65,6 +65,17 @@
   // slide 05: the pickup race plays each time the slide opens (screen only); Replay runs it again
   function runRace(sl) { const r = sl && $(sl, ".race"); if (!r || PRINT) return; r.classList.remove("run"); void r.offsetWidth; r.classList.add("run"); }
   $$(document, ".rt-play").forEach(b => (b.onclick = () => runRace(b.closest(".slide"))));
+  // slide 09: dashboard filter, zone (default) or a single store
+  $$(document, ".db-win").forEach(w => {
+    const vw = $(w, ".db-vw"), pick = $(w, ".db-pick");
+    const apply = () => { vw.textContent = w.dataset.f === "zone" ? "Zone View" : `Store View · ${w.dataset.o}`; };
+    $$(w, ".db-seg button").forEach(b => (b.onclick = () => {
+      w.dataset.f = b.dataset.f; $$(w, ".db-seg button").forEach(x => x.classList.toggle("on", x === b)); apply(); }));
+    if (pick) pick.onchange = () => { w.dataset.o = pick.value; apply(); };
+    const ref = $(w, ".db-ref"), upd = $(w, ".db-upd");
+    if (ref) ref.onclick = () => { ref.classList.remove("spin"); void ref.offsetWidth; ref.classList.add("spin");
+      setTimeout(() => { upd.textContent = "Refreshed just now"; }, 800); };
+  });
   // slide 08: the Today / With AI toggle on the in-store planning chart
   $$(document, ".p2tg").forEach(tg => $$(tg, "button[data-v]").forEach(b => (b.onclick = () => {
     const box = $(tg.closest(".p2-chart"), ".p2tog"); box.dataset.v = b.dataset.v;
