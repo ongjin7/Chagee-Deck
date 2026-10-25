@@ -663,6 +663,7 @@ html,body{margin:0;background:#E7E3DC;color:var(--ink);font-family:var(--sans);-
 .apxix h5{margin:0 0 4px;font:600 11px/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
 .apxix ol{list-style:none;margin:0;padding:0} .apxix li{padding:5px 0;border-bottom:1px solid var(--line);font:14px/1.35 var(--sans);color:var(--ink);cursor:pointer}
 .apxix li:hover{color:var(--red)}
+#ax .apxix{gap:8px 22px;margin-top:10px} #ax .apxix li{padding:3px 0;font-size:13px} #ax .apxix h5{margin-bottom:2px}
 /* 04: three connected panels */
 .s3{flex:1;display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;align-items:stretch;margin-top:14px}
 .s3p{background:#fff;border:1px solid var(--line);border-top:4px solid var(--navy);border-radius:12px;padding:20px 22px;display:flex;flex-direction:column;gap:12px}
@@ -1469,6 +1470,100 @@ aside.notes{display:none}
 #p2b .db-bar::before{content:"";width:20px;height:20px;flex:none;background:var(--emb) no-repeat center/contain}
 #p2b .db-name{color:#9E2A24;font-weight:700}
 #p2b .db-card{background:#fff;border-radius:14px;box-shadow:0 3px 12px -8px rgba(36,64,107,.3)}
+/* slide 12: a condensed six-month plan */
+.plan6{flex:1;min-height:0;margin-top:16px;padding:14px 22px;border-radius:18px;background:#fff;border:1px solid #EEE7DA;box-shadow:var(--shadow);
+  display:grid;grid-template-columns:300px 1fr;column-gap:22px;row-gap:6px;align-content:space-between}
+.pl6{display:flex;flex-direction:column;justify-content:center;gap:1px;padding-left:12px;border-left:3px solid var(--c,#DCD3C3)}
+.pl6.hd{border-left:0;padding-left:0} .pl6.hd b{font:700 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--taupe)} .pl6.hd span{font:11px var(--sans);color:var(--taupe)}
+.pl6.p1{--c:var(--red)} .pl6.p2{--c:var(--navy)} .pl6.p3{--c:#2F6B45} .pl6.lp{--c:#C9BFAE;border-left-style:dashed}
+.pn6{font:700 10px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
+.pl6 b{font:500 18px/1.15 var(--serif);color:var(--c)} .pl6.lp b{font:600 13px var(--sans);color:#2F6B45}
+.pd6{font:12.5px/1.35 var(--sans);color:var(--ink2)}
+.pt6{position:relative;display:grid;grid-template-columns:repeat(6,1fr);align-items:center;min-height:46px;
+  background-image:linear-gradient(90deg,#F1EBE0 1px,transparent 1px);background-size:calc(100% / 6) 100%}
+.pt6.hd{min-height:20px;background:none}
+.pm6{text-align:center;font:700 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--taupe)}
+.pb{grid-row:1;margin:0 4px;padding:6px 12px;border-radius:12px;display:flex;flex-direction:column;justify-content:center;min-height:38px;overflow:hidden}
+.pb b{font:600 12.5px/1.2 var(--sans);color:#fff;white-space:nowrap} .pb em{font:11px/1.25 var(--sans);font-style:normal;color:rgba(255,255,255,.85);white-space:nowrap}
+.pb.p1{background:var(--red)} .pb.p2{background:var(--navy)} .pb.p3{background:#2F6B45}
+.pb.p1.lt{background:#F6D7D3} .pb.p2.lt{background:#D8E1EE} .pb.p3.lt{background:#D5E8DB} .pb.p2.lt2{background:#EEF2F8}
+.pb.lt b,.pb.lt2 b{color:var(--ink)} .pb.lt em,.pb.lt2 em{color:var(--ink2)}
+.pb.loop{min-height:26px;padding:4px 12px;background:linear-gradient(90deg,#FBEDEC,#E8EEF6 50%,#E3F2E8);border:1px dashed #C9BFAE}
+.pb.loop b{font:italic 500 12px var(--sans);color:var(--ink2);text-align:center}
+.pg6{grid-row:1;position:relative;height:38px;pointer-events:none;z-index:2}
+.pg6 i{position:absolute;right:-7px;top:50%;width:13px;height:13px;margin-top:-7px;transform:rotate(45deg);background:#fff;border:2px solid currentColor}
+.pg6 span{position:absolute;right:-6px;top:-13px;transform:translateX(50%);font:700 9.5px var(--sans);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.pg6.p1{color:var(--red)} .pg6.p2{color:var(--navy)} .pg6.p3{color:#2F6B45}
+.sz6{margin-top:14px;padding:12px 24px 14px;border-radius:18px;background:#F4F8F5}
+.sz6-h{display:flex;align-items:center;justify-content:space-between;margin:0 0 8px}
+.sz6-h>span:first-child{font:500 20px var(--serif);color:#2F6B45}
+.sz6-h .golink{padding:6px 14px;border-radius:999px;background:var(--navy);color:#fff;border:0;font:600 12px/1 var(--sans)}
+.sz6-g{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.sz6-g div{display:flex;flex-direction:column;gap:2px}
+.sz6-g b{font:700 10.5px/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase} .sz6-g span{font:13.5px/1.4 var(--sans);color:var(--ink2)}
+.sz6-g .p1 b{color:var(--red)} .sz6-g .p2 b{color:var(--navy)} .sz6-g .p3 b{color:#2F6B45}
+
+#rc .plan6{flex:none;padding:12px 22px;row-gap:4px;margin:auto 0 14px}
+#rc .pt6{min-height:40px} #rc .pb{min-height:34px;padding:5px 12px} #rc .pg6{height:34px}
+#rc .pl6.p1 b,#rc .pl6.p2 b,#rc .pl6.p3 b{font-size:17px} #rc .pd6{font-size:12px}
+.ach6{margin-top:0;padding:14px 26px 16px;border-radius:18px;background:#F4F8F5}
+.ach6-h{margin:0 0 8px;font:500 20px var(--serif);color:#2F6B45}
+.ach6-g{display:grid;grid-template-columns:1.25fr 1fr;gap:26px}
+.ach6-g div{display:flex;align-items:flex-start;gap:10px;font:14.5px/1.45 var(--sans);color:var(--ink2)}
+.ach6-g b{color:var(--ink)}
+.ach6-g i{flex:none;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#2F6B45;color:#fff;font:700 13px/1 var(--sans);font-style:normal}
+
+#rc .plan6{grid-template-columns:250px 1fr;row-gap:8px;padding:14px 22px 16px}
+#rc .pl6{flex-direction:row;align-items:center;justify-content:flex-start;gap:12px;border-left:0;padding-left:0}
+#rc .pl6.hd{flex-direction:column;align-items:flex-start;gap:0}
+.pbg{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--c);color:#fff;font:700 13px/1 var(--sans)}
+#rc .pl6.p1 b,#rc .pl6.p2 b,#rc .pl6.p3 b{font-size:18px;line-height:1.15}
+#rc .pl6.lp{gap:10px} #rc .pl6.lp::before{content:"↻";flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1.5px dashed #9AB7A3;color:#2F6B45;font:700 16px/1 var(--sans)}
+#rc .pt6{min-height:54px;background-image:linear-gradient(90deg,#E9E1D3 1px,transparent 1px)} #rc .pt6.hd{background:none}
+#rc .pm6{font-size:12px;color:var(--ink2)}
+#rc .pb{min-height:38px;padding:6px 14px} #rc .pb b{font-size:13.5px} #rc .pb em{font-size:11.5px}
+#rc .pg6{height:38px}
+.team6{display:flex;align-items:center;gap:14px;margin:0 0 12px;padding:10px 22px;border-radius:14px;background:#FBF7F0}
+.tm-lab{font:700 10.5px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-right:6px}
+.tm-g{display:flex;align-items:center;gap:8px}
+.tm-k{font:600 11.5px var(--sans);color:var(--taupe);margin-right:2px}
+.tm-c{padding:5px 12px;border-radius:999px;background:#fff;border:1px solid #E4DCCD;font:600 12.5px var(--sans);color:var(--navy)}
+.tm-g.ch .tm-c{color:#9E2A24;border-color:#F1D3CD;background:#FFF8F6}
+.tm-plus{font:400 18px var(--sans);color:var(--taupe)}
+/* slide 12: execution plan as a phased Gantt chart */
+.gantt{flex:1;min-height:0;margin-top:14px;padding:12px 20px 12px;border-radius:18px;background:#fff;border:1px solid #EEE7DA;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.gantt .grid{flex:1;display:grid;grid-template-columns:190px 1fr;column-gap:14px;row-gap:3px;align-content:space-between}
+.gyr{display:none}
+.ghead{min-height:16px}
+.gyr2 b{font:700 12px var(--sans);letter-spacing:.1em;color:var(--taupe)}
+.gmo{text-align:center;font:700 10px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--taupe)}
+.gtrack{position:relative;display:grid;grid-template-columns:repeat(12,1fr);align-items:center;min-height:24px;
+  background-image:linear-gradient(90deg,#F1EBE0 1px,transparent 1px);background-size:calc(100% / 12) 100%}
+.ghead{background:none}
+.gl{display:flex;flex-direction:column;justify-content:center;line-height:1.15}
+.gl b{font:600 12.5px var(--sans);color:var(--ink)} .gl span{font:10.5px var(--sans);color:var(--taupe)}
+.gp{grid-column:1/-1;display:flex;align-items:baseline;gap:10px;margin-top:4px;padding-bottom:2px;border-bottom:1px solid #EEE7DA}
+.gpn{font:700 10px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.gp b{font:500 16px/1.15 var(--serif)}
+.gp.p1 .gpn,.gp.p1 b{color:var(--red)} .gp.p2 .gpn,.gp.p2 b{color:var(--navy)} .gp.p3 .gpn,.gp.p3 b{color:#2F6B45}
+.gb{grid-row:1;height:20px;border-radius:999px;display:flex;align-items:center;padding:0 10px;overflow:hidden;white-space:nowrap;margin:0 2px}
+.gb span{font:600 10.5px var(--sans);color:#fff;overflow:hidden;text-overflow:ellipsis}
+.gb.p1{background:var(--red)} .gb.p2{background:var(--navy)} .gb.p3{background:#2F6B45}
+.gb.p1.lt{background:#D9685F} .gb.p2.lt{background:#5C79A8} .gb.p3.lt{background:#5E9170}
+.gb.p1.lt2{background:#F6D7D3} .gb.p2.lt2{background:#D8E1EE} .gb.p3.lt2{background:#D5E8DB}
+.gb.lt2 span{color:var(--ink)}
+.gb.loop{background:linear-gradient(90deg,#FBEDEC,#E8EEF6 50%,#E3F2E8);border:1px dashed #C9BFAE} .gb.loop span{color:var(--ink2);font-style:italic;font-weight:500}
+.gl.loop b{color:#2F6B45}
+.gm{grid-row:1;position:relative;height:20px;pointer-events:none}
+.gm i{position:absolute;left:var(--x);top:50%;width:11px;height:11px;margin:-6px 0 0 -6px;transform:rotate(45deg);background:#fff;border:2px solid currentColor;z-index:2}
+.gm span{position:absolute;left:calc(var(--x) + 9px);top:-11px;font:700 9px var(--sans);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.gm.p1{color:var(--red)} .gm.p2{color:var(--navy)} .gm.p3{color:#2F6B45}
+.gk{display:flex;align-items:center;gap:16px;margin-top:10px;font:12px var(--sans);color:var(--ink2)}
+.gk span{display:inline-flex;align-items:center;gap:6px}
+.gd{display:inline-block;width:18px;height:8px;border-radius:999px} .gd.p1{background:var(--red)} .gd.p2{background:var(--navy)} .gd.p3{background:#2F6B45}
+.gdm{display:inline-block;width:9px;height:9px;transform:rotate(45deg);border:2px solid var(--ink2);background:#fff}
+.gsep{flex:1}
+#rc .sub.lede{margin-top:6px}
 /* ---------------------------------------------------------------- clean theme (after the Week 8 deck's intro slides):
    quiet navy kicker, one big navy headline, white cards with a soft shadow, a faint tea-wash band under the
    engraved leaves, and less chrome on the main slides. Remove this block to return to the original look. */
@@ -2061,32 +2156,36 @@ aside.notes{display:none}
 </section>
 
 <!-- ======================================================= 15 RECOMMENDATION -->
-<section class="slide content" id="rc" data-chapter="Execution" data-title="Execution plan">
+<section class="slide content" id="rc" data-chapter="Execution" data-title="Execution plan" data-reveal="all">
   <div class="leafart" aria-hidden="true"></div>
   <div class="inner">
     <p class="kicker">Execution plan</p>
-    <h2 class="head">Three managers, three pilots, each judged on its own evidence</h2>
-    <p class="sub">A connected story, not one combined model: no simulated benefit is carried between parts or added up.</p>
-    <div class="rec3">
-      <div class="c"><span class="own">Proposal 1 · smart pickup routing</span><h5>Which zone should we pilot routing in?</h5>
-        <p class="act"><span class="k">Recommend</span>Pilot in one zone, a busy outlet with a nearby support outlet: normal checkout, then routing alone, then routing with the bag offer.</p>
-        <p><span class="k">Proceed if</span>collection is faster, support outlets stay reliable, and net contribution across the zone is positive.</p></div>
-      <div class="c"><span class="own">Proposal 2 · AI-enabled in-store planning</span><h5>Which zone should pilot AI in-store planning?</h5>
-        <p class="act"><span class="k">Recommend</span>An eight-week zone pilot: one busy outlet and one or two support outlets, testing AI rosters, staff moves, machine and stock plans.</p>
-        <p><span class="k">Proceed if</span>paid hours and waste fall, waits hold or improve, and net benefit across the zone is positive.</p></div>
-      <div class="c"><span class="own">Expand access · expansion manager</span><h5>Which location justifies investment?</h5>
-        <p class="act"><span class="k">Recommend</span>Investigate the cluster near Choa Chu Kang on Chagee's real app logs before any lease.</p>
-        <p><span class="k">Proceed if</span>it adds net new customers, and its profit covers the investment with an acceptable downside.</p></div>
+    <h2 class="head">A phased six-month plan for one integrated AI solution</h2>
+    <p class="sub lede">Start small, learn, then scale. Each step builds on the last.</p>
+    <div class="plan6"><div class="pl6 hd"><b>Next six months</b><span>indicative, from January 2027</span></div><div class="pt6 hd"><div class="pm6">Jan</div><div class="pm6">Feb</div><div class="pm6">Mar</div><div class="pm6">Apr</div><div class="pm6">May</div><div class="pm6">Jun</div></div><div class="pl6 p1"><span class="pbg">P1</span><b>Dynamic demand management</b></div><div class="pt6"><div class="pb p1" style="grid-column:1/3"><b>Test one zone</b><em>City Hall–Marina zone</em></div><div class="pg6 p1" style="grid-column:2/3"><i></i><span>Go / no-go</span></div><div class="pb p1 lt" style="grid-column:3/7"><b>Expand to more zones</b><em>fine-tune as we go</em></div></div><div class="pl6 p2"><span class="pbg">P2</span><b>AI-enabled in-store planning</b></div><div class="pt6"><div class="pb p2" style="grid-column:2/4"><b>Build forecasts</b><em>from pilot and past data</em></div><div class="pb p2 lt" style="grid-column:4/6"><b>Test one zone</b></div><div class="pg6 p2" style="grid-column:5/6"><i></i><span>Launch</span></div><div class="pb p2 lt2" style="grid-column:6/7"><b>Launch</b></div></div><div class="pl6 p3"><span class="pbg">P3</span><b>New-store site model</b></div><div class="pt6"><div class="pb p3" style="grid-column:2/5"><b>Choose the next two outlets</b><em>built on historical data</em></div><div class="pg6 p3" style="grid-column:4/5"><i></i><span>Sites chosen</span></div><div class="pb p3 lt" style="grid-column:5/7"><b>Launch new stores</b></div></div>
+      <div class="pl6 lp"><b>One model, always learning</b></div><div class="pt6"><div class="pb loop" style="grid-column:1/7"><b>Every week of data from all three feeds back into the shared model</b></div></div>
     </div>
-    <div class="takeaway" style="margin-top:14px"><span class="lab">TAKEAWAY</span><span>Get customers their tea sooner → serve demand reliably → open where we add new customers.</span></div>
+    <div class="team6">
+      <span class="tm-lab">Project team</span>
+      <div class="tm-g"><span class="tm-k">Our team</span><span class="tm-c">Project manager</span><span class="tm-c">AI engineer</span></div>
+      <span class="tm-plus">+</span>
+      <div class="tm-g ch"><span class="tm-k">From Chagee</span><span class="tm-c">Supply chain manager (APAC HQ)</span><span class="tm-c">Zone manager</span><span class="tm-c">Store manager</span></div>
+    </div>
+    <div class="ach6">
+      <p class="ach6-h">By the end of the six months</p>
+      <div class="ach6-g">
+        <div><i>✓</i><span><b>One integrated platform</b>, with Proposal 1 and Proposal 2 launched across Singapore, improving demand management and Chagee's decision making</span></div>
+        <div><i>✓</i><span><b>Two new stores</b> opened in strong Singapore locations, chosen to maximise profit</span></div>
+      </div>
+    </div>
   </div>
-  <div class="foot"><span>OPIM639 · Group 3 · model figures are illustrative assumptions, not Chagee data</span><span class="rail"></span><span class="pg"></span></div>
+  <div class="foot"><span>OPIM639 · Group 3 · timeline is indicative</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes">
-    <p>Our recommendation mirrors the three chapters: three decisions, three owners, and each one is a pilot judged on its own evidence.</p>
-    <p>Proposal one, smart pickup routing: pilot it in one zone, a busy outlet with a nearby support outlet. Test normal checkout, then routing alone, then routing with the optional bag offer. Proceed if collection is faster, the support outlets stay reliable, and net contribution across the whole zone is positive.</p>
-    <p>Proposal two, AI-enabled in-store planning: an eight-week zone pilot with one busy outlet and one or two support outlets, testing AI rosters, staff moves and machine plans. Proceed if paid hours fall, waits hold or improve, and net benefit across the zone is positive.</p>
-    <p>For the expansion manager: count the cups a new outlet adds, not the ones it sells. Investigate the cluster near Choa Chu Kang on Chagee's real app logs before any lease, and proceed only if its incremental returns justify the investment with an acceptable downside.</p>
-    <p>One caution to say out loud: these parts connect as a story, but we never add their simulated benefits together or carry membership uplift into the counter or expansion numbers. About forty-five seconds.</p>
+    <p>Here is how we would phase it over the next six months, as one integrated AI solution.</p>
+    <p>Proposal one, dynamic demand management, starts first. We test it in one zone, the City Hall–Marina zone from the dashboard: Raffles Place, Suntec City, City Hall and Clarke Quay, for two months, then take a go or no-go decision and expand zone by zone, fine-tuning as we go.</p>
+    <p>Proposal two, AI-enabled in-store planning, starts once the pilot data comes in. We build the forecasts from that and past data, test them in one zone, and launch once the test passes.</p>
+    <p>Proposal three, the new-store site model, runs alongside proposal two. It is built on historical data, so within three months it helps management choose the next two outlets, and we then size the benefit from them.</p>
+    <p>The work is run by a small joint team: our project manager and AI engineer, with Chagee's supply chain manager from APAC HQ, a zone manager and a store manager. Underneath, one model keeps learning from every week of data. By the end of the six months, Chagee has one integrated platform, with proposals one and two launched across Singapore, improving demand management and decision making, and two new stores opened in strong locations chosen to maximise profit. The twelve-month view is in the appendix. About fifty seconds.</p>
   </aside>
 </section>
 
@@ -2145,7 +2244,7 @@ aside.notes{display:none}
     <h2 class="head">Appendix: the detail behind each chapter</h2>
     <p class="sub">Derivations, tables, sources and earlier analyses. Click a line to open it; use the agenda to return.</p>
     <div class="apxix">
-      <div><h5>Execution steps</h5><ol><li data-go="p1x">Proposal 1 pilot: zone pilot and learning loop</li><li data-go="p1r">Proposal 1: the pickup race (earlier slide)</li><li data-go="p2x">Proposal 2 pilot: eight-week zone pilot</li><li data-go="p2f">Proposal 2 financial case</li></ol></div>
+      <div><h5>Execution steps</h5><ol><li data-go="p1x">Proposal 1 pilot: zone pilot and learning loop</li><li data-go="p1r">Proposal 1: the pickup race (earlier slide)</li><li data-go="p2x">Proposal 2 pilot: eight-week zone pilot</li><li data-go="p2f">Proposal 2 financial case</li><li data-go="rcg">Execution plan: twelve-month detail</li><li data-go="rcx">Proceed-if criteria by proposal</li></ol></div>
       <div><h5>Earlier main slides</h5><ol><li data-go="c1">Chagee in Singapore</li><li data-go="c2">From farm to cup</li><li data-go="c3">The data trail</li><li data-go="c4">Our scope</li></ol></div>
       <div><h5>Grow demand</h5><ol><li data-go="m1">Members: when does joining feel worth it?</li><li data-go="m2b">Group orders as demand data</li><li data-go="m2">The squad experience</li><li data-go="m3">The CRM manager's squad decision</li><li data-go="am1">Members: the model and its checks</li><li data-go="am2">Members: break-even, assumptions and sources</li><li data-go="am3">Group orders to forecasts: method and results</li></ol></div>
       <div><h5>Serve demand</h5><ol><li data-go="o1">Forecast: how many people (earlier slide)</li><li data-go="o2">The operations manager's decision (earlier slide)</li><li data-go="c6">Bucket brigade: sharing the counter</li><li data-go="c7">Automation: which steps a machine takes</li><li data-go="aops">Counter comparisons, every day type</li><li data-go="c8">The modelled decisions in detail</li><li data-go="ab">The benefit in detail</li><li data-go="cm">Machine ladder</li><li data-go="a3">Machine ladder: tiers and sources</li></ol></div>
@@ -2323,6 +2422,56 @@ aside.notes{display:none}
   </div>
   <div class="foot"><span>OPIM639 · Group 3 · appendix · illustrative assumptions, no Chagee cost or savings data</span><span class="rail"></span><span class="pg"></span></div>
   <aside class="notes"><p>An illustrative monthly case for one pilot zone, on our assumptions, not Chagee's data. Avoiding 60 overtime hours at the model's wage of about S$15.06 an hour saves about S$904; less a recurring system cost of S$300, that nets about S$604 a month before set-up costs and any sales upside. Put the other way, about 20 paid hours a month cover the recurring cost. Finance should count only real reductions in paid hours, retained sales at contribution margin, and equipment only where the cash benefit justifies it.</p></aside>
+</section>
+
+<!-- ======================================================= APPENDIX: EXECUTION PLAN, TWELVE-MONTH DETAIL -->
+<section class="slide content" id="rcg" data-chapter="Appendix" data-title="Execution plan: twelve-month detail">
+  <div class="leafart" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker">Appendix · Execution steps · twelve-month detail</p>
+    <h2 class="head">One integrated AI solution, delivered in three phases</h2>
+    <p class="sub lede">Start small, learn, then scale. Each phase feeds the next, and the model keeps improving as data grows.</p>
+    <div class="gantt"><div class="gyr">2027 · indicative</div><div class="grid"><div class="gl gyr2"><b>2027</b><span>indicative timeline</span></div><div class="gtrack ghead"><div class="gmo">Jan</div><div class="gmo">Feb</div><div class="gmo">Mar</div><div class="gmo">Apr</div><div class="gmo">May</div><div class="gmo">Jun</div><div class="gmo">Jul</div><div class="gmo">Aug</div><div class="gmo">Sep</div><div class="gmo">Oct</div><div class="gmo">Nov</div><div class="gmo">Dec</div></div><div class="gp p1"><span class="gpn">Phase 1</span><b>Dynamic demand management</b></div><div class="gl"><b>Zone pilot</b><span>a few outlets within a set radius</span></div><div class="gtrack"><div class="gb p1" style="grid-column:1/4"><span>Pilot · Suntec + Raffles City</span></div><div class="gm p1" style="grid-column:3/4;--x:100%"><i></i><span>Go / no-go</span></div></div><div class="gl"><b>Fine-tune</b><span>adjust rules, offers and triggers</span></div><div class="gtrack"><div class="gb p1 lt" style="grid-column:4/5"><span>Fine-tune</span></div></div><div class="gl"><b>Roll out</b><span>more zones across Singapore</span></div><div class="gtrack"><div class="gb p1 lt2" style="grid-column:5/10"><span>Roll out zone by zone</span></div></div><div class="gp p2"><span class="gpn">Phase 2</span><b>Integrated planning platform</b></div><div class="gl"><b>Learn from Phase 1</b><span>pilot results feed the model</span></div><div class="gtrack"><div class="gb p2 lt" style="grid-column:3/6"><span>Pilot data feeds the model</span></div></div><div class="gl"><b>Build the platform</b><span>forecasts, dashboard, assistant</span></div><div class="gtrack"><div class="gb p2" style="grid-column:5/9"><span>Build and test</span></div><div class="gm p2" style="grid-column:8/9;--x:100%"><i></i><span>Platform live</span></div></div><div class="gl"><b>Live across zones</b><span>managers plan with it weekly</span></div><div class="gtrack"><div class="gb p2 lt2" style="grid-column:9/13"><span>In use across zones</span></div></div><div class="gp p3"><span class="gpn">Phase 3</span><b>New-store site model</b></div><div class="gl"><b>Build from history</b><span>existing and past outlet data</span></div><div class="gtrack"><div class="gb p3" style="grid-column:1/4"><span>Build site model</span></div></div><div class="gl"><b>Next two openings</b><span>use the model to place them</span></div><div class="gtrack"><div class="gb p3 lt" style="grid-column:4/7"><span>Site A and site B</span></div><div class="gm p3" style="grid-column:6/7;--x:100%"><i></i><span>Sites chosen</span></div></div><div class="gl"><b>Track against forecast</b><span>judge the model's accuracy</span></div><div class="gtrack"><div class="gb p3 lt2" style="grid-column:7/13"><span>Measure the two new stores</span></div></div><div class="gl loop"><b>Continuous learning</b><span>more data, better decisions</span></div><div class="gtrack"><div class="gb loop" style="grid-column:3/13"><span>Every month of data from all three feeds back into one model</span></div></div></div></div>
+    <div class="gk"><span><i class="gd p1"></i>Phase 1</span><span><i class="gd p2"></i>Phase 2</span><span><i class="gd p3"></i>Phase 3</span><span><i class="gdm"></i>decision gate</span><span class="gsep"></span><span class="golink" data-go="p1x">Proposal 1 pilot</span><span class="golink" data-go="p2x">Proposal 2 pilot</span></div>
+  </div>
+  <div class="foot"><span>OPIM639 · Group 3 · timeline is indicative</span><span class="rail"></span><span class="pg"></span></div>
+  <aside class="notes">
+    <p>How we would deliver this: one integrated AI solution, in three phases, over about a year.</p>
+    <p>Phase one, dynamic demand management. We launch it in one zone first, a few outlets within a set radius such as Suntec City and Raffles City, for about three months. At the end of the pilot there is a go or no-go decision. If it passes, we spend a month fine-tuning the rules, offers and triggers, then roll it out zone by zone across Singapore.</p>
+    <p>Phase two, the integrated planning platform. From the pilot onwards, its results feed the model's learning. We then build the platform that turns that learning into better forecasts, the store insights dashboard and the assistant, and go live across the zones once it is tested.</p>
+    <p>Phase three, the new-store site model, can start straight away, because it is built on existing and past outlet data. We use it to place the next two stores and then track both against the forecast, which tells us how accurate the model is.</p>
+    <p>Underneath all three is continuous learning: every month of data feeds back into one model, so decisions keep getting better over the months and years. The timeline is indicative, and we do not add the three proposals' simulated benefits together. About one minute.</p>
+  </aside>
+</section>
+
+<!-- ======================================================= APPENDIX: EXECUTION PLAN, PROCEED-IF CRITERIA (EARLIER SLIDE) -->
+<section class="slide content" id="rcx" data-chapter="Appendix" data-title="Execution plan: proceed-if criteria">
+  <div class="leafart" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker">Appendix · Execution steps · proceed-if criteria by proposal</p>
+    <h2 class="head">Three managers, three pilots, each judged on its own evidence</h2>
+    <p class="sub">A connected story, not one combined model: no simulated benefit is carried between parts or added up.</p>
+    <div class="rec3">
+      <div class="c"><span class="own">Proposal 1 · smart pickup routing</span><h5>Which zone should we pilot routing in?</h5>
+        <p class="act"><span class="k">Recommend</span>Pilot in one zone, a busy outlet with a nearby support outlet: normal checkout, then routing alone, then routing with the bag offer.</p>
+        <p><span class="k">Proceed if</span>collection is faster, support outlets stay reliable, and net contribution across the zone is positive.</p></div>
+      <div class="c"><span class="own">Proposal 2 · AI-enabled in-store planning</span><h5>Which zone should pilot AI in-store planning?</h5>
+        <p class="act"><span class="k">Recommend</span>An eight-week zone pilot: one busy outlet and one or two support outlets, testing AI rosters, staff moves, machine and stock plans.</p>
+        <p><span class="k">Proceed if</span>paid hours and waste fall, waits hold or improve, and net benefit across the zone is positive.</p></div>
+      <div class="c"><span class="own">Expand access · expansion manager</span><h5>Which location justifies investment?</h5>
+        <p class="act"><span class="k">Recommend</span>Investigate the cluster near Choa Chu Kang on Chagee's real app logs before any lease.</p>
+        <p><span class="k">Proceed if</span>it adds net new customers, and its profit covers the investment with an acceptable downside.</p></div>
+    </div>
+    <div class="takeaway" style="margin-top:14px"><span class="lab">TAKEAWAY</span><span>Get customers their tea sooner → serve demand reliably → open where we add new customers.</span></div>
+  </div>
+  <div class="foot"><span>OPIM639 · Group 3 · model figures are illustrative assumptions, not Chagee data</span><span class="rail"></span><span class="pg"></span></div>
+  <aside class="notes">
+    <p>Our recommendation mirrors the three chapters: three decisions, three owners, and each one is a pilot judged on its own evidence.</p>
+    <p>Proposal one, smart pickup routing: pilot it in one zone, a busy outlet with a nearby support outlet. Test normal checkout, then routing alone, then routing with the optional bag offer. Proceed if collection is faster, the support outlets stay reliable, and net contribution across the whole zone is positive.</p>
+    <p>Proposal two, AI-enabled in-store planning: an eight-week zone pilot with one busy outlet and one or two support outlets, testing AI rosters, staff moves and machine plans. Proceed if paid hours fall, waits hold or improve, and net benefit across the zone is positive.</p>
+    <p>For the expansion manager: count the cups a new outlet adds, not the ones it sells. Investigate the cluster near Choa Chu Kang on Chagee's real app logs before any lease, and proceed only if its incremental returns justify the investment with an acceptable downside.</p>
+    <p>One caution to say out loud: these parts connect as a story, but we never add their simulated benefits together or carry membership uplift into the counter or expansion numbers. About forty-five seconds.</p>
+  </aside>
 </section>
 
 <!-- ======================================================= 09 SERVE: THE PROBLEM AND FORECASTING -->
