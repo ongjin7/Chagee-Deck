@@ -1,0 +1,139 @@
+<!-- Slide 13 (Financial impact), version 1, saved for revert.
+     To restore: put the <section> back in template.html in place of id="fi", the CSS in place of the slide 13 block,
+     and fin_chart() in build_storyboard.py. -->
+
+<!-- SECTION -->
+<section class="slide content" id="fi" data-chapter="Impact" data-title="Financial impact" data-reveal="all">
+  <div class="leafart" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker">Financial impact · Singapore · five years</p>
+    <h2 class="head">Together, the three proposals add {{fm.t_net|sgm}} net over five years and break even in {{fm.breakeven}}</h2>
+    <p class="sub lede">{{fm.first}} sets up the team; pilots run in early {{fm.pilot}}, then every outlet benefits from 2H-{{fm.pilot}}. Thereafter, the model keeps improving its performance.</p>
+    <div class="fi-body">
+      <div class="fi-chart">
+        <div class="fi-top"><span class="fi-t">Benefit and cost each year</span>
+          <span class="fi-key"><span><i style="background:#2F6B45"></i>Gross profit on extra sales</span><span><i style="background:#9CC8AA"></i>Cost savings</span><span><i style="background:#9A9387"></i>One-off cost</span><span><i style="background:#D9D2C5"></i>Running cost</span><span><i class="ln"></i>Cumulative net</span></span></div>
+        {{fm.chart}}
+      </div>
+      <div class="fi-side">
+        <div class="fi-c rev">
+          <p class="fi-k">Revenue impact</p>
+          <p class="fi-big">+{{fm.t_rev|sgm}} <small>extra revenue over five years</small></p>
+          <p class="fi-p">More demand captured and served: about {{fm.cups_end|int}} more cups a year by {{fm.last}}, lifting sales by about {{fm.rev_share|pct1}}.</p>
+          <div class="fi-rows">
+            <div class="p1"><b>P1</b><span>Fewer walk-aways at peak</span><em>{{fm.t_p1_rev|sgm}}</em></div>
+            <div class="p2"><b>P2</b><span>Staff and machines ready for the peak</span><em>{{fm.t_p2_rev|sgm}}</em></div>
+            <div class="p3"><b>P3</b><span>Better-placed new stores</span><em>{{fm.t_p3_rev|sgm}}</em></div>
+          </div>
+        </div>
+        <div class="fi-c cost">
+          <p class="fi-k">Cost impact</p>
+          <div class="fi-two">
+            <div><p class="fi-big g">{{fm.t_savings|sgm}} <small>saved</small></p><p class="fi-p">Less idle staff time ({{fm.t_labour|sgm}}), less wasted fresh stock ({{fm.t_waste|sgm}}) and fewer machines ({{fm.t_machines|sgm}})</p></div>
+            <div><p class="fi-big c">{{fm.t_cost|sgm}} <small>invested</small></p><p class="fi-p">{{fm.t_fixed|sgm}} one-off, mostly in {{fm.pilot}}, then about {{fm.variable_end|sgm}} a year to run</p></div>
+          </div>
+        </div>
+        <div class="fi-c res">
+          <p class="fi-k">Financial result</p>
+          <p class="fi-big">{{fm.t_net|sgm}} <small>net over five years</small></p>
+          <div class="fi-chips"><span>Breakeven <b>{{fm.breakeven}}</b></span><span><b>{{fm.net_end|sgm}}</b> a year at full scale</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="fi-nf"><b>Beyond the numbers</b><span>Brand value</span><span>A better customer experience</span><span>Calmer, better-looking stores</span><em>Harder to measure, but just as important to the business</em></div>
+  </div>
+  <div class="foot"><span>OPIM639 · Group 3 · illustrative assumptions, not Chagee data · full model: appendix and Excel workbook</span><span class="rail"></span><span class="pg"></span></div>
+  <aside class="notes">
+    <p>What the three proposals are worth together, over five years, on top of today's business. All figures are our illustrative assumptions, not Chagee data.</p>
+    <p>Read the chart from left to right. In {{fm.first}} we only set up the project team, about {{fm.cost_first|sgk}}. In {{fm.pilot}} we build the platform and pilot in the first half, so cost peaks at about {{fm.cost_pilot|sgm}}; from the second half every outlet is covered. From {{fm.scale}} the shared model keeps learning, so the green bars grow while running costs stay at about {{fm.variable_end|sgm}} a year. The black line is the cumulative result: it bottoms out at {{fm.trough|sgm}} and turns positive in {{fm.payback}}.</p>
+    <p>Revenue: more demand captured and served. Proposal one recovers customers who would have walked away at peak, proposal two has staff and machines ready for the busy days, and proposal three places new stores where they sell more. Together about {{fm.cups_end|int}} more cups a year by {{fm.last}}, {{fm.t_rev|sgm}} of revenue over five years, counted in the benefit at gross margin.</p>
+    <p>Cost: proposal two saves {{fm.t_savings|sgm}} in idle staff hours, wasted fresh stock and machines, against {{fm.t_cost|sgm}} of investment.</p>
+    <p>Result: {{fm.t_net|sgm}} net over five years, breaking even in {{fm.breakeven}}, and about {{fm.net_end|sgm}} a year once everything runs at full scale. The full model and its assumptions are in the appendix and the Excel workbook. About one minute.</p>
+  </aside>
+</section>
+
+<!-- CSS -->
+<style>
+/* slide 13: financial impact */
+.fi-nf{margin-top:8px;padding:7px 20px;border-radius:14px;background:#FAF8F3;display:flex;align-items:center;gap:10px;font:12.5px var(--sans);color:var(--ink2)}
+.fi-nf b{font:700 10.5px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-right:6px}
+.fi-nf span{padding:3px 11px;border-radius:999px;background:#fff;border:1px solid #EEE7DA}
+.fi-nf em{margin-left:auto;font-style:italic;color:var(--taupe)}
+.fi-body{flex:1;min-height:0;margin-top:10px;display:grid;grid-template-columns:1fr 430px;gap:18px}
+.fi-chart{padding:14px 20px 10px;border-radius:18px;background:#fff;border:1px solid #EEE7DA;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:0}
+.fi-top{display:flex;flex-direction:column;gap:6px}
+.fi-t{font:500 19px var(--serif);color:var(--ink)}
+.fi-key{display:flex;flex-wrap:wrap;gap:4px 14px;font:11.5px var(--sans);color:var(--ink2)}
+.fi-key span{display:inline-flex;align-items:center;gap:6px} .fi-key i{display:inline-block;width:11px;height:11px;border-radius:3px}
+.fi-key i.ln{width:18px;height:0;border-radius:0;border-top:2.2px solid #262626}
+.fich{flex:1;min-height:0;width:100%;margin-top:4px}
+.fiax{font:10.5px var(--sans);fill:#9A9387} .fiph{font:700 10.5px var(--sans);letter-spacing:.1em;text-transform:uppercase} .fiyr{font:700 12px var(--sans);fill:var(--ink2);letter-spacing:.04em}
+.fiv{font:700 11.5px var(--sans)} .fiv.g{fill:#2F6B45} .firl{font:700 10.5px var(--sans);fill:var(--taupe)} .firl.g{fill:#2F6B45} .firl.c{fill:#7D766A} .firl.b{fill:var(--ink)} .fiv.c{fill:#7D766A}
+.fic{font:700 12px var(--sans);fill:#262626} .fic.n{fill:var(--red)} .fiax.b{font-weight:700;fill:var(--ink2)}
+.fi-side{display:flex;flex-direction:column;gap:8px;min-height:0}
+.fi-c{flex:1;padding:7px 18px;border-radius:16px;background:#fff;border:1px solid #EEE7DA;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.fi-c.res{background:#F4F8F5;border-color:#DCEBE1}
+.fi-k{margin:0;font:700 10.5px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
+.fi-c.cost .fi-k{color:#7D766A} .fi-c.res .fi-k{color:#2F6B45}
+.fi-big{margin:0;font:500 24px/1.1 var(--serif);color:var(--ink)} .fi-big small{font:12px var(--sans);color:var(--taupe)}
+.fi-big.g{color:#2F6B45} .fi-big.c{color:#7D766A} .fi-c.res .fi-big{font-size:27px;color:#2F6B45}
+.fi-p{margin:0;font:12px/1.35 var(--sans);color:var(--ink2)}
+.fi-rows{display:flex;flex-direction:column;gap:1px;margin-top:2px}
+.fi-rows div{display:grid;grid-template-columns:26px 1fr auto;align-items:baseline;gap:6px;font:12.5px var(--sans);color:var(--ink2)}
+.fi-rows b{font:700 10.5px var(--sans);letter-spacing:.08em} .fi-rows em{font:700 12.5px var(--sans);font-style:normal;color:var(--ink)}
+.fi-rows .p1 b{color:var(--red)} .fi-rows .p2 b{color:var(--navy)} .fi-rows .p3 b{color:#2F6B45}
+.fi-two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fi-two>div{display:flex;flex-direction:column;gap:3px}
+.fi-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.fi-chips span{padding:4px 11px;border-radius:999px;background:#fff;font:12px var(--sans);color:var(--ink2)} .fi-chips b{color:#2F6B45}
+</style>
+
+<!-- fin_chart() in build_storyboard.py -->
+<script type="text/x-python">
+def fin_chart(R: dict, yrs: list) -> str:
+    """Benefit up, cost down, one bar per year, the cumulative net as a line; the three values in rows under the years."""
+    W, H, L, Rt, top = 760, 430, 66, 14, 46
+    bot = H - 110
+    n = len(yrs); gw = (W - L - Rt) / n; bw = 58
+    hi = max(max(R["benefit"]), max(R["cum"])) * 1.05; lo = min(min(-c for c in R["cost"]), min(R["cum"])) * 1.1
+    Y = lambda x: top + (hi - x) / (hi - lo) * (bot - top)
+    X = lambda i: L + gw * (i + .5)
+    m = lambda x: (f"{'−' if x < 0 else '+'}S${abs(x) / 1e6:.1f}m" if abs(x) >= 95e3 else f"{'−' if x < 0 else '+'}S${abs(x) / 1e3:.0f}k") if abs(x) >= 500 else "–"
+    g, step = [], 5e5
+    # the three phases: plan (first year), pilot then roll-out (second year, by half), full scale (the rest)
+    xs = lambda k: L + gw * k
+    phases = [(0, 1, "Plan and design", "#F7F4EE", "#8D867A"), (1, 1.5, "Pilot", "#FBEFED", "#B8322B"), (1.5, 2, "Roll-out", "#F1F4F9", "#24406B"),
+              (2, n, "Full scale · the model keeps improving", "#EEF5F0", "#2F6B45")]
+    for a, b, lab, bg, fg in phases:
+        g.append(f'<rect x="{xs(a) + 2:.1f}" y="{top - 30}" width="{xs(b) - xs(a) - 4:.1f}" height="{bot - top + 34}" rx="10" fill="{bg}"/>'
+                 f'<text x="{(xs(a) + xs(b)) / 2:.1f}" y="{top - 13}" class="fiph" fill="{fg}" text-anchor="middle">{lab}</text>')
+    k = int(lo // step) + 1
+    while k * step < hi:
+        y = Y(k * step)
+        g.append(f'<path d="M{L} {y:.1f} H{W - Rt}" stroke="{"#BFB6A6" if k == 0 else "#F1EBE0"}" stroke-width="{1.2 if k == 0 else 1}"/>'
+                 f'<text x="{L - 10}" y="{y + 4:.1f}" class="fiax" text-anchor="end">{"0" if k == 0 else f"{k * step / 1e6:g}m"}</text>')
+        k += 1
+    ry = [H - 58, H - 35, H - 8]                                        # benefit, cost and cumulative rows
+    g.append(f'<rect x="{L - 66}" y="{H - 26}" width="{W - L + 66}" height="26" rx="8" fill="#F4F8F5"/>')
+    for lab, y, cls in (("Benefit", ry[0], "g"), ("Cost", ry[1], "c"), ("Cumulative", ry[2], "b")):
+        g.append(f'<text x="{L - 10}" y="{y}" class="firl {cls}" text-anchor="end">{lab}</text>')
+    for i in range(n):
+        x0 = X(i) - bw / 2
+        y0, yg, yb, yf, yc = Y(0), Y(R["gp"][i]), Y(R["benefit"][i]), Y(-R["fixed"][i]), Y(-R["cost"][i])
+        if R["benefit"][i] > 0:
+            g.append(f'<rect x="{x0:.1f}" y="{yg:.1f}" width="{bw}" height="{y0 - yg:.1f}" fill="#2F6B45"/>'
+                     f'<rect x="{x0:.1f}" y="{yb:.1f}" width="{bw}" height="{yg - yb:.1f}" fill="#9CC8AA"/>')
+        g.append(f'<rect x="{x0:.1f}" y="{y0:.1f}" width="{bw}" height="{max(yf - y0, 1.5):.1f}" fill="#9A9387"/>'
+                 f'<rect x="{x0:.1f}" y="{yf:.1f}" width="{bw}" height="{max(yc - yf, 0):.1f}" fill="#D9D2C5"/>')
+        g.append(f'<text x="{X(i):.1f}" y="{bot + 20}" class="fiyr" text-anchor="middle">{yrs[i]}</text>'
+                 f'<text x="{X(i):.1f}" y="{ry[0]}" class="fiv g" text-anchor="middle">{m(R["benefit"][i])}</text>'
+                 f'<text x="{X(i):.1f}" y="{ry[1]}" class="fiv c" text-anchor="middle">{m(-R["cost"][i])}</text>'
+                 f'<text x="{X(i):.1f}" y="{ry[2]}" class="fic{" n" if R["cum"][i] < 0 else ""}" text-anchor="middle">{m(R["cum"][i])}</text>')
+    pts = [(X(i), Y(c)) for i, c in enumerate(R["cum"])]
+    g.append('<path d="M' + " L".join(f"{x:.1f} {y:.1f}" for x, y in pts) + '" fill="none" stroke="#262626" stroke-width="2.2" stroke-linejoin="round"/>')
+    for x, y in pts:
+        g.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="5" fill="#fff" stroke="#262626" stroke-width="2.2"/>')
+    return f'<svg class="fich" viewBox="0 0 {W} {H}" aria-label="Benefit and cost by year, with the cumulative net impact">' + "".join(g) + "</svg>"
+
+
+</script>

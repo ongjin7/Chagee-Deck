@@ -495,8 +495,166 @@ def values(d: dict) -> dict:
     if not v["r.route_saved"] > 0:
         raise SystemExit("build: slide 05 says the farther outlet is sooner; with these times it is not, rewrite it")
 
+    v.update(fin_values())
     return v
 
+
+
+# ----------------------------------------------------------------- Financial impact slide and its appendix table (fin_model.py)
+def fin_values() -> dict:
+    import fin_model as FM
+    res = FM.compute(RAW); R, T, F = res["rows"], res["total"], res["inputs"]
+    yrs = F["years"]
+    v = {f"fm.t_{k}": x for k, x in T.items() if isinstance(x, (int, float))}
+    v["fm.payback"] = str(T["payback"]) if T["payback"] else f"after {yrs[-1]}"
+    if T["payback"]:                                    # how far into the breakeven year the cumulative line crosses zero
+        i = yrs.index(T["payback"]); prev = R["cum"][i - 1] if i else 0
+        frac = -prev / R["net"][i] if R["net"][i] else 0
+        v["fm.breakeven"] = f"{'early' if frac < 1 / 3 else 'mid' if frac < 2 / 3 else 'late'} {T['payback']}"
+    else:
+        v["fm.breakeven"] = v["fm.payback"]
+    v["fm.first"], v["fm.pilot"], v["fm.scale"], v["fm.last"] = (str(y) for y in (yrs[0], yrs[1], yrs[2], yrs[-1]))
+    for k in ("rev", "cups", "net", "variable", "benefit", "savings", "hours", "p1_cups", "p2_cups", "p3_cups"):
+        v[f"fm.{k}_end"] = R[k][-1]
+    v["fm.base_rev"] = R["base_rev"][0]
+    v["fm.rev_share"] = R["rev"][-1] / R["base_rev"][-1]
+    v["fm.cups_end"] = round(R["cups"][-1], -3)                         # "about 318,000 more cups"
+    for k in ("sg_rev", "sg_op", "sg_op_base", "sg_margin", "sg_margin_base", "sg_uplift", "outlets_end", "sg_cups", "base_rev"):
+        v[f"fm.{k}_first"], v[f"fm.{k}_end"] = R[k][0], R[k][-1]
+    v["fm.sg_rev_growth"] = R["sg_rev"][-1] / R["sg_rev"][0] - 1
+    v["fm.sg_table"] = sg_table(R, T, yrs)
+    v["fm.sg_memo"] = sg_table(R, T, yrs, memo=True)
+    v["fm.sg_chart"] = sg_chart(R, yrs)
+    v["fm.cost_first"], v["fm.net_pilot"], v["fm.cost_pilot"] = R["cost"][0], R["net"][1], R["cost"][1]
+    v["fm.trough"] = min(R["cum"])
+    v.update({f"fmi.{k}": x for k, x in F.items() if isinstance(x, (int, float))})
+    v["fm.stores_end"] = sum(F["new_stores"])
+    v["fm.chart"] = fin_chart(R, yrs)
+    v["fm.table"] = fin_table(R, T, yrs)
+    return v
+
+
+def fin_chart(R: dict, yrs: list) -> str:
+    """Benefit up, cost down, one bar per year, the cumulative net as a line; the three values in rows under the years."""
+    W, H, L, Rt, top = 760, 430, 66, 14, 46
+    bot = H - 110
+    n = len(yrs); gw = (W - L - Rt) / n; bw = 58
+    hi = max(max(R["benefit"]), max(R["cum"])) * 1.05; lo = min(min(-c for c in R["cost"]), min(R["cum"])) * 1.1
+    Y = lambda x: top + (hi - x) / (hi - lo) * (bot - top)
+    X = lambda i: L + gw * (i + .5)
+    m = lambda x: (f"{'−' if x < 0 else '+'}S${abs(x) / 1e6:.1f}m" if abs(x) >= 95e3 else f"{'−' if x < 0 else '+'}S${abs(x) / 1e3:.0f}k") if abs(x) >= 500 else "–"
+    g, step = [], 1e6
+    # the three phases: plan (first year), pilot then roll-out (second year, by half), full scale (the rest)
+    xs = lambda k: L + gw * k
+    phases = [(0, 1, "Plan and design", "#F7F4EE", "#8D867A"), (1, 1.5, "Pilot", "#FBEFED", "#B8322B"), (1.5, 2, "Roll-out", "#F1F4F9", "#24406B"),
+              (2, n, "Full scale · the model keeps improving", "#EEF5F0", "#2F6B45")]
+    for a, b, lab, bg, fg in phases:
+        g.append(f'<rect x="{xs(a) + 2:.1f}" y="{top - 30}" width="{xs(b) - xs(a) - 4:.1f}" height="{bot - top + 34}" rx="10" fill="{bg}"/>'
+                 f'<text x="{(xs(a) + xs(b)) / 2:.1f}" y="{top - 13}" class="fiph" fill="{fg}" text-anchor="middle">{lab}</text>')
+    k = int(lo // step) + 1
+    while k * step < hi:
+        y = Y(k * step)
+        g.append(f'<path d="M{L} {y:.1f} H{W - Rt}" stroke="{"#BFB6A6" if k == 0 else "#F1EBE0"}" stroke-width="{1.2 if k == 0 else 1}"/>'
+                 f'<text x="{L - 10}" y="{y + 4:.1f}" class="fiax" text-anchor="end">{"0" if k == 0 else f"{k * step / 1e6:g}m"}</text>')
+        k += 1
+    ry = [H - 58, H - 35, H - 8]                                        # benefit, cost and cumulative rows
+    g.append(f'<rect x="{L - 66}" y="{H - 26}" width="{W - L + 66}" height="26" rx="8" fill="#F4F8F5"/>')
+    for lab, y, cls in (("Gain", ry[0], "g"), ("Cost", ry[1], "c"), ("Cumulative", ry[2], "b")):
+        g.append(f'<text x="{L - 10}" y="{y}" class="firl {cls}" text-anchor="end">{lab}</text>')
+    for i in range(n):
+        x0 = X(i) - bw / 2
+        y0, yg, yb, yf, yc = Y(0), Y(R["gp"][i]), Y(R["benefit"][i]), Y(-R["fixed"][i]), Y(-R["cost"][i])
+        if R["benefit"][i] > 0:
+            g.append(f'<rect x="{x0:.1f}" y="{yg:.1f}" width="{bw}" height="{y0 - yg:.1f}" fill="#2F6B45"/>'
+                     f'<rect x="{x0:.1f}" y="{yb:.1f}" width="{bw}" height="{yg - yb:.1f}" fill="#9CC8AA"/>')
+        g.append(f'<rect x="{x0:.1f}" y="{y0:.1f}" width="{bw}" height="{max(yf - y0, 1.5):.1f}" fill="#D6CDBE"/>'
+                 f'<rect x="{x0:.1f}" y="{yf:.1f}" width="{bw}" height="{max(yc - yf, 0):.1f}" fill="#D6CDBE"/>')
+        g.append(f'<text x="{X(i):.1f}" y="{bot + 20}" class="fiyr" text-anchor="middle">{yrs[i]}</text>'
+                 f'<text x="{X(i):.1f}" y="{ry[0]}" class="fiv g" text-anchor="middle">{m(R["benefit"][i])}</text>'
+                 f'<text x="{X(i):.1f}" y="{ry[1]}" class="fiv c" text-anchor="middle">{m(-R["cost"][i])}</text>'
+                 f'<text x="{X(i):.1f}" y="{ry[2]}" class="fic{" n" if R["cum"][i] < 0 else ""}" text-anchor="middle">{m(R["cum"][i])}</text>')
+    pts = [(X(i), Y(c)) for i, c in enumerate(R["cum"])]
+    g.append('<path d="M' + " L".join(f"{x:.1f} {y:.1f}" for x, y in pts) + '" fill="none" stroke="#262626" stroke-width="2.2" stroke-linejoin="round"/>')
+    for x, y in pts:
+        g.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="5" fill="#fff" stroke="#262626" stroke-width="2.2"/>')
+    return f'<svg class="fich" viewBox="0 0 {W} {H}" aria-label="Benefit and cost by year, with the cumulative net impact">' + "".join(g) + "</svg>"
+
+
+def fin_table(R: dict, T: dict, yrs: list) -> str:
+    """The Model sheet's main rows, for the appendix page."""
+    m = lambda x: "–" if abs(x) < 0.5 else (f"({abs(x) / 1e3:,.0f})" if x < 0 else f"{x / 1e3:,.0f}")
+    c = lambda x: "–" if abs(x) < 0.5 else f"{x / 1e3:,.0f}"
+    p = lambda x: "–" if abs(x) < 1e-9 else f"{100 * x:.1f}%"
+    R = dict(R, uplift=[R["rev"][i] / R["base_rev"][i] for i in range(len(yrs))])
+    T = dict(T, base_cups=sum(R["base_cups"]), base_rev=sum(R["base_rev"]), uplift=T["rev"] / sum(R["base_rev"]))
+    rows = [("h", "Revenue impact"), ("p1_cups", "Proposal 1 · cups recovered from walk-aways (thousands)", c),
+            ("p2_cups", "Proposal 2 · extra cups served at the peak (thousands)", c),
+            ("p3_cups", "Proposal 3 · extra cups at better-chosen sites (thousands)", c), ("rev", "Additional revenue", m, "b t"),
+            ("cogs", "Less ingredients and packaging", m), ("gp", "Gross profit from additional sales", m, "b t"),
+            ("h", "Cost impact · leaner operations (Proposal 2)"), ("labour", "Staff overhead saved", m), ("waste", "Fresh stock waste avoided", m),
+            ("machines", "Tea machines avoided", m), ("savings", "Operating cost savings", m, "b t"), ("benefit", "Total benefit", m, "b k"),
+            ("h", "Additional cost from initiatives"), ("team", "Project team", m), ("platform", "Platform build", m), ("data", "Data pipelines and cloud set-up", m), ("security", "Security and PDPA review", m),
+            ("run", "Run team", m), ("maint", "Software maintenance", m), ("cloud", "Cloud, licences and AI services", m),
+            ("perks", "Switch perks (Proposal 1)", m), ("cost", "Total cost", m, "b k"),
+            ("net", "Net financial impact", m, "b n"), ("cum", "Cumulative net impact", m, "i")]
+    out = ['<table class="fit"><thead><tr><th>S$ thousands unless stated</th>' + "".join(f"<th>{y}</th>" for y in yrs) + "<th>Total</th></tr></thead><tbody>"]
+    for r in rows:
+        if r[0] == "h":
+            out.append(f'<tr class="h"><td colspan="{len(yrs) + 2}">{r[1]}</td></tr>'); continue
+        k, lab, f = r[:3]; cls = r[3] if len(r) > 3 else ""
+        tot = f(T[k]) if k in T and k != "cum" else ""
+        cells = "".join(f'<td{" class=neg" if x < -0.5 else ""}>{f(x)}</td>' for x in R[k])
+        out.append(f'<tr class="{cls}"><td>{lab}</td>{cells}<td>{tot}</td></tr>')
+    return "".join(out) + "</tbody></table>"
+
+
+def sg_table(R: dict, T: dict, yrs: list, memo: bool = False) -> str:
+    """The SG forecast sheet's main rows, S$m."""
+    m = lambda x: "–" if abs(x) < 500 else (f"({abs(x) / 1e6:,.1f})" if x < 0 else f"{x / 1e6:,.1f}")
+    p = lambda x: f"{100 * x:.1f}%"
+    o = lambda x: f"{x:,.0f}"
+    rows = [("outlets_end", "Outlets at year end", o, "s"), ("sg_cups", "Cups sold (millions)", m, "s"),
+            ("h", "Revenue"), ("base_rev", "Baseline sales", m), ("rev", "Additional sales from the proposals", m, "ai"),
+            ("sg_rev", "Total revenue", m, "b t"), ("sg_cogs", "Cost of goods sold", m), ("sg_gp", "Gross profit", m, "b t"), ("sg_gm", "Gross margin", p, "i"),
+            ("h", "Operating expenses"), ("sg_labour", "Staff", m), ("sg_rent", "Rent and utilities", m), ("sg_delivery", "Delivery-app commissions", m),
+            ("sg_equip", "Equipment: tea machines avoided", m, "ai"), ("sg_ai", "AI platform and team", m, "ai"), ("sg_opex", "Total operating expenses", m, "b t"),
+            ("sg_op", "Outlet operating profit", m, "b n"), ("sg_margin", "Operating margin", p, "i")]
+    if memo:                             # the same business without the proposals, shown in its own box
+        rows = [("sg_op_base", "Outlet operating profit without the proposals", m), ("sg_margin_base", "Operating margin without the proposals", p, "i"),
+                ("sg_uplift", "Uplift from the proposals", m, "b ai t")]
+    out = ['<table class="fit sgt"><thead><tr><th>S$ millions unless stated</th>' + "".join(f"<th>{y}</th>" for y in yrs) + "<th>Total</th></tr></thead><tbody>"]
+    for r in rows:
+        if r[0] == "h":
+            out.append(f'<tr class="h"><td colspan="{len(yrs) + 2}">{r[1]}</td></tr>'); continue
+        k, lab, f = r[:3]; cls = r[3] if len(r) > 3 else ""
+        tot = f(T[k]) if k in T and k != "outlets_end" else ""
+        cells = "".join(f'<td{" class=neg" if x < -0.5 and f is not p else ""}>{f(x)}</td>' for x in R[k])
+        out.append(f'<tr class="{cls}"><td>{lab}</td>{cells}<td>{tot}</td></tr>')
+    return "".join(out) + "</tbody></table>"
+
+
+def sg_chart(R: dict, yrs: list) -> str:
+    """Outlet operating profit by year, without and with the proposals."""
+    W, H, L, top, bot = 380, 196, 34, 22, 170
+    n = len(yrs); gw = (W - L - 6) / n; bw = 22
+    hi = max(max(R["sg_op"]), max(R["sg_op_base"])) * 1.18
+    Y = lambda x: top + (hi - x) / hi * (bot - top)
+    g = []
+    step = 5e6 if hi > 12e6 else 2.5e6 if hi > 6e6 else 1e6
+    k = 0
+    while k * step < hi:
+        y = Y(k * step)
+        g.append(f'<path d="M{L} {y:.1f} H{W - 6}" stroke="{"#BFB6A6" if k == 0 else "#F1EBE0"}"/>'
+                 f'<text x="{L - 6}" y="{y + 4:.1f}" class="fiax" text-anchor="end">{k * step / 1e6:g}</text>')
+        k += 1
+    for i in range(n):
+        x = L + gw * (i + .5)
+        yb, ya = Y(R["sg_op_base"][i]), Y(R["sg_op"][i])
+        g.append(f'<rect x="{x - bw - 1:.1f}" y="{yb:.1f}" width="{bw}" height="{bot - yb:.1f}" rx="3" fill="#D9D2C5"/>'
+                 f'<rect x="{x + 1:.1f}" y="{ya:.1f}" width="{bw}" height="{bot - ya:.1f}" rx="3" fill="#2F6B45"/>'
+                 f'<text x="{x + 1 + bw / 2:.1f}" y="{ya - 5:.1f}" class="sgv" text-anchor="middle">{R["sg_op"][i] / 1e6:.1f}</text>'
+                 f'<text x="{x:.1f}" y="{H - 8}" class="fiyr" text-anchor="middle">{yrs[i]}</text>')
+    return f'<svg class="sgch" viewBox="0 0 {W} {H}" aria-label="Outlet operating profit by year, without and with the proposals">' + "".join(g) + "</svg>"
 
 # ---------------------------------------------------------------------------- appendix
 USED = [  # (section, key, label) shown in the appendix: every input the storyboard slides rely on
@@ -799,6 +957,7 @@ FMT = {
     "g1": lambda x: f"{x:.1f}",
     "sgm": lambda x: f"{'−' if x < 0 else ''}S${abs(x) / 1e6:.1f}m",
     "sgm2": lambda x: f"{'−' if x < 0 else ''}S${abs(x) / 1e6:.2f}m",
+    "sgk": lambda x: f"{'−' if x < 0 else ''}S${abs(x) / 1e3:,.0f}k",
 }
 
 
@@ -811,7 +970,7 @@ def fill(text: str, vals: dict) -> str:
     return re.sub(r"\{\{([a-zA-Z_][\w.]*)(?:\|(\w+))?\}\}", rep, text)
 
 
-ALLOWED = re.compile(r"(?i:\bslides?\s+\d\db?(?:\s*(?:,|and|to|–)\s*\d\db?)*)|\bM[1-3]\b|Item 3\.D|\bslides? 3\d\b|\b8[A-D]\b|\b(?:19|20)\d\d\b|OPIM\s?639|Topic \d|\bT\d\b|\b0[1-9]b?\b|\b10b\b|\b1\d(?= ·)|\bslides? 1\d\b|Week \d|\b1 (?=company|counter)|Group \d|[Pp]roposal [1-3]\b|Phase [1-3]\b|\bP[1-3]\b|\bW\d(?:–\d)?\b|Challenge [1-3]\b|Form 20-F")
+ALLOWED = re.compile(r"(?i:\bslides?\s+\d\db?(?:\s*(?:,|and|to|–)\s*\d\db?)*)|\bM[1-3]\b|Item 3\.D|\bslides? 3\d\b|\b8[A-D]\b|\b(?:19|20)\d\d\b|OPIM\s?639|Topic \d|\bT\d\b|\b0[1-9]b?\b|\b10b\b|\b1\d(?= ·)|\bslides? 1\d\b|Week \d|\b1 (?=company|counter)|Group \d|[Pp]roposals? [1-3](?:, [1-3])*(?: and [1-3])?\b|Phase [1-3]\b|\bP[1-3]\b|\bW\d(?:–\d)?\b|Challenge [1-3]\b|\b[12]H\b|Form 20-F")
 
 
 def digit_check(tpl: str) -> None:
